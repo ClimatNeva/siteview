@@ -14,6 +14,7 @@ $icon_url_template = "
 	style=\"background: #CB2027\"
 	class=\"fb\"
 	title=\"".$title."\"
+	rel=\"nofollow\"
 ><i class=\"fa fa-pinterest\"></i></a>\n";
 $sort = 500;
 ?>

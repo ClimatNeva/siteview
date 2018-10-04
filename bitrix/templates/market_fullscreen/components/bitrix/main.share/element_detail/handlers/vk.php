@@ -12,6 +12,7 @@ $icon_url_template = "
 	style=\"background: #446690\"
 	class=\"vk\"
 	title=\"".$title."\"
+	rel=\"nofollow\"
 ><i class=\"fa fa-vk\"></i></a>\n";
 $sort = 100;
 ?>

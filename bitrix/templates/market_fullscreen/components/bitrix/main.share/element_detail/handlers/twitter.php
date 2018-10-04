@@ -7,9 +7,9 @@ $title = GetMessage("BOOKMARK_HANDLER_TWITTER");
 
 if (
 	is_array($arParams)
-	&& array_key_exists("SHORTEN_URL_LOGIN", $arParams) 
+	&& array_key_exists("SHORTEN_URL_LOGIN", $arParams)
 	&& strlen(trim($arParams["SHORTEN_URL_LOGIN"])) > 0
-	&& array_key_exists("SHORTEN_URL_KEY", $arParams) 
+	&& array_key_exists("SHORTEN_URL_KEY", $arParams)
 	&& strlen(trim($arParams["SHORTEN_URL_KEY"])) > 0
 )
 {
@@ -51,6 +51,7 @@ if (
 		style=\"background: #50abf1\"
 		class=\"tw\"
 		title=\"".$title."\"
+		rel=\"nofollow\"
 	><i class=\"fa fa-twitter\"></i></a>\n";
 }
 else
@@ -63,6 +64,7 @@ else
 		style=\"background: #50abf1\"
 		class=\"tw\"
 		title=\"".$title."\"
+		rel=\"nofollow\"
 	><i class=\"fa fa-twitter\"></i></a>\n";
 }
 
