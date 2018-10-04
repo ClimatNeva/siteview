@@ -1,7 +1,38 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Каталог");
-?><?$APPLICATION->IncludeComponent("alexkova.market:catalog", "template1", Array(
+
+/*
+    Костыль для переключения со старых адресов с id#ELEMENT_ID# на #ELEMENT_CODE#
+	Если адрес завершается на idЧИСЛО, будет выполнен поиск элемента с указанным ID
+	и произведен редирект 301 на новую страницу.
+*/
+
+$current_path4element = explode("/",$_SERVER["REQUEST_URI"]);
+
+if (substr($current_path4element[count($current_path4element)-1],0,2) == 'id'
+	&& intval(substr($current_path4element[count($current_path4element)-1],2)) > 0) {
+    $stayOnThisNewPage = false;
+    if (CModule::IncludeModule('iblock')) {
+        $res = CIBlockElement::GetByID(intval(substr($current_path4element[count($current_path4element)-1],2)));
+        if ($arEl = $res->GetNext()) {
+            $APPLICATION->RestartBuffer();
+            header('Location: '.$arEl['DETAIL_PAGE_URL'], TRUE, 301);
+            exit();
+        }
+    }
+    $stayOnThisNewPage = true;
+}
+
+if (!isset($stayOnThisNewPage) || $stayOnThisNewPage) {
+    $APPLICATION->SetTitle("Каталог");
+
+    global $globalElementsFilter;
+    $globalElementsFilter = array(
+        ">PROPERTY_MINIMUM_PRICE" => 0,
+    );
+?><?
+
+$APPLICATION->IncludeComponent("alexkova.market:catalog", "template1", Array(
 	"ACTION_VARIABLE" => "action",	// Название переменной, в которой передается действие
 		"ADD_ELEMENT_CHAIN" => "Y",	// Включать название элемента в цепочку навигации
 		"ADD_PICT_PROP" => "MORE_PHOTO",	// Дополнительная картинка основного товара
@@ -17,7 +48,7 @@ $APPLICATION->SetTitle("Каталог");
 		"BASKET_URL" => "/personal/basket/",	// URL, ведущий на страницу с корзиной покупателя
 		"CACHE_FILTER" => "N",	// Кешировать при установленном фильтре
 		"CACHE_GROUPS" => "Y",	// Учитывать права доступа
-		"CACHE_TIME" => "3600",	// Время кеширования (сек.)
+		"CACHE_TIME" => "0",	// Время кеширования (сек.)
 		"DETAIL_ADD_DETAIL_TO_SLIDER_SKU" => "Y",	// Добавлять картинки предложений в общий слайдер
 		"CACHE_TYPE" => "A",	// Тип кеширования
 		"COMPARE_ELEMENT_SORT_FIELD" => "shows",	// По какому полю сортируем элементы
@@ -106,7 +137,7 @@ $APPLICATION->SetTitle("Каталог");
 		"DISPLAY_BOTTOM_PAGER" => "Y",	// Выводить под списком
 		"DISPLAY_ELEMENT_SELECT_BOX" => "N",	// Выводить список элементов инфоблока
 		"DISPLAY_TOP_PAGER" => "N",	// Выводить над списком
-		"ELEMENT_SORT_FIELD" => array(	// По какому полю сортируем товары в разделе
+        "ELEMENT_SORT_FIELD" => array(	// По какому полю сортируем товары в разделе
 			0 => "PROPERTY_MINIMUM_PRICE",
 			1 => "PROPERTYSORT_SALELEADER",
 		),
@@ -117,7 +148,7 @@ $APPLICATION->SetTitle("Каталог");
 			0 => "",
 			1 => "",
 		),
-		"FILTER_NAME" => "",	// Фильтр
+		"FILTER_NAME" => "",//"""globalElementsFilter",	// Фильтр
 		"FILTER_OFFERS_FIELD_CODE" => array(	// Поля предложений
 			0 => "",
 			1 => "",
@@ -363,8 +394,8 @@ $APPLICATION->SetTitle("Каталог");
 		"TILE_SHOW_PROPERTIES" => "N",	// Выводить выбранные свойства в режиме Плитка
 		"SHOW_SECTION_SEO" => "N",	// Показывать SEO-текст раздела
 		"THEME" => "default",	// Тема оформления
-		"CATALOG_DEFAULT_SORT" => "PROPERTYSORT_SALELEADER",	// Сортировка по умолчанию
-		"CATALOG_DEFAULT_SORT_ORDER" => "desc",	// Направление сортировка по умолчанию
+		"CATALOG_DEFAULT_SORT" => "PROPERTY_MINIMUM_PRICE", //"PROPERTYSORT_SALELEADER",	// Сортировка по умолчанию
+		"CATALOG_DEFAULT_SORT_ORDER" => "asc,nulls",	// Направление сортировка по умолчанию
 		"PAGE_ELEMENT_COUNT_SHOW" => "Y",	// Показывать ограничение по количеству элементов
 		"PAGE_ELEMENT_COUNT_LIST" => array(	// Варианты количества элементов на странице
 			0 => "",
@@ -411,7 +442,7 @@ $APPLICATION->SetTitle("Каталог");
 		"SEF_URL_TEMPLATES" => array(
 			"sections" => "",
 			"section" => "#SECTION_CODE#/",
-			"element" => "id#ELEMENT_ID#",
+            "element" => "#SECTION_CODE#/#ELEMENT_CODE#",
 			"compare" => "compare.php?action=#ACTION_CODE#",
 			"smart_filter" => "#SECTION_CODE#/filter/#SMART_FILTER_PATH#/apply/",
 		),
@@ -422,4 +453,8 @@ $APPLICATION->SetTitle("Каталог");
 		)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);
+?><?
+    require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");
+}
+?>
