@@ -1,3 +1,6 @@
+<?
+$APPLICATION->SetPageProperty("keywords", "-");
+?>
 <? IncludeTemplateLangFile(__FILE__);?>
 
         </div>
