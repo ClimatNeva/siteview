@@ -1,0 +1,1 @@
+<a href="/" class="bxr-logo" title="Климат Нева"> <img src="<?=SITE_DIR?>images/logo.png" alt="Климат Нева"> </a>
