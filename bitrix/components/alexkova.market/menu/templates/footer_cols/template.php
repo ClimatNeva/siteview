@@ -16,9 +16,9 @@ if(!function_exists('footerPrintMenuCol'))
 					continue;
 				?>
 				<?if($item["SELECTED"]):?>
-				<li><a href="<?=$item["LINK"]?>" class="selected"><?=$item["TEXT"]?></a></li>
+				<li><a href="<?=($_SERVER['REQUEST_URI'] == $item['LINK'] ? "javascript:void(0);" : $item['LINK']);?>" class="selected"><?=$item["TEXT"]?></a></li>
 			<?else:?>
-				<li><a href="<?=$item["LINK"]?>"><?=$item["TEXT"]?></a></li>
+				<li><a href="<?=($_SERVER['REQUEST_URI'] == $item['LINK'] ? "javascript:void(0);" : $item['LINK']);?>"><?=$item["TEXT"]?></a></li>
 			<?endif?>
 
 			<?endforeach?>

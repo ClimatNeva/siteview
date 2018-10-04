@@ -7,10 +7,10 @@
     $classLiSelected = "";
     $classLiSelected2 = "";
     $ico = "";
-    
+
     $bigMode = "N";
     $lightMode = "N";
-    
+
     if (strripos($arParams['STYLE_MENU'], "_big") !== false) {
         $bigMode = "Y";
         $arParams['STYLE_MENU'] = str_replace("_big", "", $arParams['STYLE_MENU']);
@@ -20,9 +20,9 @@
             $lightMode = "Y";
             $arParams['STYLE_MENU'] = str_replace("_lighten", "", $arParams['STYLE_MENU']);
     }
-     
+
     switch ($arParams['STYLE_MENU']) {
-        case "colored_light": 
+        case "colored_light":
             $classLi = "bxr-bg-hover-flat";
             $classLiSelected = "bxr-color-flat";
             $classLiSelected2 = "bxr-color-flat";
@@ -35,7 +35,7 @@
             $classLiSelected2 = "bxr-color-dark-flat";
             $ico = "ico_light";
             break;
-        case "colored_dark": 
+        case "colored_dark":
             $classUl = "bxr-dark-flat";
             $classLi = "bxr-dark-flat bxr-bg-hover-dark-flat";
             $classLiSelected = "bxr-dark-light-flat";
@@ -43,16 +43,16 @@
             $ico = "ico_light";
             break;
     }
-    
+
 
     if($bigMode == "Y")
         $classUl .= " bxr-big-menu ";
 
 	if($lightMode == "Y")
 		$classUl .= " bxr-light-menu ";
-    
+
     if($arParams['STYLE_MENU']=="colored_light")
-        $classUl .= " line-top ";    
+        $classUl .= " line-top ";
 ?>
 
 <nav>
@@ -67,15 +67,15 @@
                 $isChildren = false;
                 $glyphicon = "";
                 $classShow = "";
-                
+
                 if(isset($arItem["CHILDREN"])) {
-                    
+
                     $isChildren = true;
                     $glyphicon = '<span class="fa fa-angle-right"></span>';
-                    
+
                     if(isset($arParams["SUBMENU"])) {
                         switch ($arParams["SUBMENU"]) {
-                            case "ACTIVE_SHOW": 
+                            case "ACTIVE_SHOW":
                                 if($arItem['SELECTED'] == 1) {
                                     $glyphicon = '<span class="fa fa-angle-right"></span>';
                                     $classShow = "show";
@@ -88,9 +88,9 @@
                         }
                     }
                 }
-                
+
                 $s_ico = "";
- 
+
                 if(isset($arParams["PICTURE_SECTION"]) && $arParams["PICTURE_SECTION"] != "N") {
                     if(isset($arItem[$ico]) && !empty($arItem[$ico])) {
                         if(is_numeric($arItem[$ico])) {
@@ -104,9 +104,9 @@
                     elseif($arParams["PICTURE_SECTION"] == "ICO_DEFAULT") {
                         if($ico == "ico_color")
                             $ico = "ico_dark";
-                                
-                        $img['src'] = SITE_TEMPLATE_PATH. "/images/menu/default_" . $ico . ".png";                    
-                        $s_ico = "<img alt='".$arItem["TEXT"]."' class='bxr-ico-menu' src='" . $img['src'] . "'>";                        
+
+                        $img['src'] = SITE_TEMPLATE_PATH. "/images/menu/default_" . $ico . ".png";
+                        $s_ico = "<img alt='".$arItem["TEXT"]."' class='bxr-ico-menu' src='" . $img['src'] . "'>";
                     }
                     else {
                         $s_ico = "<span class='hover-not-ico'>&nbsp;</span>";
@@ -115,7 +115,7 @@
 
             ?>
             <li class="<?=$classLi;?> <?if($arItem['SELECTED'] == 1) echo $classLiSelected2;?>">
-                <a href="<?=$arItem["LINK"]?>"><?=$s_ico;?><?=$arItem["TEXT"].$glyphicon;?></a>
+                <a href="<?=($_SERVER['REQUEST_URI'] == $arItem['LINK'] ? "javascript:void(0);" : $arItem['LINK']);?>"><?=$s_ico;?><?=$arItem["TEXT"].$glyphicon;?></a>
                 <?
                     $hoverTemplate = "classic";
                     if(!empty($arParams["HOVER_TEMPLATE"]))
@@ -123,8 +123,8 @@
                 ?>
                 <?if($isChildren):?>
                     <?$APPLICATION->IncludeComponent(
-                        "alexkova.market:menu.hover", 
-                        $hoverTemplate, 
+                        "alexkova.market:menu.hover",
+                        $hoverTemplate,
                         array(
                                 "PICTURE_SECTION" => $arParams['PICTURE_SECTION_HOVER'],
                                 "PICTURE_CATEGARIES" => $arParams['PICTURE_CATEGARIES'],

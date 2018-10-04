@@ -19,56 +19,57 @@ $this->setFrameMode(true);
 
     if(file_exists($_SERVER["DOCUMENT_ROOT"].$templateFolder."/script.js"))
         $arResult["INCLUDE"]["JS"] = $templateFolder."/script.js";
-    
+
     $this->__component->SetResultCacheKeys(array("INCLUDE"));
 
 ?>
 <?
     if(!function_exists(bxr_classic_build_tree)) {
-        function bxr_classic_build_tree($mas, $ico = "N", $arColor = array("li" => "", "li_selected" => "", "ico" => "ico_color")) { 
-            
+        function bxr_classic_build_tree($mas, $ico = "N", $arColor = array("li" => "", "li_selected" => "", "ico" => "ico_color")) {
+
             if(!is_array($mas))
                 return false;
-            
+
             $s_result = "<ul>";
 
             foreach($mas as $k => $v) {
                 $s_ico = "";
-                
+
                 if($ico != "N") {
                     if(isset($v[$arColor['ico']]) && !empty($v[$arColor['ico']])) {
                         if(is_numeric($v[$arColor['ico']])) {
                             $img = CFile::ResizeImageGet($v[$arColor['ico']], array('width'=>16, 'height'=>16), BX_RESIZE_IMAGE_PROPORTIONAL, true);
                         }
                         else {
-                           $img['src'] = $v[$arColor['ico']];                   
+                           $img['src'] = $v[$arColor['ico']];
                         }
                         $s_ico = "<img alt='".$v["TEXT"]."' class='bxr-ico-menu' src='" . $img['src'] . "'>";
                     }
                     elseif($ico == "ICO_DEFAULT") {
                         if($arColor['ico'] == "ico_color")
                             $arColor['ico'] = "ico_dark";
-                                
-                        $img['src'] = SITE_TEMPLATE_PATH. "/images/menu/default_" . $arColor['ico'] . ".png";                    
-                        $s_ico = "<img alt='".$v["TEXT"]."' class='bxr-ico-menu' src='" . $img['src'] . "'>";                        
+
+                        $img['src'] = SITE_TEMPLATE_PATH. "/images/menu/default_" . $arColor['ico'] . ".png";
+                        $s_ico = "<img alt='".$v["TEXT"]."' class='bxr-ico-menu' src='" . $img['src'] . "'>";
                     }
                     else {
                         $s_ico = "<span class='hover-not-ico'>&nbsp;</span>";
                     }
                 }
-                                                
+
                 $li_class = $arColor['li'];
                 if($v['SELECTED'] == 1)
                     $li_class .= " ". $arColor['li_selected'];
 
                 if(isset($v['CHILDREN']))
                     $s_result .= "<li class='" . $li_class . "' >" .
-                                    "<a class='sub-item' href='" . $v['LINK'] . "'>". $s_ico . $v['TEXT'] . "<i class='fa fa-angle-right'></i></a>"
+                                    "<a class='sub-item' href='".($_SERVER['REQUEST_URI'] == $v['LINK'] ? "javascript:void(0);" : $v['LINK'])."'>".
+                                        $s_ico . $v['TEXT'] . "<i class='fa fa-angle-right'></i></a>"
                                         . bxr_classic_build_tree($v['CHILDREN'], $ico, $arColor).
                                 "</li>";
                 else
                     $s_result .= "<li class='" . $li_class. "' >".
-                                    "<a  href='" . $v['LINK'] . "'>" . $s_ico . $v['TEXT'] . "</a>" . 
+                                    "<a href='".($_SERVER['REQUEST_URI'] == $v['LINK'] ? "javascript:void(0);" : $v['LINK'])."'>" . $s_ico . $v['TEXT'] . "</a>" .
                                 "</li>";
             }
 
@@ -78,17 +79,17 @@ $this->setFrameMode(true);
     }
 ?>
 <div class="bxr-classic_hover_menu <?if($arParams['STYLE_MENU'] == "colored_light") {echo " menu-arrow-top";} ?><?if($arParams['STYLE_MENU_HOVER'] == "colored_color") {echo " bxr-classic-hover-menu-color";} ?>">
-    <?  
+    <?
         $isIco = "N";
         if(!empty($arParams['PICTURE_SECTION']))
              $isIco = $arParams['PICTURE_SECTION'];
-        
+
         $arColorParams = array(
             "li" => "bxr-bg-hover-flat",
             "li_selected" => "bxr-color-flat",
             "ico" => "ico_color"
         );
-        
+
         if(isset($arParams["STYLE_MENU_HOVER"]) && !empty($arParams["STYLE_MENU_HOVER"])) {
             switch ($arParams["STYLE_MENU_HOVER"]) {
                 case "colored_color":
@@ -101,7 +102,7 @@ $this->setFrameMode(true);
             }
         }
 
-        $tree = bxr_classic_build_tree($arParams['MENU_TREE'], $isIco, $arColorParams);       
+        $tree = bxr_classic_build_tree($arParams['MENU_TREE'], $isIco, $arColorParams);
         echo $tree;
     ?>
 </div>
