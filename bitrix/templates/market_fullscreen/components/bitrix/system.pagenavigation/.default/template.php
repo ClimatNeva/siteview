@@ -3,6 +3,11 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);
 $ClientID = 'navigation_'.$arResult['NavNum'];
 
+global $checkSingleLinkCounter;
+if (!isset($checkSingleLinkCounter)) {
+	$checkSingleLinkCounter = true;
+}
+
 if(!$arResult["NavShowAlways"])
 {
 	if ($arResult["NavRecordCount"] == 0 || ($arResult["NavPageCount"] == 1 && $arResult["NavShowAll"] == false))
@@ -130,6 +135,17 @@ else
 		<div class="navigation-pages">
 			<<?if(!$bPrevDisabled):?>a href="<?=$sPrevHref;?>" id="<?=$ClientID?>_previous_page"<?else:?>span<?endif?> class="navigation-button<?if($bPrevDisabled):?> navigation-disabled<?endif?>"></span><?if(!$bPrevDisabled):?><</a><?else:?></span><?endif?>
 		<?
+		if ($APPLICATION->GetCurDir() !== '/' && $checkSingleLinkCounter && $arResult["nEndPage"] > 1) {
+			$checkSingleLinkCounter = false;
+			if ($arResult["NavPageNomer"] == 1) {
+				$APPLICATION->AddHeadString('<link rel="next" href="'.$APPLICATION->GetCurDir().'?PAGEN_1=2">');
+			} elseif ($arResult["NavPageNomer"] == $arResult["nEndPage"]) {
+				$APPLICATION->AddHeadString('<link rel="prev" href="'.$APPLICATION->GetCurDir().'?PAGEN_1='.($arResult["NavPageNomer"]-1).'">');
+			} else {
+				$APPLICATION->AddHeadString('<link rel="next" href="'.$APPLICATION->GetCurDir().'?PAGEN_1='.($arResult["NavPageNomer"]+1).'">');
+				$APPLICATION->AddHeadString('<link rel="prev" href="'.$APPLICATION->GetCurDir().'?PAGEN_1='.($arResult["NavPageNomer"]-1).'">');
+			}
+		}
 
 		$bFirst = true;
 		$bPoints = false;
