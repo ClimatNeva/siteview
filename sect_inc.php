@@ -19,7 +19,7 @@ if ($BXReady->getArea('left_menu_type')){
 // end LeftMenu
 ?>
 
-<?/*if (CModule::IncludeModule('sender')):?>
+<?if (CModule::IncludeModule('sender') && $USER->GetID() == "147"):?>
 <?$APPLICATION->IncludeComponent(
 	"alexkova.market:sender.subscribe",
 	"market_column",
@@ -37,7 +37,7 @@ if ($BXReady->getArea('left_menu_type')){
 		"ACTIVE_COMPONENT" => "Y"
 	)
 );?>
-<?endif;*/?>
+<?endif;?>
 
 
 
