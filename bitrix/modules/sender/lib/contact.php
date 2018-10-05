@@ -60,14 +60,11 @@ class ContactTable extends Entity\DataManager
 			'USER_ID' => array(
 				'data_type' => 'integer',
 			),
-			/*
-			// TODO: rename to EMAIL !!!!!!!
 			'EMAIL' => array(
 				'column_name' => 'CODE',
 				'data_type' => 'string',
 				'validation' => array(__CLASS__, "validateEmail")
 			),
-			*/
 			'BLACKLISTED' => array(
 				'data_type' => 'boolean',
 				'values' => array('N', 'Y'),
