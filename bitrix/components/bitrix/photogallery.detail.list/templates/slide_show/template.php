@@ -50,7 +50,7 @@ if ($arResult["NAV_RESULT"]->bNavStart)
 
 $arParams["ELEMENT_ID"] = intVal($arParams["ELEMENT_ID"]);
 
-?><html><head>
+?><html lang=ru><head>
 <link href="/bitrix/components/bitrix/photogallery.detail.list/templates/slide_show/style.css" type="text/css" rel="stylesheet" />
 <link href="/bitrix/templates/.default/ajax/ajax.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="/bitrix/components/bitrix/photogallery.detail.list/templates/slide_show/script_player.js"></script>

@@ -16,7 +16,7 @@ if ($arResult['IS_SLIDER'])
 	$APPLICATION->RestartBuffer();
 	?>
 	<!DOCTYPE html>
-	<html>
+	<html lang=ru>
 	<head>
 		<? $APPLICATION->ShowHead(); ?>
 	</head>

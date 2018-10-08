@@ -63,7 +63,7 @@ $templateType = "two_col";
 $catalogType = "two_col";
 ?>
 <!DOCTYPE html>
-<html>
+<html lang=ru>
 <head>
 
 	<title><?$APPLICATION->ShowTitle();?></title>

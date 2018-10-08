@@ -11,7 +11,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
  */
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
+<html lang=ru>
 	<head>
 		<title><?=getMessage('SECURITY_USER_RECOVERY_CODES_PRINT_TITLE')?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=<?=LANG_CHARSET?>">

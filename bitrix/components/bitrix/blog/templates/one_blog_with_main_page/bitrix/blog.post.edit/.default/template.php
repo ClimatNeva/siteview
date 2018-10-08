@@ -24,7 +24,7 @@ else
 	{
 		?>
 			<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-			<html>
+			<html lang=ru>
 			<head>
 				<title><?=GetMessage("BLOG_P_IMAGE_UPLOAD")?></title>
 			</head>

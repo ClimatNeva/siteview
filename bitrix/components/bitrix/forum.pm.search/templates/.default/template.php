@@ -7,7 +7,7 @@ elseif ($arParams["SEO_USER"] == "TEXT") $arParams["USER_TMPL"] = '#NAME#';
 if ($arResult["SHOW_SELF_CLOSE"] == "Y")
 {
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><body>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html lang=ru><body>
 <script type="text/javascript">
 <?=($_REQUEST["search_insert"] == "Y" ? "opener" : "top")?>.document.getElementById("div_USER_ID").innerHTML = '<?=(
 	$arResult["SHOW_MODE"] == "none" ?
@@ -32,7 +32,7 @@ if (!$this->__component->__parent || empty($this->__component->__parent->__name)
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/styles/additional.css');
 endif;
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html lang=ru>
 <head>
 	<meta  http-equiv="Content-Type" content="text/html; charset='<?=$arResult["SITE_CHARSET"]?>'">
 	<title><?=GetMessage("PM_TITLE")?></title>

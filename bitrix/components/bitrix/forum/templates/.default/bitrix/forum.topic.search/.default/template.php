@@ -47,7 +47,7 @@ if ($arParams["AJAX_CALL"] == "Y"):
 endif;
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<html lang=ru>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=<?=SITE_CHARSET?>" />
 	<?$APPLICATION->ShowHead()?>

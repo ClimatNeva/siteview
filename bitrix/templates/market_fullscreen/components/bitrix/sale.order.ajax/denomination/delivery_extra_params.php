@@ -11,7 +11,7 @@ $deliveryId = isset($_REQUEST["deliveryId"]) ? trim($_REQUEST["deliveryId"]) : "
 $formName = isset($_REQUEST["formName"]) ? trim($_REQUEST["formName"]) : "extra_params_form";
 
 ?>
-<html>
+<html lang=ru>
 <head>
 <?$APPLICATION->ShowHead();?>
 <title><?$APPLICATION->ShowTitle()?></title>

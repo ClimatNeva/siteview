@@ -154,7 +154,7 @@ function ShowOriginal(src, title)
 	{
 		sizer = window.open('',src,'width=SrcWidth,height=SrcHeight,menubar=no,status=no,location=no,scrollbars=yes,fullscreen=yes,directories=no,resizable=yes');
 	}
-	text += '<html><head>';
+	text += '<html lang=ru><head>';
 	text += '\n<script language="JavaScript" type="text/javascript">';
 text += '\nfunction SetBackGround(div)';
 text += '\n{';

@@ -128,7 +128,7 @@ function ShowOriginal(src, title)
 	else
 		sizer = window.open('', src,'width=SrcWidth,height=SrcHeight,menubar=no,status=no,location=no,scrollbars=yes,fullscreen=yes,directories=no,resizable=yes');
 
-	sizer.document.write('<html><head>' +
+	sizer.document.write('<html lang=ru><head>' +
 		'<script>function SetBackGround(div){if (div)document.body.style.backgroundColor = div.style.backgroundColor;}</script>' +
 		'<title>' + title + '</title>' +
 		'<style>table div{width:18px; height:18px;}</style>' +

@@ -76,7 +76,7 @@ if ($_REQUEST["delivery"])
 
 $showImages = (isset($_REQUEST["showImages"]) && $_REQUEST["showImages"] == "Y") ? true : false;
 ?>
-<html>
+<html lang=ru>
 <head>
 <?$APPLICATION->ShowHead();?>
 <title><?$APPLICATION->ShowTitle()?></title>
