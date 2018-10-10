@@ -4,7 +4,7 @@ if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if ((defined('BX_PUBLIC_MODE')) && (1 == BX_PUBLIC_MODE))
 {
 ?><link rel="stylesheet" type="text/css" href="<?php echo $this->GetFolder().'/style.css'; ?>">
-<script type="text/javascript" src="<?php echo $this->__component->GetPath().'/script.js'; ?>"></script>
+<script src="<?php echo $this->__component->GetPath().'/script.js'; ?>"></script>
 <?php
 }
 

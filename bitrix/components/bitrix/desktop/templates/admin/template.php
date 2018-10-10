@@ -44,8 +44,8 @@ if(!defined("BX_GADGET_DEFAULT"))
 	}
 
 	if($arResult["PERMISSION"] > "R"):?>
-		<script type="text/javascript" src="/bitrix/components/bitrix/desktop/script.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/desktop/script.js');?>"></script>
-		<script type="text/javascript" src="/bitrix/components/bitrix/desktop/templates/admin/script_admin.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/desktop/templates/admin/script_admin.js');?>"></script>
+		<script src="/bitrix/components/bitrix/desktop/script.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/desktop/script.js');?>"></script>
+		<script src="/bitrix/components/bitrix/desktop/templates/admin/script_admin.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/desktop/templates/admin/script_admin.js');?>"></script>
 	<?endif?>
 	<?
 }

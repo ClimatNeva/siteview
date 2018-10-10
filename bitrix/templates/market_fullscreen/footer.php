@@ -32,8 +32,8 @@ $APPLICATION->SetPageProperty("keywords", "-");
 		<?endif;?>
 
 		<?$APPLICATION->IncludeComponent(
-	"alexkova.market:catalog.brandblock", 
-	"brand_slider", 
+	"alexkova.market:catalog.brandblock",
+	"brand_slider",
 	array(
 		"IBLOCK_TYPE" => "catalog",
 		"IBLOCK_ID" => "12",
@@ -151,7 +151,7 @@ $APPLICATION->SetPageProperty("keywords", "-");
                                 "ROOT_MENU_TYPE" => "bottom_catalog",
                                 "MAX_LEVEL" => "1",
                                 "CHILD_MENU_TYPE" => "left",
-                                "USE_EXT" => "Y",   
+                                "USE_EXT" => "Y",
                                 "DELAY" => "N",
                                 "ALLOW_MULTI_SELECT" => "N",
                                 "MENU_CACHE_TYPE" => "N",
@@ -189,7 +189,7 @@ $APPLICATION->SetPageProperty("keywords", "-");
                                 "ROOT_MENU_TYPE" => "footer",
                                 "MAX_LEVEL" => "1",
                                 "CHILD_MENU_TYPE" => "left",
-                                "USE_EXT" => "Y",   
+                                "USE_EXT" => "Y",
                                 "DELAY" => "N",
                                 "ALLOW_MULTI_SELECT" => "N",
                                 "MENU_CACHE_TYPE" => "N",
@@ -238,8 +238,8 @@ $APPLICATION->SetPageProperty("keywords", "-");
     <?$formFrame = new \Bitrix\Main\Page\FrameHelper("iblock_form");
         $formFrame->begin();?>
         <?$APPLICATION->IncludeComponent(
-	"alexkova.market:form.iblock", 
-	".default", 
+	"alexkova.market:form.iblock",
+	".default",
 	array(
 		"IBLOCK_TYPE" => "forms",
 		"IBLOCK_ID" => "10",
@@ -277,8 +277,8 @@ $APPLICATION->SetPageProperty("keywords", "-");
         <?$formFrame = new \Bitrix\Main\Page\FrameHelper("iblock_form_request");
         $formFrame->begin();?>
         <?$APPLICATION->IncludeComponent(
-                "alexkova.market:form.iblock", 
-                "request_trade", 
+                "alexkova.market:form.iblock",
+                "request_trade",
                 array(
                         "IBLOCK_TYPE" => "forms",
                         "IBLOCK_ID" => "11",
@@ -315,8 +315,8 @@ $APPLICATION->SetPageProperty("keywords", "-");
         <?$formFrame = new \Bitrix\Main\Page\FrameHelper("iblock_form_one_click_buy");
         $formFrame->begin();?>
         <?$APPLICATION->IncludeComponent(
-            "alexkova.market:form.iblock", 
-            "request_trade", 
+            "alexkova.market:form.iblock",
+            "request_trade",
             array(
                     "IBLOCK_TYPE" => "forms",
                     "IBLOCK_ID" => "9",
@@ -354,8 +354,8 @@ $APPLICATION->SetPageProperty("keywords", "-");
         $formFrame->begin();?>
 		<?/**/?>
 		<?$APPLICATION->IncludeComponent(
-	"alexkova.market:form.iblock", 
-	"request_trade", 
+	"alexkova.market:form.iblock",
+	"request_trade",
 	array(
 		"IBLOCK_TYPE" => "forms",
 		"IBLOCK_ID" => "15",
@@ -395,9 +395,9 @@ $APPLICATION->SetPageProperty("keywords", "-");
 		<?$formFrame->end();?>
 
     <link rel="stylesheet" href="https://cdn.envybox.io/widget/cbk.css">
-    <script type="text/javascript" src="https://cdn.envybox.io/widget/cbk.js?wcb_code=4d109f08a98140aad5296c7d4b78087d" charset="UTF-8" async></script>
+    <script src="https://cdn.envybox.io/widget/cbk.js?wcb_code=4d109f08a98140aad5296c7d4b78087d" charset="UTF-8" async></script>
 	<!-- Yandex.Metrika counter -->
-	<script type="text/javascript" >
+	<script >
 		(function (d, w, c) {
 			(w[c] = w[c] || []).push(function() {
 				try {

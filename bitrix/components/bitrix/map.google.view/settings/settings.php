@@ -34,7 +34,7 @@ if ($_REQUEST['MAP_DATA'])
 	}
 }
 ?>
-<script type="text/javascript" src="/bitrix/components/bitrix/map.google.view/settings/settings_load.js"></script>
+<script src="/bitrix/components/bitrix/map.google.view/settings/settings_load.js"></script>
 <script>
 BX.loadCSS('/bitrix/components/bitrix/map.google.view/settings/settings.css');
 var arPositionData = <?echo is_array($arData) && count($arData) > 0 ? CUtil::PhpToJsObject($arData) : '{}'?>;
