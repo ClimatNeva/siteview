@@ -34,7 +34,7 @@ Loc::loadMessages(__FILE__);
 			</div>
 
 		<?endif?>
-		
+
 		<?if(is_array($arResult['TRUNK_NAMES']) && !empty($arResult['TRUNK_NAMES'])):?>
 			<div class="bx-ui-sls-tree-trunk">
 				<?=htmlspecialcharsbx(implode(', ', $arResult['TRUNK_NAMES']))?>
@@ -77,7 +77,7 @@ Loc::loadMessages(__FILE__);
 				<div class="bx-ui-combobox-toggle" title="<?=Loc::getMessage('SALE_SLS_OPEN_CLOSE_POPUP')?>" data-bx-ui-id="combobox-toggle"></div>
 
 				<div class="bx-ui-combobox-dropdown" data-bx-ui-id="combobox-dropdown">
-					
+
 					<div data-bx-ui-id="pager-pane">
 					</div>
 				</div>
@@ -88,7 +88,7 @@ Loc::loadMessages(__FILE__);
 		<div class="bx-ui-slst-loader"></div>
 	</div>
 
-	<script type="text/javascript">
+	<script>
 
 		if (!window.BX && top.BX)
 			window.BX = top.BX;
@@ -100,7 +100,7 @@ Loc::loadMessages(__FILE__);
 
 			<?if(strlen($arParams['JS_CONTROL_GLOBAL_ID'])):?>
 				if(typeof window.BX.locationSelectors == 'undefined') window.BX.locationSelectors = {};
-				window.BX.locationSelectors['<?=$arParams['JS_CONTROL_GLOBAL_ID']?>'] = 
+				window.BX.locationSelectors['<?=$arParams['JS_CONTROL_GLOBAL_ID']?>'] =
 			<?endif?>
 
 			new BX.Sale.component.location.selector.steps(<?=CUtil::PhpToJSObject(array(

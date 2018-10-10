@@ -313,7 +313,7 @@ CAdminFileDialog::ShowScript(
 );
 ?>
 
-<script type="text/javascript">
+<script>
 window.onload = function ()
 {
 	if (!window.oPlaylistDialog)

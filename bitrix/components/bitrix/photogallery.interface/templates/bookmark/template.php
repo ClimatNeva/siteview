@@ -20,7 +20,7 @@ foreach ($arParams["DATA"] as $res):
 	$count++;
 	$res["ACTIVE"] = (($res["ACTIVE"] != "Y" || $bFinedActive) ? "N" : "Y");
 	$bFinedActive = ($res["ACTIVE"] == "Y" ? $count : $bFinedActive);
-	
+
 	$arResult["DATA"]["HEADER"][] = array(
 		"ID" => $count,
 		"TITLE" => $res["HEADER"]["TITLE"],
@@ -42,7 +42,7 @@ if (!$bFinedActive)
 	$bFinedActive = 1;
 }
 $iObjectID = md5(serialize($arResult["DATA"]));
-?><script type="text/javascript">
+?><script>
 if (typeof oPhotoTabs != "object" || oPhotoTabs == null)
 	var oPhotoTabs = {};
 if (typeof oPhotoTabs["<?=$iObjectID?>"] != "object" || oPhotoTabs["<?=$iObjectID?>"] == null)

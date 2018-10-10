@@ -61,7 +61,7 @@
 
 	</div>
 
-<script type="text/javascript">
+<script>
 
 app.setPageTitle({title: "<?=(GetMessage('SMRB_PAGE_TITLE'))?>"});
 
