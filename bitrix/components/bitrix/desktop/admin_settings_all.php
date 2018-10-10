@@ -33,7 +33,7 @@ if($REQUEST_METHOD=="POST" && $_REQUEST['save'] == 'Y')
 {
 	CUtil::JSPostUnescape();
 
-	if (!is_array($ids)) 
+	if (!is_array($ids))
 		$ids = array();
 
 	$arValues = $_POST;
@@ -47,14 +47,14 @@ if($REQUEST_METHOD=="POST" && $_REQUEST['save'] == 'Y')
 			continue;
 
 		$arTmp = $arUserOptions[$num-1];
-		
+
 		if(strlen(trim($arValues["text_".$num]))  > 0)
 			$arTmp["NAME"] = $arValues["text_".$num];
 
 		$arUserOptionsTmp[] = $arTmp;
 	}
 
-	CUserOptions::SetOption("intranet", "~gadgets_admin_index", $arUserOptionsTmp, false, false);	
+	CUserOptions::SetOption("intranet", "~gadgets_admin_index", $arUserOptionsTmp, false, false);
 
 	if($strWarning == '')
 	{
@@ -137,7 +137,7 @@ for($i=1; $i<=count($arUserOptions); $i++):
 endfor?></div>
 <input type="hidden" name="itemcnt" value="<?echo $itemcnt?>" />
 <input type="hidden" name="desktop_backurl" value="<?=htmlspecialcharsbx(CUtil::JSEscape($desktop_backurl))?>">
-<script type="text/javascript">
+<script>
 var currentRow = null;
 
 var GLOBAL_bDisableActions = false;

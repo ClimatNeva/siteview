@@ -64,7 +64,7 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 </div>
 <?
 endif;
-if (!empty($arResult["OK_MESSAGE"])): 
+if (!empty($arResult["OK_MESSAGE"])):
 ?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
@@ -411,7 +411,7 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 </div>
 <?
 endif;
-if (!empty($arResult["OK_MESSAGE"])): 
+if (!empty($arResult["OK_MESSAGE"])):
 ?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
@@ -436,7 +436,7 @@ if ($arResult["VIEW"] == "Y"):
 );?><?
 endif;
 
-?><script type="text/javascript">
+?><script>
 <?if (intVal($arParams["MID"]) > 0):?>
 location.hash = 'message<?=$arParams["MID"]?>';
 <?endif;?>

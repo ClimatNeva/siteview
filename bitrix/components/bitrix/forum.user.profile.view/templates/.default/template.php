@@ -21,7 +21,7 @@ foreach (array("photo", "private", "work", "user_prop") as $key):
 	$arResult["USER"]["SHOW_PANELS"][$key] = (in_array($key, $arUserOptions["hide"]) ? "N" : "Y");
 endforeach;
 
-if ($arResult["SHOW_EDIT_PROFILE"] == "Y" && check_bitrix_sessid() && !empty($_REQUEST["option"]) && 
+if ($arResult["SHOW_EDIT_PROFILE"] == "Y" && check_bitrix_sessid() && !empty($_REQUEST["option"]) &&
 	in_array($_REQUEST["option"], array("photo", "private", "work", "user_prop"))):
 	$bUpdate = false;
 	if ($_REQUEST["value"] == "hide" && !in_array($_REQUEST["option"], $arUserOptions["hide"])):
@@ -51,7 +51,7 @@ if ($arParams["SHOW_RATING"] == 'Y')
 }
 
 $bShowedInfo = false;
-?><script type="text/javascript">
+?><script>
 function forumAddSessid(el)
 {
 	if (!!el || !!el.href) { el.href += (el.href.indexOf("?") > 0 ? "&" : "?") + 'sessid=' + BX.bitrix_sessid(); }
@@ -60,14 +60,14 @@ function forumAddSessid(el)
 </script>
 <?
 /*******************************************************************/
-if (!empty($arResult["ERROR_MESSAGE"])): 
+if (!empty($arResult["ERROR_MESSAGE"])):
 ?>
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
 <?
 endif;
-if (!empty($arResult["OK_MESSAGE"])): 
+if (!empty($arResult["OK_MESSAGE"])):
 ?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
@@ -81,7 +81,7 @@ endif;
 if ($arResult["SHOW_EDIT_PROFILE"] == "Y"):
 ?>
 	<div class="forum-header-options">
-		
+
 <?
 	if ($USER->GetID() == $arParams["UID"]):
 ?>
@@ -127,7 +127,7 @@ else:
 ?>
 					<div class="forum-user-status <?=(!empty($arResult["USER_RANK_CODE"]) ? "forum-user-".$arResult["USER_RANK_CODE"]."-status" : "")?>"><?
 						?><span><?=htmlspecialcharsbx($arResult["arRank"]["NAME"])?></span></div>
-			
+
 <?
 endif;
 ?>
@@ -196,7 +196,7 @@ if ($sRatingTemplate == 'standart' && $arParams["SHOW_RATING"] == 'Y' && $author
 			array("HIDE_ICONS" => "Y")
 		);
 		?>
-		</span>	
+		</span>
 <?
 endif;
 
@@ -240,7 +240,7 @@ endif;
 <?
 		endif;
 
-		if (!empty($arResult["USER"]["PERSONAL_BIRTHDAY_FORMATED"]) || !empty($arResult["USER"]["PERSONAL_GENDER"]) || 
+		if (!empty($arResult["USER"]["PERSONAL_BIRTHDAY_FORMATED"]) || !empty($arResult["USER"]["PERSONAL_GENDER"]) ||
 		!empty($arResult["USER"]["PERSONAL_PROFESSION"]) || !empty($arResult["USER"]["PERSONAL_LOCATION"])):
 ?>
 					<noindex><a rel="nofollow" onclick="return forumAddSessid(this);" href="<?=$APPLICATION->GetCurPageParam("option=private&value=".
@@ -278,9 +278,9 @@ endif;
 				<div class="forum-user-photo"><?=$arResult["USER"]["PERSONAL_PHOTO"]?></div>
 <?
 	endif;
-	
 
-	if ($arResult["USER"]["SHOW_PANELS"]["private"] == "N" || (empty($arResult["USER"]["PERSONAL_BIRTHDAY_FORMATED"]) && empty($arResult["USER"]["PERSONAL_GENDER"]) &&  
+
+	if ($arResult["USER"]["SHOW_PANELS"]["private"] == "N" || (empty($arResult["USER"]["PERSONAL_BIRTHDAY_FORMATED"]) && empty($arResult["USER"]["PERSONAL_GENDER"]) &&
 		empty($arResult["USER"]["PERSONAL_PROFESSION"]) && empty($arResult["USER"]["PERSONAL_LOCATION"]))):
 		if (!empty($arResult["FORUM_USER"]["INTERESTS"])):
 			$bShowedInfo = true;
@@ -292,7 +292,7 @@ endif;
 		</div>
 <?
 		endif;
-	elseif (!empty($arResult["USER"]["PERSONAL_BIRTHDAY_FORMATED"]) || !empty($arResult["USER"]["PERSONAL_GENDER"]) || 
+	elseif (!empty($arResult["USER"]["PERSONAL_BIRTHDAY_FORMATED"]) || !empty($arResult["USER"]["PERSONAL_GENDER"]) ||
 		!empty($arResult["USER"]["PERSONAL_PROFESSION"]) || !empty($arResult["USER"]["PERSONAL_LOCATION"]) || !empty($arResult["FORUM_USER"]["INTERESTS"])):
 ?>
 <table cellspacing="0" class="forum-table forum-user-private-info">
@@ -311,7 +311,7 @@ endif;
 			<td class="forum-last-column"><?=$arResult["USER"]["PERSONAL_BIRTHDAY_FORMATED"]?></td></tr>
 <?
 	endif;
-	
+
 	if (!empty($arResult["USER"]["PERSONAL_GENDER"])):
 		$iCount++;
 ?>
@@ -320,7 +320,7 @@ endif;
 			<td class="forum-last-column"><?=$arResult["USER"]["PERSONAL_GENDER"]?></td></tr>
 <?
 	endif;
-	
+
 	if (!empty($arResult["USER"]["PERSONAL_PROFESSION"])):
 		$iCount++;
 ?>
@@ -329,7 +329,7 @@ endif;
 			<td class="forum-last-column"><?=$arResult["USER"]["PERSONAL_PROFESSION"]?></td></tr>
 <?
 	endif;
-	
+
 	if (!empty($arResult["USER"]["PERSONAL_LOCATION"])):
 		$iCount++;
 ?>
@@ -338,7 +338,7 @@ endif;
 			<td class="forum-last-column"><?=$arResult["USER"]["PERSONAL_LOCATION"]?></td></tr>
 <?
 	endif;
-	
+
 	if (!empty($arResult["FORUM_USER"]["INTERESTS"])):
 		$iCount++;
 ?>
@@ -352,8 +352,8 @@ endif;
 </table><br />
 <?
 endif;
-	
-if ($arResult["USER"]["SHOW_PANELS"]["work"] != "N" && 
+
+if ($arResult["USER"]["SHOW_PANELS"]["work"] != "N" &&
 	(!empty($arResult["USER"]["WORK_COMPANY"]) || !empty($arResult["USER"]["WORK_POSITION"]) || !empty($arResult["USER"]["WORK_DEPARTMENT"]) ||
 	!empty($arResult["USER"]["WORK_LOCATION"]) || !empty($arResult["USER"]["WORK_PROFILE"]) || !empty($arResult["USER"]["WORK_WWW"]))):
 ?>
@@ -364,7 +364,7 @@ if ($arResult["USER"]["SHOW_PANELS"]["work"] != "N" &&
 	<tbody>
 <?
 	$bShowedInfo = true;
-	$iCount = 0;	
+	$iCount = 0;
 	if (!empty($arResult["USER"]["WORK_COMPANY"]) || !empty($arResult["USER"]["WORK_WWW"])):
 		$iCount++;
 ?>
@@ -388,7 +388,7 @@ if ($arResult["USER"]["SHOW_PANELS"]["work"] != "N" &&
 			</tr>
 <?
 	endif;
-	
+
 	if (!empty($arResult["USER"]["WORK_POSITION"]) || !empty($arResult["USER"]["WORK_DEPARTMENT"])):
 		$iCount++;
 ?>
@@ -417,7 +417,7 @@ if ($arResult["USER"]["SHOW_PANELS"]["work"] != "N" &&
 			?></td></tr>
 <?
 	endif;
-	
+
 	if (!empty($arResult["USER"]["WORK_LOCATION"])):
 		$iCount++;
 ?>
@@ -426,7 +426,7 @@ if ($arResult["USER"]["SHOW_PANELS"]["work"] != "N" &&
 			<td class="forum-last-column"><?=$arResult["USER"]["WORK_LOCATION"]?></td></tr>
 <?
 	endif;
-	
+
 	if (!empty($arResult["USER"]["WORK_PROFILE"])):
 		$iCount++;
 ?>
@@ -465,8 +465,8 @@ if ($arResult["USER"]["SHOW_PANELS"]["user_prop"] != "N" && $arResult["USER_PROP
 			<tr class="<?=($iCount == 1 ? "forum-row-first " : "")?> <?=($iCount%2 == 1 ? "forum-row-odd" : "forum-row-even")?>">
 			<td class="forum-first-column"><?=$arUserField["EDIT_FORM_LABEL"]?>: </td>
 			<td class="forum-last-column"><?$APPLICATION->IncludeComponent(
-					"bitrix:system.field.view", 
-					$arUserField["USER_TYPE"]["USER_TYPE_ID"], 
+					"bitrix:system.field.view",
+					$arUserField["USER_TYPE"]["USER_TYPE_ID"],
 					array("arUserField" => $arUserField), null, array("HIDE_ICONS"=>"Y"))?></td></tr>
 <?
 	endforeach;
@@ -512,7 +512,7 @@ endif;
 						<noindex><a rel="nofollow" href="javascript:void(0);" onclick="prompt('ICQ', '<?=CUtil::JSEscape($arResult["USER"]["PERSONAL_ICQ"])?>')">ICQ</a></noindex></span>
 <?
 		endif;
-		
+
 		if (!empty($arResult["USER"]["PERSONAL_WWW_FORMATED"])):
 ?>
 					<span class="forum-contact-url"><noindex><a rel="nofollow" href="<?=$arResult["USER"]["PERSONAL_WWW_FORMATED"]?>" target="_blank"><?

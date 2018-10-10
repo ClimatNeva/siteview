@@ -22,10 +22,10 @@ else:
 	$APPLICATION->IncludeComponent('bitrix:map.yandex.system', '.default', $arParams, null, array('HIDE_ICONS' => 'Y'));
 ?>
 	</div>
-	
+
 </div>
-<script type="text/javascript">
-function BXWaitForMap_search<?echo $arParams['MAP_ID']?>() 
+<script>
+function BXWaitForMap_search<?echo $arParams['MAP_ID']?>()
 {
 	window.jsYandexSearch_<?echo $arParams['MAP_ID']?> = new JCBXYandexSearch('<?echo $arParams['MAP_ID']?>', document.getElementById('results_<?echo $arParams['MAP_ID']?>'), {
 		mess_error: '<?echo GetMessage('MYMS_TPL_JS_ERROR')?>',

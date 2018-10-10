@@ -12,7 +12,7 @@ if(strlen($arResult["FatalError"])>0)
 else
 {
 	$anchor_id = RandString(8);
-	
+
 	if ($arParams["INLINE"] != "Y")
 	{
 		if (strlen($arResult["User"]["DETAIL_URL"]) > 0 && $arResult["CurrentUserPerms"]["Operations"]["viewprofile"])
@@ -32,7 +32,7 @@ else
 				?><a href="<?=$arResult["User"]["HREF"]?>"<?=($arParams["SEO_USER"] == "Y" ? ' rel="nofollow"' : '')?>><?=$arResult["User"]["PersonalPhotoImgThumbnail"]["Image"]?></a><?
 			}
 			elseif (
-				strlen($arResult["User"]["DETAIL_URL"]) > 0 
+				strlen($arResult["User"]["DETAIL_URL"]) > 0
 				&& $arResult["CurrentUserPerms"]["Operations"]["viewprofile"]
 			)
 			{
@@ -50,7 +50,7 @@ else
 			?><a class="bx-user-info-name" href="<?=$arResult["User"]["HREF"]?>"<?=($arParams["SEO_USER"] == "Y" ? ' rel="nofollow"' : '')?>><?=$arResult["User"]["NAME_FORMATTED"]?></a><?
 		}
 		elseif (
-			strlen($arResult["User"]["DETAIL_URL"]) > 0 
+			strlen($arResult["User"]["DETAIL_URL"]) > 0
 			&& $arResult["CurrentUserPerms"]["Operations"]["viewprofile"]
 		)
 		{
@@ -77,7 +77,7 @@ else
 				$link = $arResult["User"]["HREF"];
 			}
 			elseif (
-				strlen($arResult["User"]["DETAIL_URL"]) > 0 
+				strlen($arResult["User"]["DETAIL_URL"]) > 0
 				&& $arResult["CurrentUserPerms"]["Operations"]["viewprofile"]
 			)
 			{
@@ -103,15 +103,15 @@ else
 		</tr>
 		</table><?
 		if (
-			strlen($arResult["User"]["DETAIL_URL"]) > 0 
-			&& $arResult["CurrentUserPerms"]["Operations"]["viewprofile"] 
+			strlen($arResult["User"]["DETAIL_URL"]) > 0
+			&& $arResult["CurrentUserPerms"]["Operations"]["viewprofile"]
 			&& (
-				!array_key_exists("USE_TOOLTIP", $arResult) 
+				!array_key_exists("USE_TOOLTIP", $arResult)
 				|| $arResult["USE_TOOLTIP"]
 			)
 		)
 		{
-			?><script type="text/javascript">
+			?><script>
 				BX.tooltip(<?=$arResult["User"]["ID"]?>, "anchor_<?=$anchor_id?>", "<?=CUtil::JSEscape($arResult["ajax_page"])?>");
 			</script><?
 		}
@@ -119,17 +119,17 @@ else
 	else
 	{
 		if (
-			strlen($arResult["User"]["DETAIL_URL"]) > 0 
+			strlen($arResult["User"]["DETAIL_URL"]) > 0
 			&& $arResult["CurrentUserPerms"]["Operations"]["viewprofile"]
 		)
 		{
 			?><a href="<?=$arResult["User"]["DETAIL_URL"]?>"<?=($arParams["SEO_USER"] == "Y" ? ' rel="nofollow"' : '')?> id="anchor_<?=$anchor_id?>"><?=$arResult["User"]["NAME_FORMATTED"]?></a><?
 			if (
-				!array_key_exists("USE_TOOLTIP", $arResult) 
+				!array_key_exists("USE_TOOLTIP", $arResult)
 				|| $arResult["USE_TOOLTIP"]
 			)
 			{
-				?><script type="text/javascript">
+				?><script>
 				BX.tooltip(<?=$arResult["User"]["ID"]?>, "anchor_<?=$anchor_id?>", "<?=CUtil::JSEscape($arResult["ajax_page"])?>");
 			</script><?
 			}

@@ -80,7 +80,7 @@ foreach($arParams["FILTER"] as $field):
 		if($field["params"]["size"] == '')
 			$field["params"]["size"] = "8";
 	}
-	
+
 	$params = '';
 	foreach($field["params"] as $p=>$v)
 		$params .= ' '.$p.'="'.$v.'"';
@@ -141,7 +141,7 @@ foreach($arParams["FILTER"] as $field):
 				array("HIDE_ICONS"=>true)
 			);
 ?>
-<script type="text/javascript">
+<script>
 BX.ready(function(){bxCalendarInterval.OnDateChange(document.forms['filter_<?=$arParams["GRID_ID"]?>'].<?=$field["id"]?>_datesel)});
 </script>
 <?
@@ -162,7 +162,7 @@ BX.ready(function(){bxCalendarInterval.OnDateChange(document.forms['filter_<?=$a
 			break;
 		case 'number':
 ?>
-<input type="text" name="<?=$field["id"]?>_from" value="<?=htmlspecialcharsbx($arResult["FILTER"][$field["id"]."_from"])?>"<?=$params?>> ... 
+<input type="text" name="<?=$field["id"]?>_from" value="<?=htmlspecialcharsbx($arResult["FILTER"][$field["id"]."_from"])?>"<?=$params?>> ...
 <input type="text" name="<?=$field["id"]?>_to" value="<?=htmlspecialcharsbx($arResult["FILTER"][$field["id"]."_to"])?>"<?=$params?>>
 <?
 			break;

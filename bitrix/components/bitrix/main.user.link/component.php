@@ -285,8 +285,8 @@ if (strlen($arResult["FatalError"]) <= 0)
 			}
 
 			if (
-				strlen($arResult["FatalError"]) <= 0 
-				&& $arParams["USE_THUMBNAIL_LIST"] == "Y" 
+				strlen($arResult["FatalError"]) <= 0
+				&& $arParams["USE_THUMBNAIL_LIST"] == "Y"
 				&& $arParams['AJAX_CALL'] != 'INFO'
 			)
 			{
@@ -326,7 +326,7 @@ if (strlen($arResult["FatalError"]) <= 0)
 				}
 
 				if (
-					$bSocialNetwork 
+					$bSocialNetwork
 					&& $arResult["CurrentUserPerms"]["Operations"]["viewprofile"]
 				)
 				{
@@ -384,8 +384,8 @@ if (strlen($arResult["FatalError"]) <= 0)
 			$arResult["Urls"]["VideoCall"] = CComponentEngine::MakePathFromTemplate($arParams["~PATH_TO_VIDEO_CALL"], array("user_id" => $arParams["ID"], "USER_ID" => $arParams["ID"], "ID" => $arParams["ID"]));
 
 		if (
-			strlen($arResult["FatalError"]) <= 0 
-			&& $arParams['AJAX_CALL'] == 'INFO' 
+			strlen($arResult["FatalError"]) <= 0
+			&& $arParams['AJAX_CALL'] == 'INFO'
 			&& $bUseTooltip
 		)
 		{
@@ -487,7 +487,7 @@ if (strlen($arResult["FatalError"]) <= 0)
 
 						$strOnclick = "return BX.tooltip.openCallTo(".$arResult["User"]["ID"].");";
 						$strToolbar2 .= '<li id="im-video-call-button'.$arResult["User"]["ID"].'" class="bx-icon bx-icon-video"><span onmouseover="'.$strOnmouseover.'" onmouseout="'.$strOnmouseout.'" onclick="'.$strOnclick.'">'.GetMessage("MAIN_UL_TOOLBAR_VIDEO_CALL").'</span></li>';
-						$strToolbar2 .= '<script type="text/javascript">BX.ready(function() {BX.tooltip.checkCallTo(\'im-video-call-button'.$arResult["User"]["ID"].'\'); };</script>';
+						$strToolbar2 .= '<script>BX.ready(function() {BX.tooltip.checkCallTo(\'im-video-call-button'.$arResult["User"]["ID"].'\'); };</script>';
 					}
 				}
 				elseif (
@@ -567,7 +567,7 @@ if (strlen($arResult["FatalError"]) <= 0)
 			);
 		}
 		elseif (
-			$arParams["USE_THUMBNAIL_LIST"] == "Y" 
+			$arParams["USE_THUMBNAIL_LIST"] == "Y"
 			&& intval($arParams["PERSONAL_PHOTO_FILE"]["ID"]) > 0
 		)
 		{

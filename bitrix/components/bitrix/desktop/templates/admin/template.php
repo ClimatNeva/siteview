@@ -14,16 +14,16 @@ if(!defined("BX_GADGET_DEFAULT"))
 {
 	define("BX_GADGET_DEFAULT", true);
 	?>
-	<script type="text/javascript">
+	<script>
 	var updateURL = '<?=CUtil::JSEscape(htmlspecialcharsback($arResult['UPD_URL']))?>';
 	var bxsessid = '<?=CUtil::JSEscape(bitrix_sessid())?>';
-	var language_id = '<?=CUtil::JSEscape(LANGUAGE_ID)?>';	
+	var language_id = '<?=CUtil::JSEscape(LANGUAGE_ID)?>';
 	var langGDError1 = '<?=CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_ERR1"))?>';
 	var langGDError2 = '<?=CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_ERR2"))?>';
 	var langGDConfirm1 = '<?=CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_CONF"))?>';
 	var langGDClearConfirm = '<?=CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_CLEAR_CONF"))?>';
 	var langGDCancel = "<?echo CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_CANCEL"))?>";
-	
+
 	BX.message({
 			langGDSettingsDialogTitle: '<?=CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_SETTINGS_DIALOG_TITLE"))?>',
 			langGDSettingsAllDialogTitle: '<?=CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_SETTINGS_ALL_DIALOG_TITLE"))?>',
@@ -36,7 +36,7 @@ if(!defined("BX_GADGET_DEFAULT"))
 	if ($arParams["MULTIPLE"] == "Y")
 	{
 		?>
-		<script type="text/javascript">
+		<script>
 		var desktopPage = '<?=CUtil::JSEscape(htmlspecialcharsback($arParams["DESKTOP_PAGE"]))?>';
 		var desktopBackurl = '<?=CUtil::JSEscape(htmlspecialcharsback($GLOBALS["APPLICATION"]->GetCurPageParam("", array("dt_page"))))?>';
 		</script>
@@ -45,7 +45,7 @@ if(!defined("BX_GADGET_DEFAULT"))
 
 	if($arResult["PERMISSION"] > "R"):?>
 		<script type="text/javascript" src="/bitrix/components/bitrix/desktop/script.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/desktop/script.js');?>"></script>
-		<script type="text/javascript" src="/bitrix/components/bitrix/desktop/templates/admin/script_admin.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/desktop/templates/admin/script_admin.js');?>"></script>	
+		<script type="text/javascript" src="/bitrix/components/bitrix/desktop/templates/admin/script_admin.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/desktop/templates/admin/script_admin.js');?>"></script>
 	<?endif?>
 	<?
 }
@@ -81,21 +81,21 @@ if($arResult["PERMISSION"] > "R"):
 				);
 			}
 		}
-		
+
 		$arGadgetGroups[] = array(
 			"TEXT" => $arGroup["NAME"],
 			"TITLE" => $arGroup["DESCRIPTION"],
 			"MENU" => $arGadgets
 		);
 	}
-	
+
 	$arGadgetsButton =
 		array(
 			"TEXT" => GetMessage("CMDESKTOP_TDEF_ADD_BUTTON"),
 			"MENU" => $arGadgetGroups,
 			"ICON" => "btn_desktop_gadgets"
 		);
-	
+
 	$arSettingsMenu = array(
 		array(
 			"TEXT" => GetMessage("CMDESKTOP_TDEF_DESKTOP_ADD"),
@@ -142,7 +142,7 @@ if($arResult["PERMISSION"] > "R"):
 
 	$mContext = new CAdminContextMenu(array());
 	?>
-	<script type="text/javascript">
+	<script>
 		var arGDGroups = <?=CUtil::PhpToJSObject($arResult["GROUPS"])?>;
 		new BX.AdminGadget('<?=$arResult["ID"]?>', <?=CUtil::PhpToJSObject($allGD)?>);
 	</script>
@@ -193,11 +193,11 @@ endif;
 			$bChangable = true;
 			if (
 				(
-					!$GLOBALS["USER"]->IsAdmin() 
+					!$GLOBALS["USER"]->IsAdmin()
 					|| $arGadget["TOTALLY_FIXED"]
 				)
-				&& array_key_exists("GADGETS_FIXED", $arParams) 
-				&& is_array($arParams["GADGETS_FIXED"]) 
+				&& array_key_exists("GADGETS_FIXED", $arParams)
+				&& is_array($arParams["GADGETS_FIXED"])
 				&& in_array($arGadget["GADGET_ID"], $arParams["GADGETS_FIXED"])
 				&& array_key_exists("CAN_BE_FIXED", $arGadget)
 				&& $arGadget["CAN_BE_FIXED"]
@@ -236,7 +236,7 @@ endif;
 					<div class="bx-gadgets-content"><?=$arGadget["CONTENT"]?></div>
 				</div><?
 			}
-			
+
 			?><div style="display:none; border:1px #404040 dashed; margin-bottom:8px;" id="d<?=$arGadget["ID"]?>"></div>
 		<?endforeach;?>
 	</td>

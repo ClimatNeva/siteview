@@ -8,7 +8,7 @@ if ($arResult["SHOW_SELF_CLOSE"] == "Y")
 {
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html lang=ru><body>
-<script type="text/javascript">
+<script>
 <?=($_REQUEST["search_insert"] == "Y" ? "opener" : "top")?>.document.getElementById("div_USER_ID").innerHTML = '<?=(
 	$arResult["SHOW_MODE"] == "none" ?
 		"<i>".GetMessageJS("PM_NOT_FINED")."</i>" : (
@@ -56,9 +56,9 @@ endif;
 		<span class="forum-filter-field-item"><input type="text" class="search-input" name="search_template" id="search_template" value="<?=$arResult["search_template"]?>" />
 		<input type=submit value="<?=GetMessage("PM_SEARCH")?>" name="do_search1" class="inputbutton" /></span>
 	</div>
-<?/*?>	
+<?/*?>
 	<div class="forum-filter-field forum-filter-footer">
-			
+
 			<input type=button value="<?=GetMessage("PM_CANCEL")?>" onclick='self.close();' class=inputbutton>
 		<div class="forum-clear-float"></div>
 	</div><?*/?>

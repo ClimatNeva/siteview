@@ -33,7 +33,7 @@ else
 	else
 	{
 		?>
-	<script type="text/javascript">
+	<script>
 		app.setPageTitle({"title" : "<?=GetMessage("SOA_ORDER_TITLE")?>"});
 	</script>
 	<a name="order_fform"></a>
@@ -62,12 +62,12 @@ else
 
 		function submitForm(val)
 		{
-			if(val != 'Y') 
+			if(val != 'Y')
 				BX('confirmorder').value = 'N';
 			else
 				BX('confirmorder').value = 'Y';
 			var orderForm = BX('ORDER_FORM');
-			
+
 			/*if (val == "Y")
 			{
 				BX.ajax.submitComponentForm(orderForm, 'order_form_content', true);

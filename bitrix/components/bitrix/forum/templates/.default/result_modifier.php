@@ -7,7 +7,7 @@
 	$res = $arResult;
 	$URL_NAME_DEFAULT = array(
 			"active" => "PAGE_NAME=active",
-			"forums" => "PAGE_NAME=forums&GID=#GID#", 
+			"forums" => "PAGE_NAME=forums&GID=#GID#",
 			"help" => "PAGE_NAME=help",
 			"index" => "",
 			"list" => "PAGE_NAME=list&FID=#FID#",
@@ -25,17 +25,17 @@
 		$res["URL_TEMPLATES_".strToUpper($URL)] = htmlspecialcharsbx($res["~URL_TEMPLATES_".strToUpper($URL)]);
 	}
 	$res["URL"] = array(
-		"ACTIVE" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_ACTIVE"], array()), 
-		"FORUMS" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_FORUMS"], array("GID" => "#GID#")), 
-		"FORUM" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_LIST"], array("FID" => "#FID#")), 
-		"INDEX" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_INDEX"], array()), 
-		"~INDEX" => CComponentEngine::MakePathFromTemplate($res["~URL_TEMPLATES_INDEX"], array()), 
-		"MESSAGES" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_PM_FOLDER"], array()), 
-		"PROFILE" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_PROFILE_VIEW"], array("UID" => $GLOBALS["USER"]->GetID())), 
-		"RULES" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_RULES"], array()), 
-		"SEARCH" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_SEARCH"], array()), 
-		"SUBSCRIBES" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_SUBSCR_LIST"], array()), 
-		"TOPICS" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_LIST"], array("FID" => 0)), 
+		"ACTIVE" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_ACTIVE"], array()),
+		"FORUMS" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_FORUMS"], array("GID" => "#GID#")),
+		"FORUM" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_LIST"], array("FID" => "#FID#")),
+		"INDEX" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_INDEX"], array()),
+		"~INDEX" => CComponentEngine::MakePathFromTemplate($res["~URL_TEMPLATES_INDEX"], array()),
+		"MESSAGES" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_PM_FOLDER"], array()),
+		"PROFILE" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_PROFILE_VIEW"], array("UID" => $GLOBALS["USER"]->GetID())),
+		"RULES" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_RULES"], array()),
+		"SEARCH" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_SEARCH"], array()),
+		"SUBSCRIBES" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_SUBSCR_LIST"], array()),
+		"TOPICS" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_LIST"], array("FID" => 0)),
 		"USERS" => CComponentEngine::MakePathFromTemplate($res["URL_TEMPLATES_USER_LIST"], array()));
 	$arResult["URL_TEMPLATES"] = $res["URL"];
 /***************** ADDITIONAL **************************************/
@@ -87,7 +87,7 @@ $arThemes = array();
 $sTemplateDirFull = preg_replace("'[\\\\/]+'", "/", dirname(realpath(__FILE__))."/");
 $dir = $sTemplateDirFull."themes/";
 if (is_dir($dir) && $directory = opendir($dir)):
-	
+
 	while (($file = readdir($directory)) !== false)
 	{
 		if ($file != "." && $file != ".." && is_dir($dir.$file))
@@ -107,7 +107,7 @@ $arParams["SHOW_LEGEND"] = ($arParams["SHOW_LEGEND"] == "N" ? "N" : "Y");
 $arParams["SHOW_STATISTIC"] = ($arParams["SHOW_STATISTIC"] == "N" ? "N" : "Y");
 if (!is_set($arParams, "SHOW_STATISTIC_BLOCK"))
 	$arParams["SHOW_STATISTIC_BLOCK"] = ($arParams["SHOW_STATISTIC"] == "Y" ? array("STATISTIC", "BIRTHDAY", "USERS_ONLINE") : array());
-$arParams["SHOW_STATISTIC_BLOCK"] = (is_array($arParams["SHOW_STATISTIC_BLOCK"]) ? $arParams["SHOW_STATISTIC_BLOCK"] : array($arParams["SHOW_STATISTIC_BLOCK"])); 
+$arParams["SHOW_STATISTIC_BLOCK"] = (is_array($arParams["SHOW_STATISTIC_BLOCK"]) ? $arParams["SHOW_STATISTIC_BLOCK"] : array($arParams["SHOW_STATISTIC_BLOCK"]));
 $arParams["SHOW_NAME_LINK"] = "Y";
 $arParams["SHOW_FORUMS"] = ($arParams["SHOW_FORUMS"] == "N" ? "N" : "Y");
 $arParams["SHOW_FIRST_POST"] = ($arParams["SHOW_FIRST_POST"] == "Y" ? "Y" : "N");
@@ -192,25 +192,25 @@ if ($arParams["SHOW_FORUMS"] == "Y" && in_array($this->__page, array("forums", "
 		function __array_stretch($arGroup, $depth = 0)
 		{
 			$arResult = array();
-			
+
 			if (intVal($arGroup["ID"]) > 0)
 			{
 				$arResult["GROUP_".$arGroup["ID"]] = $arGroup;
 				unset($arResult["GROUP_".$arGroup["ID"]]["GROUPS"]);
 				unset($arResult["GROUP_".$arGroup["ID"]]["FORUM"]);
-				$arResult["GROUP_".$arGroup["ID"]]["DEPTH"] = $depth; 
-				$arResult["GROUP_".$arGroup["ID"]]["TYPE"] = "GROUP"; 
+				$arResult["GROUP_".$arGroup["ID"]]["DEPTH"] = $depth;
+				$arResult["GROUP_".$arGroup["ID"]]["TYPE"] = "GROUP";
 			}
 			if (array_key_exists("FORUMS", $arGroup))
 			{
 				foreach ($arGroup["FORUMS"] as $res)
 				{
-					$arResult["FORUM_".$res["ID"]] = $res; 
-					$arResult["FORUM_".$res["ID"]]["DEPTH"] = $depth; 
-					$arResult["FORUM_".$res["ID"]]["TYPE"] = "FORUM"; 
+					$arResult["FORUM_".$res["ID"]] = $res;
+					$arResult["FORUM_".$res["ID"]]["DEPTH"] = $depth;
+					$arResult["FORUM_".$res["ID"]]["TYPE"] = "FORUM";
 				}
 			}
-					
+
 			if (array_key_exists("GROUPS", $arGroup))
 			{
 				$depth++;
@@ -226,14 +226,14 @@ if ($arParams["SHOW_FORUMS"] == "Y" && in_array($this->__page, array("forums", "
 	$res = array();
 	$cache = new CPHPCache();
 	$cache_path_main = str_replace(array(":", "//"), "/", "/".SITE_ID."/".$this->__component->__name."/");
-	
+
 	foreach ($arParams["FID"] as $key => $val)
 	{
 		if (intVal($val) > 0)
 			$res[] = $val;
 	}
 	$arParams["FID_RANGE"] = $res;
-	
+
 
 	$arFilter = array();
 	$arForums = array();
@@ -242,7 +242,7 @@ if ($arParams["SHOW_FORUMS"] == "Y" && in_array($this->__page, array("forums", "
 	if (!empty($arParams["FID_RANGE"]))
 		$arFilter["@ID"] = $arParams["FID_RANGE"];
 	if ($GLOBALS["APPLICATION"]->GetGroupRight("forum") < "W"):
-		$arFilter["PERMS"] = array($GLOBALS["USER"]->GetGroups(), 'A'); 
+		$arFilter["PERMS"] = array($GLOBALS["USER"]->GetGroups(), 'A');
 		$arFilter["ACTIVE"] = "Y";
 	endif;
 	$cache_id = "forum_forums_".serialize($arFilter);
@@ -260,7 +260,7 @@ if ($arParams["SHOW_FORUMS"] == "Y" && in_array($this->__page, array("forums", "
 		$db_res = CForumNew::GetListEx(array("FORUM_GROUP_SORT"=>"ASC", "FORUM_GROUP_ID"=>"ASC", "SORT"=>"ASC", "NAME"=>"ASC"), $arFilter);
 		if ($db_res && ($res = $db_res->GetNext()))
 		{
-			do 
+			do
 			{
 				$arForums[$res["ID"]] = $res;
 			} while ($res = $db_res->GetNext());
@@ -281,7 +281,7 @@ if ($arParams["SHOW_FORUMS"] == "Y" && in_array($this->__page, array("forums", "
 	{
 		$bResult = true;
 		$res = array("FORUMS" => $res);
-		while ($PARENT_ID > 0) 
+		while ($PARENT_ID > 0)
 		{
 			if (!array_key_exists($PARENT_ID, $arResult["GROUPS"]))
 			{
@@ -300,7 +300,7 @@ if ($arParams["SHOW_FORUMS"] == "Y" && in_array($this->__page, array("forums", "
 	}
 	$arResult["GROUPS_FORUMS"] = __array_stretch($arGroups);
 endif;
-?><script type="text/javascript">
+?><script>
 //<![CDATA[
 	BX.message({
 		F_LOAD : '<?=GetMessageJS("F_LOAD")?>',

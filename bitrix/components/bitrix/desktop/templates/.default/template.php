@@ -7,7 +7,7 @@ if(!defined("BX_GADGET_DEFAULT"))
 {
 	define("BX_GADGET_DEFAULT", true);
 
-	?><script type="text/javascript">
+	?><script>
 	var updateURL = '<?=CUtil::JSEscape(htmlspecialcharsback($arResult['UPD_URL']))?>';
 	var bxsessid = '<?=CUtil::JSEscape(bitrix_sessid())?>';
 	var langGDError1 = '<?=CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_ERR1"))?>';
@@ -36,7 +36,7 @@ if($arResult["PERMISSION"]>"R")
 			);
 	}
 
-	?><script type="text/javascript">
+	?><script>
 		var arGDGroups = <?=CUtil::PhpToJSObject($arResult["GROUPS"])?>;
 		new BXGadget('<?=$arResult["ID"]?>', <?=CUtil::PhpToJSObject($allGD)?>);
 	</script>
@@ -64,7 +64,7 @@ if($arResult["PERMISSION"]>"R")
 				<span class="bx-gd-r"></span>
 			</div><?
 		}
-		
+
 		?><div class="bx-gd-button bx-gd-clear" onclick="getGadgetHolder('<?=AddSlashes($arResult["ID"])?>').ClearUserSettingsConfirm();">
 			<span class="bx-gd-l"></span>
 			<span class="bx-gd-c"><span class="bx-gd-text"><a href="javascript:void(0)"><?echo GetMessage("CMDESKTOP_TDEF_CLEAR")?></a></span></span>
@@ -106,15 +106,15 @@ if($arResult["PERMISSION"]>"R")
 				</td>
 				<td class="gd-page-column<?=$i?>" valign="top"  width="<?=$arResult["COLUMN_WIDTH"][$i]?>" id="s1"><?
 			}
-		
+
 			foreach($arResult["GADGETS"][$i] as $arGadget)
 			{
 				$bChangable = true;
 
 				if (
-					!$GLOBALS["USER"]->IsAdmin() 
-					&& array_key_exists("GADGETS_FIXED", $arParams) 
-					&& is_array($arParams["GADGETS_FIXED"]) 
+					!$GLOBALS["USER"]->IsAdmin()
+					&& array_key_exists("GADGETS_FIXED", $arParams)
+					&& is_array($arParams["GADGETS_FIXED"])
 					&& in_array($arGadget["GADGET_ID"], $arParams["GADGETS_FIXED"])
 					&& array_key_exists("CAN_BE_FIXED", $arGadget)
 					&& $arGadget["CAN_BE_FIXED"]

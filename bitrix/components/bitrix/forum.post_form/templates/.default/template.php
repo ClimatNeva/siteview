@@ -3,7 +3,7 @@ CUtil::InitJSCore(array('translit', 'autosave'));
 $postMessageTabIndex = $tabIndex = $arParams["tabIndex"];
 $fileControlId = 'forumfiles'.$arParams["FORUM"]["ID"];
 ?>
-<script type="text/javascript">
+<script>
 BX.message({
 	no_topic_name : '<?=GetMessageJS("JERROR_NO_TOPIC_NAME")?>',
 	no_message : '<?=GetMessageJS("JERROR_NO_MESSAGE")?>',
@@ -31,8 +31,8 @@ if ($arResult["MESSAGE_TYPE"] == "NEW")
 {
 	?><?=GetMessage("F_CREATE_IN_FORUM")?>: <a href="<?=$arResult["URL"]["LIST"]?>"><?=$arResult["FORUM"]["NAME"]?></a><?
 }
-elseif ($arResult["MESSAGE_TYPE"] == "REPLY") 
-{ 
+elseif ($arResult["MESSAGE_TYPE"] == "REPLY")
+{
 	?><?=GetMessage("F_REPLY_FORM")?><?
 }
 else
@@ -40,13 +40,13 @@ else
 	?><?=GetMessage("F_EDIT_FORM")?> <?=GetMessage("F_IN_TOPIC")?>:
 		<a href="<?=$arResult["URL"]["READ"]?>"><?=htmlspecialcharsbx($arResult["TOPIC_FILTER"]["TITLE"])?></a>, <?=GetMessage("F_IN_FORUM")?>:
 		<a href="<?=$arResult["URL"]["LIST"]?>"><?=$arResult["FORUM"]["NAME"]?></a><?
-};	
+};
 	?></span></div>
 </div>
 
 <div class="forum-reply-form">
 <?
-if (!empty($arResult["ERROR_MESSAGE"])) 
+if (!empty($arResult["ERROR_MESSAGE"]))
 {
 ?>
 <div class="forum-note-box forum-note-error">
@@ -108,7 +108,7 @@ if (($arResult["SHOW_PANEL_NEW_TOPIC"] == "Y" || $arResult["SHOW_PANEL_GUEST"] =
 			<div class="forum-reply-field forum-reply-field-author"><label for="AUTHOR_NAME<?=$arParams["form_index"]?>"><?=GetMessage("F_TYPE_NAME")?><?
 				?><span class="forum-required-field">*</span></label>
 				<span><input name="AUTHOR_NAME" id="AUTHOR_NAME<?=$arParams["form_index"]?>" size="30" type="text" value="<?=$arResult["MESSAGE"]["AUTHOR_NAME"];?>" tabindex="<?=$tabIndex++;?>" /></span></div>
-<?		
+<?
 		if ($arResult["FORUM"]["ASK_GUEST_EMAIL"]=="Y")
 		{
 ?>
@@ -198,7 +198,7 @@ if ($arResult["SHOW_PANEL_NEW_TOPIC"] == "Y" && $arParams["SHOW_TAGS"] == "Y")
 	?></div><?
 	$sQuestion = ob_get_clean();
 ?>
-<script type="text/javascript">
+<script>
 	var arVoteParams = {
 		'template_answer' : '<?=CUtil::JSEscape(str_replace("#A_VALUE#", "", $sAnswer))?>',
 		'template_question' : '<?=CUtil::JSEscape(str_replace(
@@ -375,7 +375,7 @@ if ($arResult["SHOW_PANEL_EDIT"] == "Y")
 				?>onclick="BX.Forum.ShowLastEditReason(this.checked, this.parentNode.nextSibling)" />&nbsp;<?
 			?><label for="EDIT_ADD_REASON<?=$arParams["form_index"]?>"><?=GetMessage("F_EDIT_ADD_REASON")?></label></div><?
 	};
-	
+
 		?><div class="forum-reply-field-lastedit-reason" <?
 		if (!$checked)
 		{

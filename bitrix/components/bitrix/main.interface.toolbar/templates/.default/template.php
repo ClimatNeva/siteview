@@ -60,13 +60,13 @@ foreach($arParams["BUTTONS"] as $index=>$item):
 		if(!empty($item["MENU"])):
 ?>
 			<td>
-				<script type="text/javascript">
+				<script>
 				var jsMnu_<?=$arParams["TOOLBAR_ID"].'_'.$index?> = <?=CUtil::PhpToJSObject($item["MENU"])?>;
 				</script>
-				<a href="javascript:void(0);" hidefocus="true" 
-					onclick="this.blur(); jsPopup_<?=$arParams["TOOLBAR_ID"]?>.ShowMenu(this, jsMnu_<?=$arParams["TOOLBAR_ID"].'_'.$index?>); return false;" 
+				<a href="javascript:void(0);" hidefocus="true"
+					onclick="this.blur(); jsPopup_<?=$arParams["TOOLBAR_ID"]?>.ShowMenu(this, jsMnu_<?=$arParams["TOOLBAR_ID"].'_'.$index?>); return false;"
 					title="<?=$item["TITLE"]?>" class="bx-context-button<?=(!empty($item["ICON"])? ' bx-icon '.$item["ICON"]:'')?>"><?=$item["TEXT"]?><img src="<?=$this->GetFolder()?>/images/arr_down.gif" class="bx-arrow" alt=""></a></td>
-<?		
+<?
 		elseif($item["HTML"] <> ""):
 ?>
 				<td><?=$item["HTML"]?></td>
@@ -98,7 +98,7 @@ endforeach;
 	</tr>
 </table>
 
-<script type="text/javascript">
+<script>
 var jsPopup_<?=$arParams["TOOLBAR_ID"]?> = new PopupMenu('Popup<?=$arParams["TOOLBAR_ID"]?>');
 </script>
 

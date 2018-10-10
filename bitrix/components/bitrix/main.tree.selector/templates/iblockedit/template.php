@@ -19,7 +19,7 @@ if($arParams['SHOW_INPUT'] == 'Y'):?>
 	<input type="button" onclick="<?echo $name_x?>.Show()" value="<?echo $arParams['BUTTON_CAPTION'] ? $arParams['BUTTON_CAPTION'] : '...'?>" title="<?php echo ('' != $arParams['BUTTON_TITLE'] ? $arParams['BUTTON_TITLE'] : '');?>" />
 <?endif;?>
 
-<script type="text/javascript">
+<script>
 <?if($arParams['INPUT_NAME'] && !$arParams['ONSELECT']):?>
 	function OnSelect_<?=$name_x?>(value){
 		document.getElementById('<?=$arParams['INPUT_NAME']?>').value = value;

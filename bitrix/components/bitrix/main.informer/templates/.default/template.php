@@ -1,15 +1,15 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<script type="text/javascript">
+<script>
 	jsBXMI.Init(
 		{
-			'STEP': '<?echo CUtil::JSEscape($arResult["informer"]["step"]);?>',		
+			'STEP': '<?echo CUtil::JSEscape($arResult["informer"]["step"]);?>',
 			'STEPS': '<?echo CUtil::JSEscape($arResult["informer"]["steps"]);?>',
 			'ID': '<?echo CUtil::JSEscape($arParams["ID"])?>',
-			'TEXT': <?echo CUtil::PhpToJSObject($arResult["text"])?>			
+			'TEXT': <?echo CUtil::PhpToJSObject($arResult["text"])?>
 		}
 	);
 </script>
-		
+
 <div class="wd-infobox wd-info-banner"><?
 	?><div class="wd-infobox-inner"><?
 		?><div class="wd-info-banner-head"><?
