@@ -15,8 +15,8 @@
                                 $printValue = $arProp["NAME"].": ".$arResult["SKU_PROPS"][$propCode]["VALUES"][$arProp["VALUE"]]["NAME"];
                             } else if ($offer["PROPERTIES"][$propCode]["PROPERTY_TYPE"] == "S") {
                                 $printValue = $offer["PROPERTIES"][$propCode]["NAME"].": ".$offer["PROPERTIES"][$propCode]["VALUE"];
-                            } else if ($offer["PROPERTIES"][$propCode]["PROPERTY_TYPE"] == "L" 
-                                        && $offer["PROPERTIES"][$propCode]["MULTIPLE"] == "Y" 
+                            } else if ($offer["PROPERTIES"][$propCode]["PROPERTY_TYPE"] == "L"
+                                        && $offer["PROPERTIES"][$propCode]["MULTIPLE"] == "Y"
                                             && $offer["PROPERTIES"][$propCode]["VALUE"]) {
                                 $printValue = $offer["PROPERTIES"][$propCode]["NAME"].": ";
                                 $valueCount = count($offer["PROPERTIES"][$propCode]["VALUE"])-1;
@@ -43,7 +43,7 @@
                     <div class="offers-display-props"><?=$propsStr?></div>
                     <input type="hidden" value="<?=$propsStr?>" class="offers-props">
                 </td>
-                
+
                 <td class="basket-line-qty">
                     <span class="bxr-market-current-price bxr-market-format-price hidden-lg hidden-md hidden-sm" id="<? echo $arItemIDs['PRICE']; ?>"><?=CurrencyFormat($arPrice['DISCOUNT_VALUE'], $arPrice['CURRENCY'])?></span>
                     <div class="offers-btn-wrap" data-item="<?=$offer["ID"]?>">
@@ -258,7 +258,7 @@ if ('Y' == $arElementParams['PRODUCT_DISPLAY_MODE'])
                     );
             }
             ?>
-<script type="text/javascript">
+<script>
 var <? echo $strObName; ?> = new JCCatalogSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 </script>
             <?

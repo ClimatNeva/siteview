@@ -185,7 +185,7 @@ if ('Y' == $arElementParams['PRODUCT_DISPLAY_MODE'])
                     );
             }
             ?>
-<script type="text/javascript">
+<script>
 var <? echo $strObName; ?> = new JCCatalogSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 </script>
             <?

@@ -66,7 +66,7 @@ $frame = $this->createFrame()->begin();
 		);
 	endif;?>
 </div>
-<script type="text/javascript">
+<script>
 <?if (strlen($arResult["LAST_LOGIN"])>0):?>
 try{document.form_auth.USER_PASSWORD.focus();}catch(e){}
 <?else:?>

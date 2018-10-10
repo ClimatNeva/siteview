@@ -17,7 +17,7 @@ $injectId = 'bigdata_recommeded_products_'.rand();
 
 ?>
 
-<script type="text/javascript">
+<script>
 	BX.cookie_prefix = '<?=CUtil::JSEscape(COption::GetOptionString("main", "cookie_name", "BITRIX_SM"))?>';
 	BX.cookie_domain = '<?=$APPLICATION->GetCookieDomain()?>';
 	BX.current_server_time = '<?=time()?>';
@@ -46,7 +46,7 @@ if (isset($arResult['REQUEST_ITEMS']))
 
 	<span id="<?=$injectId?>" class="bigdata_recommended_products_container"></span>
 
-	<script type="text/javascript">
+	<script>
 		BX.ready(function(){
 			bx_rcm_get_from_cloud(
 				'<?=CUtil::JSEscape($injectId)?>',
@@ -71,7 +71,7 @@ if (!empty($arResult['ITEMS']))
     if ($unicumID<=0) {$unicumID = 1;} else {$unicumID++;}
     $elementDraw = \Alexkova\Bxready\Draw::getInstance($this);
     $elementDraw->setCurrentTemplate($this);
-	?><script type="text/javascript">
+	?><script>
 	BX.message({
 		CBD_MESS_BTN_BUY: '<? echo ('' != $arParams['MESS_BTN_BUY'] ? CUtil::JSEscape($arParams['MESS_BTN_BUY']) : GetMessageJS('CVP_TPL_MESS_BTN_BUY')); ?>',
 		CBD_MESS_BTN_ADD_TO_BASKET: '<? echo ('' != $arParams['MESS_BTN_ADD_TO_BASKET'] ? CUtil::JSEscape($arParams['MESS_BTN_ADD_TO_BASKET']) : GetMessageJS('CVP_TPL_MESS_BTN_ADD_TO_BASKET')); ?>',
@@ -238,13 +238,13 @@ if (!empty($arResult['ITEMS']))
 			: $arItem['NAME']
 		);
 		$showImgClass = $arParams['SHOW_IMAGE'] != "Y" ? "no-imgs" : "";
-                
+
                 $arParams["AREA_ID"] = $strMainID;
                 $arParams["~ADD_URL_TEMPLATE"] = $arResult["~ADD_URL_TEMPLATE"];
                 $arParams["~BUY_URL_TEMPLATE"] = $arResult["~BUY_URL_TEMPLATE"];
                 $arParams["~COMPARE_URL_TEMPLATE"] = $arResult["~COMPARE_URL_TEMPLATE"];
                 $arParams["ITEM_IDS"] = $arItemIDs;
-                
+
                 if (strlen(COption::GetOptionString('alexkova.market', 'list_marker_type'))>0){
                     $arParams["BXREADY_LIST_MARKER_TYPE"] = COption::GetOptionString('alexkova.market', 'list_marker_type');
                 }
@@ -297,7 +297,7 @@ if (!empty($arResult['ITEMS']))
                         'HAS_OFFERS' => isset($arItem["OFFERS"]) && !empty($arItem["OFFERS"])?'Y':''
                 );
                 ?>
-                <script type="text/javascript">
+                <script>
                         var <? echo $strObName; ?> =
                         new JCCatalogBigdataProducts(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
                 </script>
@@ -305,7 +305,7 @@ if (!empty($arResult['ITEMS']))
 	}
 	?>
 	<div style="clear: both;"></div>
-        
+
 	</div>
 	</span>
 <?

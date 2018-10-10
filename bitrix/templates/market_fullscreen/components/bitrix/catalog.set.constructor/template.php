@@ -60,7 +60,7 @@ $blockWidth = 87/(1+$countDefSetItems);
 				<div class="bx_item_set_del" onclick="catalogSetDefaultObj_<? echo $intElementID; ?>.DeleteItem(this.parentNode, '<?=$arItem["ID"]?>')"></div>
 				<div style="clear: both;"></div>
 			</div>
-		<?endforeach?>            
+		<?endforeach?>
 
 		<div class="bx_item_set_hor_item result">
 			<span class="bx_item_set_result_block">
@@ -99,7 +99,7 @@ $popupParams["SET_ITEMS"] = $arResult["SET_ITEMS"];
 $popupParams["DEFAULT_SET_IDS"] = $arResult["DEFAULT_SET_IDS"];
 $popupParams["ITEMS_RATIO"] = $arResult["ITEMS_RATIO"];
 ?>
-<script type="text/javascript">
+<script>
 	BX.message({
 		setItemAdded2Basket: '<?=GetMessageJS("CATALOG_SET_ADDED2BASKET")?>',
 		setButtonBuyName: '<?=GetMessageJS("CATALOG_SET_BUTTON_BUY")?>',

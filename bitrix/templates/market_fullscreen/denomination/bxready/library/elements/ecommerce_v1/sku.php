@@ -24,7 +24,7 @@ if (!empty($arElementParams['SKU_PROPS']))
                                 $strOneWidth = '20%';
                                 $strSlideStyle = 'display: none;';
                         }
-                        
+
                         $templateRow .= '<div class="'.$strClass.'" id="#ITEM#_prop_'.$arProp['ID'].'_cont">'.
 '<span class="bx_item_section_name_gray">'.htmlspecialcharsex($arProp['NAME']).'</span>'.
 '<div class="bx_size_scroller_container"><div class="bx_size '.$rounded.'"><ul id="#ITEM#_prop_'.$arProp['ID'].'_list" style="width: '.$strWidth.';">';
@@ -186,7 +186,7 @@ if ('Y' == $arElementParams['PRODUCT_DISPLAY_MODE'])
                     );
             }
             ?>
-<script type="text/javascript">
+<script>
 var <? echo $strObName; ?> = new JCCatalogSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 </script>
             <?

@@ -115,7 +115,7 @@ if (!empty($arResult['ITEMS']))
 	}
 
 	?>
-	<script type="text/javascript">
+	<script>
 		BX.message({
 			CVP_MESS_BTN_BUY: '<? echo ('' != $arParams['MESS_BTN_BUY'] ? CUtil::JSEscape($arParams['MESS_BTN_BUY']) : GetMessageJS('CVP_TPL_MESS_BTN_BUY')); ?>',
 			CVP_MESS_BTN_ADD_TO_BASKET: '<? echo ('' != $arParams['MESS_BTN_ADD_TO_BASKET'] ? CUtil::JSEscape($arParams['MESS_BTN_ADD_TO_BASKET']) : GetMessageJS('CVP_TPL_MESS_BTN_ADD_TO_BASKET')); ?>',
@@ -135,13 +135,13 @@ if (!empty($arResult['ITEMS']))
 		});
 	</script>
 	<div class="bx_item_list_gift_horizontal col<? echo $arParams['LINE_ELEMENT_COUNT']; ?>">
-            
+
             <? if(empty($arParams['HIDE_BLOCK_TITLE']) || $arParams['HIDE_BLOCK_TITLE'] == 'N'){ ?>
                 <div class="bx_item_list_title bxr-color-button">
                     <? echo ($arParams['BLOCK_TITLE']? htmlspecialcharsbx($arParams['BLOCK_TITLE']) : GetMessage('SGP_TPL_BLOCK_TITLE_DEFAULT')) ?>
                 </div>
             <? } ?>
-            
+
             <div class="bx_item_list_section">
                 <div class="bx_item_list_slide active">
                 <?
@@ -189,30 +189,30 @@ if (!empty($arResult['ITEMS']))
                         <div class="bxr-element-container">
 
                             <div class="bxr-element-image">
-                                <a id="<? echo $arItemIDs['PICT']; ?>" 
+                                <a id="<? echo $arItemIDs['PICT']; ?>"
                                    href="<? echo $arItem['DETAIL_PAGE_URL']; ?>"
-                                    <? if ($arParams['SHOW_IMAGE'] == "Y"){?> 
+                                    <? if ($arParams['SHOW_IMAGE'] == "Y"){?>
                                    style="background-image: url('<? echo($arParams['SHOW_IMAGE'] == "Y" ? $arItem['PREVIEW_PICTURE']['SRC'] : ""); ?>')"
-                                    <?}?> 
+                                    <?}?>
                                    title="<? echo $strTitle; ?>">
                                 </a>
                             </div>
-                            
+
                             <?if ($arItem['SECOND_PICT']){?>
-                                <a id="<? echo $arItemIDs['SECOND_PICT']; ?>" 
-                                   href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" 
-                                   class="bx_catalog_item_images_double" 
-                                   <? if ($arParams['SHOW_IMAGE'] == "Y"){?> style="display:none;background-image: url('<? echo(!empty($arItem['PREVIEW_PICTURE_SECOND'])? $arItem['PREVIEW_PICTURE_SECOND']['SRC'] : $arItem['PREVIEW_PICTURE']['SRC']); ?>')"<?}?> 
+                                <a id="<? echo $arItemIDs['SECOND_PICT']; ?>"
+                                   href="<? echo $arItem['DETAIL_PAGE_URL']; ?>"
+                                   class="bx_catalog_item_images_double"
+                                   <? if ($arParams['SHOW_IMAGE'] == "Y"){?> style="display:none;background-image: url('<? echo(!empty($arItem['PREVIEW_PICTURE_SECOND'])? $arItem['PREVIEW_PICTURE_SECOND']['SRC'] : $arItem['PREVIEW_PICTURE']['SRC']); ?>')"<?}?>
                                    title="<? echo $strTitle; ?>">
                                 </a>
                             <?}?>
-                            
+
                             <div class="bx_catalog_item_title">
                                 <a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" title="<? echo $arItem['NAME']; ?>">
                                     <? echo $arItem['NAME']; ?>
                                 </a>
 			</div>
-                        
+
                             <div class="bx_catalog_item_price" style="display:none;">
                                 <div id="<? echo $arItemIDs['PRICE']; ?>" class="bx_price">
 		<?
@@ -242,11 +242,11 @@ if (!empty($arResult['ITEMS']))
 		?>
 						</div>
 					</div>
-               
+
                             <?if (!isset($arItem['OFFERS']) || empty($arItem['OFFERS'])) {// Simple Product?>
                                 <div class="bx_catalog_item_controls bxr-element-action" id="<?=$arItemIDs["BASKET_ACTIONS"]?>">
                                     <?if ($arItem['CAN_BUY']){ ?>
-                                    
+
                                         <form class="bxr-basket-action bxr-basket-group bxr-currnet-torg" action="">
                                             <input type="text" name="quantity" value="1" class="bxr-quantity-text" data-item="<?=$arItem['ID']?>">
                                             <button id="<? echo $arItemIDs['BUY_LINK']; ?>" class="bxr-color-button bxr-color-button-small-only-icon bxr-basket-add">
@@ -255,19 +255,19 @@ if (!empty($arResult['ITEMS']))
                                             <input class="bxr-basket-item-id" type="hidden" name="item" value="<?=$arItem['ID']?>">
                                             <input type="hidden" name="action" value="add">
                                         </form>
-                                    
+
                                     <?}else{?>
-                                    
+
                                         <div class="bx_catalog_item_controls_blockone">
                                             <a class="bxr-color-button bxr-color-button-small-only-icon"  href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" rel="nofollow">
                                                     <?echo('' != $arParams['MESS_BTN_DETAIL'] ? $arParams['MESS_BTN_DETAIL'] : GetMessage('CVP_TPL_MESS_BTN_DETAIL')); ?>
                                             </a>
                                         </div>
-                                    
+
                                     <?}?>
                                     <div style="clear: both;"></div>
                                 </div>
-                            
+
                             <?
                             $emptyProductProperties = empty($arItem['PRODUCT_PROPERTIES']);
                             if ('Y' == $arParams['ADD_PROPERTIES_TO_BASKET'] && !$emptyProductProperties)
@@ -367,12 +367,12 @@ if (!empty($arResult['ITEMS']))
                                     'LAST_ELEMENT' => $arItem['LAST_ELEMENT']
                             );
                             ?>
-                            <script type="text/javascript">
+                            <script>
                                     var <? echo $strObName; ?> = new JCSaleGiftSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
                             </script>
-                                
+
                             <?} else {// Wth Sku?>
-                                
+
                                 <div class="bx_catalog_item_controls bxr-element-action no_touch" id="<?=$arItemIDs["BASKET_ACTIONS"]?>">
                                     <div class="bx_catalog_item_controls_blocktwo">
                                         <form class="bxr-basket-action bxr-basket-group bxr-currnet-torg" action="">
@@ -392,7 +392,7 @@ if (!empty($arResult['ITEMS']))
                                         <?echo('' != $arParams['MESS_BTN_DETAIL'] ? $arParams['MESS_BTN_DETAIL'] : GetMessage('CVP_TPL_MESS_BTN_DETAIL'));?>
                                     </a>
                                 </div>
-                                
+
                                 <?
                                 $boolShowOfferProps =  !!$arItem['OFFERS_PROPS_DISPLAY'];
                                 $boolShowProductProps = (isset($arItem['DISPLAY_PROPERTIES']) && !empty($arItem['DISPLAY_PROPERTIES']));
@@ -407,7 +407,7 @@ if (!empty($arResult['ITEMS']))
                                                 {
                                                         ?>
                                                             <br><? echo $arOneProp['NAME']; ?>
-                                                            <strong> 
+                                                            <strong>
                                                                 <?echo(is_array($arOneProp['DISPLAY_VALUE'])? implode(' / ', $arOneProp['DISPLAY_VALUE']): $arOneProp['DISPLAY_VALUE']); ?>
                                                             </strong>
                                                         <?
@@ -500,7 +500,7 @@ if (!empty($arResult['ITEMS']))
                                         'LAST_ELEMENT' => $arItem['LAST_ELEMENT']
                                 );
                                 ?>
-                                <script type="text/javascript">
+                                <script>
                                         var <? echo $strObName; ?> = new JCSaleGiftSection(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
                                 </script>
                             <?

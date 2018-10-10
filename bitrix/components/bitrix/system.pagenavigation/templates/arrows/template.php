@@ -45,7 +45,7 @@ if($arResult["bDescPageNumbering"] === true)
 	{
 		$bPrevDisabled = true;
 	}
-	
+
 	$sNextHref = '';
 	if ($arResult["NavPageNomer"] > 1)
 	{
@@ -109,7 +109,7 @@ else
 	if ($arResult["NavPageNomer"] > 1)
 	{
 		$bPrevDisabled = false;
-		
+
 		if ($arResult["bSavePage"] || $arResult["NavPageNomer"] > 2)
 		{
 			$sPrevHref = $arResult["sUrlPath"].'?'.$strNavQueryString.'PAGEN_'.$arResult["NavNum"].'='.($arResult["NavPageNomer"]-1);
@@ -192,7 +192,7 @@ endif;
 	</div>
 </div>
 <?CJSCore::Init();?>
-<script type="text/javascript">
+<script>
 	BX.bind(document, "keydown", function (event) {
 
 		event = event || window.event;

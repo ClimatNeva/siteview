@@ -189,7 +189,7 @@ endif;
 	</div> <!-- //navigation-pages-->
 </div>
 <?CJSCore::Init();?>
-<script type="text/javascript">
+<script>
 	BX.bind(document, "keydown", function (event) {
 
 		event = event || window.event;

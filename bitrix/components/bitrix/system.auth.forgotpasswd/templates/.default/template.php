@@ -20,7 +20,7 @@ if (strlen($arResult["BACKURL"]) > 0)
 
 <table class="data-table bx-forgotpass-table">
 	<thead>
-		<tr> 
+		<tr>
 			<td colspan="2"><b><?=GetMessage("AUTH_GET_CHECK_STRING")?></b></td>
 		</tr>
 	</thead>
@@ -30,7 +30,7 @@ if (strlen($arResult["BACKURL"]) > 0)
 			<td><input type="text" name="USER_LOGIN" maxlength="50" value="<?=$arResult["LAST_LOGIN"]?>" />&nbsp;<?=GetMessage("AUTH_OR")?>
 			</td>
 		</tr>
-		<tr> 
+		<tr>
 			<td><?=GetMessage("AUTH_EMAIL")?></td>
 			<td>
 				<input type="text" name="USER_EMAIL" maxlength="255" />
@@ -51,7 +51,7 @@ if (strlen($arResult["BACKURL"]) > 0)
 	<?endif?>
 	</tbody>
 	<tfoot>
-		<tr> 
+		<tr>
 			<td colspan="2">
 				<input type="submit" name="send_account_info" value="<?=GetMessage("AUTH_SEND")?>" />
 			</td>
@@ -60,8 +60,8 @@ if (strlen($arResult["BACKURL"]) > 0)
 </table>
 <p>
 <a href="<?=$arResult["AUTH_AUTH_URL"]?>"><b><?=GetMessage("AUTH_AUTH")?></b></a>
-</p> 
+</p>
 </form>
-<script type="text/javascript">
+<script>
 document.bform.USER_LOGIN.focus();
 </script>

@@ -89,7 +89,7 @@ if (array_key_exists("PROPERTIES", $arResult) && is_array($arResult["PROPERTIES"
 						BX.addClass(BX.findParent(this, {class : 'detail_item'}, false), 'add2cart');
 						return addItemToCart(this);" rel="nofollow"><?echo GetMessage("CATALOG_BUY")?></a>
 					<a class="detail_item_buykey_cartlink button_yellow_small" href="<?echo $arParams["BASKET_URL"]?>" rel="nofollow"><?echo GetMessage("CATALOG_IN_CART")?></a>
-				</noindex> 
+				</noindex>
 			</div>
 			<?endif;?>
 
@@ -240,7 +240,7 @@ if (array_key_exists("PROPERTIES", $arResult) && is_array($arResult["PROPERTIES"
 	<?endif;
 }
 ?>
-<script type="text/javascript">
+<script>
 	app.setPageTitle({"title" : "<?=CUtil::JSEscape(htmlspecialcharsback($arResult["NAME"]))?>"});
 	function showPhoto(arPhotos, descr)
 	{

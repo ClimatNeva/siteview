@@ -29,7 +29,7 @@ $arBasketJSParams = array(
 );
 ?>
 
-<script type="text/javascript">
+<script>
 	var basketJSParams = <?=CUtil::PhpToJSObject($arBasketJSParams);?>
 </script>
 

@@ -21,7 +21,7 @@ $this->setFrameMode(true);
                         <tr<? echo ($arParams['SHOW_EMPTY_STORE'] == 'N' && isset($store['REAL_AMOUNT']) && $store['REAL_AMOUNT'] <= 0 ? 'style="display: none;"' : ''); ?>>
                             <td class="bxr-props-name">
                                 <span><?=$arProperty["TITLE"]?></span><br>
-                            
+
                                 <?if (isset($arProperty["DESCRIPTION"])):?>
                                         <?=$arProperty["DESCRIPTION"]?><br />
                                 <?endif;?>
@@ -51,7 +51,7 @@ $this->setFrameMode(true);
                                 }
                                 ?>
                             </td>
-                            
+
                             <td class="bxr-props-data">
                                 <span class="balance" id="<?=$arResult['JS']['ID']?>_<?=$arProperty['ID']?>"><?=$arProperty["AMOUNT"]?></span>
                             </td>
@@ -64,7 +64,7 @@ $this->setFrameMode(true);
 </div>
 
 <?if (isset($arResult["IS_SKU"]) && $arResult["IS_SKU"] == 1):?>
-	<script type="text/javascript">
+	<script>
 		var obStoreAmount = new JCCatalogStoreSKU(<? echo CUtil::PhpToJSObject($arResult['JS'], false, true, true); ?>);
 	</script>
 	<?

@@ -7,7 +7,7 @@ if($USER->IsAuthorized() || $arParams["ALLOW_AUTO_REGISTER"] == "Y")
 		{
 			$APPLICATION->RestartBuffer();
 			?>
-			<script type="text/javascript">
+			<script>
 				window.top.location.href='<?=CUtil::JSEscape($arResult["REDIRECT_URL"])?>';
 			</script>
 			<?
@@ -85,7 +85,7 @@ if (!function_exists("cmpBySort"))
 		else
 		{
 			?>
-			<script type="text/javascript">
+			<script>
 
 			<?if(CSaleLocation::isLocationProEnabled()):?>
 
@@ -197,7 +197,7 @@ if (!function_exists("cmpBySort"))
 				foreach($arResult["ERROR"] as $v)
 					echo ShowError($v);
 				?>
-				<script type="text/javascript">
+				<script>
 					top.BX.scrollToNode(top.BX('ORDER_FORM'));
 				</script>
 				<?
@@ -244,7 +244,7 @@ if (!function_exists("cmpBySort"))
 			else
 			{
 				?>
-				<script type="text/javascript">
+				<script>
 					top.BX('confirmorder').value = 'Y';
 					top.BX('profile_change').value = 'N';
 				</script>
@@ -262,15 +262,15 @@ if (!function_exists("cmpBySort"))
 	<div style="display: none">
 		<?// we need to have all styles for sale.location.selector.steps, but RestartBuffer() cuts off document head with styles in it?>
 		<?$APPLICATION->IncludeComponent(
-			"bitrix:sale.location.selector.steps", 
-			".default", 
+			"bitrix:sale.location.selector.steps",
+			".default",
 			array(
 			),
 			false
 		);?>
 		<?$APPLICATION->IncludeComponent(
-			"bitrix:sale.location.selector.search", 
-			".default", 
+			"bitrix:sale.location.selector.search",
+			".default",
 			array(
 			),
 			false

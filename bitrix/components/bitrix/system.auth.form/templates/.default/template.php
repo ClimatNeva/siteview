@@ -52,7 +52,7 @@ if ($arResult['SHOW_ERRORS'] == 'Y' && $arResult['ERROR'])
 					<div class="bx-auth-secure-icon bx-auth-secure-unlock"></div>
 				</span>
 				</noscript>
-<script type="text/javascript">
+<script>
 document.getElementById('bx_auth_secure<?=$arResult["RND"]?>').style.display = 'inline-block';
 </script>
 <?endif?>
@@ -90,12 +90,12 @@ document.getElementById('bx_auth_secure<?=$arResult["RND"]?>').style.display = '
 			<td colspan="2">
 				<div class="bx-auth-lbl"><?=GetMessage("socserv_as_user_form")?></div>
 <?
-$APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "icons", 
+$APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "icons",
 	array(
 		"AUTH_SERVICES"=>$arResult["AUTH_SERVICES"],
 		"SUFFIX"=>"form",
-	), 
-	$component, 
+	),
+	$component,
 	array("HIDE_ICONS"=>"Y")
 );
 ?>
@@ -107,15 +107,15 @@ $APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "icons",
 
 <?if($arResult["AUTH_SERVICES"]):?>
 <?
-$APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "", 
+$APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "",
 	array(
 		"AUTH_SERVICES"=>$arResult["AUTH_SERVICES"],
 		"AUTH_URL"=>$arResult["AUTH_URL"],
 		"POST"=>$arResult["POST"],
 		"POPUP"=>"Y",
 		"SUFFIX"=>"form",
-	), 
-	$component, 
+	),
+	$component,
 	array("HIDE_ICONS"=>"Y")
 );
 ?>
