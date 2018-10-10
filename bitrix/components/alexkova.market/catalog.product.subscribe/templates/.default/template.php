@@ -37,7 +37,7 @@ $templateData = $paramsForJs;
         <?}?>
 </span>
 <input type="hidden" id="<?=htmlspecialcharsbx($arResult['BUTTON_ID'])?>_hidden">
-<script type="text/javascript">
+<script>
 	var <?=$jsObject?> = new JCCatalogProductSubscribe(<?=CUtil::phpToJSObject($paramsForJs, false, true)?>);
 
 	BX.message({

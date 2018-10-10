@@ -31,7 +31,7 @@ if (isset($arResult['REQUEST_ITEMS']))
 
 	<span id="<?=$injectId?>"></span>
 
-	<script type="text/javascript">
+	<script>
 		BX.ready(function(){
 			bx_rcm_get_from_cloud(
 				'<?=CUtil::JSEscape($injectId)?>',
@@ -54,15 +54,15 @@ if (isset($arResult['REQUEST_ITEMS']))
 
 
 // regular template then
-// if customized template, for better js performance don't forget to frame content with <span id="{$injectId}_items">...</span> 
+// if customized template, for better js performance don't forget to frame content with <span id="{$injectId}_items">...</span>
 
 if (!empty($arResult['ITEMS']))
 {
 	?>
 
 	<span id="<?=$injectId?>_items">
-	
-	<script type="text/javascript">
+
+	<script>
 	BX.message({
 		CBD_MESS_BTN_BUY: '<? echo ('' != $arParams['MESS_BTN_BUY'] ? CUtil::JSEscape($arParams['MESS_BTN_BUY']) : GetMessageJS('CVP_TPL_MESS_BTN_BUY')); ?>',
 		CBD_MESS_BTN_ADD_TO_BASKET: '<? echo ('' != $arParams['MESS_BTN_ADD_TO_BASKET'] ? CUtil::JSEscape($arParams['MESS_BTN_ADD_TO_BASKET']) : GetMessageJS('CVP_TPL_MESS_BTN_ADD_TO_BASKET')); ?>',
@@ -468,7 +468,7 @@ if (!empty($arResult['ITEMS']))
 		'LAST_ELEMENT' => $arItem['LAST_ELEMENT']
 	);
 	?>
-		<script type="text/javascript">
+		<script>
 			var <? echo $strObName; ?> = new JCCatalogBigdataProducts(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 		</script><?
 	}
@@ -647,7 +647,7 @@ if (!empty($arResult['ITEMS']))
 		'LAST_ELEMENT' => $arItem['LAST_ELEMENT']
 	);
 	?>
-		<script type="text/javascript">
+		<script>
 			var <? echo $strObName; ?> = new JCCatalogBigdataProducts(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 		</script>
 	<?

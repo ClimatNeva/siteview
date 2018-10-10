@@ -364,7 +364,7 @@ else
 
 	$lAdmin->BeginEpilogContent();
 	?>
-	<script type="text/javascript">
+	<script>
 	BX.ready(function(){
 	<?
 	if (!empty($arSku))
@@ -660,7 +660,7 @@ else
 	</div>
 	<? if (!$arResult['RELOAD']): ?>
 	</div>
-	<script type="text/javascript">
+	<script>
 		<?=$tableId?>_helper = new BX.Catalog.ProductSearchDialog({
 			tableId: '<?=$tableId?>',<?
 			if ($arResult['JS_CALLBACK'] != '' || $arResult['JS_EVENT'] != '')
@@ -686,7 +686,7 @@ else
 		BX('<?=$tableId?>_query').focus();
 	</script>
 <? endif ?>
-	<script type="text/javascript">
+	<script>
 		<?
 		if (sizeof($arResult['IBLOCKS']) > 1):
 			$iblockMenu = array(array(

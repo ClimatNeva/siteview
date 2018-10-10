@@ -64,7 +64,7 @@ foreach ($arResult["ITEMS"] as $key => $arItem):
 		<div class="filter-separator"></div>
 
 
-		<script type="text/javascript">
+		<script>
 			var DoubleTrackBar<?=$key?> = new cDoubleTrackBar('drag_track_<?=$key?>', 'drag_tracker_<?=$key?>', 'left_slider_<?=$key?>', 'right_slider_<?=$key?>', {
 				OnUpdate: function () {
 					BX("<?echo $arItem["VALUES"]["MIN"]["CONTROL_ID"]?>").value = this.MinPos;

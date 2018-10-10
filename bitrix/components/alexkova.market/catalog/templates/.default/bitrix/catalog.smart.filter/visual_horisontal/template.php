@@ -132,7 +132,7 @@ if($arResult["ShowFilter"])
 						"colorAvailableInactive" => 'colorAvailableInactive_'.$key,
 					);
 					?>
-					<script type="text/javascript">
+					<script>
 						BX.ready(function(){
 							window['trackBar<?=$key?>'] = new BX.Iblock.SmartFilter(<?=CUtil::PhpToJSObject($arJsParams)?>);
 						});
@@ -166,7 +166,7 @@ if($arResult["ShowFilter"])
                                             <?=$arItem["NAME"]?>
                                             <?if ($arItem["FILTER_HINT"] <> ""):?>
                                                 <i id="item_title_hint_<?echo $arItem["ID"]?>" class="fa fa-question-circle bxr-font-color"></i>
-                                                <script type="text/javascript">
+                                                <script>
                                                         new top.BX.CHint({
                                                                 parent: top.BX("item_title_hint_<?echo $arItem["ID"]?>"),
                                                                 show_timeout: 10,
@@ -176,7 +176,7 @@ if($arResult["ShowFilter"])
                                                                 min_width: 250,
                                                                 hint: '<?= CUtil::JSEscape($arItem["FILTER_HINT"])?>'
                                                         });
-                                                </script>            
+                                                </script>
                                             <?endif;?>
                                         </div>
 					<div class="bx_filter_block" data-role="bx_filter_block">
@@ -234,7 +234,7 @@ if($arResult["ShowFilter"])
 									<div class="bx_ui_slider_pricebar_V"  style="left: 0;right: 0;" id="colorAvailableActive_<?=$key?>"></div>
 									<div class="bx_ui_slider_range" id="drag_tracker_<?=$key?>"  style="left: 0;right: 0;"></div>
                                                                         <a class="bx_ui_slider_handle left"  style="left:0;" href="javascript:void(0)" id="left_slider_<?=$key?>"></a>
-                                                                        <a class="bx_ui_slider_handle right" style="right:0;" href="javascript:void(0)" id="right_slider_<?=$key?>"></a>									
+                                                                        <a class="bx_ui_slider_handle right" style="right:0;" href="javascript:void(0)" id="right_slider_<?=$key?>"></a>
 								</div>
 								<?
 								$arJsParams = array(
@@ -256,7 +256,7 @@ if($arResult["ShowFilter"])
 									"colorAvailableInactive" => 'colorAvailableInactive_'.$key,
 								);
 								?>
-								<script type="text/javascript">
+								<script>
 									BX.ready(function(){
 										window['trackBar<?=$key?>'] = new BX.Iblock.SmartFilter(<?=CUtil::PhpToJSObject($arJsParams)?>);
 									});
@@ -601,7 +601,7 @@ if($arResult["ShowFilter"])
 			<div class="clb"></div>
 			<div class="bx_filter_button_box active">
 				<div class="bx_filter_block">
-					<div class="bx_filter_parameters_box_container">                                            
+					<div class="bx_filter_parameters_box_container">
 						<input class="bxr-color-button" type="submit" id="set_filter" name="set_filter" value="<?=GetMessage("CT_BCSF_SET_FILTER")?>" />
 						<input class="bx_filter_search_reset" type="submit" id="del_filter" name="del_filter" value="<?=GetMessage("CT_BCSF_DEL_FILTER")?>" />
 

@@ -96,7 +96,7 @@ if(!$arResult['USER_ID'] && !isset($arParams['GUEST_ACCESS'])):?>
 		</div>
 		</div>
 	</div>
-	<script type="text/javascript">
+	<script>
 		BX.ready(function() {
 			if(BX('cpsl-auth'))
 			{
@@ -119,7 +119,7 @@ if(!$arResult['USER_ID'] && !isset($arParams['GUEST_ACCESS'])):?>
 <?endif;
 
 ?>
-<script type="text/javascript">
+<script>
 	BX.message({
 		CPSL_MESS_BTN_DETAIL: '<?=('' != $arParams['MESS_BTN_DETAIL']
 			? CUtil::JSEscape($arParams['MESS_BTN_DETAIL']) : GetMessageJS('CPSL_TPL_MESS_BTN_DETAIL'));?>',
@@ -152,7 +152,7 @@ if(!empty($_GET['result']) && !empty($_GET['message']))
 		'NOTIFY_MESSAGE' => urldecode($_GET['message']),
 	);
 	?>
-	<script type="text/javascript">
+	<script>
 		var <?='jaClass_'.$randomString;?> = new JCCatalogProductSubscribeList(<?=CUtil::PhpToJSObject($arJSParams, false, true);?>);
 	</script>
 	<?
@@ -165,7 +165,7 @@ if (!empty($arResult['ITEMS']))
 
     $arParams["UNICUM_ID"] = $unicumID;
     foreach ($arResult["ITEMS"] as $key => $arItem) {
-        
+
         $strMainID = $this->GetEditAreaId($arItem['ID']);
         $arItemIDs = array(
                 'ID' => $strMainID,
@@ -190,9 +190,9 @@ if (!empty($arResult['ITEMS']))
                 'DISPLAY_PROP_DIV' => $strMainID . '_sku_prop',
                 'BASKET_PROP_DIV' => $strMainID . '_basket_prop'
         );
-        
+
         $strObName = 'ob' . preg_replace("/[^a-zA-Z0-9_]/", "x", $strMainID);
-        
+
         $arPrice = CCatalogProduct::GetOptimalPrice($arItem["ID"], 1, $USER->GetUserGroupArray(), 'N');
         $arItem["MIN_PRICE"] = array(
             "VALUE" => $arPrice["RESULT_PRICE"]["BASE_PRICE"],
@@ -253,7 +253,7 @@ if (!empty($arResult['ITEMS']))
                 <div id="<?=$strMainID?>" class="t_<?=$unicumID?> col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <?$elementDraw->showElement("unsubscribe", $arItem, $arParams);?>
                 </div>
-                <script type="text/javascript">
+                <script>
                     var <?=$strObName;?> = new JCCatalogProductSubscribeList(
                             <?=CUtil::PhpToJSObject($arJSParams, false, true);?>);
                 </script>
@@ -332,7 +332,7 @@ if (!empty($arResult['ITEMS']))
                     <div id="<?=$strMainID?>" class="<?=$strObName;?> t_<?=$unicumID?> col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <?$elementDraw->showElement("unsubscribe", $arOffer, $arParams);?>
                     </div>
-                    <script type="text/javascript">
+                    <script>
 			var <?=$strObName;?> = new JCCatalogProductSubscribeList(
 				<?=CUtil::PhpToJSObject($arJSParams, false, true);?>);
                     </script>
