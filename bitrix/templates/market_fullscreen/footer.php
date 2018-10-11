@@ -395,7 +395,7 @@ $APPLICATION->SetPageProperty("keywords", "-");
 		<?$formFrame->end();?>
 
     <link rel="stylesheet" href="https://cdn.envybox.io/widget/cbk.css">
-    <script src="https://cdn.envybox.io/widget/cbk.js?wcb_code=4d109f08a98140aad5296c7d4b78087d" charset="UTF-8" async></script>
+    <script src="https://cdn.envybox.io/widget/cbk.js?wcb_code=4d109f08a98140aad5296c7d4b78087d" async></script>
 	<!-- Yandex.Metrika counter -->
 	<script >
 		(function (d, w, c) {
