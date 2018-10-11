@@ -80,7 +80,7 @@ $obJSPopup = new CJSPopup('',
 // ======================== Show titlebar ============================= //
 $obJSPopup->ShowTitlebar();
 ?>
-<script src="/bitrix/js/main/dd.js" type="text/javascript"></script>
+<script src="/bitrix/js/main/dd.js"></script>
 
 <?
 if($strWarning <> "")

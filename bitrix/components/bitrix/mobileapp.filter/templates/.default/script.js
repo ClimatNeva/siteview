@@ -284,7 +284,7 @@ __MAAdminFilter.prototype.loadScript = function (url)
 	{
 		var el = document.createElement("script");
 		el.src = url;
-		el.type="text/javascript";
+		/*el.type="text/javascript";*/
 		BX.findChild(document, {tagName:'head'},true).appendChild(el);
 		this.loadedScripts[url] = true;
 	}

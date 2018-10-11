@@ -178,7 +178,7 @@ function SelectBoxFromArray(
 		$funName = preg_replace("/[^a-z0-9_]/i", "", $strBoxName);
 		$jsName = CUtil::JSEscape($strBoxName);
 
-		$strReturnBox = "<script type=\"text/javascript\">\n".
+		$strReturnBox = "<script>\n".
 			"function ".$funName."LinkUp()\n".
 			"{var number = document.".$form."['".$jsName."'].selectedIndex;\n".
 			"if(document.".$form."['".$jsName."'].options[number].value!=\"0\"){ \n".
@@ -236,7 +236,7 @@ function Calendar($sFieldName, $sFormName="skform", $sFromName="", $sToName="")
 	{
 		$bCalendarCode = true;
 		$func =
-			"<script type=\"text/javascript\">\n".
+			"<script>\n".
 			"<!--\n".
 			"window.Calendar = function(params, dateVal)\n".
 			"{\n".
@@ -280,7 +280,7 @@ function CalendarPeriod($sFromName, $sFromVal, $sToName, $sToVal, $sFormName="sk
 	{
 		$sname = $sFromName."_DAYS_TO_BACK";
 		$str = "
-<script type=\"text/javascript\">
+<script>
 function ".$sFromName."_SetDate()
 {
 	var number = document.".$sFormName.".".$sname.".selectedIndex-1;
@@ -298,7 +298,7 @@ function ".$sFromName."_SetDate()
 		if (strlen($value)>0 && $value!="NOT_REF")
 			$ds = "disabled";
 
-		?><script type="text/javascript">
+		?><script>
 			var dates = [];
 		<?
 		for ($i=0; $i<=90; $i++)
@@ -3667,7 +3667,7 @@ function FindUserID($tag_name, $tag_value, $user_name="", $form_name = "form1", 
 <iframe style=\"width:0px; height:0px; border:0px\" src=\"javascript:''\" name=\"hiddenframe".$tag_name."\" id=\"hiddenframe".$tag_name."\"></iframe>
 <input class=\"".$button_class."\" type=\"button\" name=\"FindUser\" id=\"FindUser\" OnClick=\"window.open('".$search_page."?lang=".LANGUAGE_ID."&FN=".$form_name."&FC=".$tag_name."', '', 'scrollbars=yes,resizable=yes,width=760,height=500,top='+Math.floor((screen.height - 560)/2-14)+',left='+Math.floor((screen.width - 760)/2-5));\" value=\"".$button_value."\">
 <span id=\"div_".$tag_name."\" class=\"adm-filter-text-search\">".$user_name."</span>
-<script type=\"text/javascript\">
+<script>
 ";
 		if($user_name=="")
 			$strReturn.= "var tv".$tag_name_x."='';\n";
@@ -4016,7 +4016,7 @@ function Help($module="", $anchor="", $help_file="")
 		$height = "500";
 		//$width = "545";
 		$width = "780";
-		echo "<script type=\"text/javascript\">
+		echo "<script>
 			<!--
 			function Help(file, module, anchor)
 			{
@@ -4280,7 +4280,7 @@ function IncludeAJAX()
 	/** @global CMain $APPLICATION */
 	global $APPLICATION;
 
-	$APPLICATION->AddHeadString('<script type="text/javascript">var ajaxMessages = {wait:"'.CUtil::JSEscape(GetMessage('AJAX_WAIT')).'"}</script>', true);
+	$APPLICATION->AddHeadString('<script>var ajaxMessages = {wait:"'.CUtil::JSEscape(GetMessage('AJAX_WAIT')).'"}</script>', true);
 	$APPLICATION->AddHeadScript('/bitrix/js/main/cphttprequest.js', true);
 }
 
@@ -4578,7 +4578,7 @@ class CJSCore
 
 		})(window, document, navigator);
 JS;
-		return '<script type="text/javascript" data-skip-moving="true">'.str_replace(array("\n", "\t"), "", $js)."</script>";
+		return '<script data-skip-moving="true">'.str_replace(array("\n", "\t"), "", $js)."</script>";
 	}
 
 	public static function GetScriptsList()
@@ -4717,7 +4717,7 @@ JS;
 			$arJSParams['accuracy'] = intval($params['accuracy']).'000';
 
 		$res = '<span id="'.htmlspecialcharsbx($id).'"></span>';
-		$res .= '<script type="text/javascript">BX.timer(\''.CUtil::JSEscape($id).'\', '.CUtil::PhpToJSObject($arJSParams).')</script>';
+		$res .= '<script>BX.timer(\''.CUtil::JSEscape($id).'\', '.CUtil::PhpToJSObject($arJSParams).')</script>';
 
 		return $res;
 	}
@@ -4749,7 +4749,7 @@ JS;
 			$res = '';
 			foreach ($js as $val)
 			{
-				$res .= '<script type="text/javascript" src="'.CUtil::GetAdditionalFileURL($val).'"></script>'."\r\n";
+				$res .= '<script src="'.CUtil::GetAdditionalFileURL($val).'"></script>'."\r\n";
 			}
 			return $res;
 		}
@@ -4787,7 +4787,7 @@ JS;
 
 		if ($jsMsg !== '')
 		{
-			$jsMsg = '<script type="text/javascript">'.$jsMsg.'</script>';
+			$jsMsg = '<script>'.$jsMsg.'</script>';
 			if ($bReturn)
 			{
 				return $jsMsg."\r\n";

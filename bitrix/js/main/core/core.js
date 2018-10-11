@@ -3298,7 +3298,7 @@ BX.evalGlobal = function(data)
 		var head = document.getElementsByTagName("head")[0] || document.documentElement,
 			script = document.createElement("script");
 
-		script.type = "text/javascript";
+		/*script.type = "text/javascript";*/
 
 		if (!BX.browser.IsIE())
 		{

@@ -964,7 +964,7 @@ function ShowVideoInput()
 			sSrc != '/bitrix/js/main/utils.js' && sSrc != '/bitrix/js/main/admin_tools.js') 
 		{
 			var newScript = document.createElement("script");
-			newScript.type = 'text/javascript';
+			/*newScript.type = 'text/javascript';*/
 			newScript.src = thisScript.src;
 			document.body.appendChild(newScript);
 		}

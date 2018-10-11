@@ -562,7 +562,7 @@ else
 							<td><?= htmlspecialcharsbx($arProp["NAME"]) ?>:</td>
 							<td>
 								<?if (array_key_exists("GetAdminFilterHTML", $arProp["PROPERTY_USER_TYPE"])):
-									echo "<script type='text/javascript'>var arClearHiddenFields = [];</script>";
+									echo "<script>var arClearHiddenFields = [];</script>";
 									echo call_user_func_array($arProp["PROPERTY_USER_TYPE"]["GetAdminFilterHTML"], array(
 										$arProp,
 										array("VALUE" => 'filter_el_property_'.$arProp["ID"]),
