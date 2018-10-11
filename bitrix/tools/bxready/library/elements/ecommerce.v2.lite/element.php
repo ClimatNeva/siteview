@@ -89,11 +89,6 @@ if ($useVoteRating)
 }
 $showCatalogQty = ('Y' == $arElementParams["SHOW_CATALOG_QUANTITY"]);
 ?>
-<!-->
-<?
-//print_r($arElementParams);
-?>
-<-->
 
 	<div class="bxr-ecommerce-v2-lite" data-uid="<?=$UID?>" data-resize="1" <?echo ($arItemIDs["ID"]!=""?'id="'.$arItemIDs["ID"].'"':'');?>>
 		<div class="bxr-element-container">
