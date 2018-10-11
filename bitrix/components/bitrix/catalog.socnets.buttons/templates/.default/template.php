@@ -92,7 +92,8 @@ if ($arResult["GP_USE"])
 	(function ()
 	{
 		var po = document.createElement('script');
-		/*po.type = 'text/javascript';*/
+		/*po.type = 'text/ javascript';*/
+		po.type = '';
 		po.async = true;
 		po.src = 'https://apis.google.com/js/plusone.js';
 		var s = document.getElementsByTagName('script')[0];

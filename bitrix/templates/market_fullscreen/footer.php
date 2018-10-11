@@ -414,7 +414,8 @@ $APPLICATION->SetPageProperty("keywords", "-");
 			var n = d.getElementsByTagName("script")[0],
 				s = d.createElement("script"),
 				f = function () { n.parentNode.insertBefore(s, n); };
-			/*s.type = "text/javascript";*/
+			/*s.type = "text / javascript";*/
+			s.type = "";
 			s.async = true;
 			s.src = "https://mc.yandex.ru/metrika/tag.js";
 
