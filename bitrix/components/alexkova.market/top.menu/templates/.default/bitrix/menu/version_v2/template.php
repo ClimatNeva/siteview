@@ -34,11 +34,11 @@ foreach($arResult as $arItem):?>
 		$addFirst = ' class="'.implode(" ",$addClass).'"';
 	}
 	?>
-    
-        <?  
-            $glyphicon = "";        
+
+        <?
+            $glyphicon = "";
             if($arItem["DEPTH_LEVEL"]==1 || $arItem["IS_PARENT"])
-                 $glyphicon = '<span class="glyphicon glyphicon-chevron-down"></span>';   
+                 $glyphicon = '<span class="glyphicon glyphicon-chevron-down"></span>';
         ?>
 
 	<li<?=$addFirst?>><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?><?=$glyphicon?></a>
@@ -62,8 +62,8 @@ foreach($arResult as $arItem):?>
     <?else:?>
             <li class="other pull-right" id="flex-menu-li">&nbsp;</li>
     <?endif;?>
-    <div class="clearfix"></div>
 </ul>
+<div class="clearfix"></div>
     </div></div>
     <?if($arParams["FULL_WIDTH"] == "Y"):?>
         </div></div>

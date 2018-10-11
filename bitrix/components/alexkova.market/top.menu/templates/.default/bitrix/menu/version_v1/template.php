@@ -4,7 +4,7 @@
 <?if (!empty($arResult)):?>
 <?
     $menu_arrow_top = "";
-    
+
     if($arParams['VARIANT_MENU'] == "version_v1" && $arParams['STYLE_MENU'] == "colored_light" )
         $menu_arrow_top = "menu_arrow_top";
 
@@ -21,14 +21,14 @@
     $previousLevel = 0;
     $flagFirst = true;
     $i = 0;
- 
+
 global $USER;
 if($USER->GetID() == "4") {
    /* echo "<pre>";
 print_r($arResult);
 echo "</pre>";*/
-} 
-    
+}
+
 foreach($arResult as $arItem):?>
 
 	<?if ($previousLevel && $arItem["DEPTH_LEVEL"] < $previousLevel):?>
@@ -48,19 +48,19 @@ foreach($arResult as $arItem):?>
 		$addFirst = ' class="'.implode(" ",$addClass).'"';
 	}
 	?>
-    
-        <?  
-            $glyphicon = "";        
+
+        <?
+            $glyphicon = "";
             if($arItem["DEPTH_LEVEL"]==1 && $arItem["IS_PARENT"])
-                 $glyphicon = '<span class="glyphicon glyphicon-chevron-down"></span>';   
+                 $glyphicon = '<span class="glyphicon glyphicon-chevron-down"></span>';
         ?>
-    
+
         <?if($i == 1):?>
         <li><a href="<?=$arItem["LINK"]?>">
                 Каталог<?=$glyphicon?>
                 <?$APPLICATION->IncludeComponent(
-                    "alexkova.market:top.menu.hover2", 
-                    ".default", 
+                    "alexkova.market:top.menu.hover2",
+                    ".default",
                     array(
                             "COMPONENT_TEMPLATE" => "tree",
                             "FIXED_MENU" => "Y",
@@ -98,13 +98,13 @@ foreach($arResult as $arItem):?>
                             "ADD_SECTIONS_CHAIN" => "Y"
                     ),
                     false
-                );?>    
+                );?>
             </a>
         <?endif;?>
 
 	<li<?=$addFirst?>><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?><?=$glyphicon?></a>
-            
-        <? ++$i?> 
+
+        <? ++$i?>
 
 	<?if (!$arItem["IS_PARENT"]):?>
 		</li>
@@ -125,8 +125,8 @@ foreach($arResult as $arItem):?>
     <?else:?>
         <li class="other pull-right" id="flex-menu-li">&nbsp;</li>
     <?endif;?>
-    <div class="clearfix"></div>
 </ul>
+<div class="clearfix"></div>
 </div></div>
     <?if($arParams["FULL_WIDTH"] == "Y"):?>
         </div></div>

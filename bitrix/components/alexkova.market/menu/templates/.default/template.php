@@ -4,7 +4,7 @@
 <nav>
     <ul class="bxr-service-menu">
         <?foreach($arResult as $arItem):
-            if($arParams["MAX_LEVEL"] == 1 && $arItem["DEPTH_LEVEL"] > 1) 
+            if($arParams["MAX_LEVEL"] == 1 && $arItem["DEPTH_LEVEL"] > 1)
                 continue;?>
             <?if($arItem["SELECTED"]):?>
                 <li>
@@ -16,7 +16,7 @@
                 </li>
             <?endif?>
         <?endforeach?>
-        <div class="clearfix"></div>
     </ul>
+    <div class="clearfix"></div>
 </nav>
 <?endif?>

@@ -31,7 +31,7 @@ if (!empty($arElementParams['SKU_PROPS']))
                                 $arOneValue['NAME'] = htmlspecialcharsbx($arOneValue['NAME']);
                                 $templateRow .= '<li data-treevalue="'.$arProp['ID'].'_'.$arOneValue['ID'].'" data-onevalue="'.$arOneValue['ID'].'" style="width: '.$strOneWidth.';" title="'.$arOneValue['NAME'].'" data-prop-name="'.htmlspecialcharsex($arProp['NAME']).'"><i></i><span class="cnt">'.$arOneValue['NAME'].'</span></li>';
                         }
-                        $templateRow .= '<div class="clearfix"></div></ul></div>'.
+                        $templateRow .= '</ul><div class="clearfix"></div></div>'.
 '<div class="bx_slide_left" id="#ITEM#_prop_'.$arProp['ID'].'_left" data-treevalue="'.$arProp['ID'].'" style="'.$strSlideStyle.'"></div>'.
 '<div class="bx_slide_right" id="#ITEM#_prop_'.$arProp['ID'].'_right" data-treevalue="'.$arProp['ID'].'" style="'.$strSlideStyle.'"></div>'.
 '</div></div>';
@@ -61,7 +61,7 @@ if (!empty($arElementParams['SKU_PROPS']))
                                 $templateRow .= '<li data-treevalue="'.$arProp['ID'].'_'.$arOneValue['ID'].'" data-onevalue="'.$arOneValue['ID'].'" style="width: '.$strOneWidth.'; padding-top: '.$strOneWidth.';" title="'.$arOneValue['NAME'].'" data-prop-name="'.htmlspecialcharsex($arProp['NAME']).'"><i title="'.$arOneValue['NAME'].'"></i>'.
 '<span class="cnt"><span class="cnt_item" style="background-image:url(\''.$arOneValue['PICT']['SRC'].'\');" title="'.$arOneValue['NAME'].'"></span></span></li>';
                         }
-                        $templateRow .= '<div class="clearfix"></div></ul></div>'.
+                        $templateRow .= '</ul><div class="clearfix"></div></div>'.
 '<div class="bx_slide_left" id="#ITEM#_prop_'.$arProp['ID'].'_left" data-treevalue="'.$arProp['ID'].'" style="'.$strSlideStyle.'"></div>'.
 '<div class="bx_slide_right" id="#ITEM#_prop_'.$arProp['ID'].'_right" data-treevalue="'.$arProp['ID'].'" style="'.$strSlideStyle.'"></div>'.
 '</div></div>';

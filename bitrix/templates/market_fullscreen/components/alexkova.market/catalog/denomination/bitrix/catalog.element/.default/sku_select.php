@@ -28,7 +28,7 @@ if ($arParams["OFFERS_VIEW"] == "CHOISE") {?>
         <?}?>
         <div  class="offers-cnt"></div>
     </div>
-<?}?>  
+<?}?>
 <?if ($arParams["OFFERS_VIEW"] == "SELECT") {?>
     <div class="bxr-sku-select-wrap" data-pid="<?=$chosenColor["ID"]?>">
         <i class="fa fa-chevron-down"></i>
@@ -51,7 +51,7 @@ if ($arParams["OFFERS_VIEW"] == "CHOISE") {?>
                     <div class="bxr-offers-props">
                         <?$propsStr = "";
                         foreach($offer["PROPERTIES"] as $propCode => $arProp):
-                            if (array_key_exists($propCode, $arResult["OFFERS_PROP"])): 
+                            if (array_key_exists($propCode, $arResult["OFFERS_PROP"])):
                                 $sPropId = $arResult["SKU_PROPS"][$propCode]["XML_MAP"][$arProp["VALUE"]];
                                 if ($arProp["PROPERTY_TYPE"] == "E") {
                                     $printValue = $arProp["NAME"].": ".$arResult["SKU_PROPS"][$propCode]["VALUES"][$arProp["VALUE"]]["NAME"];
@@ -60,7 +60,7 @@ if ($arParams["OFFERS_VIEW"] == "CHOISE") {?>
                                 } else {
                                     $printValue = $arProp["NAME"].": ".$arProp["VALUE"];
                                 }
-                                
+
                                 $propsStr .= $printValue.", ";
                             endif;
                         endforeach;
@@ -95,8 +95,8 @@ if ($arParams["OFFERS_VIEW"] == "CHOISE") {?>
                     <input type="hidden" value="<?=$offer['NAME']?>" class="bxr-icons-offer-name">
                 </li>
             <?endforeach;?>
-            <div class="clearfix"></div>
         </ul>
+        <div class="clearfix"></div>
         <div  class="offers-cnt"></div>
     </div>
 <? } ?>

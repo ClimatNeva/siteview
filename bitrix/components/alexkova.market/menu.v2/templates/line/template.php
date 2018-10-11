@@ -3,7 +3,7 @@
 <?if (!empty($arResult)):?>
     <ul class="bxr-topline-menu">
         <?foreach($arResult as $arItem):
-            if($arParams["MAX_LEVEL"] == 1 && $arItem["DEPTH_LEVEL"] > 1) 
+            if($arParams["MAX_LEVEL"] == 1 && $arItem["DEPTH_LEVEL"] > 1)
                 continue;?>
             <?if($arItem["SELECTED"]):?>
                 <li>
@@ -15,6 +15,6 @@
                 </li>
             <?endif?>
         <?endforeach?>
-        <div class="clearfix"></div>
     </ul>
+    <div class="clearfix"></div>
 <?endif?>
