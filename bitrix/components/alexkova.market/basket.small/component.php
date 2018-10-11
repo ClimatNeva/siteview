@@ -10,6 +10,9 @@ if (!CModule::IncludeModule("sale") || !CModule::IncludeModule("iblock") || !CMo
 
 $arResult = array();
 
+global $showIdCurrencyFormat;
+$showIdCurrencyFormat = true;
+
 global $eMarketBasketData;
 $eMarketBasketData = array(
 	"DELAY"=>array(),
@@ -118,7 +121,7 @@ if($newBasketUserID>0){
 	{
                 if (CSaleBasketHelper::isSetItem($arItem))
                     continue;
-                
+
 		if (!isset($arTradeList[$arItem["PRODUCT_ID"]])){
 			$arTradeList[$arItem["PRODUCT_ID"]] = CCatalogProduct::GetByIDEx($arItem["PRODUCT_ID"]);
 			if ($arTradeList[$arItem["PRODUCT_ID"]]["DETAIL_PICTURE"]>0){
@@ -144,7 +147,7 @@ if($newBasketUserID>0){
 			if (!isset($arItem["PICTURE"]) && (is_array($arTradeList[$arTradeList[$arItem["PRODUCT_ID"]]["PROPERTIES"]["CML2_LINK"]["VALUE"]]["DETAIL_PICTURE"])))
 				$arItem["PICTURE"] = $arTradeList[$arTradeList[$arItem["PRODUCT_ID"]]["PROPERTIES"]["CML2_LINK"]["VALUE"]]["DETAIL_PICTURE"]["SRC"];
 		}
-                
+
                 $arItem = getMeasures(array($arItem));
                 $arItem = getRatio($arItem);
                 $arItem = current($arItem);
@@ -152,12 +155,12 @@ if($newBasketUserID>0){
                 $arItem["RATIO"] = 1;
                 $arItem["START_QTY"] = 1;
                 $prodQty = $arTradeList[$arItem["PRODUCT_ID"]]['PRODUCT']["QUANTITY"];
-                
+
                 if($ratio_settings == "own_prop" && strlen($bxr_ratio_prop_code)>0)
                     $ratioPropValue = $arTradeList[$arItem["PRODUCT_ID"]]["PROPERTIES"][$bxr_ratio_prop_code]["VALUE"];
                 elseif($ratio_settings == "base")
                     $ratioPropValue = $arItem["MEASURE_RATIO"];
-                
+
                 if(isset($ratioPropValue) && is_numeric($ratioPropValue))
                 {
                     $arItem["RATIO"] = $ratioPropValue;
@@ -168,7 +171,7 @@ if($newBasketUserID>0){
 		$arItem["URL"] = $arItem["DETAIL_PAGE_URL"];
 		if ($arItem["PARENT"]>0)
 			$arItem["URL"] = $arTradeList[$arItem["PARENT"]]["DETAIL_PAGE_URL"];
-                
+
                 /*start basket props*/
                 $propsIterator = CSaleBasket::GetPropsList(
                     array('SORT' => 'ASC', 'ID' => 'ASC'),
@@ -221,7 +224,7 @@ CSaleDiscount::DoProcessOrder($arOrder, $arOptions, $arErrors);
 if (!empty($arOrder['BASKET_ITEMS']))
 {
     $arOrder['ORDER_PRICE'] = 0;
-    foreach ($arOrder['BASKET_ITEMS'] as $key => $arItem) 
+    foreach ($arOrder['BASKET_ITEMS'] as $key => $arItem)
     {
         $arOrder['BASKET_ITEMS'][$key]["FORMAT_PRICE"] = SaleFormatCurrency($arItem["PRICE"], $arItem["CURRENCY"]);
         $arOrder['BASKET_ITEMS'][$key]["SUMM"] = $arItem["QUANTITY"] * $arItem["PRICE"];

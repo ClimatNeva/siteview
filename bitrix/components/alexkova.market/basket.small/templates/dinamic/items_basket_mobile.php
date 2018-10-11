@@ -7,9 +7,17 @@
     <!--</div>-->
 </div>
 
+<?
+global $showIdCurrencyFormat;
+if ($showIdCurrencyFormat) {
+?>
 <input type="hidden" id="currency-format" value="<?=$arResult["CURRENCY_FORMAT"]?>">
 <input type="hidden" id="min-order-price" value="<?=$arResult["MIN_ORDER_PRICE"]?>">
 <input type="hidden" id="min-order-price-msg" value="<?=$arResult["MIN_ORDER_PRICE_MSG_FLAGS"]?>">
+<?
+	$showIdCurrencyFormat = false;
+}
+?>
 <div class="min-order-price-notify" <?if ($arResult["SUMM"] >= $arResult["MIN_ORDER_PRICE"]) {?>style="display: none;"<?}?>><?=$arResult["MIN_ORDER_PRICE_MSG"]?></div>
 
 <div class="bxr-basket-tab-content active" data-tab="buy">
