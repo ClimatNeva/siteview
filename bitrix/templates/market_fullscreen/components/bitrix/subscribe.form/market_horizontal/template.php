@@ -17,6 +17,7 @@ $buttonId = $this->randString();
 <?
 $frame = $this->createFrame("sender-subscribe", false)->begin();
 ?>
+	<div role="form">
 	<form role="form" method="post" action="<?=$arResult["FORM_ACTION"]?>">
             <?=bitrix_sessid_post()?>
             <input type="hidden" name="sender_subscription" value="add">
@@ -53,9 +54,11 @@ $frame = $this->createFrame("sender-subscribe", false)->begin();
                 </div>
             </div>
 	</form>
+	</div>
 <?
 $frame->beginStub();
 ?>
+	<div role="form">
 	<form role="form" method="post" action="<?=$arResult["FORM_ACTION"]?>" >
             <?=bitrix_sessid_post()?>
             <input type="hidden" name="sender_subscription" value="add">
@@ -67,7 +70,7 @@ $frame->beginStub();
                             <b><?=GetMessage("stay_touch")?></b><br>
                            <?=GetMessage("news_reviews_promotions")?>
                         </div>
-                    </div>                   
+                    </div>
                     <div class="col-md-3 bxr-subscribe-rubrics">
                         <?if(isset($arParams["SHOW_RUBRICS"]) && $arParams["SHOW_RUBRICS"]=="Y"):?>
                         <?if(count($arResult["RUBRICS"])>0):?>
@@ -92,6 +95,7 @@ $frame->beginStub();
                 </div>
             </div>
 	</form>
+	</div>
 <?
 $frame->end();
 ?>
