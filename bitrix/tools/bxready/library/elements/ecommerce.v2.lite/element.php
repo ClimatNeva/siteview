@@ -122,7 +122,7 @@ $showCatalogQty = ('Y' == $arElementParams["SHOW_CATALOG_QUANTITY"]);
 
 			<div class="bxr-sale-indicator">
 				<div class="bxr-basket-group">
-                                    <form class="bxr-basket-action bxr-basket-group" action="">
+                                    <form class="bxr-basket-action bxr-basket-group"<?/* action=""*/?>>
                                         <button class="bxr-indicator-item bxr-indicator-item-favor bxr-basket-favor" data-item="<?=$arElement["ID"]?>" tabindex="0">
                                             <span class="fa fa-heart-o"></span>
                                         </button>
@@ -144,7 +144,9 @@ $showCatalogQty = ('Y' == $arElementParams["SHOW_CATALOG_QUANTITY"]);
                                 <?}?>
 			</div>
 
-			<div class="bxr-element-name" id="bxr-element-name-<?=$arElement["ID"]?>">
+			<?
+			if ($arElement["ID"] != '') {
+			?><div class="bxr-element-name" id="bxr-element-name-<?=$arElement["ID"]?>">
 				<a href="<?=$arElement["DETAIL_PAGE_URL"]?>" id="<?=$arItemIDs["ID"]?>" title="<?=$arElement["NAME"]?>">
                                     <? echo (strlen($arElement["SHORT_NAME"])>0) ? $arElement["SHORT_NAME"] : $arElement["NAME"];?>
                                 </a>
@@ -162,7 +164,9 @@ $showCatalogQty = ('Y' == $arElementParams["SHOW_CATALOG_QUANTITY"]);
                                         </tbody>
                                     </table>
                                 <?}?>
-			</div>
+			</div><?
+			}
+			?>
 
 				<?
 				//rating block
