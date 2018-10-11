@@ -18,7 +18,7 @@ $buttonId = $this->randString();
 $frame = $this->createFrame("sender-subscribe", false)->begin();
 ?>
 	<div role="form">
-	<form role="form" method="post" action="<?=$arResult["FORM_ACTION"]?>">
+	<form method="post" action="<?=$arResult["FORM_ACTION"]?>">
             <?=bitrix_sessid_post()?>
             <input type="hidden" name="sender_subscription" value="add">
             <div class="bxr-sender-subscribe-container horizontal container-fluid">
@@ -59,7 +59,7 @@ $frame = $this->createFrame("sender-subscribe", false)->begin();
 $frame->beginStub();
 ?>
 	<div role="form">
-	<form role="form" method="post" action="<?=$arResult["FORM_ACTION"]?>" >
+	<form method="post" action="<?=$arResult["FORM_ACTION"]?>" >
             <?=bitrix_sessid_post()?>
             <input type="hidden" name="sender_subscription" value="add">
             <div class="bxr-sender-subscribe-container horizontal container-fluid">
