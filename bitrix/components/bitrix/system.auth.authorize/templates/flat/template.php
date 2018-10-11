@@ -113,20 +113,20 @@ document.getElementById('bx_auth_secure').style.display = '';
 <?if ($arParams["NOT_SHOW_LINKS"] != "Y"):?>
 	<hr class="bxe-light">
 
-	<noindex>
+	<!--noindex-->
 		<div class="bx-authform-link-container">
 			<a href="<?=$arResult["AUTH_FORGOT_PASSWORD_URL"]?>" rel="nofollow"><b><?=GetMessage("AUTH_FORGOT_PASSWORD_2")?></b></a>
 		</div>
-	</noindex>
+	<!--/noindex-->
 <?endif?>
 
 <?if($arParams["NOT_SHOW_LINKS"] != "Y" && $arResult["NEW_USER_REGISTRATION"] == "Y" && $arParams["AUTHORIZE_REGISTRATION"] != "Y"):?>
-	<noindex>
+	<!--noindex-->
 		<div class="bx-authform-link-container">
 			<?=GetMessage("AUTH_FIRST_ONE")?><br />
 			<a href="<?=$arResult["AUTH_REGISTER_URL"]?>" rel="nofollow"><b><?=GetMessage("AUTH_REGISTER")?></b></a>
 		</div>
-	</noindex>
+	<!--/noindex-->
 <?endif?>
 
 </div>

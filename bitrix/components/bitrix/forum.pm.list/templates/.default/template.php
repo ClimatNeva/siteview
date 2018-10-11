@@ -13,20 +13,20 @@ $GLOBALS['APPLICATION']->AddHeadScript("/bitrix/components/bitrix/forum.interfac
 $iIndex = rand();
 //$arResult["FID"] = (is_array($arResult["FID"]) ? $arResult["FID"] : array($arResult["FID"]));
 $arParams["SEO_USER"] = (in_array($arParams["SEO_USER"], array("Y", "N", "TEXT")) ? $arParams["SEO_USER"] : "Y");
-$arParams["USER_TMPL"] = '<noindex><a rel="nofollow" href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a></noindex>';
+$arParams["USER_TMPL"] = '<!--noindex--><a rel="nofollow" href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a><!--/noindex-->';
 if ($arParams["SEO_USER"] == "N") $arParams["USER_TMPL"] = '<a href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a>';
 elseif ($arParams["SEO_USER"] == "TEXT") $arParams["USER_TMPL"] = '#NAME#';
 /********************************************************************
 				/Input params
 ********************************************************************/
-if (!empty($arResult["ERROR_MESSAGE"])): 
+if (!empty($arResult["ERROR_MESSAGE"])):
 ?>
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
 <?
 endif;
-if (!empty($arResult["OK_MESSAGE"])): 
+if (!empty($arResult["OK_MESSAGE"])):
 ?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
@@ -149,7 +149,7 @@ else:
 									?><option value="<?=$res["ID"]?>"><?=$res["TITLE"]?></option><?
 									endforeach;
 								}
-								?></select> 
+								?></select>
 								<input type="button" name="button_move" value="OK" onclick="ChangeAction('move', this)" />
 							</div>
 						</div>

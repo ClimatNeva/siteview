@@ -106,7 +106,7 @@
 			</tr>
 		</tbody></table>
 
-		<noindex>
+		<!--noindex-->
 		<div class="search-advanced">
 			<div class="search-advanced-result">
 				<?if(is_object($arResult["NAV_RESULT"])):?>
@@ -248,7 +248,7 @@
 			<?else:?>
 		</div><?//div class="search-advanced"?>
 			<?endif;//if($arParams["SHOW_WHERE"] || $arParams["SHOW_WHEN"])?>
-		</noindex>
+		<!--/noindex-->
 	</form>
 
 <?if(isset($arResult["REQUEST"]["ORIGINAL_QUERY"])):

@@ -65,8 +65,8 @@ if (IsModuleInstalled("search")):
 ?>
 		<span class="forum-menu-item <?
 			?><?=($GLOBALS["USER"]->IsAuthorized() ? "" : "forum-menu-item-first")?><?
-			?> forum-menu-search"><noindex><a href="<?=$arResult["URL_TEMPLATES"]["SEARCH"]?>" rel="nofollow"><span><?=GetMessage("F_SEARCH")?></span></a></noindex>&nbsp;</span>
-<?	
+			?> forum-menu-search"><!--noindex--><a href="<?=$arResult["URL_TEMPLATES"]["SEARCH"]?>" rel="nofollow"><span><?=GetMessage("F_SEARCH")?></span></a><!--/noindex-->&nbsp;</span>
+<?
 endif;
 ?>
 <? if ($arParams['SHOW_FORUM_USERS'] === 'Y')
@@ -116,7 +116,7 @@ if ($arParams["SHOW_NAVIGATION"] != "N" && $arParams["SET_NAVIGATION"] != "N" &&
 
 	$path = $GLOBALS["APPLICATION"]->GetCurDir();
 	$arChain = Array();
-	
+
 	while(true)
 	{
 		$path = rtrim($path, "/");
@@ -147,10 +147,10 @@ if ($arParams["SHOW_NAVIGATION"] != "N" && $arParams["SET_NAVIGATION"] != "N" &&
 	$GLOBALS["APPLICATION"]->IncludeComponent(
 	"bitrix:breadcrumb", ".default",
 	Array(
-		"START_FROM" => count($arChain) - 1, 
-		"PATH" => "", 
-		"SITE_ID" => "",  
-	), $component, 
+		"START_FROM" => count($arChain) - 1,
+		"PATH" => "",
+		"SITE_ID" => "",
+	), $component,
 	array("HIDE_ICONS" => "Y")
 );
 endif;

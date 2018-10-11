@@ -62,12 +62,12 @@ document.getElementById('bx_auth_secure<?=$arResult["RND"]?>').style.display = '
 		</tr>
 <?if($arResult["NEW_USER_REGISTRATION"] == "Y"):?>
 		<tr>
-			<td colspan="2"><noindex><a href="<?=$arResult["AUTH_REGISTER_URL"]?>" rel="nofollow"><?=GetMessage("AUTH_REGISTER")?></a></noindex><br /></td>
+			<td colspan="2"><!--noindex--><a href="<?=$arResult["AUTH_REGISTER_URL"]?>" rel="nofollow"><?=GetMessage("AUTH_REGISTER")?></a><!--/noindex--><br /></td>
 		</tr>
 <?endif?>
 
 		<tr>
-			<td colspan="2"><noindex><a href="<?=$arResult["AUTH_FORGOT_PASSWORD_URL"]?>" rel="nofollow"><?=GetMessage("AUTH_FORGOT_PASSWORD_2")?></a></noindex></td>
+			<td colspan="2"><!--noindex--><a href="<?=$arResult["AUTH_FORGOT_PASSWORD_URL"]?>" rel="nofollow"><?=GetMessage("AUTH_FORGOT_PASSWORD_2")?></a><!--/noindex--></td>
 		</tr>
 <?if($arResult["AUTH_SERVICES"]):?>
 		<tr>

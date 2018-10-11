@@ -8,7 +8,7 @@ endif;
 				Input params
 ********************************************************************/
 $arParams["SEO_USER"] = (in_array($arParams["SEO_USER"], array("Y", "N", "TEXT")) ? $arParams["SEO_USER"] : "Y");
-$arParams["USER_TMPL"] = '<noindex><a rel="nofollow" href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a></noindex>';
+$arParams["USER_TMPL"] = '<!--noindex--><a rel="nofollow" href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a><!--/noindex-->';
 if ($arParams["SEO_USER"] == "N") $arParams["USER_TMPL"] = '<a href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a>';
 elseif ($arParams["SEO_USER"] == "TEXT") $arParams["USER_TMPL"] = '#NAME#';
 /********************************************************************
@@ -95,7 +95,7 @@ if (in_array("STATISTIC", $arParams["SHOW"])):
 		<div class="forum-statistics-replies"><?=GetMessage("F_POSTS_ALL")?>:&nbsp;<span><?=intVal($arResult["STATISTIC"]["POSTS"])?></span></div>
 		<div class="forum-clear-float"></div>
 	</div>
-	
+
 </div>
 <?
 endif;

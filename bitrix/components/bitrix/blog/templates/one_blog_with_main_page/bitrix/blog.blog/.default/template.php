@@ -63,7 +63,7 @@ if(count($arResult["POST"])>0)
 				{
 					?>
 					<div class="blog-post-share" style="float: right;">
-						<noindex>
+						<!--noindex-->
 						<?
 						$APPLICATION->IncludeComponent("bitrix:main.share", "", array(
 								"HANDLERS" => $arParams["SHARE_HANDLERS"],
@@ -78,11 +78,11 @@ if(count($arResult["POST"])>0)
 							array("HIDE_ICONS" => "Y")
 						);
 						?>
-						</noindex>
+						<!--/noindex-->
 					</div>
 					<?
 				}
-				?>					
+				?>
 				<?=$CurPost["TEXT_FORMATED"]?></span><?
 				if ($CurPost["CUT"] == "Y")
 				{
@@ -99,11 +99,11 @@ if(count($arResult["POST"])>0)
 						<td>
 
 								<?$APPLICATION->IncludeComponent(
-									"bitrix:system.field.view", 
-									$arPostField["USER_TYPE"]["USER_TYPE_ID"], 
+									"bitrix:system.field.view",
+									$arPostField["USER_TYPE"]["USER_TYPE_ID"],
 									array("arUserField" => $arPostField), null, array("HIDE_ICONS"=>"Y"));?>
 						</td>
-					</tr>			
+					</tr>
 					<?endif;?>
 					<?endforeach;?>
 					</table>
@@ -113,7 +113,7 @@ if(count($arResult["POST"])>0)
 					<td colspan="2"><div class="blog-line"></div></td>
 				</tr>
 				<tr>
-					<td align="left">						
+					<td align="left">
 						<?
 						if(!empty($CurPost["CATEGORY"]))
 						{
@@ -148,4 +148,4 @@ if(count($arResult["POST"])>0)
 }
 elseif(!empty($arResult["BLOG"]))
 	echo GetMessage("BLOG_BLOG_BLOG_NO_AVAIBLE_MES");
-?>	
+?>

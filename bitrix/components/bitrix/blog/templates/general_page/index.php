@@ -11,15 +11,15 @@ function BXBlogTabShow(id, type)
 {
 	if(type == 'post')
 	{
-		
+
 		document.getElementById('new-posts').style.display = 'inline';
 		document.getElementById('popular-posts').style.display = 'inline';
 		document.getElementById('commented-posts').style.display = 'inline';
-		
+
 		document.getElementById('new-posts-title').style.display = 'none';
 		document.getElementById('popular-posts-title').style.display = 'none';
 		document.getElementById('commented-posts-title').style.display = 'none';
-		
+
 		document.getElementById('new-posts-content').style.display = 'none';
 		document.getElementById('popular-posts-content').style.display = 'none';
 		document.getElementById('commented-posts-content').style.display = 'none';
@@ -32,10 +32,10 @@ function BXBlogTabShow(id, type)
 	{
 		document.getElementById('new-blogs').style.display = 'inline-block';
 		document.getElementById('popular-blogs').style.display = 'inline-block';
-		
+
 		document.getElementById('new-blogs-title').style.display = 'none';
 		document.getElementById('popular-blogs-title').style.display = 'none';
-		
+
 		document.getElementById('new-blogs-content').style.display = 'none';
 		document.getElementById('popular-blogs-content').style.display = 'none';
 
@@ -43,7 +43,7 @@ function BXBlogTabShow(id, type)
 		document.getElementById(id+'-title').style.display = 'inline-block';
 		document.getElementById(id+'-content').style.display = 'block';
 	}
-	
+
 }
 //-->
 </script>
@@ -56,13 +56,13 @@ function BXBlogTabShow(id, type)
 			<span id="new-posts-title"><?=GetMessage("BC_NEW_POSTS_MES")?></span>
 			<span id="commented-posts-title" style="display:none;"><?=GetMessage("BC_COMMENTED_POSTS_MES")?></span>
 			<span id="popular-posts-title" style="display:none;"><?=GetMessage("BC_POPULAR_POSTS_MES")?></span>
-		</div>		
+		</div>
 		<div class="blog-tab-items">
 			<span id="new-posts" style="display:none;"><a href="javascript:BXBlogTabShow('new-posts', 'post');"><?=GetMessage("BC_NEW_POSTS")?></a></span>
 			<span id="commented-posts"><a href="javascript:BXBlogTabShow('commented-posts', 'post');"><?=GetMessage("BC_COMMENTED_POSTS")?></a></span>
 			<span id="popular-posts"><a href="javascript:BXBlogTabShow('popular-posts', 'post');"><?=GetMessage("BC_POPULAR_POSTS")?></a></span>
 		</div>
-	</div>	
+	</div>
 </div>
 	<div class="blog-clear-float"></div>
 	<div class="blog-tab-content">
@@ -96,7 +96,7 @@ function BXBlogTabShow(id, type)
 			"SHOW_RATING" => $arParams["SHOW_RATING"],
 			"RATING_TYPE" => $arParams["RATING_TYPE"],
 			),
-			$component 
+			$component
 		);
 		?>
 	</div>
@@ -131,7 +131,7 @@ function BXBlogTabShow(id, type)
 			"SHOW_RATING" => $arParams["SHOW_RATING"],
 			"RATING_TYPE" => $arParams["RATING_TYPE"],
 			),
-			$component 
+			$component
 		);
 		?>
 	</div>
@@ -166,7 +166,7 @@ function BXBlogTabShow(id, type)
 			"SHOW_RATING" => $arParams["SHOW_RATING"],
 			"RATING_TYPE" => $arParams["RATING_TYPE"],
 			),
-			$component 
+			$component
 		);
 		?>
 	</div>
@@ -174,11 +174,11 @@ function BXBlogTabShow(id, type)
 	if(strlen($arResult["PATH_TO_HISTORY"]) <= 0)
 		$arResult["PATH_TO_HISTORY"] = htmlspecialcharsbx($APPLICATION->GetCurPage()."?".$arResult["ALIASES"]["page"]."=history");
 	?>
-	<noindex>
+	<!--noindex-->
 	<div style="text-align:right;"><a href="<?=$arResult["PATH_TO_HISTORY"]?>" rel="nofollow"><?=GetMessage("BC_ALL_POSTS")?></a></div>
-	</noindex>
+	<!--/noindex-->
 	</div>
-	
+
 <?if(((!is_array($arParams["GROUP_ID"]) && IntVal($arParams["GROUP_ID"]) > 0) || (is_array($arParams["GROUP_ID"]) && count($arParams["GROUP_ID"]) > 1)) && $arParams["USE_SOCNET"] != "Y")
 {
 	?>
@@ -187,13 +187,13 @@ function BXBlogTabShow(id, type)
 		<div class="blog-tab-right"></div>
 		<div class="blog-tab">
 			<span class="blog-tab-title"><?=GetMessage("BC_GROUPS")?></span>
-		</div>	
+		</div>
 	</div>
 		<div class="blog-tab-content">
 			<?
 			$APPLICATION->IncludeComponent(
-					"bitrix:blog.groups", 
-					"", 
+					"bitrix:blog.groups",
+					"",
 					Array(
 							"GROUPS_COUNT"	=> 0,
 							"COLS_COUNT"	=> 2,
@@ -203,9 +203,9 @@ function BXBlogTabShow(id, type)
 							"CACHE_TYPE"	=> $arParams["CACHE_TYPE"],
 							"CACHE_TIME"	=> $arParams["CACHE_TIME"],
 							"GROUP_ID" 			=> $arParams["GROUP_ID"],
-							
+
 						),
-					$component 
+					$component
 				);
 			?>
 		</div>
@@ -220,7 +220,7 @@ function BXBlogTabShow(id, type)
 	<div class="blog-tab-right"></div>
 	<div class="blog-tab">
 		<span class="blog-tab-title"><?=GetMessage("BC_NEW_COMMENTS")?></span>
-	</div>	
+	</div>
 </div>
 	<div class="blog-tab-content">
 		<?
@@ -253,7 +253,7 @@ function BXBlogTabShow(id, type)
 				"NO_URL_IN_COMMENTS_AUTHORITY" => $arParams["NO_URL_IN_COMMENTS_AUTHORITY"],
 				"SHOW_RATING" => $arParams["SHOW_RATING"],
 			),
-			$component 
+			$component
 		);
 		?>
 	</div>
@@ -269,14 +269,14 @@ function BXBlogTabShow(id, type)
 			<span id="new-blogs-title" style="display:none;"><?=GetMessage("BC_NEW_BLOGS_MES")?></span>
 			<span id="popular-blogs-title"><?=GetMessage("BC_POPULAR_BLOGS_MES")?></span>
 		</span>
-	</div>	
+	</div>
 </div>
 	<div class="blog-tab-content">
 	<div id="new-blogs-content" style="display:none;">
 	<?
 		$APPLICATION->IncludeComponent(
-				"bitrix:blog.new_blogs", 
-				"", 
+				"bitrix:blog.new_blogs",
+				"",
 				Array(
 						"BLOG_COUNT"	=> $arParams["BLOG_COUNT_MAIN"],
 						"BLOG_VAR"		=> $arParams["VARIABLE_ALIASES"]["blog"],
@@ -298,15 +298,15 @@ function BXBlogTabShow(id, type)
 						"PATH_TO_MESSAGES_CHAT" => $arParams["PATH_TO_MESSAGES_CHAT"],
 						"PATH_TO_VIDEO_CALL" => $arParams["PATH_TO_VIDEO_CALL"],
 					),
-				$component 
+				$component
 			);
 		?>
 	</div>
 	<div id="popular-blogs-content" style="display:block;">
 		<?
 		$APPLICATION->IncludeComponent(
-				"bitrix:blog.popular_blogs", 
-				"", 
+				"bitrix:blog.popular_blogs",
+				"",
 				Array(
 						"BLOG_COUNT"	=> $arParams["BLOG_COUNT_MAIN"],
 						"PERIOD_DAYS"	=>	$arParams["PERIOD_DAYS"],
@@ -329,7 +329,7 @@ function BXBlogTabShow(id, type)
 						"PATH_TO_MESSAGES_CHAT" => $arParams["PATH_TO_MESSAGES_CHAT"],
 						"PATH_TO_VIDEO_CALL" => $arParams["PATH_TO_VIDEO_CALL"],
 					),
-				$component 
+				$component
 			);
 		?>
 	</div>
@@ -359,7 +359,7 @@ function BXBlogTabShow(id, type)
 					//"GROUP_ID"			=> $arParams["GROUP_ID"],
 					"MODE"				=> "S",
 				),
-			$component 
+			$component
 		);
 	?>
 	</div>

@@ -8,15 +8,15 @@ endif;
 				Input params
 ********************************************************************/
 $arParams["SEO_USER"] = (in_array($arParams["SEO_USER"], array("Y", "N", "TEXT")) ? $arParams["SEO_USER"] : "Y");
-$arParams["USER_TMPL"] = '<noindex><a rel="nofollow" href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a></noindex>';
+$arParams["USER_TMPL"] = '<!--noindex--><a rel="nofollow" href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a><!--/noindex-->';
 if ($arParams["SEO_USER"] == "N") $arParams["USER_TMPL"] = '<a href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a>';
 elseif ($arParams["SEO_USER"] == "TEXT") $arParams["USER_TMPL"] = '#NAME#';
 /********************************************************************
 				/Input params
 ********************************************************************/
 $arSort = array(
-	"NUM_POSTS" => array("NAME" => GetMessage("LU_FILTER_SORT_NUM_POSTS")), 
-	"SHOW_ABC" => array("NAME" => GetMessage("LU_FILTER_SORT_NAME")), 
+	"NUM_POSTS" => array("NAME" => GetMessage("LU_FILTER_SORT_NUM_POSTS")),
+	"SHOW_ABC" => array("NAME" => GetMessage("LU_FILTER_SORT_NAME")),
 );
 if ($arResult["SHOW_VOTES"] == "Y"):
 	$arSort["POINTS"] = array("NAME" => GetMessage("LU_FILTER_SORT_POINTS"));
@@ -39,13 +39,13 @@ $arFields = array(
 		"NAME_TO" => "date_last_visit2",
 		"TYPE" => "PERIOD",
 		"VALUE" => $_REQUEST["date_last_visit1"],
-		"VALUE_TO" => $_REQUEST["date_last_visit2"]), 
+		"VALUE_TO" => $_REQUEST["date_last_visit2"]),
 	array(
 		"TITLE" => GetMessage("LU_FILTER_AVATAR"),
 		"NAME" => "avatar",
 		"TYPE" => "CHECKBOX",
-		"VALUE" => "Y", 
-		"ACTIVE" => $_REQUEST["avatar"], 
+		"VALUE" => "Y",
+		"ACTIVE" => $_REQUEST["avatar"],
 		"LABEL" => GetMessage("LU_FILTER_AVATAR_TITLE")));
 if (CForumUser::IsAdmin()):
 	$arFields[] = array(
@@ -90,7 +90,7 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 </div>
 <?
 endif;
-if (!empty($arResult["OK_MESSAGE"])): 
+if (!empty($arResult["OK_MESSAGE"])):
 ?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
@@ -139,7 +139,7 @@ if ($arResult["SHOW_RESULT"] != "Y"):
 				<tr class="forum-row-first forum-row-odd">
 					<td class="forum-first-column" colspan="<?=($arResult["SHOW_VOTES"] == "Y" ? 5 : 4)?>"><?=GetMessage("FLU_EMPTY")?></td>
 				</tr>
-<?			
+<?
 	return false;
 endif;
 
@@ -177,7 +177,7 @@ foreach ($arResult["USERS"] as $res):
 					</td>
 					<td class="forum-column-posts"><?
 	if ($res["NUM_POSTS"] > 0):
-					?><noindex><a rel="nofollow" href="<?=$res["URL"]["POSTS"]?>"><?=intVal($res["NUM_POSTS"])?></a></noindex><?
+					?><!--noindex--><a rel="nofollow" href="<?=$res["URL"]["POSTS"]?>"><?=intVal($res["NUM_POSTS"])?></a><!--/noindex--><?
 	else:
 					?>0<?
 	endif;

@@ -94,9 +94,9 @@ else
 			<?endif;?>
 			<div class="blog-author">
 			<?if($arParams["SEO_USER"] == "Y"):?>
-				<noindex>
+				<!--noindex-->
 					<a class="blog-author-icon" href="<?=$arResult["urlToAuthor"]?>" rel="nofollow"></a>
-				</noindex>
+				<!--/noindex-->
 			<?else:?>
 				<a class="blog-author-icon" href="<?=$arResult["urlToAuthor"]?>"></a>
 			<?endif;?>
@@ -119,9 +119,9 @@ else
 					);
 			?>
 			<?if($arParams["SEO_USER"] == "Y"):?>
-				<noindex>
+				<!--noindex-->
 			<?endif;?>
-			<?		
+			<?
 			$APPLICATION->IncludeComponent("bitrix:main.user.link",
 				'',
 				array(
@@ -153,7 +153,7 @@ else
 			);
 			?>
 			<?if($arParams["SEO_USER"] == "Y"):?>
-				</noindex>
+				<!--/noindex-->
 			<?endif;?>
 			</div>
 			<div class="blog-post-date"><span class="blog-post-day"><?=$arResult["Post"]["DATE_PUBLISH_DATE"]?></span><span class="blog-post-time"><?=$arResult["Post"]["DATE_PUBLISH_TIME"]?></span><span class="blog-post-date-formated"><?=$arResult["Post"]["DATE_PUBLISH_FORMATED"]?></span></div>
@@ -187,8 +187,8 @@ else
 				<?if(!empty($arPostField["VALUE"])):?>
 					<?=($FIELD_NAME=='UF_BLOG_POST_DOC' ? "" : "<b>".$arPostField["EDIT_FORM_LABEL"].":</b>&nbsp;")?>
 							<?$APPLICATION->IncludeComponent(
-								"bitrix:system.field.view", 
-								$arPostField["USER_TYPE"]["USER_TYPE_ID"], 
+								"bitrix:system.field.view",
+								$arPostField["USER_TYPE"]["USER_TYPE_ID"],
 								array("arUserField" => $arPostField), null, array("HIDE_ICONS"=>"Y"));?><br />
 				<?endif;?>
 				<?endforeach;?>
@@ -203,16 +203,16 @@ else
 				<div class="blog-post-info">
 					<div class="blog-author">
 					<?if($arParams["SEO_USER"] == "Y"):?>
-						<noindex>
+						<!--noindex-->
 							<a class="blog-author-icon" href="<?=$arResult["urlToAuthor"]?>" rel="nofollow"></a>
-						</noindex>
+						<!--/noindex-->
 					<?else:?>
 						<a class="blog-author-icon" href="<?=$arResult["urlToAuthor"]?>"></a>
 					<?endif;?>
 					<?if($arParams["SEO_USER"] == "Y"):?>
-						<noindex>
+						<!--noindex-->
 					<?endif;?>
-					<?		
+					<?
 					$APPLICATION->IncludeComponent("bitrix:main.user.link",
 						'',
 						array(
@@ -244,7 +244,7 @@ else
 					);
 					?>
 					<?if($arParams["SEO_USER"] == "Y"):?>
-						</noindex>
+						<!--/noindex-->
 					<?endif;?>
 					</div>
 					<div class="blog-post-date"><span class="blog-post-day"><?=$arResult["Post"]["DATE_PUBLISH_DATE"]?></span><span class="blog-post-time"><?=$arResult["Post"]["DATE_PUBLISH_TIME"]?></span><span class="blog-post-date-formated"><?=$arResult["Post"]["DATE_PUBLISH_FORMATED"]?></span></div>
@@ -254,7 +254,7 @@ else
 				if(array_key_exists("USE_SHARE", $arParams) && $arParams["USE_SHARE"] == "Y")
 				{
 					?><div class="blog-post-share">
-						<noindex><?
+						<!--noindex--><?
 						$APPLICATION->IncludeComponent("bitrix:main.share", "", array(
 								"HANDLERS" => $arParams["SHARE_HANDLERS"],
 								"PAGE_URL" => htmlspecialcharsback($arResult["urlToPost"]),
@@ -267,7 +267,7 @@ else
 							$component,
 							array("HIDE_ICONS" => "Y")
 						);
-						?></noindex>
+						?><!--/noindex-->
 					</div>
 					<?
 				}?>
@@ -309,12 +309,12 @@ else
 					</span>
 					<?endif;?>
 				</div>
-				
+
 				<?if(!empty($arResult["Category"]))
 				{
 					?>
 					<div class="blog-post-tag">
-						<noindex>
+						<!--noindex-->
 						<?=GetMessage("BLOG_BLOG_BLOG_CATEGORY")?>
 						<?
 						$i=0;
@@ -326,7 +326,7 @@ else
 							$i++;
 						}
 						?>
-						</noindex>
+						<!--/noindex-->
 					</div>
 					<?
 				}

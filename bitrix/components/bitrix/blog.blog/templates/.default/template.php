@@ -84,7 +84,7 @@ if(count($arResult["POST"])>0)
 			<script>
 			BX.viewImageBind(
 				'blg-post-<?=$CurPost["ID"]?>',
-				{showTitle: false}, 
+				{showTitle: false},
 				{tag:'IMG', attr: 'data-bx-image'}
 			);
 			</script>
@@ -116,9 +116,9 @@ if(count($arResult["POST"])>0)
 					<?endif;?>
 					<div class="blog-author">
 					<?if($arParams["SEO_USER"] == "Y"):?>
-						<noindex>
+						<!--noindex-->
 							<a class="blog-author-icon" href="<?=$CurPost["urlToAuthor"]?>" rel="nofollow"></a>
-						</noindex>
+						<!--/noindex-->
 					<?else:?>
 						<a class="blog-author-icon" href="<?=$CurPost["urlToAuthor"]?>"></a>
 					<?endif;?>
@@ -139,9 +139,9 @@ if(count($arResult["POST"])>0)
 							"LOGIN" => $CurPost["arUser"]["~LOGIN"],
 							"NAME_LIST_FORMATTED" => "",
 						);
-					?>					
+					?>
 					<?if($arParams["SEO_USER"] == "Y"):?>
-						<noindex>
+						<!--noindex-->
 					<?endif;?>
 					<?
 					$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
@@ -175,7 +175,7 @@ if(count($arResult["POST"])>0)
 					);
 					?>
 					<?if($arParams["SEO_USER"] == "Y"):?>
-						</noindex>
+						<!--/noindex-->
 					<?endif;?>
 					</div>
 					<div class="blog-post-date"><span class="blog-post-day"><?=$CurPost["DATE_PUBLISH_DATE"]?></span><span class="blog-post-time"><?=$CurPost["DATE_PUBLISH_TIME"]?></span><span class="blog-post-date-formated"><?=$CurPost["DATE_PUBLISH_FORMATED"]?></span></div>
@@ -215,8 +215,8 @@ if(count($arResult["POST"])>0)
 						<div>
 						<?=($FIELD_NAME=='UF_BLOG_POST_DOC' ? "" : "<b>".$arPostField["EDIT_FORM_LABEL"].":</b>&nbsp;")?>
 							<?$APPLICATION->IncludeComponent(
-								"bitrix:system.field.view", 
-								$arPostField["USER_TYPE"]["USER_TYPE_ID"], 
+								"bitrix:system.field.view",
+								$arPostField["USER_TYPE"]["USER_TYPE_ID"],
 								array("arUserField" => $arPostField), null, array("HIDE_ICONS"=>"Y"));?>
 						</div>
 						<?endif;?>
@@ -226,20 +226,20 @@ if(count($arResult["POST"])>0)
 							RemoveEventHandler('main', 'system.field.view.file', $eventHandlerID);
 					endif;?>
 				</div>
-				
+
 				<div class="blog-post-meta">
 					<div class="blog-post-info-bottom">
 						<div class="blog-post-info">
 							<div class="blog-author">
 							<?if($arParams["SEO_USER"] == "Y"):?>
-								<noindex>
+								<!--noindex-->
 									<a class="blog-author-icon" href="<?=$CurPost["urlToAuthor"]?>" rel="nofollow"></a>
-								</noindex>
+								<!--/noindex-->
 							<?else:?>
 								<a class="blog-author-icon" href="<?=$CurPost["urlToAuthor"]?>"></a>
 							<?endif;?>
 							<?if($arParams["SEO_USER"] == "Y"):?>
-								<noindex>
+								<!--noindex-->
 							<?endif;?>
 							<?
 							$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
@@ -273,7 +273,7 @@ if(count($arResult["POST"])>0)
 							);
 							?>
 							<?if($arParams["SEO_USER"] == "Y"):?>
-								</noindex>
+								<!--/noindex-->
 							<?endif;?>
 							</div>
 							<div class="blog-post-date"><span class="blog-post-day"><?=$CurPost["DATE_PUBLISH_DATE"]?></span><span class="blog-post-time"><?=$CurPost["DATE_PUBLISH_TIME"]?></span><span class="blog-post-date-formated"><?=$CurPost["DATE_PUBLISH_FORMATED"]?></span></div>
@@ -284,7 +284,7 @@ if(count($arResult["POST"])>0)
 					{
 						?>
 						<div class="blog-post-share" style="float: right;">
-							<noindex>
+							<!--noindex-->
 							<?
 							$APPLICATION->IncludeComponent("bitrix:main.share", "", array(
 									"HANDLERS" => $arParams["SHARE_HANDLERS"],
@@ -299,7 +299,7 @@ if(count($arResult["POST"])>0)
 								array("HIDE_ICONS" => "Y")
 							);
 							?>
-							</noindex>
+							<!--/noindex-->
 						</div>
 						<?
 					}
@@ -344,7 +344,7 @@ if(count($arResult["POST"])>0)
 					</div>
 
 					<div class="blog-post-tag">
-						<noindex>
+						<!--noindex-->
 						<?
 						if(!empty($CurPost["CATEGORY"]))
 						{
@@ -359,7 +359,7 @@ if(count($arResult["POST"])>0)
 							}
 						}
 						?>
-						</noindex>
+						<!--/noindex-->
 					</div>
 				</div>
 			</div>
@@ -370,5 +370,5 @@ if(count($arResult["POST"])>0)
 }
 elseif(!empty($arResult["BLOG"]))
 	echo GetMessage("BLOG_BLOG_BLOG_NO_AVAIBLE_MES");
-?>	
+?>
 </div>

@@ -26,20 +26,20 @@ if (is_array($arResult["UserFolder"]) && !empty($arResult["UserFolder"]))
 	}
 }
 $arParams["SEO_USER"] = (in_array($arParams["SEO_USER"], array("Y", "N", "TEXT")) ? $arParams["SEO_USER"] : "Y");
-$arParams["USER_TMPL"] = '<noindex><a rel="nofollow" href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a></noindex>';
+$arParams["USER_TMPL"] = '<!--noindex--><a rel="nofollow" href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a><!--/noindex-->';
 if ($arParams["SEO_USER"] == "N") $arParams["USER_TMPL"] = '<a href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a>';
 elseif ($arParams["SEO_USER"] == "TEXT") $arParams["USER_TMPL"] = '#NAME#';
 /********************************************************************
 				/Input params
 ********************************************************************/
-if (!empty($arResult["ERROR_MESSAGE"])): 
+if (!empty($arResult["ERROR_MESSAGE"])):
 ?>
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
 <?
 endif;
-if (!empty($arResult["OK_MESSAGE"])): 
+if (!empty($arResult["OK_MESSAGE"])):
 ?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
@@ -143,7 +143,7 @@ endif;
 				<option value="delete" <?=($_REQUEST["action"] == "delete" ? " selected='selected'" : "")?>><?=GetMessage("PM_ACT_DELETE")?></option>
 			</select>
 			<input type="submit" value="OK" />
-		</form>							
+		</form>
 							</span>
 <?/*?>
 							<span class="forum-footer-option forum-pmessage-copy">
@@ -158,7 +158,7 @@ endif;
 			<?
 			foreach ($arResult["FOLDERS"] as $res)
 			{
-				?><option value="<?=$res["ID"]?>" <?=(($_REQUEST["action"] == "copy" && $res["ID"] == $_REQUEST["folder_id"]) 
+				?><option value="<?=$res["ID"]?>" <?=(($_REQUEST["action"] == "copy" && $res["ID"] == $_REQUEST["folder_id"])
 					? " selected='selected'" : "")?>><?=$res["TITLE"]?></option><?
 			}
 			?>
@@ -179,7 +179,7 @@ endif;
 			<?
 			foreach ($arResult["FOLDERS"] as $res)
 			{
-				?><option value="<?=$res["ID"]?>" <?=(($_REQUEST["action"] == "move" && $res["ID"] == $_REQUEST["folder_id"]) 
+				?><option value="<?=$res["ID"]?>" <?=(($_REQUEST["action"] == "move" && $res["ID"] == $_REQUEST["folder_id"])
 					? " selected='selected'" : "")?>><?=$res["TITLE"]?></option><?
 			}
 			?></select>

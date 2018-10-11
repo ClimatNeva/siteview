@@ -105,9 +105,9 @@ elseif(count($arResult["POST"])>0)
 				<div class="blog-post-info">
 					<div class="blog-author">
 					<?if($arParams["SEO_USER"] == "Y"):?>
-						<noindex>
+						<!--noindex-->
 							<a class="blog-author-icon" href="<?=$CurPost["urlToAuthor"]?>" rel="nofollow"></a>
-						</noindex>
+						<!--/noindex-->
 					<?else:?>
 						<a class="blog-author-icon" href="<?=$CurPost["urlToAuthor"]?>"></a>
 					<?endif;?>
@@ -128,9 +128,9 @@ elseif(count($arResult["POST"])>0)
 							"LOGIN" => $CurPost["arUser"]["~LOGIN"],
 							"NAME_LIST_FORMATTED" => "",
 						);
-					?>					
+					?>
 					<?if($arParams["SEO_USER"] == "Y"):?>
-						<noindex>
+						<!--noindex-->
 					<?endif;?>
 					<?
 					$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
@@ -164,7 +164,7 @@ elseif(count($arResult["POST"])>0)
 					);
 					?>
 					<?if($arParams["SEO_USER"] == "Y"):?>
-						</noindex>
+						<!--/noindex-->
 					<?endif;?>
 					</div>
 					<div class="blog-post-date"><span class="blog-post-day"><?=$CurPost["DATE_PUBLISH_DATE"]?></span><span class="blog-post-time"><?=$CurPost["DATE_PUBLISH_TIME"]?></span><span class="blog-post-date-formated"><?=$CurPost["DATE_PUBLISH_FORMATED"]?></span></div>
@@ -198,8 +198,8 @@ elseif(count($arResult["POST"])>0)
 						<div>
 						<?=($FIELD_NAME=='UF_BLOG_POST_DOC' ? "" : "<b>".$arPostField["EDIT_FORM_LABEL"].":</b>&nbsp;")?>
 							<?$APPLICATION->IncludeComponent(
-								"bitrix:system.field.view", 
-								$arPostField["USER_TYPE"]["USER_TYPE_ID"], 
+								"bitrix:system.field.view",
+								$arPostField["USER_TYPE"]["USER_TYPE_ID"],
 								array("arUserField" => $arPostField), null, array("HIDE_ICONS"=>"Y"));?>
 						</div>
 						<?endif;?>
@@ -209,20 +209,20 @@ elseif(count($arResult["POST"])>0)
 							RemoveEventHandler('main', 'system.field.view.file', $eventHandlerID);
 					endif;?>
 				</div>
-				
+
 				<div class="blog-post-meta">
 					<div class="blog-post-info-bottom">
 						<div class="blog-post-info">
 							<div class="blog-author">
 							<?if($arParams["SEO_USER"] == "Y"):?>
-								<noindex>
+								<!--noindex-->
 									<a class="blog-author-icon" href="<?=$CurPost["urlToAuthor"]?>" rel="nofollow"></a>
-								</noindex>
+								<!--/noindex-->
 							<?else:?>
 								<a class="blog-author-icon" href="<?=$CurPost["urlToAuthor"]?>"></a>
 							<?endif;?>
 							<?if($arParams["SEO_USER"] == "Y"):?>
-								<noindex>
+								<!--noindex-->
 							<?endif;?>
 							<?
 							$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
@@ -256,7 +256,7 @@ elseif(count($arResult["POST"])>0)
 							);
 							?>
 							<?if($arParams["SEO_USER"] == "Y"):?>
-								</noindex>
+								<!--/noindex-->
 							<?endif;?>
 							</div>
 							<div class="blog-post-date"><span class="blog-post-day"><?=$CurPost["DATE_PUBLISH_DATE"]?></span><span class="blog-post-time"><?=$CurPost["DATE_PUBLISH_TIME"]?></span><span class="blog-post-date-formated"><?=$CurPost["DATE_PUBLISH_FORMATED"]?></span></div>
@@ -277,7 +277,7 @@ elseif(count($arResult["POST"])>0)
 					</div>
 
 					<div class="blog-post-tag">
-						<noindex>
+						<!--noindex-->
 						<?
 						if(!empty($CurPost["CATEGORY"]))
 						{
@@ -292,7 +292,7 @@ elseif(count($arResult["POST"])>0)
 							}
 						}
 						?>
-						</noindex>
+						<!--/noindex-->
 					</div>
 				</div>
 			</div>
@@ -301,5 +301,5 @@ elseif(count($arResult["POST"])>0)
 }
 else
 	echo GetMessage("B_B_MODERATION_NO_MES");
-?>	
+?>
 </div>

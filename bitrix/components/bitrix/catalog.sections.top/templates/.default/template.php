@@ -113,7 +113,7 @@ $this->setFrameMode(true);
 				</table><br />
 			<?endif?>
 			<?if($arParams["DISPLAY_COMPARE"]):?>
-				<noindex><a href="<?echo $arElement["COMPARE_URL"]?>" rel="nofollow"><?echo GetMessage("CATALOG_COMPARE")?></a>&nbsp;</noindex>
+				<!--noindex--><a href="<?echo $arElement["COMPARE_URL"]?>" rel="nofollow"><?echo GetMessage("CATALOG_COMPARE")?></a>&nbsp;<!--/noindex-->
 			<?endif?>
 			<?if($arElement["CAN_BUY"]):?>
 				<?if($arParams["USE_PRODUCT_QUANTITY"] || count($arElement["PRODUCT_PROPERTIES"])):?>
@@ -155,8 +155,8 @@ $this->setFrameMode(true);
 					<input type="submit" name="<?echo $arParams["ACTION_VARIABLE"]."ADD2BASKET"?>" value="<?echo GetMessage("CATALOG_ADD")?>">
 					</form>
 				<?else:?>
-					<noindex><a href="<?echo $arElement["BUY_URL"]?>" rel="nofollow"><?echo GetMessage("CATALOG_BUY")?></a>
-					&nbsp;<a href="<?echo $arElement["ADD_URL"]?>" rel="nofollow"><?echo GetMessage("CATALOG_ADD")?></a></noindex>
+					<!--noindex--><a href="<?echo $arElement["BUY_URL"]?>" rel="nofollow"><?echo GetMessage("CATALOG_BUY")?></a>
+					&nbsp;<a href="<?echo $arElement["ADD_URL"]?>" rel="nofollow"><?echo GetMessage("CATALOG_ADD")?></a><!--/noindex-->
 				<?endif;?>
 			<?elseif((count($arResult["PRICES"]) > 0) || is_array($arElement["PRICE_MATRIX"])):?>
 				<?=GetMessage("CATALOG_NOT_AVAILABLE")?>

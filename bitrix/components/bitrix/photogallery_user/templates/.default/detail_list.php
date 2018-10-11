@@ -128,7 +128,7 @@ elseif ($arResult["ORDER_BY"] == "comments")
 
 ?>
 <div class="photo-page-detail-list">
-<noindex>
+<!--noindex-->
 <div class="photo-controls photo-controls-mainpage">
 	<ul class="photo-controls">
 <?
@@ -219,7 +219,7 @@ if ($arParams["PERMISSION"] >= "U")
 	}
 }
 ?>
-</noindex>
+<!--/noindex-->
 
 <div class="photo-filter photo-calendar-on-detaillist">
 	<form action="" id="photo_filter_form" class="photo_form" method="get">

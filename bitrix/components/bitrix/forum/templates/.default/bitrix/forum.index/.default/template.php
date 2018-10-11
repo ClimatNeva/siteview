@@ -51,7 +51,7 @@ endif;
 <div class="forum-block-container">
 	<div class="forum-block-outer">
 		<div class="forum-block-inner">
-			<table cellspacing="0" class="forum-table forum-forum-list<?=(!empty($arResult["NAV_STRING"]) && $arResult["NAV_RESULT"]->NavPageCount > 1 ? 
+			<table cellspacing="0" class="forum-table forum-forum-list<?=(!empty($arResult["NAV_STRING"]) && $arResult["NAV_RESULT"]->NavPageCount > 1 ?
 				"forum-forum-list-part" : "")?>">
 <?
 if (!empty($arResult["FORUMS"]["FORUMS"]) || ($arResult["GROUP"]["ID"] > 0 && !empty($arResult["FORUMS"]["GROUPS"][$arResult["GROUP"]["ID"]]["FORUMS"]))):
@@ -71,11 +71,11 @@ if (!function_exists("__PrintForumGroupsAndForums"))
 	function __PrintForumGroupsAndForums($arRes, $arResult, $arParams, $depth = -1)
 	{
 		static $bInsertSeparator = false;
-		
+
 		$arGroup = $arRes;
 		if (!is_array($arRes))
 			return false;
-		
+
 
 		if (intVal($arGroup["ID"]) > 0 && $arGroup["ID"] != $arResult["GROUP"]["ID"])
 		{
@@ -92,8 +92,8 @@ if (!function_exists("__PrintForumGroupsAndForums"))
 		<thead>
 			<tr>
 				<th class="forum-column-title" colspan="2" scope="col"><div class="forum-head-title"><span><?
-					?><noindex><a rel="nofollow" href="<?=$arResult["URL"]["GROUP_".$arGroup["ID"]]?>"><?
-					?><?=$arGroup["NAME"]?></a></noindex></span></div></th>
+					?><!--noindex--><a rel="nofollow" href="<?=$arResult["URL"]["GROUP_".$arGroup["ID"]]?>"><?
+					?><?=$arGroup["NAME"]?></a><!--/noindex--></span></div></th>
 				<th class="forum-column-topics" scope="col"><span><?=GetMessage("F_TOPICS")?></span></th>
 				<th class="forum-column-replies" scope="col"><span><?=GetMessage("F_POSTS")?></span></th>
 				<th class="forum-column-lastpost" scope="col"><span><?=GetMessage("F_LAST_POST")?></span></th>
@@ -110,11 +110,11 @@ if (!function_exists("__PrintForumGroupsAndForums"))
 <?
 			foreach ($arGroup["FORUMS"] as $res)
 			{
-				
+
 				if ($arParams["WORD_WRAP_CUT"] > 0):
-					$res["TITLE"] = (strLen($res["~TITLE"]) > $arParams["WORD_WRAP_CUT"] ? 
+					$res["TITLE"] = (strLen($res["~TITLE"]) > $arParams["WORD_WRAP_CUT"] ?
 						htmlspecialcharsbx(substr($res["~TITLE"], 0, $arParams["WORD_WRAP_CUT"]))."..." : $res["TITLE"]);
-					$res["LAST_POSTER_NAME"] = (strLen($res["~LAST_POSTER_NAME"]) > $arParams["WORD_WRAP_CUT"] ? 
+					$res["LAST_POSTER_NAME"] = (strLen($res["~LAST_POSTER_NAME"]) > $arParams["WORD_WRAP_CUT"] ?
 						htmlspecialcharsbx(substr($res["~LAST_POSTER_NAME"], 0, $arParams["WORD_WRAP_CUT"]))."..." : $res["LAST_POSTER_NAME"]);
 				endif;
 ?>
@@ -148,7 +148,7 @@ if (!function_exists("__PrintForumGroupsAndForums"))
 							<div class="forum-item-name"><span class="forum-item-title"><a href="<?=$res["URL"]["TOPICS"]?>"><?
 								?><?=$res["~NAME"];?></a><?
 				if ($res["NewMessage"] == "Y" && strLen($arParams["TMPLT_SHOW_ADDITIONAL_MARKER"]) > 0):
-								?><noindex><a rel="nofollow" href="<?=$res["URL"]["TOPICS"]?>" class="forum-new-message-marker"><?=$arParams["TMPLT_SHOW_ADDITIONAL_MARKER"]?></a></noindex><?
+								?><!--noindex--><a rel="nofollow" href="<?=$res["URL"]["TOPICS"]?>" class="forum-new-message-marker"><?=$arParams["TMPLT_SHOW_ADDITIONAL_MARKER"]?></a><!--/noindex--><?
 				endif;
 								?></span></div>
 							<span class="forum-item-desc"><?=$res["~DESCRIPTION"]?></span>
@@ -161,7 +161,7 @@ if (!function_exists("__PrintForumGroupsAndForums"))
 							endif;
 							if ($res["MODERATE"]["POSTS"] > 0):
 								?><?=GetMessage("F_NOT_APPROVED_POSTS")?>:&nbsp;<span><?
-									?><noindex><a rel="nofollow" href="<?=$res["URL"]["MODERATE_MESSAGE"]?>"><?=$res["MODERATE"]["POSTS"]?></a></noindex></span><?
+									?><!--noindex--><a rel="nofollow" href="<?=$res["URL"]["MODERATE_MESSAGE"]?>"><?=$res["MODERATE"]["POSTS"]?></a><!--/noindex--></span><?
 							endif;
 				endif;
 ?>
@@ -175,8 +175,8 @@ if (!function_exists("__PrintForumGroupsAndForums"))
 ?>
 						<div class="forum-lastpost-box">
 							<span class="forum-lastpost-title"><?
-								?><noindex><a rel="nofollow" href="<?=$res["URL"]["MESSAGE"]?>" title="<?=htmlspecialcharsbx($res["~TITLE"]." (".$res["~LAST_POSTER_NAME"].")")?>"><?
-									?><?=$res["TITLE"]?> <span class="forum-lastpost-author">(<?=$res["LAST_POSTER_NAME"]?>)</span></a></noindex></span>
+								?><!--noindex--><a rel="nofollow" href="<?=$res["URL"]["MESSAGE"]?>" title="<?=htmlspecialcharsbx($res["~TITLE"]." (".$res["~LAST_POSTER_NAME"].")")?>"><?
+									?><?=$res["TITLE"]?> <span class="forum-lastpost-author">(<?=$res["LAST_POSTER_NAME"]?>)</span></a><!--/noindex--></span>
 							<span class="forum-lastpost-date"><?=$res["LAST_POST_DATE"]?></span>
 						</div>
 <?
@@ -195,7 +195,7 @@ if (!function_exists("__PrintForumGroupsAndForums"))
 			</tbody>
 <?
 		}
-		
+
 		$iCountRows = 0;
 		if (array_key_exists("GROUPS", $arRes)):
 			if ($depth >= 1)
@@ -206,7 +206,7 @@ if (!function_exists("__PrintForumGroupsAndForums"))
 				foreach ($arRes["GROUPS"] as $key => $res)
 				{
 					$iCountRows++;
-					
+
 ?>				<tr class="<?=($iCountRows == 1 ? "forum-row-first " : "")?><?
 					?><?=($iCountRows == $iCountRows ? "forum-row-last " : "")
 						?><?=($iCountRows%2 == 1 ? "forum-row-odd " : "forum-row-even ")?>" >
@@ -227,15 +227,15 @@ if (!function_exists("__PrintForumGroupsAndForums"))
 				}
 ?>
 						</div>
-					
+
 					</td>
 					<td class="forum-column-title">
 						<div class="forum-item-info">
 							<div class="forum-item-name"><span class="forum-item-title"><?
-							?><noindex><a rel="nofollow" href="<?=$arResult["URL"]["GROUP_".$res["ID"]]?>"><?
-								?><?=$res["~NAME"];?></a></noindex></span></div>
+							?><!--noindex--><a rel="nofollow" href="<?=$arResult["URL"]["GROUP_".$res["ID"]]?>"><?
+								?><?=$res["~NAME"];?></a><!--/noindex--></span></div>
 							<span class="forum-item-desc"><?
-				
+
 				if (array_key_exists("FORUMS", $res)):
 					?><?=GetMessage("F_SUBFORUMS")?> <?
 					$bFirst = true;
@@ -253,13 +253,13 @@ if (!function_exists("__PrintForumGroupsAndForums"))
 						if (!$bFirst):
 							?>, <?
 						endif;
-						?><noindex><a rel="nofollow" href="<?=$arResult["URL"]["GROUP_".$val["ID"]]?>"><?=$val["~NAME"]?></a></noindex><?
+						?><!--noindex--><a rel="nofollow" href="<?=$arResult["URL"]["GROUP_".$val["ID"]]?>"><?=$val["~NAME"]?></a><!--/noindex--><?
 						$bFirst = false;
 					endforeach;
 				endif;
-					
+
 							?></span>
-							
+
 <?
 				if ($res["MODERATE"]["TOPICS"] > 0 || $res["MODERATE"]["POSTS"] > 0):
 ?>
@@ -270,8 +270,8 @@ if (!function_exists("__PrintForumGroupsAndForums"))
 							endif;
 							if ($res["MODERATE"]["POSTS"] > 0):
 								?><?=GetMessage("F_NOT_APPROVED_POSTS")?>:&nbsp;<span><?
-									?><noindex><a rel="nofollow" href="<?=$arResult["URL"]["GROUP_".$res["ID"]]?>"><?
-									?><?=$res["MODERATE"]["POSTS"]?></a></noindex></span><?
+									?><!--noindex--><a rel="nofollow" href="<?=$arResult["URL"]["GROUP_".$res["ID"]]?>"><?
+									?><?=$res["MODERATE"]["POSTS"]?></a><!--/noindex--></span><?
 							endif;
 				endif;
 ?>
@@ -285,8 +285,8 @@ if (!function_exists("__PrintForumGroupsAndForums"))
 ?>
 						<div class="forum-lastpost-box">
 							<span class="forum-lastpost-title"><?
-								?><noindex><a rel="nofollow" href="<?=$res["URL"]["MESSAGE"]?>" title="<?=htmlspecialcharsbx($res["~TITLE"]." (".$res["~LAST_POSTER_NAME"].")")?>"><?
-									?><?=$res["TITLE"]?> <span class="forum-lastpost-author">(<?=$res["LAST_POSTER_NAME"]?>)</span></a></noindex></span>
+								?><!--noindex--><a rel="nofollow" href="<?=$res["URL"]["MESSAGE"]?>" title="<?=htmlspecialcharsbx($res["~TITLE"]." (".$res["~LAST_POSTER_NAME"].")")?>"><?
+									?><?=$res["TITLE"]?> <span class="forum-lastpost-author">(<?=$res["LAST_POSTER_NAME"]?>)</span></a><!--/noindex--></span>
 							<span class="forum-lastpost-date"><?=$res["LAST_POST_DATE"]?></span>
 						</div>
 <?
@@ -304,7 +304,7 @@ if (!function_exists("__PrintForumGroupsAndForums"))
 			</tbody>
 <?
 			}
-			else 
+			else
 			{
 				$depth++;
 				foreach ($arRes["GROUPS"] as $key => $val)
@@ -340,26 +340,26 @@ endif;
 <?
 		if ($arParams["SHOW_RSS"] == "Y"):
 ?>
-							<span class="forum-footer-option forum-footer-rss forum-footer-option-first"><noindex><?
+							<span class="forum-footer-option forum-footer-rss forum-footer-option-first"><!--noindex--><?
 								?><a rel="nofollow" href="<?=$arResult["URL"]["RSS_DEFAULT"]?>" onclick="window.location='<?=addslashes(htmlspecialcharsbx($arResult["URL"]["~RSS"]))?>'; return false;"><?
 									?><?=GetMessage("F_SUBSCRIBE_TO_NEW_TOPICS")?><?
-									?></a></noindex></span>
-<?		
+									?></a><!--/noindex--></span>
+<?
 		endif;
 		if ($USER->IsAuthorized()):
 ?>
 							<span class="forum-footer-option forum-footer-markread<?=($arParams["SHOW_RSS"] == "Y" ? "" : " forum-footer-option-first")?>"><?
-								?><noindex><a rel="nofollow" <?
+								?><!--noindex--><a rel="nofollow" <?
 									?>href="<?=$APPLICATION->GetCurPageParam("ACTION=SET_BE_READ", array("ACTION", "sessid"))?>" <?
 									?>onclick="return this.href+=('&sessid='+BX.bitrix_sessid());";><?
-									?><?=GetMessage("F_SET_FORUMS_READ")?></a></noindex></span>
-<?		
+									?><?=GetMessage("F_SET_FORUMS_READ")?></a><!--/noindex--></span>
+<?
 		elseif ($arParams["SHOW_RSS"] != "Y"):
 ?>
 							&nbsp;
-<?		
+<?
 		endif;
-		
+
 ?>
 						</div>
 					</td>

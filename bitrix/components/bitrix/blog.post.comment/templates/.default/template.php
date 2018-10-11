@@ -9,7 +9,7 @@ endif;
 <script>
 BX.viewImageBind(
 	'blg-comment-<?=$arParams["ID"]?>',
-	false, 
+	false,
 	{tag:'IMG', attr: 'data-bx-image'}
 );
 </script>
@@ -225,7 +225,7 @@ else
 					$paddingSize = 2.5 * 5 + ($tabCount - 5) * 1.5;
 				elseif($tabCount > 10)
 					$paddingSize = 2.5 * 5 + 1.5 * 5 + ($tabCount-10) * 1;
-				
+
 				if(($tabCount+1) <= 5)
 					$paddingSizeNew = 2.5 * ($tabCount+1);
 				elseif(($tabCount+1) > 5 && ($tabCount+1) <= 10)
@@ -233,7 +233,7 @@ else
 				elseif(($tabCount+1) > 10)
 					$paddingSizeNew = 2.5 * 5 + 1.5 * 5 + (($tabCount+1)-10) * 1;
 				$paddingSizeNew -= $paddingSize;
-					
+
 				if($prevTab > $tabCount)
 					$prevTab = $tabCount;
 				if($prevTab <= 5)
@@ -320,7 +320,7 @@ else
 							?>
 							<div class="blog-author">
 							<?
-							
+
 							$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
 								'',
 								array(
@@ -358,7 +358,7 @@ else
 						{
 							?><div class="blog-author">
 							<?if($arParams["SEO_USER"] == "Y"):?>
-								<noindex>
+								<!--noindex-->
 							<?endif;?>
 							<?
 							$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
@@ -391,7 +391,7 @@ else
 							);
 							?>
 							<?if($arParams["SEO_USER"] == "Y"):?>
-								</noindex>
+								<!--/noindex-->
 							<?endif;?>
 							</div>
 							<?
@@ -440,7 +440,7 @@ else
 							</div>
 							<?
 						}
-						
+
 						if($comment["COMMENT_PROPERTIES"]["SHOW"] == "Y")
 						{
 							$eventHandlerID = false;
@@ -451,8 +451,8 @@ else
 								if(!empty($arPostField["VALUE"]))
 								{
 									$GLOBALS["APPLICATION"]->IncludeComponent(
-										"bitrix:system.field.view", 
-										$arPostField["USER_TYPE"]["USER_TYPE_ID"], 
+										"bitrix:system.field.view",
+										$arPostField["USER_TYPE"]["USER_TYPE_ID"],
 										array("arUserField" => $arPostField), null, array("HIDE_ICONS"=>"Y"));
 								}
 							}
@@ -713,7 +713,7 @@ else
 				</div>
 				<?
 			}
-			
+
 			if($arResult["CanUserComment"])
 			{
 				?>
@@ -780,7 +780,7 @@ else
 					<div id="new_comment_cont_00"></div>
 					<div id="new_comment_00" style="display:none;"></div>
 				</div><br />
-				
+
 				<?
 				if((strlen($arResult["COMMENT_ERROR"])>0 || strlen($_POST["preview"]) > 0)
 					&& $_POST["parentId"] == "00" && strlen($_POST["parentId"]) > 1)
@@ -795,7 +795,7 @@ else
 					<?
 				}
 			}
-			
+
 
 			if($arResult["NEED_NAV"] == "Y")
 			{

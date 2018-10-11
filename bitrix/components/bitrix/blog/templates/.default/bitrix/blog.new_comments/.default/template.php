@@ -14,7 +14,7 @@ foreach($arResult as $arComment)
 		?><div class="blog-line"></div><?
 	}
 	?>
-	
+
 	<div class="blog-mainpage-item">
 	<div class="blog-author">
 	<?
@@ -38,9 +38,9 @@ foreach($arResult as $arComment)
 	<?if(strlen($arComment["urlToBlog"])>0)
 	{
 		if($arParams["SEO_USER"] == "Y"):?>
-			<noindex>
+			<!--noindex-->
 				<a class="blog-author-icon" href="<?=$arComment["urlToAuthor"]?>" rel="nofollow"></a>
-			</noindex>
+			<!--/noindex-->
 		<?else:?>
 			<a class="blog-author-icon" href="<?=$arComment["urlToAuthor"]?>"></a>
 		<?endif;?>
@@ -57,7 +57,7 @@ foreach($arResult as $arComment)
 				"NAME_LIST_FORMATTED" => $arTmpUser["NAME_LIST_FORMATTED"],
 				"USE_THUMBNAIL_LIST" => "N",
 				"PROFILE_URL" => $arComment["urlToAuthor"],
-				"PROFILE_URL_LIST" => $arComment["urlToBlog"],							
+				"PROFILE_URL_LIST" => $arComment["urlToBlog"],
 				"PATH_TO_SONET_MESSAGES_CHAT" => $arParams["~PATH_TO_MESSAGES_CHAT"],
 				"PATH_TO_VIDEO_CALL" => $arParams["~PATH_TO_VIDEO_CALL"],
 				"DATE_TIME_FORMAT" => $arParams["DATE_TIME_FORMAT"],
@@ -80,9 +80,9 @@ foreach($arResult as $arComment)
 	elseif(strlen($arComment["urlToAuthor"])>0)
 	{
 		if($arParams["SEO_USER"] == "Y"):?>
-			<noindex>
+			<!--noindex-->
 				<a class="blog-author-icon" href="<?=$arComment["urlToAuthor"]?>" rel="nofollow"></a>
-			</noindex>
+			<!--/noindex-->
 		<?else:?>
 			<a class="blog-author-icon" href="<?=$arComment["urlToAuthor"]?>"></a>
 		<?endif;?>
@@ -138,5 +138,5 @@ foreach($arResult as $arComment)
 	</div>
 	<?
 }
-?>	
+?>
 </div>

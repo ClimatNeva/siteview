@@ -84,12 +84,12 @@ if (array_key_exists("PROPERTIES", $arResult) && is_array($arResult["PROPERTIES"
 
 			<?else:?>
 			<div class="detail_item_buy_container">
-				<noindex>
+				<!--noindex-->
 					<a class="detail_item_buykey button_red_medium" ontouchstart="BX.toggleClass(this, 'active');" ontouchend="BX.toggleClass(this, 'active');" href="<?echo $arResult["ADD_URL"]?>" onclick="
 						BX.addClass(BX.findParent(this, {class : 'detail_item'}, false), 'add2cart');
 						return addItemToCart(this);" rel="nofollow"><?echo GetMessage("CATALOG_BUY")?></a>
 					<a class="detail_item_buykey_cartlink button_yellow_small" href="<?echo $arParams["BASKET_URL"]?>" rel="nofollow"><?echo GetMessage("CATALOG_IN_CART")?></a>
-				</noindex>
+				<!--/noindex-->
 			</div>
 			<?endif;?>
 
@@ -152,9 +152,9 @@ if (array_key_exists("PROPERTIES", $arResult) && is_array($arResult["PROPERTIES"
 			<?endforeach;?>
 			<p>
 			<?if($arParams["DISPLAY_COMPARE"]):?>
-				<noindex>
+				<!--noindex-->
 				<a href="<?echo $arOffer["COMPARE_URL"]?>" rel="nofollow"><?echo GetMessage("CT_BCE_CATALOG_COMPARE")?></a>&nbsp;
-				</noindex>
+				<!--/noindex-->
 			<?endif?>
 			<?if($arOffer["CAN_BUY"]):?>
 				<?if($arParams["USE_PRODUCT_QUANTITY"]):?>
@@ -173,10 +173,10 @@ if (array_key_exists("PROPERTIES", $arResult) && is_array($arResult["PROPERTIES"
 					<input type="submit" name="<?echo $arParams["ACTION_VARIABLE"]."ADD2BASKET"?>" value="<?echo GetMessage("CT_BCE_CATALOG_ADD")?>">
 					</form>
 				<?else:?>
-					<noindex>
+					<!--noindex-->
 					<a href="<?echo $arOffer["BUY_URL"]?>" rel="nofollow"><?echo GetMessage("CATALOG_BUY")?></a>
 					&nbsp;<a href="<?echo $arOffer["ADD_URL"]?>" rel="nofollow"><?echo GetMessage("CT_BCE_CATALOG_ADD")?></a>
-					</noindex>
+					<!--/noindex-->
 				<?endif;?>
 			<?elseif(count($arResult["CAT_PRICES"]) > 0):?>
 				<?=GetMessage("CATALOG_NOT_AVAILABLE")?>

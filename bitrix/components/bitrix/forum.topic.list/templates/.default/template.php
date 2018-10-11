@@ -22,21 +22,21 @@ if ($arParams["SHOW_RSS"] == "Y"):
 endif;
 $arParams["~TMPLT_SHOW_ADDITIONAL_MARKER"] = trim($arParams["~TMPLT_SHOW_ADDITIONAL_MARKER"]);
 $arParams["SEO_USER"] = (in_array($arParams["SEO_USER"], array("Y", "N", "TEXT")) ? $arParams["SEO_USER"] : "Y");
-$arParams["USER_TMPL"] = '<noindex><a rel="nofollow" href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a></noindex>';
+$arParams["USER_TMPL"] = '<!--noindex--><a rel="nofollow" href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a><!--/noindex-->';
 if ($arParams["SEO_USER"] == "N") $arParams["USER_TMPL"] = '<a href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a>';
 elseif ($arParams["SEO_USER"] == "TEXT") $arParams["USER_TMPL"] = '#NAME#';
 $iIndex = rand();
 /********************************************************************
 				/Input params
 ********************************************************************/
-if (!empty($arResult["ERROR_MESSAGE"])): 
+if (!empty($arResult["ERROR_MESSAGE"])):
 ?>
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
 <?
 endif;
-if (!empty($arResult["OK_MESSAGE"])): 
+if (!empty($arResult["OK_MESSAGE"])):
 ?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
@@ -54,7 +54,7 @@ endif;
 if ($arResult["USER"]["RIGHTS"]["CAN_ADD_TOPIC"] == "Y"):
 ?>
 	<div class="forum-new-post">
-		<noindex><a href="<?=$arResult["URL"]["TOPIC_NEW"]?>" title="<?=GetMessage("F_NEW_TOPIC_TITLE")?>" rel="nofollow"><span><?=GetMessage("F_NEW_TOPIC")?></span></a></noindex>
+		<!--noindex--><a href="<?=$arResult["URL"]["TOPIC_NEW"]?>" title="<?=GetMessage("F_NEW_TOPIC_TITLE")?>" rel="nofollow"><span><?=GetMessage("F_NEW_TOPIC")?></span></a><!--/noindex-->
 	</div>
 <?
 endif;
@@ -66,18 +66,18 @@ endif;
 	<div class="forum-header-options"><?
 if ($arParams["SHOW_RSS"] == "Y"):
 ?>
-		<span class="forum-option-feed"><noindex><a rel="nofollow" href="<?=$arResult["URL"]["RSS_DEFAULT"]?>" onclick="window.location='<?=addslashes(htmlspecialcharsbx($arResult["URL"]["~RSS"]))?>'; return false;">RSS</a></noindex></span>
+		<span class="forum-option-feed"><!--noindex--><a rel="nofollow" href="<?=$arResult["URL"]["RSS_DEFAULT"]?>" onclick="window.location='<?=addslashes(htmlspecialcharsbx($arResult["URL"]["~RSS"]))?>'; return false;">RSS</a><!--/noindex--></span>
 <?
 endif;
 if ($USER->IsAuthorized() && empty($arResult["USER"]["SUBSCRIBE"])):
 	if ($arParams["SHOW_RSS"] == "Y"):
 		?>&nbsp;&nbsp;<?
 	endif;
-	
+
 ?>
 	<span class="forum-option-subscribe">
-		<noindex><a rel="nofollow" title="<?=GetMessage("F_SUBSCRIBE_TO_NEW_POSTS")?>" href="<?=$APPLICATION->GetCurPageParam("ACTION=FORUM_SUBSCRIBE", 
-			array("ACTION", "sessid"))?>"><?=GetMessage("F_SUBSCRIBE")?></a></noindex>
+		<!--noindex--><a rel="nofollow" title="<?=GetMessage("F_SUBSCRIBE_TO_NEW_POSTS")?>" href="<?=$APPLICATION->GetCurPageParam("ACTION=FORUM_SUBSCRIBE",
+			array("ACTION", "sessid"))?>"><?=GetMessage("F_SUBSCRIBE")?></a><!--/noindex-->
 	</span>
 <?
 endif;
@@ -124,7 +124,7 @@ endif;
 						<div class="forum-footer-inner">&nbsp;</div>
 					</td>
 				</tr>
-			</tfoot> 
+			</tfoot>
 <?
 else:
 ?>
@@ -188,7 +188,7 @@ foreach ($arResult["TOPICS"] as $res):
 								$title .= (empty($title) ? GetMessage("F_NO_NEW_MESS") : "");
 								?> forum-icon-default <?
 							endif;
-							
+
 							?>" title="<?=$title?>"><!-- ie --></div>
 						</div>
 					</td>
@@ -215,19 +215,19 @@ foreach ($arResult["TOPICS"] as $res):
 						endif;
 								?><a href="<?=$res["URL"]["TOPIC"]?>" title="<?=GetMessage("F_TOPIC_START")?> <?=$res["START_DATE"]?>"><?=$res["TITLE"]?></a><?
 						if ($res["TopicStatus"] == "NEW" && strLen($arParams["~TMPLT_SHOW_ADDITIONAL_MARKER"]) > 0):
-								?><noindex><a href="<?=$res["URL"]["MESSAGE_UNREAD"]?>" rel="nofollow" class="forum-new-message-marker"><?=$arParams["~TMPLT_SHOW_ADDITIONAL_MARKER"]?></a></noindex><?
+								?><!--noindex--><a href="<?=$res["URL"]["MESSAGE_UNREAD"]?>" rel="nofollow" class="forum-new-message-marker"><?=$arParams["~TMPLT_SHOW_ADDITIONAL_MARKER"]?></a><!--/noindex--><?
 						endif;
 								?></span><?
 						if ($res["PAGES_COUNT"] > 1):
 								?> <span class="forum-item-pages">(<?
 							$iCountPages = intVal($res["PAGES_COUNT"] > 5 ? 3 : $res["PAGES_COUNT"]);
 							for ($ii = 1; $ii <= $iCountPages; $ii++):
-								?><noindex><a rel="nofollow" href="<?=ForumAddPageParams($res["URL"]["~TOPIC"], ($ii > 1 ? array("PAGEN_".$arParams["PAGEN"] => $ii) : array()))?>"><?
-									?><?=$ii?></a></noindex><?=($ii < $iCountPages ? ",&nbsp;" : "")?><?
+								?><!--noindex--><a rel="nofollow" href="<?=ForumAddPageParams($res["URL"]["~TOPIC"], ($ii > 1 ? array("PAGEN_".$arParams["PAGEN"] => $ii) : array()))?>"><?
+									?><?=$ii?></a><!--/noindex--><?=($ii < $iCountPages ? ",&nbsp;" : "")?><?
 							endfor;
 							if ($iCountPages < $res["PAGES_COUNT"]):
-								?>&nbsp;...&nbsp;<noindex><a rel="nofollow" href="<?=ForumAddPageParams($res["URL"]["~TOPIC"], 
-									array("PAGEN_".$arParams["PAGEN"] => $res["PAGES_COUNT"]))?>"><?=$res["PAGES_COUNT"]?></a></noindex><?
+								?>&nbsp;...&nbsp;<!--noindex--><a rel="nofollow" href="<?=ForumAddPageParams($res["URL"]["~TOPIC"],
+									array("PAGEN_".$arParams["PAGEN"] => $res["PAGES_COUNT"]))?>"><?=$res["PAGES_COUNT"]?></a><!--/noindex--><?
 							endif;
 								?>)</span><?
 						endif;
@@ -263,7 +263,7 @@ foreach ($arResult["TOPICS"] as $res):
 						if ($arResult["PERMISSION"] >= "Q" && $res["mCnt"] > 0):
 ?>
 					<td class="forum-column-replies forum-cell-hidden"><span><?=$res["POSTS"]?> <?
-						?>(<noindex><a rel="nofollow" href="<?=$res["URL"]["MODERATE_MESSAGE"]?>" title="<?=GetMessage("F_MESSAGE_NOT_APPROVED")?>"><?=$res["mCnt"]?></a></noindex>)</span></td>
+						?>(<!--noindex--><a rel="nofollow" href="<?=$res["URL"]["MODERATE_MESSAGE"]?>" title="<?=GetMessage("F_MESSAGE_NOT_APPROVED")?>"><?=$res["mCnt"]?></a><!--/noindex-->)</span></td>
 <?
 						else:
 ?>
@@ -281,7 +281,7 @@ foreach ($arResult["TOPICS"] as $res):
 						if ($res["LAST_MESSAGE_ID"] > 0):
 ?>
 						<div class="forum-lastpost-box">
-							<span class="forum-lastpost-date"><noindex><a rel="nofollow" href="<?=$res["URL"]["LAST_MESSAGE"]?>"><?=$res["LAST_POST_DATE"]?></a></noindex></span>
+							<span class="forum-lastpost-date"><!--noindex--><a rel="nofollow" href="<?=$res["URL"]["LAST_MESSAGE"]?>"><?=$res["LAST_POST_DATE"]?></a><!--/noindex--></span>
 							<span class="forum-lastpost-title"><span class="forum-lastpost-author"><?=$res["LAST_POSTER_NAME"]?></span></span>
 						</div>
 <?
@@ -326,22 +326,22 @@ foreach ($arResult["TOPICS"] as $res):
 						if ($USER->IsAuthorized()):
 ?>
 							<span class="forum-footer-option forum-footer-markread forum-footer-option-first"><?
-								?><noindex><a rel="nofollow" <?
+								?><!--noindex--><a rel="nofollow" <?
 									?>href="<?=$APPLICATION->GetCurPageParam("ACTION=SET_BE_READ", array("ACTION", "sessid"))?>" <?
-									?>onclick="return this.href+=('&sessid='+BX.bitrix_sessid());"><?=GetMessage("F_SET_FORUM_READ")?></a></noindex></span>
+									?>onclick="return this.href+=('&sessid='+BX.bitrix_sessid());"><?=GetMessage("F_SET_FORUM_READ")?></a><!--/noindex--></span>
 <?
 						endif;
 						if ($arResult["PERMISSION"] >= "Q"):
 ?>
 							<span class="forum-footer-option forum-footer-selectall"><?
-								?><noindex><a rel="nofollow" href="javascript:void(0);" onclick="SelectRows('<?=$iIndex?>');" name=""><?=GetMessage("F_SELECT_ALL")?></a></noindex></span>
+								?><!--noindex--><a rel="nofollow" href="javascript:void(0);" onclick="SelectRows('<?=$iIndex?>');" name=""><?=GetMessage("F_SELECT_ALL")?></a><!--/noindex--></span>
 <?
 						elseif (!$USER->IsAuthorized()):
 ?>
 							&nbsp;
 <?
 						endif;
-						
+
 ?>
 						</div>
 					</td>
@@ -369,7 +369,7 @@ endif;
 if ($arResult["USER"]["RIGHTS"]["CAN_ADD_TOPIC"] == "Y"):
 ?>
 	<div class="forum-new-post">
-		<noindex><a rel="nofollow" href="<?=$arResult["URL"]["TOPIC_NEW"]?>" title="<?=GetMessage("F_NEW_TOPIC_TITLE")?>"><span><?=GetMessage("F_NEW_TOPIC")?></span></a></noindex>
+		<!--noindex--><a rel="nofollow" href="<?=$arResult["URL"]["TOPIC_NEW"]?>" title="<?=GetMessage("F_NEW_TOPIC_TITLE")?>"><span><?=GetMessage("F_NEW_TOPIC")?></span></a><!--/noindex-->
 	</div>
 <?
 endif;
@@ -378,14 +378,14 @@ endif;
 </div>
 <?
 
-if (!empty($arResult["ERROR_MESSAGE"])): 
+if (!empty($arResult["ERROR_MESSAGE"])):
 ?>
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
 <?
 endif;
-if (!empty($arResult["OK_MESSAGE"])): 
+if (!empty($arResult["OK_MESSAGE"])):
 ?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>

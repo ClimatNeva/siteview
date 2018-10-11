@@ -86,13 +86,13 @@ if ($arResult["SHOW_EDIT_PROFILE"] == "Y"):
 	if ($USER->GetID() == $arParams["UID"]):
 ?>
 		<span class="forum-option-subscribe">
-			<noindex><a rel="nofollow" href="<?=$arResult["URL"]["SUBSCRIBE"]?>" title="<?=GetMessage('F_SUBSCRIBE_TITLE')?>"><?=GetMessage("F_SUBSCRIBE")?></a></noindex>
+			<!--noindex--><a rel="nofollow" href="<?=$arResult["URL"]["SUBSCRIBE"]?>" title="<?=GetMessage('F_SUBSCRIBE_TITLE')?>"><?=GetMessage("F_SUBSCRIBE")?></a><!--/noindex-->
 		</span>&nbsp;&nbsp;
 <?
 	endif;
 ?>
 		<span class="forum-option-profile">
-			<noindex><a rel="nofollow" href="<?=$arResult["URL"]["PROFILE"]?>" title="<?=$arResult["SHOW_EDIT_PROFILE_TITLE"]?>"><?=GetMessage("F_EDIT_PROFILE")?></a></noindex>
+			<!--noindex--><a rel="nofollow" href="<?=$arResult["URL"]["PROFILE"]?>" title="<?=$arResult["SHOW_EDIT_PROFILE_TITLE"]?>"><?=GetMessage("F_EDIT_PROFILE")?></a><!--/noindex-->
 		</span>
 	</div>
 <?
@@ -144,9 +144,9 @@ if ($arResult["SHOW_RANK"] == "Y"):
 						<span><?=GetMessage("F_NUM_POINTS")?> <span><?=$arResult["FORUM_USER"]["POINTS"]?></span><?
 	if ($arResult["SHOW_VOTES"] == "Y"):
 						?>&nbsp;(<span class="forum-vote-user"><?
-							?><noindex><a rel="nofollow" onclick="return forumAddSessid(this);" href="<?=$arResult["URL"]["~VOTE"]?>" title="<?
+							?><!--noindex--><a rel="nofollow" onclick="return forumAddSessid(this);" href="<?=$arResult["URL"]["~VOTE"]?>" title="<?
 								?><?=($arResult["VOTE_ACTION"] == "VOTE" ? GetMessage("F_NO_VOTE_DO") : GetMessage("F_NO_VOTE_UNDO"));?>"><?
-								?><?=($arResult["VOTE_ACTION"] == "VOTE" ? "+" : "-");?></a></noindex></span>)
+								?><?=($arResult["VOTE_ACTION"] == "VOTE" ? "+" : "-");?></a><!--/noindex--></span>)
 <?
 	endif;
 ?>
@@ -233,39 +233,39 @@ endif;
 <?
 		if (!empty($arResult["USER"]["PERSONAL_PHOTO"]) && COption::GetOptionString("forum", "show_avatar_photo", "N") == 'N'):
 ?>
-					<noindex><a rel="nofollow" onclick="return forumAddSessid(this);" href="<?=$APPLICATION->GetCurPageParam("option=photo&value=".
+					<!--noindex--><a rel="nofollow" onclick="return forumAddSessid(this);" href="<?=$APPLICATION->GetCurPageParam("option=photo&value=".
 						($arResult["USER"]["SHOW_PANELS"]["photo"] == "Y" ? "hide" : "show"), array("option", "value", "sessid"))?>"><?
 					?><?=($arResult["USER"]["SHOW_PANELS"]["photo"] == "Y" ? GetMessage("F_HIDE") : GetMessage("F_SHOW")).GetMessage("F_PHOTO")?>
-					</a></noindex><br />
+					</a><!--/noindex--><br />
 <?
 		endif;
 
 		if (!empty($arResult["USER"]["PERSONAL_BIRTHDAY_FORMATED"]) || !empty($arResult["USER"]["PERSONAL_GENDER"]) ||
 		!empty($arResult["USER"]["PERSONAL_PROFESSION"]) || !empty($arResult["USER"]["PERSONAL_LOCATION"])):
 ?>
-					<noindex><a rel="nofollow" onclick="return forumAddSessid(this);" href="<?=$APPLICATION->GetCurPageParam("option=private&value=".
+					<!--noindex--><a rel="nofollow" onclick="return forumAddSessid(this);" href="<?=$APPLICATION->GetCurPageParam("option=private&value=".
 						($arResult["USER"]["SHOW_PANELS"]["private"] == "Y" ? "hide" : "show"), array("option", "value", "sessid"))?>"><?
 					?><?=($arResult["USER"]["SHOW_PANELS"]["private"] == "Y" ? GetMessage("F_HIDE") : GetMessage("F_SHOW")).GetMessage("F_PRIVATE_DATA")?>
-					</a></noindex><br />
+					</a><!--/noindex--><br />
 <?
 		endif;
 
 		if (!empty($arResult["USER"]["WORK_COMPANY"]) || !empty($arResult["USER"]["WORK_POSITION"]) || !empty($arResult["USER"]["WORK_DEPARTMENT"]) ||
 	!empty($arResult["USER"]["WORK_LOCATION"]) || !empty($arResult["USER"]["WORK_PROFILE"]) || !empty($arResult["USER"]["WORK_WWW"])):
 ?>
-					<noindex><a rel="nofollow" onclick="return forumAddSessid(this);" href="<?=$APPLICATION->GetCurPageParam("option=work&value=".
+					<!--noindex--><a rel="nofollow" onclick="return forumAddSessid(this);" href="<?=$APPLICATION->GetCurPageParam("option=work&value=".
 						($arResult["USER"]["SHOW_PANELS"]["work"] == "Y" ? "hide" : "show"), array("option", "value", "sessid"))?>"><?
 					?><?=($arResult["USER"]["SHOW_PANELS"]["work"] == "Y" ? GetMessage("F_HIDE") : GetMessage("F_SHOW")).GetMessage("F_WORK_DATA")?>
-					</a></noindex><br />
+					</a><!--/noindex--><br />
 <?
 		endif;
 
 		if ($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):
 ?>
-					<noindex><a rel="nofollow" onclick="return forumAddSessid(this);" href="<?=$APPLICATION->GetCurPageParam("option=user_prop&value=".
+					<!--noindex--><a rel="nofollow" onclick="return forumAddSessid(this);" href="<?=$APPLICATION->GetCurPageParam("option=user_prop&value=".
 						($arResult["USER"]["SHOW_PANELS"]["user_prop"] == "Y" ? "hide" : "show"), array("option", "value", "sessid"))?>"><?
 					?><?=($arResult["USER"]["SHOW_PANELS"]["user_prop"] == "Y" ? GetMessage("F_HIDE") : GetMessage("F_SHOW")).GetMessage("USER_TYPE_EDIT_TAB")?>
-					</a></noindex>
+					</a><!--/noindex-->
 <?
 		endif;
 ?>
@@ -373,7 +373,7 @@ if ($arResult["USER"]["SHOW_PANELS"]["work"] != "N" &&
 			<td class="forum-last-column"><?
 		if (!empty($arResult["USER"]["WORK_WWW_FORMATED"]) && !empty($arResult["USER"]["WORK_COMPANY"])):
 ?>
-					<noindex><a rel="nofollow" href="<?=$arResult["USER"]["WORK_WWW_FORMATED"]?>" target="_blank"><?=$arResult["USER"]["WORK_COMPANY"]?></a></noindex>
+					<!--noindex--><a rel="nofollow" href="<?=$arResult["USER"]["WORK_WWW_FORMATED"]?>" target="_blank"><?=$arResult["USER"]["WORK_COMPANY"]?></a><!--/noindex-->
 <?
 		elseif (!empty($arResult["USER"]["WORK_COMPANY"])):
 ?>
@@ -381,7 +381,7 @@ if ($arResult["USER"]["SHOW_PANELS"]["work"] != "N" &&
 <?
 		else:
 ?>
-			<noindex><a rel="nofollow" href="<?=$arResult["USER"]["WORK_WWW_FORMATED"]?>" target="_blank"><?=$arResult["USER"]["WORK_WWW_FORMATED"]?></a></noindex>
+			<!--noindex--><a rel="nofollow" href="<?=$arResult["USER"]["WORK_WWW_FORMATED"]?>" target="_blank"><?=$arResult["USER"]["WORK_WWW_FORMATED"]?></a><!--/noindex-->
 <?
 		endif;
 				?></td>
@@ -494,29 +494,29 @@ endif;
 		if (intval(COption::GetOptionString("forum", "UsePMVersion", "2")) > 0 && $USER->IsAuthorized()):
 			$bEmptyCell = false;
 ?>
-					<span class="forum-contact-message"><noindex><a rel="nofollow" href="<?=$arResult["URL"]["USER_PM"]?>" title="<?=GetMessage("F_SEND_PM_ALT")?>"><?
-						?><?=GetMessage("F_SEND_PM")?></a></noindex></span>&nbsp;&nbsp;
+					<span class="forum-contact-message"><!--noindex--><a rel="nofollow" href="<?=$arResult["URL"]["USER_PM"]?>" title="<?=GetMessage("F_SEND_PM_ALT")?>"><?
+						?><?=GetMessage("F_SEND_PM")?></a><!--/noindex--></span>&nbsp;&nbsp;
 <?
 		endif;
 		if ($arParams["SHOW_MAIL"] == "Y" && strlen($arResult["USER"]["EMAIL"]) > 0):
 			$bEmptyCell = false;
 ?>
 					<span class="forum-contact-email"><?
-						?><noindex><a rel="nofollow" href="<?=$arResult["URL"]["USER_EMAIL"]?>" title="<?=GetMessage("F_SEND_EMAIL_ALT")?>">E-mail</a></noindex></span>&nbsp;&nbsp;
+						?><!--noindex--><a rel="nofollow" href="<?=$arResult["URL"]["USER_EMAIL"]?>" title="<?=GetMessage("F_SEND_EMAIL_ALT")?>">E-mail</a><!--/noindex--></span>&nbsp;&nbsp;
 <?
 		endif;
 		if ($arResult["SHOW_ICQ"] == "Y" && strLen($arResult["USER"]["PERSONAL_ICQ"]) > 0):
 			$bEmptyCell = false;
 ?>
 					<span class="forum-contact-icq">
-						<noindex><a rel="nofollow" href="javascript:void(0);" onclick="prompt('ICQ', '<?=CUtil::JSEscape($arResult["USER"]["PERSONAL_ICQ"])?>')">ICQ</a></noindex></span>
+						<!--noindex--><a rel="nofollow" href="javascript:void(0);" onclick="prompt('ICQ', '<?=CUtil::JSEscape($arResult["USER"]["PERSONAL_ICQ"])?>')">ICQ</a><!--/noindex--></span>
 <?
 		endif;
 
 		if (!empty($arResult["USER"]["PERSONAL_WWW_FORMATED"])):
 ?>
-					<span class="forum-contact-url"><noindex><a rel="nofollow" href="<?=$arResult["USER"]["PERSONAL_WWW_FORMATED"]?>" target="_blank"><?
-						?><?=GetMessage("F_SITE")?></a></noindex></span>&nbsp;&nbsp;
+					<span class="forum-contact-url"><!--noindex--><a rel="nofollow" href="<?=$arResult["USER"]["PERSONAL_WWW_FORMATED"]?>" target="_blank"><?
+						?><?=GetMessage("F_SITE")?></a><!--/noindex--></span>&nbsp;&nbsp;
 <?
 		elseif ($bEmptyCell):
 ?>
@@ -532,23 +532,23 @@ endif;
 	if (!empty($arResult["FORUM_USER"]["NUM_POSTS"])):
 ?>
 								<span class="forum-user-messages">
-									<noindex><a rel="nofollow" href="<?=$arResult["user_post_lta"]?>" title="<?=GetMessage("F_ALL_TOPICS_AUTHOR_TITLE")?>"><?
-										?><?=GetMessage("F_ALL_TOPICS_AUTHOR")?></a></noindex></span>
+									<!--noindex--><a rel="nofollow" href="<?=$arResult["user_post_lta"]?>" title="<?=GetMessage("F_ALL_TOPICS_AUTHOR_TITLE")?>"><?
+										?><?=GetMessage("F_ALL_TOPICS_AUTHOR")?></a><!--/noindex--></span>
 <?/*?>								&nbsp;&nbsp;<span class="forum-user-messages">
-									<noindex><a rel="nofollow" href="<?=$arResult["user_post_lt"]?>" title="<?=GetMessage("F_ALL_TOPICS_TITLE")?>"><?
-										?><?=GetMessage("F_ALL_TOPICS")?></a></noindex></span>
+									<!--noindex--><a rel="nofollow" href="<?=$arResult["user_post_lt"]?>" title="<?=GetMessage("F_ALL_TOPICS_TITLE")?>"><?
+										?><?=GetMessage("F_ALL_TOPICS")?></a><!--/noindex--></span>
 <?*/?>
 								&nbsp;&nbsp;<span class="forum-user-messages">
-									<noindex><a rel="nofollow" href="<?=$arResult["user_post_all"]?>" title="<?=GetMessage("F_ALL_MESSAGES_TITLE")?>"><?
-										?><?=GetMessage("F_ALL_MESSAGES")?></a></noindex></span>
+									<!--noindex--><a rel="nofollow" href="<?=$arResult["user_post_all"]?>" title="<?=GetMessage("F_ALL_MESSAGES_TITLE")?>"><?
+										?><?=GetMessage("F_ALL_MESSAGES")?></a><!--/noindex--></span>
 <?
 		if (!empty($arResult["arTopic"]) && $arResult["arTopic"] != "N"):
 ?>
 								&nbsp;&nbsp;<span class="forum-user-messages">
-									<noindex><a rel="nofollow" href="<?=$arResult["arTopic"]["read"]?>" title="<?=htmlspecialcharsbx($arResult["arTopic"]["~TITLE"])?><?
+									<!--noindex--><a rel="nofollow" href="<?=$arResult["arTopic"]["read"]?>" title="<?=htmlspecialcharsbx($arResult["arTopic"]["~TITLE"])?><?
 										if (strlen($arResult["arTopic"]["~DESCRIPTION"])>0):
 											?>, <?=htmlspecialcharsbx($arResult["arTopic"]["~DESCRIPTION"])?><?
-										endif;?>"><?=GetMessage("F_LAST_MESSAGE")?></a></noindex></span>
+										endif;?>"><?=GetMessage("F_LAST_MESSAGE")?></a><!--/noindex--></span>
 <?
 		endif;
 	else:

@@ -108,7 +108,7 @@ elseif (!empty($arResult["ELEMENTS_LIST"])):
 </div>
 
 <div class="photo-controls photo-controls-search">
-	<noindex>
+	<!--noindex-->
 	<ul class="photo-controls">
 		<li class="photo-control photo-control-first photo-control-search-rank <?=($arResult["REQUEST"]["HOW"] == "d" ? "" : " photo-control-active")?>">
 			<a href="<?=$arResult["SEARCH_URL"]?>"><?=GetMessage("SEARCH_SORT_BY_RANK")?></a>
@@ -118,7 +118,7 @@ elseif (!empty($arResult["ELEMENTS_LIST"])):
 		</li>
 	</ul>
 	<div class="empty-clear"></div>
-	</noindex>
+	<!--/noindex-->
 </div>
 <?
 endif;

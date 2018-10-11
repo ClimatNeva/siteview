@@ -12,7 +12,7 @@
 		<?foreach($arResult as $arElement):?>
 		<tr>
 			<td><input type="hidden" name="ID[]" value="<?=$arElement["ID"]?>" /><a href="<?=$arElement["DETAIL_PAGE_URL"]?>"><?=$arElement["NAME"]?></a></td>
-			<td><noindex><a href="<?=$arElement["DELETE_URL"]?>" rel="nofollow"><?=GetMessage("CATALOG_DELETE")?></a></noindex></td>
+			<td><!--noindex--><a href="<?=$arElement["DELETE_URL"]?>" rel="nofollow"><?=GetMessage("CATALOG_DELETE")?></a><!--/noindex--></td>
 		</tr>
 		<?endforeach?>
 	</table>

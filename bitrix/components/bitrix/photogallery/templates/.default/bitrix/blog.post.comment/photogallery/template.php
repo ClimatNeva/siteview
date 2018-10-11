@@ -450,7 +450,7 @@ else
 					{
 						?><div class="blog-author">
 						<?if($arParams["SEO_USER"] == "Y"):?>
-							<noindex>
+							<!--noindex-->
 						<?endif;?>
 						<?
 						$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
@@ -483,7 +483,7 @@ else
 						);
 						?>
 						<?if($arParams["SEO_USER"] == "Y"):?>
-							</noindex>
+							<!--/noindex-->
 						<?endif;?>
 						</div>
 						<?

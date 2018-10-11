@@ -190,10 +190,10 @@ $this->setFrameMode(true);
 				<input type="submit" name="<?echo $arParams["ACTION_VARIABLE"]."ADD2BASKET"?>" value="<?echo GetMessage("CATALOG_ADD_TO_BASKET")?>">
 				</form>
 			<?else:?>
-				<noindex>
+				<!--noindex-->
 				<a href="<?echo $arResult["BUY_URL"]?>" rel="nofollow"><?echo GetMessage("CATALOG_BUY")?></a>
 				&nbsp;<a href="<?echo $arResult["ADD_URL"]?>" rel="nofollow"><?echo GetMessage("CATALOG_ADD_TO_BASKET")?></a>
-				</noindex>
+				<!--/noindex-->
 			<?endif;?>
 		<?elseif((count($arResult["PRICES"]) > 0) || is_array($arResult["PRICE_MATRIX"])):?>
 			<?=GetMessage("CATALOG_NOT_AVAILABLE")?>

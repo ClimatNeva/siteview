@@ -18,18 +18,18 @@ endif;
 
 if ($arResult["I"]["ACTIONS"]["CREATE_GALLERY"] =="Y" && $arParams["USER_ID"] == $GLOBALS["USER"]->GetId()):
 ?>
-<noindex>
+<!--noindex-->
 	<div class="photo-controls photo-controls-buttons photo-controls-gallery-new">
 		<ul class="photo-controls">
 			<li class="photo-control photo-control-first  photo-control-last photo-control-create photo-control-create-gallery">
-				<a href="<?=$arResult["LINK"]["NEW"].((strpos($arResult["LINK"]["NEW"], "?") === false ? "?" : "&"). 
+				<a href="<?=$arResult["LINK"]["NEW"].((strpos($arResult["LINK"]["NEW"], "?") === false ? "?" : "&").
 										"back_url=".urlencode($APPLICATION->GetCurPageParam()))?>" rel="nofollow">
 					<span><?=GetMessage("P_GALLERY_CREATE")?></span></a>
 			</li>
 		</ul>
 		<div class="empty-clear"></div>
-	</div> 
-</noindex>
+	</div>
+<!--/noindex-->
 <?
 endif;
 
@@ -98,7 +98,7 @@ if ($title != "")
 						endif;
 						if ($arResult["I"]["PERMISSION"] >= "W"):
 						?>
-						<noindex>
+						<!--noindex-->
 						<div class="photo-controls photo-controls-gallery-edit">
 							<ul class="photo-controls">
 								<li class="photo-control photo-control-first photo-control-photo-upload">
@@ -106,7 +106,7 @@ if ($title != "")
 										<span><?=GetMessage("P_UPLOAD")?></span></a>
 								</li>
 								<li class="photo-control photo-control-gallery-edit">
-									<a rel="nofollow" href="<?=$res["LINK"]["EDIT"].((strpos($res["LINK"]["EDIT"], "?") === false ? "?" : "&"). 
+									<a rel="nofollow" href="<?=$res["LINK"]["EDIT"].((strpos($res["LINK"]["EDIT"], "?") === false ? "?" : "&").
 										"back_url=".urlencode($APPLICATION->GetCurPageParam()))?>">
 										<span><?=GetMessage("P_GALLERY_EDIT")?></span></a>
 								</li>
@@ -118,7 +118,7 @@ if ($title != "")
 							</ul>
 							<div class="empty-clear"></div>
 						</div>
-						</noindex>
+						<!--/noindex-->
 						<?
 						endif;
 						?>

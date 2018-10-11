@@ -70,20 +70,20 @@ document.getElementById('bx_auth_secure').style.display = 'inline-block';
 		</table>
 
 <?if ($arParams["NOT_SHOW_LINKS"] != "Y"):?>
-		<noindex>
+		<!--noindex-->
 			<p>
 				<a href="<?=$arResult["AUTH_FORGOT_PASSWORD_URL"]?>" rel="nofollow"><?=GetMessage("AUTH_FORGOT_PASSWORD_2")?></a>
 			</p>
-		</noindex>
+		<!--/noindex-->
 <?endif?>
 
 <?if($arParams["NOT_SHOW_LINKS"] != "Y" && $arResult["NEW_USER_REGISTRATION"] == "Y" && $arParams["AUTHORIZE_REGISTRATION"] != "Y"):?>
-		<noindex>
+		<!--noindex-->
 			<p>
 				<a href="<?=$arResult["AUTH_REGISTER_URL"]?>" rel="nofollow"><?=GetMessage("AUTH_REGISTER")?></a><br />
 				<?=GetMessage("AUTH_FIRST_ONE")?>
 			</p>
-		</noindex>
+		<!--/noindex-->
 <?endif?>
 
 	</form>

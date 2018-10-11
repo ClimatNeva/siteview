@@ -95,7 +95,7 @@ elseif(count($arResult["POST"])>0)
 			<script>
 			BX.viewImageBind(
 				'blg-post-<?=$CurPost["ID"]?>',
-				{showTitle: false}, 
+				{showTitle: false},
 				{tag:'IMG', attr: 'data-bx-image'}
 			);
 			</script>
@@ -133,8 +133,8 @@ elseif(count($arResult["POST"])>0)
 						<div>
 						<?=($FIELD_NAME=='UF_BLOG_POST_DOC' ? "" : "<b>".$arPostField["EDIT_FORM_LABEL"].":</b>&nbsp;")?>
 							<?$APPLICATION->IncludeComponent(
-								"bitrix:system.field.view", 
-								$arPostField["USER_TYPE"]["USER_TYPE_ID"], 
+								"bitrix:system.field.view",
+								$arPostField["USER_TYPE"]["USER_TYPE_ID"],
 								array("arUserField" => $arPostField), null, array("HIDE_ICONS"=>"Y"));?>
 						</div>
 						<?endif;?>
@@ -144,7 +144,7 @@ elseif(count($arResult["POST"])>0)
 							RemoveEventHandler('main', 'system.field.view.file', $eventHandlerID);
 					endif;?>
 				</div>
-				
+
 				<div class="blog-post-meta">
 					<div class="blog-post-info-bottom">
 						<div class="blog-post-info">
@@ -162,7 +162,7 @@ elseif(count($arResult["POST"])>0)
 					</div>
 
 					<div class="blog-post-tag">
-						<noindex>
+						<!--noindex-->
 						<?
 						if(!empty($CurPost["CATEGORY"]))
 						{
@@ -177,7 +177,7 @@ elseif(count($arResult["POST"])>0)
 							}
 						}
 						?>
-						</noindex>
+						<!--/noindex-->
 					</div>
 				</div>
 			</div>
@@ -186,5 +186,5 @@ elseif(count($arResult["POST"])>0)
 }
 else
 	echo GetMessage("B_B_DRAFT_NO_MES");
-?>	
+?>
 </div>

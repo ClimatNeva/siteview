@@ -35,7 +35,7 @@ if(strlen($arResult["ERROR_MESSAGE"])<=0)
 	foreach($arResult["SEARCH_RESULT"] as $v)
 	{
 		?>
-		
+
 			<div class="blog-mainpage-item">
 
 
@@ -49,15 +49,15 @@ if(strlen($arResult["ERROR_MESSAGE"])<=0)
 				<?
 			}
 			?>
-			
+
 			<?if(strlen($v["AuthorName"])>0 && strlen($v["BLOG_URL"])>0)
 			{
 				?>
 				<div class="blog-author">
 					<?if($arParams["SEO_USER"] == "Y"):?>
-						<noindex>
+						<!--noindex-->
 						<a class="blog-author-icon" href="<?=$v["USER_URL"]?>" rel="nofollow"></a>
-						</noindex>
+						<!--/noindex-->
 					<?else:?>
 						<a class="blog-author-icon" href="<?=$v["USER_URL"]?>"></a>
 					<?endif;?>
@@ -77,7 +77,7 @@ if(strlen($arResult["ERROR_MESSAGE"])<=0)
 							"SECOND_NAME" => $v["arUser"]["~SECOND_NAME"],
 							"LOGIN" => $v["arUser"]["~LOGIN"],
 							"NAME_LIST_FORMATTED" => "",
-						);	
+						);
 					?>
 					<?
 					$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
@@ -92,7 +92,7 @@ if(strlen($arResult["ERROR_MESSAGE"])<=0)
 							"NAME_LIST_FORMATTED" => $arTmpUser["NAME_LIST_FORMATTED"],
 							"USE_THUMBNAIL_LIST" => "N",
 							"PROFILE_URL" => $v["USER_URL"],
-							"PROFILE_URL_LIST" => $v["BLOG_URL"],							
+							"PROFILE_URL_LIST" => $v["BLOG_URL"],
 							"PATH_TO_SONET_MESSAGES_CHAT" => $arParams["~PATH_TO_MESSAGES_CHAT"],
 							"PATH_TO_VIDEO_CALL" => $arParams["~PATH_TO_VIDEO_CALL"],
 							"DATE_TIME_FORMAT" => $arParams["DATE_TIME_FORMAT"],
@@ -109,12 +109,12 @@ if(strlen($arResult["ERROR_MESSAGE"])<=0)
 						false,
 						array("HIDE_ICONS" => "Y")
 					);
-					?>					
+					?>
 				</div>
 				<?
 			}
 			?>
-			
+
 				<div class="blog-mainpage-meta"><?=$v["FULL_DATE_CHANGE_FORMATED"]?></div>
 
 			<div class="blog-clear-float"></div>
@@ -125,7 +125,7 @@ if(strlen($arResult["ERROR_MESSAGE"])<=0)
 	if(strlen($arResult["NAV_STRING"]) > 0):
 		?><p><?=$arResult["NAV_STRING"]?></p><?
 	endif;
-		
+
 	if(strlen($arResult["ORDER_LINK"])>0)
 	{
 		if($arResult["how"]=="d"):

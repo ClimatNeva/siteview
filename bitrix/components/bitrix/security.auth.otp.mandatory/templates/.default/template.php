@@ -20,11 +20,11 @@ CJSCore::Init(array('qrcode', 'ajax'));
 	ShowMessage(array("MESSAGE" => GetMessage("SECURITY_OTP_MANDATORY_REQUIRED"), "TYPE" => "ERROR"));
 	?>
 	<?if ($arParams["NOT_SHOW_LINKS"] != "Y"):?>
-		<noindex>
+		<!--noindex-->
 			<p>
 				<a href="<?=$arParams["AUTH_LOGIN_URL"]?>" rel="nofollow"><?=GetMessage("SECURITY_OTP_MANDATORY_AUTH_BACK")?></a>
 			</p>
-		</noindex>
+		<!--/noindex-->
 	<?endif?>
 	<p class="bx-otp-wrap-container-description"><?=GetMessage("SECURITY_OTP_MANDATORY_AUTH_DESCR1")?></p>
 	<div class="bx-otp-wrap-container-getstart">

@@ -162,7 +162,7 @@ CUtil::InitJSCore(array('fx'));
 	{
 		?>
 		<div class="col-xs-7 text-right">
-			<noindex>
+			<!--noindex-->
 			<?
 			$APPLICATION->IncludeComponent("bitrix:main.share", $arParams["SHARE_TEMPLATE"], array(
 					"HANDLERS" => $arParams["SHARE_HANDLERS"],
@@ -176,7 +176,7 @@ CUtil::InitJSCore(array('fx'));
 				array("HIDE_ICONS" => "Y")
 			);
 			?>
-			</noindex>
+			<!--/noindex-->
 		</div>
 		<?
 	}

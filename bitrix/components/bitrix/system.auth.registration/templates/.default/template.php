@@ -27,7 +27,7 @@ ShowMessage($arParams["~AUTH_RESULT"]);
 <?if($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):?>
 	<p><?echo GetMessage("AUTH_EMAIL_WILL_BE_SENT")?></p>
 <?endif?>
-<noindex>
+<!--noindex-->
 <form method="post" action="<?=$arResult["AUTH_URL"]?>" name="bform" enctype="multipart/form-data">
 <?
 if (strlen($arResult["BACKURL"]) > 0)
@@ -163,7 +163,7 @@ document.getElementById('bx_auth_secure').style.display = 'inline-block';
 </p>
 
 </form>
-</noindex>
+<!--/noindex-->
 <script>
 document.bform.USER_NAME.focus();
 </script>

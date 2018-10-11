@@ -72,7 +72,7 @@ if ($arParams["SHOW_HEADER"] != "N"):?>
 						<span class="forum-post-lastedit-user"><?
 							if (!empty($res["URL"]["EDITOR"]))
 							{
-								?><noindex><a rel="nofollow" href="<?=$res["URL"]["EDITOR"]?>"><?=$res["EDITOR_NAME"]?></a></noindex><?
+								?><!--noindex--><a rel="nofollow" href="<?=$res["URL"]["EDITOR"]?>"><?=$res["EDITOR_NAME"]?></a><!--/noindex--><?
 							}
 							else
 							{

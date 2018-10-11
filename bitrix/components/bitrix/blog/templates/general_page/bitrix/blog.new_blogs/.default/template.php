@@ -14,14 +14,14 @@ foreach($arResult as $arBlog)
 		?><div class="blog-line"></div><?
 	}
 	?>
-	
+
 	<div class="blog-mainpage-item">
 	<?if(IntVal($arBlog["SOCNET_GROUP_ID"]) <= 0):?>
 	<div class="blog-author">
 		<?if($arParams["SEO_USER"] == "Y"):?>
-			<noindex>
+			<!--noindex-->
 				<a class="blog-author-icon" href="<?=$arBlog["urlToAuthor"]?>" rel="nofollow"></a>
-			</noindex>
+			<!--/noindex-->
 		<?else:?>
 			<a class="blog-author-icon" href="<?=$arBlog["urlToAuthor"]?>"></a>
 		<?endif;?>
@@ -56,7 +56,7 @@ foreach($arResult as $arBlog)
 				"NAME_LIST_FORMATTED" => $arTmpUser["NAME_LIST_FORMATTED"],
 				"USE_THUMBNAIL_LIST" => "N",
 				"PROFILE_URL" => $arBlog["urlToAuthor"],
-				"PROFILE_URL_LIST" => $arBlog["urlToBlog"],							
+				"PROFILE_URL_LIST" => $arBlog["urlToBlog"],
 				"PATH_TO_SONET_MESSAGES_CHAT" => $arParams["~PATH_TO_MESSAGES_CHAT"],
 				"PATH_TO_VIDEO_CALL" => $arParams["~PATH_TO_VIDEO_CALL"],
 				"DATE_TIME_FORMAT" => $arParams["DATE_TIME_FORMAT"],
@@ -73,7 +73,7 @@ foreach($arResult as $arBlog)
 			false,
 			array("HIDE_ICONS" => "Y")
 		);
-		?>		
+		?>
 	</div>
 	<div class="blog-clear-float"></div>
 	<?endif;?>
@@ -91,5 +91,5 @@ foreach($arResult as $arBlog)
 	</div>
 	<?
 }
-?>	
+?>
 </div>

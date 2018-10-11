@@ -89,7 +89,7 @@ $ii = ($arResult["ELEMENT"]["CURRENT"]["NO"] - 1);
 	if ($arParams["SHOW_TAGS"] == "Y")
 	{
 ?>
-		<noindex>
+		<!--noindex-->
 			<div class="photo-photo-tags" <?=(empty($arResult["ELEMENT"]["TAGS"]) ? "style='display:none;'" : "")?>>
 				<label for="photo_tags"><?=GetMessage("P_TAGS")?>: </label>
 				<span id="photo_tags"><?
@@ -106,13 +106,13 @@ $ii = ($arResult["ELEMENT"]["CURRENT"]["NO"] - 1);
 ?>
 				</span>
 			</div>
-		</noindex>
+		<!--/noindex-->
 <?
 	}
 ?>
 		<div class="photo-photo-rating"><div id="photo_vote"></div></div>
 		<div class="photo-controls photo-controls-photo">
-			<noindex><ul class="photo-controls">
+			<!--noindex--><ul class="photo-controls">
 			<?if (!empty($arResult["SLIDE_SHOW"])):?>
 				<li class="photo-control photo-control-first photo-control-photo-slideshow">
 					<a rel="nofollow" href="<?=$arResult["SLIDE_SHOW"]?>" title="<?=GetMessage("P_SLIDE_SHOW_TITLE")?>"><span><?=GetMessage("P_SLIDE_SHOW")?></span></a>
@@ -138,7 +138,7 @@ $ii = ($arResult["ELEMENT"]["CURRENT"]["NO"] - 1);
 				<a href="<?=$arResult["ELEMENT"]["DROP_URL"]?>" rel="nofollow" title="<?=GetMessage("P_DROP_TITLE")?>" onclick="return confirm('<?=GetMessage("P_DROP_CONFIM")?>');" id="photo_drop"><span><?=GetMessage("P_DROP")?></span></a>
 			</li>
 		<?endif;?>
-			</ul></noindex>
+			</ul><!--/noindex-->
 		</div>
 	</div>
 	<div class="empty-clear"></div>

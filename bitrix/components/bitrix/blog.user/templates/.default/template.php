@@ -5,7 +5,7 @@ if (!$this->__component->__parent || empty($this->__component->__parent->__name)
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/blue/style.css');
 endif;
 ?>
-<noindex>
+<!--noindex-->
 <?
 if(strlen($arResult["FATAL_ERROR"])>0)
 {
@@ -21,7 +21,7 @@ else
 		<span class='errortext'><?=$arResult["ERROR_MESSAGE"]?></span><br /><br />
 		<?
 	}
-	
+
 	if($arResult["bEdit"]=="Y")
 	{
 		?>
@@ -105,12 +105,12 @@ else
 				<?endif;?>
 				<?=$arUserField["EDIT_FORM_LABEL"]?>:</th><td>
 					<?$APPLICATION->IncludeComponent(
-						"bitrix:system.field.edit", 
-						$arUserField["USER_TYPE"]["USER_TYPE_ID"], 
+						"bitrix:system.field.edit",
+						$arUserField["USER_TYPE"]["USER_TYPE_ID"],
 						array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField), null, array("HIDE_ICONS"=>"Y"));?></td></tr>
 			<?endforeach;?>
 		<?endif;?>
-		
+
 		<?// ******************** /User properties ***************************************************?>
 		<tr>
 			<th nowrap><?=GetMessage("B_B_USER_LAST_AUTH")?></th>
@@ -201,12 +201,12 @@ else
 			<?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
 			<th nowrap><?=$arUserField["EDIT_FORM_LABEL"]?>:</th><td>
 					<?$APPLICATION->IncludeComponent(
-						"bitrix:system.field.view", 
-						$arUserField["USER_TYPE"]["USER_TYPE_ID"], 
-						array("arUserField" => $arUserField), null, array("HIDE_ICONS"=>"Y"));?></td></tr>			
+						"bitrix:system.field.view",
+						$arUserField["USER_TYPE"]["USER_TYPE_ID"],
+						array("arUserField" => $arUserField), null, array("HIDE_ICONS"=>"Y"));?></td></tr>
 			<?endforeach;?>
 		<?endif;?>
-		<?// ******************** /User properties ***************************************************?>		
+		<?// ******************** /User properties ***************************************************?>
 		<tr>
 			<th nowrap><?=GetMessage("B_B_USER_LAST_AUTH")?></th>
 			<td nowrap><?=$arResult["BlogUser"]["LAST_VISIT_FORMATED"]?>&nbsp;</td>
@@ -225,7 +225,7 @@ else
 				}
 			}
 			else
-			{	
+			{
 				?>
 				<i><?=GetMessage("B_B_FR_NO")?></i>
 				<?
@@ -247,7 +247,7 @@ else
 				}
 			}
 			else
-			{	
+			{
 				?>
 				<i><?=GetMessage("B_B_FR_NO")?></i>
 				<?
@@ -260,4 +260,4 @@ else
 	}
 }
 ?>
-</noindex>
+<!--/noindex-->

@@ -228,7 +228,7 @@ $this->addExternalCss($this->GetFolder().'/themes/'.$arParams['TEMPLATE_THEME'].
 		{
 			?>
 			<div class="col-xs-7 text-right">
-				<noindex>
+				<!--noindex-->
 				<?
 				$APPLICATION->IncludeComponent("bitrix:main.share", $arParams["SHARE_TEMPLATE"], array(
 						"HANDLERS" => $arParams["SHARE_HANDLERS"],
@@ -242,7 +242,7 @@ $this->addExternalCss($this->GetFolder().'/themes/'.$arParams['TEMPLATE_THEME'].
 					array("HIDE_ICONS" => "Y")
 				);
 				?>
-				</noindex>
+				<!--/noindex-->
 			</div>
 			<?
 		}

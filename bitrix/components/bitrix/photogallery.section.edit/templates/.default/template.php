@@ -176,12 +176,12 @@ BX.ready(function(){
 			</div>
 			<div class="photo-ed-al-contols">
 			<? if ($arResult["SECTION"]["ELEMENTS_CNT"] > 0): ?>
-			<noindex>
+			<!--noindex-->
 				<a rel="nofollow" href="<?=$arResult["SECTION"]["EDIT_ICON_LINK"]?>" onclick="BX.PreventDefault(event); EditAlbum('<?= addslashes(CUtil::JSEscape($arResult["SECTION"]["EDIT_ICON_LINK"]))?>'); return false;"><span><?=GetMessage("P_SECTION_EDIT_ICON")?></span></a>
 				<br/>
 			<?endif;?>
 				<a rel="nofollow" href="<?=$arResult["SECTION"]["DROP_LINK"]?>" onclick="return confirm('<?=CUtil::JSEscape(GetMessage('P_SECTION_DELETE_ASK'))?>');"><span><?=GetMessage("P_SECTION_DELETE")?></span></a>
-			</noindex>
+			<!--/noindex-->
 			</div>
 		</td>
 		<td>

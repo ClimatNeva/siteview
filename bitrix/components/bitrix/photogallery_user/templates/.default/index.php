@@ -361,7 +361,7 @@ if ($arParams["PERMISSION"] >= "U")
 	if (($bNeedModerate || $bNeedPublic) && $arParams['SHOW_CONTROLS_BUTTONS'] != "N")
 	{
 ?>
-<noindex>
+<!--noindex-->
 	<div class="photo-controls photo-controls-buttons photo-controls-moderate">
 		<ul class="photo-controls">
 		<?if ($bNeedModerate):?>
@@ -381,7 +381,7 @@ if ($arParams["PERMISSION"] >= "U")
 		</ul>
 		<div class="empty-clear"></div>
 	</div>
-</noindex>
+<!--/noindex-->
 <?
 	}
 }
@@ -389,7 +389,7 @@ if ($arParams["PERMISSION"] >= "U")
 if ($GLOBALS["USER"]->IsAuthorized() && (!empty($arResult["MY_GALLERY"]) || $arResult["I"]["ACTIONS"]["CREATE_GALLERY"] == "Y") && $arParams['SHOW_CONTROLS_BUTTONS'] != "N")
 {
 ?>
-<noindex>
+<!--noindex-->
 	<div class="photo-controls photo-controls-buttons photo-controls-usermenu">
 		<ul class="photo-controls">
 <?if (empty($arResult["MY_GALLERY"])):?>
@@ -420,13 +420,13 @@ if ($GLOBALS["USER"]->IsAuthorized() && (!empty($arResult["MY_GALLERY"]) || $arR
 		</ul>
 		<div class="empty-clear"></div>
 	</div>
-</noindex>
+<!--/noindex-->
 <?
 }
 elseif (!$GLOBALS["USER"]->IsAuthorized() && $arParams['SHOW_CONTROLS_BUTTONS'] != "N")
 {
 ?>
-<noindex>
+<!--noindex-->
 	<div class="photo-controls photo-controls-buttons photo-controls-authorize">
 		<ul class="photo-controls">
 			<li class="photo-control photo-control-first photo-control-last photo-control-authorize">
@@ -436,12 +436,12 @@ elseif (!$GLOBALS["USER"]->IsAuthorized() && $arParams['SHOW_CONTROLS_BUTTONS'] 
 		</ul>
 		<div class="empty-clear"></div>
 	</div>
-</noindex>
+<!--/noindex-->
 <?
 }
 ?>
 
-<noindex>
+<!--noindex-->
 <div class="photo-info-box photo-info-box-photo-list">
 	<div class="photo-info-box-inner">
 		<div class="photo-header-big">
@@ -472,7 +472,7 @@ elseif (!$GLOBALS["USER"]->IsAuthorized() && $arParams['SHOW_CONTROLS_BUTTONS'] 
 		</div>
 	</div>
 </div>
-</noindex>
+<!--/noindex-->
 <?
 if (!empty($sGalleryList))
 {

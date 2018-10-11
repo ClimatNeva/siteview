@@ -284,7 +284,7 @@ if (strlen($arResult["USER"]["PERSONAL_WWW"]) > 0)
 	$strBValueTmp = substr($arResult["USER"]["PERSONAL_WWW_FORMATED"], 0, 6);
 	if ($strBValueTmp!="http:/" && $strBValueTmp!="https:" && $strBValueTmp!="ftp://")
 		$arResult["USER"]["PERSONAL_WWW_FORMATED"] = "http://".$arResult["USER"]["PERSONAL_WWW_FORMATED"];
-	$arResult["USER"]["PERSONAL_WWW"] = "<noindex><a rel=\"nofollow\" href=\"".$arResult["USER"]["PERSONAL_WWW_FORMATED"]."\" target=\"_blank\">".$arResult["USER"]["PERSONAL_WWW_FORMATED"]."</a></noindex>";
+	$arResult["USER"]["PERSONAL_WWW"] = "<!--noindex--><a rel=\"nofollow\" href=\"".$arResult["USER"]["PERSONAL_WWW_FORMATED"]."\" target=\"_blank\">".$arResult["USER"]["PERSONAL_WWW_FORMATED"]."</a><!--/noindex-->";
 }
 
 if (strlen($arResult["USER"]["WORK_WWW"]) > 0)
@@ -294,7 +294,7 @@ if (strlen($arResult["USER"]["WORK_WWW"]) > 0)
 	if ($strBValueTmp!="http:/" && $strBValueTmp!="https:" && $strBValueTmp!="ftp://")
 		$arResult["USER"]["WORK_WWW_FORMATED"] = "http://".$arResult["USER"]["WORK_WWW_FORMATED"];
 
-	$arResult["USER"]["WORK_WWW"] = "<noindex><a rel=\"nofollow\" href=\"".$arResult["USER"]["WORK_WWW_FORMATED"]."\" target=\"_blank\">".$arResult["USER"]["WORK_WWW_FORMATED"]."</a></noindex>";
+	$arResult["USER"]["WORK_WWW"] = "<!--noindex--><a rel=\"nofollow\" href=\"".$arResult["USER"]["WORK_WWW_FORMATED"]."\" target=\"_blank\">".$arResult["USER"]["WORK_WWW_FORMATED"]."</a><!--/noindex-->";
 }
 
 if ($arResult["USER"]["PERSONAL_GENDER"]=="M")

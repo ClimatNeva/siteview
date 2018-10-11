@@ -60,11 +60,11 @@ ShowMessage($arParams["~AUTH_RESULT"]);
 		</table>
 
 <?if ($arParams["NOT_SHOW_LINKS"] != "Y"):?>
-		<noindex>
+		<!--noindex-->
 			<p>
 				<a href="<?=$arResult["AUTH_LOGIN_URL"]?>" rel="nofollow"><?echo GetMessage("AUTH_OTP_AUTH_BACK")?></a>
 			</p>
-		</noindex>
+		<!--/noindex-->
 <?endif?>
 
 	</form>

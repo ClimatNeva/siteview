@@ -38,9 +38,9 @@ $frame = $this->createFrame()->begin();
 			</div>
 			<div class="span_2_of_4">
 				<?if ($arParams["NOT_SHOW_LINKS"] != "Y"):?>
-					<noindex>
+					<!--noindex-->
 						<a href="<?=$arParams["AUTH_FORGOT_PASSWORD_URL"] ? $arParams["AUTH_FORGOT_PASSWORD_URL"] : $arResult["AUTH_FORGOT_PASSWORD_URL"]?>" rel="nofollow"><?=GetMessage("AUTH_FORGOT_PASSWORD_2")?></a>
-					</noindex>
+					<!--/noindex-->
 				<?endif?>
 			</div>
 			<div class="span_4_of_4">

@@ -94,7 +94,7 @@ if ($arParams["PERMISSION"] >= "U" || $arParams["SHOW_TAGS"] == "Y" || !empty($a
 	if (!empty($arRes))
 	{
 ?>
-<noindex>
+<!--noindex-->
 	<div id="photo-links-on-main-page">
 		<div class="photo-header-big">
 			<div class="photo-header-inner">
@@ -116,7 +116,7 @@ if ($arParams["PERMISSION"] >= "U" || $arParams["SHOW_TAGS"] == "Y" || !empty($a
 			<div class="empty-clear"></div>
 		</div>
 	</div>
-</noindex>
+<!--/noindex-->
 <?
 	}
 	if ($arParams["SHOW_TAGS"] == "Y")

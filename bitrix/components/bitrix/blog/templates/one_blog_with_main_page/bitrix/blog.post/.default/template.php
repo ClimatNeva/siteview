@@ -63,7 +63,7 @@ else
 				{
 					?>
 					<div class="blog-post-share" style="float: right;">
-						<noindex>
+						<!--noindex-->
 						<?
 						$APPLICATION->IncludeComponent("bitrix:main.share", "", array(
 							"HANDLERS" => $arParams["SHARE_HANDLERS"],
@@ -78,7 +78,7 @@ else
 						array("HIDE_ICONS" => "Y")
 						);
 						?>
-						</noindex>
+						<!--/noindex-->
 					</div>
 					<?
 				}
@@ -96,11 +96,11 @@ else
 						<td>
 
 								<?$APPLICATION->IncludeComponent(
-									"bitrix:system.field.view", 
-									$arPostField["USER_TYPE"]["USER_TYPE_ID"], 
+									"bitrix:system.field.view",
+									$arPostField["USER_TYPE"]["USER_TYPE_ID"],
 									array("arUserField" => $arPostField), null, array("HIDE_ICONS"=>"Y"));?>
 						</td>
-					</tr>			
+					</tr>
 					<?endif;?>
 					<?endforeach;?>
 					</table>
@@ -120,7 +120,7 @@ else
 						$i++;
 					}
 				}
-				
+
 			?>
 			</td>
 		</tr>

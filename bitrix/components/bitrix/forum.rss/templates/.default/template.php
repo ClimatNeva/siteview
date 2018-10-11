@@ -9,11 +9,11 @@
 if ($arParams["MODE"] == "link"):
 	$arResult["rss_link"] = array_reverse($arResult["rss_link"]);
 	foreach($arResult["rss_link"] as $key => $val):
-		?><noindex><a rel="nofollow" href="<?=$val["link"]?>" title="<?=($arParams["MODE_DATA"] == "topic" ? GetMessage("F_RSS_POST") : GetMessage("F_RSS"))?><?=$val["name"]?><?
-			?>" class="forum-rss-<?=$key?>" target="_self"><span class="empty"></span></a></noindex><?
+		?><!--noindex--><a rel="nofollow" href="<?=$val["link"]?>" title="<?=($arParams["MODE_DATA"] == "topic" ? GetMessage("F_RSS_POST") : GetMessage("F_RSS"))?><?=$val["name"]?><?
+			?>" class="forum-rss-<?=$key?>" target="_self"><span class="empty"></span></a><!--/noindex--><?
 		if(method_exists($APPLICATION, 'addheadstring'))
 		{
-			$APPLICATION->AddHeadString('<link rel="alternate" type="application/rss+xml" title="'.($arParams["MODE_DATA"] == "topic" ? 
+			$APPLICATION->AddHeadString('<link rel="alternate" type="application/rss+xml" title="'.($arParams["MODE_DATA"] == "topic" ?
 				GetMessage("F_RSS_POST") : GetMessage("F_RSS")).$val["name"].'" href="'.$val["link"].'" />');
 		}
 	endforeach;
@@ -43,7 +43,7 @@ if ($arParams["TYPE"] == "rss1"):
 		<item>
 			<title><?=$topic["TITLE"]?> <?=GetMessage("F_ON_FORUM")?> <?=$forum["NAME"]?></title>
 			<description><![CDATA[<?=$message["TEMPLATE"]?><?
-			
+
 			if (empty($message["TEMPLATE"])):
 			?><b><a href="<?=$message["URL"]?>"><?=$topic["TITLE"]?></a></b> <?
 				if (!empty($topic["DESCRIPTION"])):
@@ -52,7 +52,7 @@ if ($arParams["TYPE"] == "rss1"):
 			?><?=GetMessage("F_IN_FORUM")?> <a href="<?=$forum["URL"]?>"><?=$forum["~NAME"]?></a>. <br />
 			<?=$message["POST_MESSAGE"]?> <br />
 			<?
-			foreach ($message["FILES"] as $arFile): 
+			foreach ($message["FILES"] as $arFile):
 				?><?=$arFile["HTML"]?><br /><?
 			endforeach;
 			?><i><?=$message["POST_DATE_FORMATED"]?>, <?
@@ -96,7 +96,7 @@ elseif ($arParams["TYPE"] == "rss2"):
 			?><?=GetMessage("F_IN_FORUM")?> <a href="<?=$forum["URL"]?>"><?=$forum["~NAME"]?></a>. <br />
 			<?=$message["POST_MESSAGE"]?> <br />
 			<?
-			foreach ($message["FILES"] as $arFile): 
+			foreach ($message["FILES"] as $arFile):
 				?><?=$arFile["HTML"]?><br /><?
 			endforeach;
 			?><i><?=$message["POST_DATE_FORMATED"]?>, <?
@@ -154,7 +154,7 @@ elseif  ($arParams["TYPE"] == "atom"):
 			?><?=GetMessage("F_IN_FORUM")?> <a href="<?=$forum["URL"]?>"><?=$forum["~NAME"]?></a>. <br />
 			<?=$message["POST_MESSAGE"]?> <br />
 			<?
-			foreach ($message["FILES"] as $arFile): 
+			foreach ($message["FILES"] as $arFile):
 				?><?=$arFile["HTML"]?><br /><?
 			endforeach;
 			?><i><?=$message["POST_DATE_FORMATED"]?>, <?=$message["AUTHOR_NAME"]?>.</i><?

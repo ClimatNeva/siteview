@@ -22,7 +22,7 @@ $strNavQueryString = ($arResult["NavQueryString"] != "" ? $arResult["NavQueryStr
 $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?".$arResult["NavQueryString"] : "");
 ?>
 
-<font class="text"><?=$arResult["NavTitle"]?> 
+<font class="text"><?=$arResult["NavTitle"]?>
 
 <?if($arResult["bDescPageNumbering"] === true):?>
 
@@ -127,13 +127,13 @@ $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?".$arResult["Nav
 
 
 <?if ($arResult["bShowAll"]):?>
-<noindex>
+<!--noindex-->
 	<?if ($arResult["NavShowAll"]):?>
 		|&nbsp;<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>SHOWALL_<?=$arResult["NavNum"]?>=0" rel="nofollow"><?=GetMessage("nav_paged")?></a>
 	<?else:?>
 		|&nbsp;<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>SHOWALL_<?=$arResult["NavNum"]?>=1" rel="nofollow"><?=GetMessage("nav_all")?></a>
 	<?endif?>
-</noindex>
+<!--/noindex-->
 <?endif?>
 
 </font>

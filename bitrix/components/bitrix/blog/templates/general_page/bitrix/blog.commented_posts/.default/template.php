@@ -8,7 +8,7 @@ endif;
 <?
 if(empty($arResult))
 	echo GetMessage("SONET_BLOG_EMPTY");
-	
+
 foreach($arResult as $arPost)
 {
 	if($arPost["FIRST"]!="Y")
@@ -19,9 +19,9 @@ foreach($arResult as $arPost)
 	<div class="blog-mainpage-item">
 	<div class="blog-author">
 	<?if($arParams["SEO_USER"] == "Y"):?>
-		<noindex>
+		<!--noindex-->
 		<a class="blog-author-icon" href="<?=$arPost["urlToAuthor"]?>" title="<?=GetMessage("BLOG_BLOG_M_TITLE_BLOG")?>" rel="nofollow"></a>
-		</noindex>
+		<!--/noindex-->
 	<?else:?>
 		<a class="blog-author-icon" href="<?=$arPost["urlToAuthor"]?>" title="<?=GetMessage("BLOG_BLOG_M_TITLE_BLOG")?>"></a>
 	<?endif;?>
@@ -41,7 +41,7 @@ foreach($arResult as $arPost)
 			"SECOND_NAME" => $arPost["~AUTHOR_SECOND_NAME"],
 			"LOGIN" => $arPost["~AUTHOR_LOGIN"],
 			"NAME_LIST_FORMATTED" => "",
-		);	
+		);
 	?>
 	<?
 	$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
@@ -56,7 +56,7 @@ foreach($arResult as $arPost)
 			"NAME_LIST_FORMATTED" => $arTmpUser["NAME_LIST_FORMATTED"],
 			"USE_THUMBNAIL_LIST" => "N",
 			"PROFILE_URL" => $arPost["urlToAuthor"],
-			"PROFILE_URL_LIST" => $arPost["urlToBlog"],							
+			"PROFILE_URL_LIST" => $arPost["urlToBlog"],
 			"PATH_TO_SONET_MESSAGES_CHAT" => $arParams["~PATH_TO_MESSAGES_CHAT"],
 			"PATH_TO_VIDEO_CALL" => $arParams["~PATH_TO_VIDEO_CALL"],
 			"DATE_TIME_FORMAT" => $arParams["DATE_TIME_FORMAT"],
@@ -73,7 +73,7 @@ foreach($arResult as $arPost)
 		false,
 		array("HIDE_ICONS" => "Y")
 	);
-	?>	
+	?>
 	</div>
 	<div class="blog-clear-float"></div>
 	<div class="blog-mainpage-title"><a href="<?=$arPost["urlToPost"]?>"><?echo $arPost["TITLE"]; ?></a></div>
@@ -116,4 +116,4 @@ foreach($arResult as $arPost)
 	</div>
 	<?
 }
-?>	
+?>

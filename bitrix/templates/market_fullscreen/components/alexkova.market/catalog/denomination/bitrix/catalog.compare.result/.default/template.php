@@ -127,7 +127,7 @@ foreach($arResult["SHOW_PROPERTIES"] as $cell=>$val){
 	</table>
 	<br />
 	<?if(!empty($arResult["DELETED_PROPERTIES"]) || !empty($arResult["DELETED_OFFER_FIELDS"]) || !empty($arResult["DELETED_OFFER_PROPS"])):?>
-		<noindex><p>
+		<!--noindex--><p>
 				<?=GetMessage("CATALOG_REMOVED_FEATURES")?>:
 				<?foreach($arResult["DELETED_PROPERTIES"] as $arProperty):?>
 					<a class="bxr-color-button bxr-color-button-small" href="<?=htmlspecialcharsbx($APPLICATION->GetCurPageParam("action=ADD_FEATURE&pr_code=".$arProperty["CODE"],array("op_code","of_code","pr_code","action")))?>" rel="nofollow"><?=$arProperty["NAME"]?></a>
@@ -138,7 +138,7 @@ foreach($arResult["SHOW_PROPERTIES"] as $cell=>$val){
 				<?foreach($arResult["DELETED_OFFER_PROPERTIES"] as $arProperty):?>
 					<a class="bxr-color-button bxr-color-button-small" href="<?=htmlspecialcharsbx($APPLICATION->GetCurPageParam("action=ADD_FEATURE&op_code=".$arProperty["CODE"],array("op_code","of_code","pr_code","action")))?>" rel="nofollow"><?=$arProperty["NAME"]?></a>
 				<?endforeach?>
-			</p></noindex>
+			</p><!--/noindex-->
 	<?endif?>
 
 </div>

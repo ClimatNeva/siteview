@@ -2,7 +2,7 @@
 <?if(!empty($arResult["CALENDAR"]))
 {
 	?>
-	<noindex>
+	<!--noindex-->
 	<ul>
 	<li class="blog-calendar">
 		<h3 class='blog-sidebar-title'><?=GetMessage("BLOG_BLOG_CLNDR_TITLE")?></h3>
@@ -53,7 +53,7 @@
 							<?
 							foreach($v as $vv)
 							{
-								
+
 								$class = "";
 								switch($vv["type"])
 								{
@@ -87,5 +87,5 @@
 			</table>
 	</li>
 	</ul>
-	</noindex>
+	<!--/noindex-->
 <?}?>

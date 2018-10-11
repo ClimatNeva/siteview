@@ -34,7 +34,7 @@ if ($arParams["USE_COMMENTS"] == "Y")
 		"description" => GetMessage("P_PHOTO_SORT_COMMENTS_TITLE"));
 }
 ?>
-<noindex>
+<!--noindex-->
 <div class="photo-controls photo-controls-mainpage">
 	<ul class="photo-controls">
 <?
@@ -51,7 +51,7 @@ endforeach;
 	</ul>
 	<div class="empty-clear"></div>
 </div>
-</noindex>
+<!--/noindex-->
 <?
 $photo_from = trim($_REQUEST["photo_from"]);
 $photo_to = trim($_REQUEST["photo_to"]);

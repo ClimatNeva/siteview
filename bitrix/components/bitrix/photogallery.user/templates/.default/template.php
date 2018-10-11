@@ -13,7 +13,7 @@ $arParams["GALLERY_AVATAR_SIZE"] = intVal(intVal($arParams["GALLERY_AVATAR_SIZE"
 if ($arParams["PERMISSION"] >= "U")
 {
 ?>
-	<noindex>
+	<!--noindex-->
 	<div class="photo-controls photo-controls-buttons photo-controls-gallery">
 		<ul class="photo-controls">
 			<li class="photo-control photo-control-album-add">
@@ -26,7 +26,7 @@ if ($arParams["PERMISSION"] >= "U")
 			</li>
 		</ul>
 	</div>
-	</noindex>
+	<!--/noindex-->
 <?
 }
 ?>

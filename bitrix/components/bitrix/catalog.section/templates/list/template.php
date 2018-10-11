@@ -74,10 +74,10 @@ $this->setFrameMode(true);
 		<?if(count($arResult["PRICES"]) > 0):?>
 		<td>
 			<?if($arElement["CAN_BUY"]):?>
-				<noindex>
+				<!--noindex-->
 				<a href="<?echo $arElement["BUY_URL"]?>" rel="nofollow"><?echo GetMessage("CATALOG_BUY")?></a>
 				&nbsp;<a href="<?echo $arElement["ADD_URL"]?>" rel="nofollow"><?echo GetMessage("CATALOG_ADD")?></a>
-				</noindex>
+				<!--/noindex-->
 			<?elseif((count($arResult["PRICES"]) > 0) || is_array($arElement["PRICE_MATRIX"])):?>
 				<?=GetMessage("CATALOG_NOT_AVAILABLE")?>
 				<?$APPLICATION->IncludeComponent("bitrix:sale.notice.product", ".default", array(

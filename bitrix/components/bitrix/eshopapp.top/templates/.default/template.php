@@ -14,7 +14,7 @@
 		?>
 	<div class="main_catalog_item">
 		<?/*if($arParams["DISPLAY_COMPARE"]):?>
-		<noindex>
+		<!--noindex-->
 			<?if(is_array($arItem["OFFERS"]) && !empty($arItem["OFFERS"])):?>
 				<span class="checkbox">
 					<a href="javascript:void(0)" onclick="return showOfferPopup(this, 'list', '<?=GetMessage("CATALOG_IN_CART")?>', <?=CUtil::PhpToJsObject($arItem["SKU_ELEMENTS"])?>, <?=CUtil::PhpToJsObject($arItem["SKU_PROPERTIES"])?>, <?=CUtil::PhpToJsObject($arResult["POPUP_MESS"])?>, 'compare');">
@@ -28,7 +28,7 @@
 					</a>
 				</span>
 			<?endif?>
-		</noindex>
+		<!--/noindex-->
 		<?endif*/?>
 		<?if ($bPicture):?>
 			<a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="main_catalog_item_img"><span><img src="<?=$arItem["PREVIEW_IMG"]["SRC"]?>"  alt="<?=$arElement["NAME"]?>" /></span></a>
@@ -45,7 +45,7 @@
 						<?if($arPrice["DISCOUNT_VALUE"] < $arPrice["VALUE"]):?>
 							<div class="price">
 								<div class="main_price_container oldprice">
-									<span class="item_price"><?=$arPrice["PRINT_DISCOUNT_VALUE"]?></span><br/> 
+									<span class="item_price"><?=$arPrice["PRINT_DISCOUNT_VALUE"]?></span><br/>
 									<span class="item_price_old"><?=$arPrice["PRINT_VALUE"]?></span>
 								</div>
 							</div>
@@ -59,7 +59,7 @@
 			?>
 
 			<?if ($arItem["CAN_BUY"]):?>
-				<noindex>
+				<!--noindex-->
 				<a href="<?=$arItem["ADD_URL"]?>"
 					class="main_item_buy button_red_small"
 					rel="nofollow"
@@ -69,12 +69,12 @@
 					id="catalog_add2cart_link_<?=$arItem['ID']?>">
 					<?=GetMessage("CATALOG_ADD")?>
 				</a>
-				</noindex>
+				<!--/noindex-->
 				<?/*elseif ($arNotify[SITE_ID]['use'] == 'Y'):?>
 					<?if ($USER->IsAuthorized()):?>
-						<noindex><a href="<?echo $arItem["SUBSCRIBE_URL"]?>" rel="nofollow" class="subscribe_link" onclick="return addToSubscribe(this, '<?=GetMessage("CATALOG_IN_SUBSCRIBE")?>');" id="catalog_add2cart_link_<?=$arItem['ID']?>"><?echo GetMessage("CATALOG_SUBSCRIBE")?></a></noindex>
+						<!--noindex--><a href="<?echo $arItem["SUBSCRIBE_URL"]?>" rel="nofollow" class="subscribe_link" onclick="return addToSubscribe(this, '<?=GetMessage("CATALOG_IN_SUBSCRIBE")?>');" id="catalog_add2cart_link_<?=$arItem['ID']?>"><?echo GetMessage("CATALOG_SUBSCRIBE")?></a><!--/noindex-->
 					<?else:?>
-						<noindex><a href="javascript:void(0)" rel="nofollow" class="subscribe_link" onclick="showAuthForSubscribe(this, <?=$arItem['ID']?>, '<?echo $arItem["SUBSCRIBE_URL"]?>')" id="catalog_add2cart_link_<?=$arItem['ID']?>"><?echo GetMessage("CATALOG_SUBSCRIBE")?></a></noindex>
+						<!--noindex--><a href="javascript:void(0)" rel="nofollow" class="subscribe_link" onclick="showAuthForSubscribe(this, <?=$arItem['ID']?>, '<?echo $arItem["SUBSCRIBE_URL"]?>')" id="catalog_add2cart_link_<?=$arItem['ID']?>"><?echo GetMessage("CATALOG_SUBSCRIBE")?></a><!--/noindex-->
 					<?endif;?>
 				<?*/?>
 			<?endif?>

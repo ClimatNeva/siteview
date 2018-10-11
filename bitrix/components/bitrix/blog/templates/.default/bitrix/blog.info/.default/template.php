@@ -11,7 +11,7 @@ if(!empty($arResult))
 	if(!empty($arResult["CATEGORY"]))
 	{
 		?>
-		<noindex>
+		<!--noindex-->
 		<h3 class="blog-sidebar-title"><?=GetMessage("BLOG_BLOG_TAG_CLOUD")?></h3>
 		<div class="blog-tags-cloud" <?=$arParams["WIDTH"]?>>
 			<?
@@ -24,8 +24,8 @@ if(!empty($arResult))
 						echo "</b>";
 			}
 		?></div>
-		</noindex>
+		<!--/noindex-->
 		<?
 	}
 }
-?>	
+?>

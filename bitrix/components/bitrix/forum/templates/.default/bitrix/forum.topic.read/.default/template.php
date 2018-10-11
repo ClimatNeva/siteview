@@ -88,7 +88,7 @@ if ($arParams["SHOW_FIRST_POST"] == "Y" && $arResult["NAV_RESULT"] && $arResult[
 	if ($arParams["SHOW_RSS"] == "Y")
 	{
 		?>&nbsp;&nbsp;<span class="forum-option-feed">
-			<noindex><a rel="nofollow" href="<?=$arResult["URL"]["RSS_DEFAULT"]?>" onclick="window.location='<?=CUtil::JSEscape($arResult["URL"]["~RSS"]);?>'; return false;">RSS</a></noindex>
+			<!--noindex--><a rel="nofollow" href="<?=$arResult["URL"]["RSS_DEFAULT"]?>" onclick="window.location='<?=CUtil::JSEscape($arResult["URL"]["~RSS"]);?>'; return false;">RSS</a><!--/noindex-->
 		</span><?
 	}
 	if ($USER->IsAuthorized())
@@ -96,15 +96,15 @@ if ($arParams["SHOW_FIRST_POST"] == "Y" && $arResult["NAV_RESULT"] && $arResult[
 		if (empty($arResult["USER"]["SUBSCRIBE"]))
 		{
 			?>&nbsp;&nbsp;<span class="forum-option-subscribe forum-option-do-subscribe">
-			<noindex><a rel="nofollow" title="<?=GetMessage("F_SUBSCRIBE_TITLE")?>" href="<?
+			<!--noindex--><a rel="nofollow" title="<?=GetMessage("F_SUBSCRIBE_TITLE")?>" href="<?
 			?><?=$APPLICATION->GetCurPageParam("TOPIC_SUBSCRIBE=Y&".bitrix_sessid_get(), array("FORUM_SUBSCRIBE", "FORUM_SUBSCRIBE_TOPIC", "sessid"))?><?
-				?>"><?=GetMessage("F_SUBSCRIBE")?></a></noindex></span><?
+				?>"><?=GetMessage("F_SUBSCRIBE")?></a><!--/noindex--></span><?
 		}
 		else
 		{
-			?>&nbsp;&nbsp;<span class="forum-option-subscribe forum-option-do-unsubscribe"><noindex><a rel="nofollow" title="<?=GetMessage("F_UNSUBSCRIBE_TITLE")?>" href="<?
+			?>&nbsp;&nbsp;<span class="forum-option-subscribe forum-option-do-unsubscribe"><!--noindex--><a rel="nofollow" title="<?=GetMessage("F_UNSUBSCRIBE_TITLE")?>" href="<?
 			?><?=$APPLICATION->GetCurPageParam("TOPIC_UNSUBSCRIBE=Y&".bitrix_sessid_get(), array("FORUM_UNSUBSCRIBE", "FORUM_UNSUBSCRIBE_TOPIC", "sessid"))?><?
-				?>"><?=GetMessage("F_UNSUBSCRIBE")?></a></noindex></span><?
+				?>"><?=GetMessage("F_UNSUBSCRIBE")?></a><!--/noindex--></span><?
 		}
 	}?>
 	</div>
@@ -203,7 +203,7 @@ if (!$bShowedHeader)
 	if ($arParams["SHOW_RSS"] == "Y")
 	{
 		?><span class="forum-option-feed"><?
-			?><noindex><a rel="nofollow" href="<?=$arResult["URL"]["RSS_DEFAULT"]?>" onclick="window.location='<?=CUtil::JSEscape($arResult["URL"]["~RSS"])?>'; return false;">RSS</a></noindex><?
+			?><!--noindex--><a rel="nofollow" href="<?=$arResult["URL"]["RSS_DEFAULT"]?>" onclick="window.location='<?=CUtil::JSEscape($arResult["URL"]["~RSS"])?>'; return false;">RSS</a><!--/noindex--><?
 		?></span><?
 	}
 	if ($USER->IsAuthorized())
@@ -212,15 +212,15 @@ if (!$bShowedHeader)
 
 		if (empty($arResult["USER"]["SUBSCRIBE"]))
 		{
-			?><span class="forum-option-subscribe forum-option-do-subscribe"><noindex><a rel="nofollow" title="<?=GetMessage("F_SUBSCRIBE_TITLE")?>" href="<?
+			?><span class="forum-option-subscribe forum-option-do-subscribe"><!--noindex--><a rel="nofollow" title="<?=GetMessage("F_SUBSCRIBE_TITLE")?>" href="<?
 				?><?=$APPLICATION->GetCurPageParam("TOPIC_SUBSCRIBE=Y&".bitrix_sessid_get(), array("FORUM_SUBSCRIBE", "FORUM_SUBSCRIBE_TOPIC", "sessid"))?><?
-					?>"><?=GetMessage("F_SUBSCRIBE")?></a></noindex></span><?
+					?>"><?=GetMessage("F_SUBSCRIBE")?></a><!--/noindex--></span><?
 		}
 		else
 		{
-			?><span class="forum-option-subscribe forum-option-do-unsubscribe"><noindex><a rel="nofollow" title="<?=GetMessage("F_UNSUBSCRIBE_TITLE")?>" href="<?
+			?><span class="forum-option-subscribe forum-option-do-unsubscribe"><!--noindex--><a rel="nofollow" title="<?=GetMessage("F_UNSUBSCRIBE_TITLE")?>" href="<?
 				?><?=$APPLICATION->GetCurPageParam("TOPIC_UNSUBSCRIBE=Y&".bitrix_sessid_get(), array("FORUM_UNSUBSCRIBE", "FORUM_UNSUBSCRIBE_TOPIC", "sessid"))?><?
-					?>"><?=GetMessage("F_UNSUBSCRIBE")?></a></noindex></span><?
+					?>"><?=GetMessage("F_UNSUBSCRIBE")?></a><!--/noindex--></span><?
 		}
 	}?>
 	</div>
@@ -318,7 +318,7 @@ if ($arResult["USER"]["RIGHTS"]["MODERATE"] == "Y"):
 								<input type="hidden" name="ACTION" value="" />
 								<div class="forum-post-moderate">
 									&nbsp;&nbsp;<span class="forum-footer-option forum-footer-selectall forum-footer-option-first"><?
-								?><noindex><a rel="nofollow" href="javascript:void(0);" onclick="SelectPosts('<?=$arParams["iIndex"]?>');" name=""><?=GetMessage("F_SELECT_ALL")?></a></noindex></span>
+								?><!--noindex--><a rel="nofollow" href="javascript:void(0);" onclick="SelectPosts('<?=$arParams["iIndex"]?>');" name=""><?=GetMessage("F_SELECT_ALL")?></a><!--/noindex--></span>
 								</div>
 								<div class="forum-post-moderate">
 									<select name="ACTION_MESSAGE">

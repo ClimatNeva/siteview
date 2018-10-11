@@ -39,14 +39,14 @@ else
 			<script>
 			BX.viewImageBind(
 				'blg-post-<?=$CurPost["ID"]?>',
-				{showTitle: false}, 
+				{showTitle: false},
 				{tag:'IMG', attr: 'data-bx-image'}
 			);
 			</script>
 			<div class="blog-post" id="blg-post-<?=$CurPost["ID"]?>">
 				<h2 class="blog-post-title"><a href="<?=$CurPost["urlToPost"]?>" title="<?=$CurPost["TITLE"]?>"><?=$CurPost["TITLE"]?></a></h2>
 				<div class="blog-post-info">
-				
+
 					<?if ($arParams["SHOW_RATING"] == "Y"):?>
 					<div class="blog-post-rating rating_vote_graphic">
 					<?
@@ -71,9 +71,9 @@ else
 					<?endif;?>
 					<div class="blog-author">
 					<?if($arParams["SEO_USER"] == "Y"):?>
-						<noindex>
+						<!--noindex-->
 							<a class="blog-author-icon" href="<?=$CurPost["urlToAuthor"]?>" rel="nofollow"></a>
-						</noindex>
+						<!--/noindex-->
 					<?else:?>
 						<a class="blog-author-icon" href="<?=$CurPost["urlToAuthor"]?>"></a>
 					<?endif;?>
@@ -95,7 +95,7 @@ else
 							"SECOND_NAME" => $CurPost["arUser"]["~SECOND_NAME"],
 							"LOGIN" => $CurPost["arUser"]["~LOGIN"],
 							"NAME_LIST_FORMATTED" => "",
-						);	
+						);
 					?>
 					<?
 					$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
@@ -110,7 +110,7 @@ else
 							"NAME_LIST_FORMATTED" => $arTmpUser["NAME_LIST_FORMATTED"],
 							"USE_THUMBNAIL_LIST" => "N",
 							"PROFILE_URL" => $CurPost["urlToAuthor"],
-							"PROFILE_URL_LIST" => $CurPost["urlToBlog"],							
+							"PROFILE_URL_LIST" => $CurPost["urlToBlog"],
 							"PATH_TO_SONET_MESSAGES_CHAT" => $arParams["~PATH_TO_MESSAGES_CHAT"],
 							"PATH_TO_VIDEO_CALL" => $arParams["~PATH_TO_VIDEO_CALL"],
 							"DATE_TIME_FORMAT" => $arParams["DATE_TIME_FORMAT"],
@@ -127,7 +127,7 @@ else
 						false,
 						array("HIDE_ICONS" => "Y")
 					);
-					?>					
+					?>
 					</div>
 					<div class="blog-post-date"><?=$CurPost["DATE_PUBLISH_FORMATED"]?></div>
 				</div>
@@ -164,8 +164,8 @@ else
 						<div>
 						<?=($FIELD_NAME=='UF_BLOG_POST_DOC' ? "" : "<b>".$arPostField["EDIT_FORM_LABEL"].":</b>&nbsp;")?>
 							<?$APPLICATION->IncludeComponent(
-								"bitrix:system.field.view", 
-								$arPostField["USER_TYPE"]["USER_TYPE_ID"], 
+								"bitrix:system.field.view",
+								$arPostField["USER_TYPE"]["USER_TYPE_ID"],
 								array("arUserField" => $arPostField), null, array("HIDE_ICONS"=>"Y"));?>
 						</div>
 						<?endif;?>
@@ -181,7 +181,7 @@ else
 					{
 						?>
 						<div class="blog-post-share" style="float: right;">
-							<noindex>
+							<!--noindex-->
 							<?
 							$APPLICATION->IncludeComponent("bitrix:main.share", "", array(
 									"HANDLERS" => $arParams["SHARE_HANDLERS"],
@@ -196,7 +196,7 @@ else
 								array("HIDE_ICONS" => "Y")
 							);
 							?>
-							</noindex>
+							<!--/noindex-->
 						</div>
 						<?
 					}
@@ -244,7 +244,7 @@ else
 							}
 						}
 						?>
-	
+
 					</div>
 
 				</div>
@@ -255,5 +255,5 @@ else
 	else
 		echo GetMessage("BLOG_BLOG_BLOG_NO_AVAIBLE_MES");
 }
-?>	
+?>
 </div>

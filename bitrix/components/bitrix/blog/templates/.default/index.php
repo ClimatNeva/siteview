@@ -44,15 +44,15 @@ function BXBlogTabShow(id, type)
 {
 	if(type == 'post')
 	{
-		
+
 		document.getElementById('new-posts').style.display = 'inline';
 		document.getElementById('popular-posts').style.display = 'inline';
 		document.getElementById('commented-posts').style.display = 'inline';
-		
+
 		document.getElementById('new-posts-title').style.display = 'none';
 		document.getElementById('popular-posts-title').style.display = 'none';
 		document.getElementById('commented-posts-title').style.display = 'none';
-		
+
 		document.getElementById('new-posts-content').style.display = 'none';
 		document.getElementById('popular-posts-content').style.display = 'none';
 		document.getElementById('commented-posts-content').style.display = 'none';
@@ -65,10 +65,10 @@ function BXBlogTabShow(id, type)
 	{
 		document.getElementById('new-blogs').style.display = 'inline-block';
 		document.getElementById('popular-blogs').style.display = 'inline-block';
-		
+
 		document.getElementById('new-blogs-title').style.display = 'none';
 		document.getElementById('popular-blogs-title').style.display = 'none';
-		
+
 		document.getElementById('new-blogs-content').style.display = 'none';
 		document.getElementById('popular-blogs-content').style.display = 'none';
 
@@ -76,7 +76,7 @@ function BXBlogTabShow(id, type)
 		document.getElementById(id+'-title').style.display = 'inline-block';
 		document.getElementById(id+'-content').style.display = 'block';
 	}
-	
+
 }
 //-->
 </script>
@@ -89,13 +89,13 @@ function BXBlogTabShow(id, type)
 			<span id="new-posts-title"><?=GetMessage("BC_NEW_POSTS_MES")?></span>
 			<span id="commented-posts-title" style="display:none;"><?=GetMessage("BC_COMMENTED_POSTS_MES")?></span>
 			<span id="popular-posts-title" style="display:none;"><?=GetMessage("BC_POPULAR_POSTS_MES")?></span>
-		</div>		
+		</div>
 		<div class="blog-tab-items">
 			<span id="new-posts" style="display:none;"><a href="javascript:BXBlogTabShow('new-posts', 'post');"><?=GetMessage("BC_NEW_POSTS")?></a></span>
 			<span id="commented-posts"><a href="javascript:BXBlogTabShow('commented-posts', 'post');"><?=GetMessage("BC_COMMENTED_POSTS")?></a></span>
 			<span id="popular-posts"><a href="javascript:BXBlogTabShow('popular-posts', 'post');"><?=GetMessage("BC_POPULAR_POSTS")?></a></span>
 		</div>
-	</div>	
+	</div>
 </div>
 	<div class="blog-clear-float"></div>
 	<div class="blog-tab-content">
@@ -127,7 +127,7 @@ function BXBlogTabShow(id, type)
 			"SHOW_RATING" => $arParams["SHOW_RATING"],
 			"RATING_TYPE" => $arParams["RATING_TYPE"],
 			),
-			$component 
+			$component
 		);
 		?>
 	</div>
@@ -160,7 +160,7 @@ function BXBlogTabShow(id, type)
 			"SHOW_RATING" => $arParams["SHOW_RATING"],
 			"RATING_TYPE" => $arParams["RATING_TYPE"],
 			),
-			$component 
+			$component
 		);
 		?>
 	</div>
@@ -193,7 +193,7 @@ function BXBlogTabShow(id, type)
 			"SHOW_RATING" => $arParams["SHOW_RATING"],
 			"RATING_TYPE" => $arParams["RATING_TYPE"],
 			),
-			$component 
+			$component
 		);
 		?>
 	</div>
@@ -201,11 +201,11 @@ function BXBlogTabShow(id, type)
 	if(strlen($arResult["PATH_TO_HISTORY"]) <= 0)
 		$arResult["PATH_TO_HISTORY"] = htmlspecialcharsbx($APPLICATION->GetCurPage()."?".$arResult["ALIASES"]["page"]."=history");
 	?>
-	<noindex>
+	<!--noindex-->
 	<div style="text-align:right;"><a href="<?=$arResult["PATH_TO_HISTORY"]?>" rel="nofollow"><?=GetMessage("BC_ALL_POSTS")?></a></div>
-	</noindex>
+	<!--/noindex-->
 	</div>
-	
+
 <?if(empty($arParams["GROUP_ID"]) || (is_array($arParams["GROUP_ID"]) && count($arParams["GROUP_ID"]) > 1))
 {
 	?>
@@ -214,13 +214,13 @@ function BXBlogTabShow(id, type)
 		<div class="blog-tab-right"></div>
 		<div class="blog-tab">
 			<span class="blog-tab-title"><?=GetMessage("BC_GROUPS")?></span>
-		</div>	
+		</div>
 	</div>
 		<div class="blog-tab-content">
 			<?
 			$APPLICATION->IncludeComponent(
-					"bitrix:blog.groups", 
-					"", 
+					"bitrix:blog.groups",
+					"",
 					Array(
 							"GROUPS_COUNT"	=> 0,
 							"COLS_COUNT"	=> 2,
@@ -231,7 +231,7 @@ function BXBlogTabShow(id, type)
 							"CACHE_TIME"	=> $arResult["CACHE_TIME"],
 							"GROUP_ID" 			=> $arParams["GROUP_ID"],
 						),
-					$component 
+					$component
 				);
 			?>
 		</div>
@@ -248,7 +248,7 @@ if(IsModuleInstalled("search")):
 	<div class="blog-tab-right"></div>
 	<div class="blog-tab">
 		<span class="blog-tab-title"><?=GetMessage("BC_SEARCH_TAG")?></span>
-	</div>	
+	</div>
 </div>
 	<div class="blog-tab-content">
 		<div class="blog-mainpage-search-cloud">
@@ -257,26 +257,26 @@ if(IsModuleInstalled("search")):
 			"bitrix:search.tags.cloud",
 			"",
 			Array(
-				"FONT_MAX" => 18, 
+				"FONT_MAX" => 18,
 				"FONT_MIN" => 10,
 				"COLOR_NEW" => $arParams["COLOR_NEW"],
 				"COLOR_OLD" => $arParams["COLOR_OLD"],
-				"ANGULARITY" => $arParams["ANGULARITY"], 
-				"PERIOD_NEW_TAGS" => $arResult["PERIOD_NEW_TAGS"], 
-				"SHOW_CHAIN" => "N", 
-				"COLOR_TYPE" => $arParams["COLOR_TYPE"], 
-				"WIDTH" => $arParams["WIDTH"], 
-				"SEARCH" => "", 
-				"TAGS" => "", 
-				"SORT" => "NAME", 
-				"PAGE_ELEMENTS" => "70", 
-				"PERIOD" => $arParams["PERIOD"], 
-				"URL_SEARCH" => $arResult["PATH_TO_SEARCH"], 
-				"TAGS_INHERIT" => "N", 
-				"CHECK_DATES" => "Y", 
-				"arrFILTER" => Array("blog"), 
-				"CACHE_TYPE" => "A", 
-				"CACHE_TIME" => "3600" 
+				"ANGULARITY" => $arParams["ANGULARITY"],
+				"PERIOD_NEW_TAGS" => $arResult["PERIOD_NEW_TAGS"],
+				"SHOW_CHAIN" => "N",
+				"COLOR_TYPE" => $arParams["COLOR_TYPE"],
+				"WIDTH" => $arParams["WIDTH"],
+				"SEARCH" => "",
+				"TAGS" => "",
+				"SORT" => "NAME",
+				"PAGE_ELEMENTS" => "70",
+				"PERIOD" => $arParams["PERIOD"],
+				"URL_SEARCH" => $arResult["PATH_TO_SEARCH"],
+				"TAGS_INHERIT" => "N",
+				"CHECK_DATES" => "Y",
+				"arrFILTER" => Array("blog"),
+				"CACHE_TYPE" => "A",
+				"CACHE_TIME" => "3600"
 			),
 			$component
 		);
@@ -289,7 +289,7 @@ if(IsModuleInstalled("search")):
 	<div class="blog-tab-right"></div>
 	<div class="blog-tab">
 		<span class="blog-tab-title"><?=GetMessage("BC_NEW_COMMENTS")?></span>
-	</div>	
+	</div>
 </div>
 	<div class="blog-tab-content">
 		<?
@@ -320,7 +320,7 @@ if(IsModuleInstalled("search")):
 	"NO_URL_IN_COMMENTS_AUTHORITY" => $arParams["NO_URL_IN_COMMENTS_AUTHORITY"],
 	"SHOW_RATING" => $arParams["SHOW_RATING"],
 	),
-	$component 
+	$component
 );
 		?>
 	</div>
@@ -336,14 +336,14 @@ if(IsModuleInstalled("search")):
 			<span id="new-blogs-title" style="display:none;"><?=GetMessage("BC_NEW_BLOGS_MES")?></span>
 			<span id="popular-blogs-title"><?=GetMessage("BC_POPULAR_BLOGS_MES")?></span>
 		</span>
-	</div>	
+	</div>
 </div>
 	<div class="blog-tab-content">
 	<div id="new-blogs-content" style="display:none;">
 	<?
 		$APPLICATION->IncludeComponent(
-				"bitrix:blog.new_blogs", 
-				"", 
+				"bitrix:blog.new_blogs",
+				"",
 				Array(
 						"BLOG_COUNT"	=> $arResult["BLOG_COUNT_MAIN"],
 						"BLOG_VAR"		=> $arResult["ALIASES"]["blog"],
@@ -362,15 +362,15 @@ if(IsModuleInstalled("search")):
 						"PATH_TO_MESSAGES_CHAT" => $arParams["PATH_TO_MESSAGES_CHAT"],
 						"PATH_TO_VIDEO_CALL" => $arParams["PATH_TO_VIDEO_CALL"],
 					),
-				$component 
+				$component
 			);
 		?>
 	</div>
 	<div id="popular-blogs-content" style="display:block;">
 		<?
 		$APPLICATION->IncludeComponent(
-				"bitrix:blog.popular_blogs", 
-				"", 
+				"bitrix:blog.popular_blogs",
+				"",
 				Array(
 						"BLOG_COUNT"	=> $arResult["BLOG_COUNT_MAIN"],
 						"PERIOD_DAYS"	=>	$arResult["PERIOD_DAYS"],
@@ -390,7 +390,7 @@ if(IsModuleInstalled("search")):
 						"PATH_TO_MESSAGES_CHAT" => $arParams["PATH_TO_MESSAGES_CHAT"],
 						"PATH_TO_VIDEO_CALL" => $arParams["PATH_TO_VIDEO_CALL"],
 					),
-				$component 
+				$component
 			);
 		?>
 	</div>
@@ -400,7 +400,7 @@ if(IsModuleInstalled("search")):
 		if(strlen($arResult["PATH_TO_GROUP"]) <= 0)
 			$arResult["PATH_TO_GROUP"] = htmlspecialcharsbx($APPLICATION->GetCurPage()."?".$arResult["ALIASES"]["page"]."=group&".$arResult["ALIASES"]["group_id"]."=#group_id#");
 		?>
-		
+
 		<div style="text-align:right;"><a href="<?=CComponentEngine::MakePathFromTemplate($arResult["PATH_TO_GROUP"], array("group_id" => "all"))?>"><?=GetMessage("BC_ALL_BLOGS")?></a></div>
 		<?
 	//}
@@ -425,7 +425,7 @@ if(IsModuleInstalled("search")):
 					//"GROUP_ID" 			=> $arParams["GROUP_ID"],
 					"MODE"				=> "S",
 				),
-			$component 
+			$component
 		);
 	?>
 	</div>

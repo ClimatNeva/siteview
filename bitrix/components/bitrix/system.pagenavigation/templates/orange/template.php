@@ -99,13 +99,13 @@ $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?".$arResult["Nav
 
 
 <?if ($arResult["bShowAll"]):?>
-	<noindex>
+	<!--noindex-->
 	<?if ($arResult["NavShowAll"]):?>
 		|&nbsp;<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>SHOWALL_<?=$arResult["NavNum"]?>=0" rel="nofollow"><?=GetMessage("nav_paged")?></a>&nbsp;
 	<?else:?>
 		|&nbsp;<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>SHOWALL_<?=$arResult["NavNum"]?>=1" rel="nofollow"><?=GetMessage("nav_all")?></a>&nbsp;
 	<?endif?>
-	</noindex>
+	<!--/noindex-->
 <?endif?>
 
 	</div>

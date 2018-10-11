@@ -1,7 +1,7 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="catalog-compare-result">
 <a name="compare_table"></a>
-	<noindex><p>
+	<!--noindex--><p>
 	<?if($arResult["DIFFERENT"]):
 		?><a href="<?=htmlspecialcharsbx($APPLICATION->GetCurPageParam("DIFFERENT=N",array("DIFFERENT")))?>" rel="nofollow"><?=GetMessage("CATALOG_ALL_CHARACTERISTICS")?></a><?
 	else:
@@ -13,9 +13,9 @@
 	else:
 		?><?=GetMessage("CATALOG_ONLY_DIFFERENT")?><?
 	endif?>
-	</p></noindex>
+	</p><!--/noindex-->
 	<?if(!empty($arResult["DELETED_PROPERTIES"]) || !empty($arResult["DELETED_OFFER_FIELDS"]) || !empty($arResult["DELETED_OFFER_PROPS"])):?>
-		<noindex><p>
+		<!--noindex--><p>
 		<?=GetMessage("CATALOG_REMOVED_FEATURES")?>:
 		<?foreach($arResult["DELETED_PROPERTIES"] as $arProperty):?>
 			<a href="<?=htmlspecialcharsbx($APPLICATION->GetCurPageParam("action=ADD_FEATURE&pr_code=".$arProperty["CODE"],array("op_code","of_code","pr_code","action")))?>" rel="nofollow"><?=$arProperty["NAME"]?></a>
@@ -26,7 +26,7 @@
 		<?foreach($arResult["DELETED_OFFER_PROPERTIES"] as $arProperty):?>
 			<a href="<?=htmlspecialcharsbx($APPLICATION->GetCurPageParam("action=ADD_FEATURE&op_code=".$arProperty["CODE"],array("op_code","of_code","pr_code","action")))?>" rel="nofollow"><?=$arProperty["NAME"]?></a>
 		<?endforeach?>
-		</p></noindex>
+		</p><!--/noindex-->
 	<?endif?>
 	<?if(count($arResult["SHOW_PROPERTIES"])>0):?>
 		<p>
@@ -68,7 +68,7 @@
 						case "NAME":
 							?><a href="<?=$arElement["DETAIL_PAGE_URL"]?>"><?=$arElement[$code]?></a><?
 							if($arElement["CAN_BUY"]):
-								?><noindex><br /><a href="<?=$arElement["BUY_URL"]?>" rel="nofollow"><?=GetMessage("CATALOG_COMPARE_BUY"); ?></a></noindex><?
+								?><!--noindex--><br /><a href="<?=$arElement["BUY_URL"]?>" rel="nofollow"><?=GetMessage("CATALOG_COMPARE_BUY"); ?></a><!--/noindex--><?
 							elseif((count($arResult["PRICES"]) > 0) || is_array($arElement["PRICE_MATRIX"])):
 								?><br /><?=GetMessage("CATALOG_NOT_AVAILABLE")?><?
 							endif;

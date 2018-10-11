@@ -143,7 +143,7 @@ if (typeof(phpVars) != "object")
 	var phpVars = {};
 phpVars.bitrix_sessid = '<?=bitrix_sessid()?>';
 </script>
-<noindex>
+<!--noindex-->
 <div class="photo-controls photo-controls-photo-top">
 	<ul class="photo-controls">
 <?
@@ -184,7 +184,7 @@ phpVars.bitrix_sessid = '<?=bitrix_sessid()?>';
 	</ul>
 	<div class="empty-clear"></div>
 </div>
-</noindex>
+<!--/noindex-->
 <?
 }
 if ($arParams["SHOW_FORM"] == "Y"):
@@ -245,7 +245,7 @@ endif;
 <?
 if ($arParams["SHOW_FORM"] == "Y"):
 ?>
-	<noindex>
+	<!--noindex-->
 	<div class="photo-controls photo-controls-photo-bottom">
 		<ul class="photo-controls">
 			<li class="photo-control photo-control-first photo-control-photo-selectall">
@@ -276,7 +276,7 @@ if ($arParams["SHOW_FORM"] == "Y"):
 		</ul>
 		<div class="empty-clear"></div>
 	</div>
-	</noindex>
+	<!--/noindex-->
 </form>
 <script>
 function Delete(form)

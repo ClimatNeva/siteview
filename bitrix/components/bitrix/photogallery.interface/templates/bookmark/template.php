@@ -55,7 +55,7 @@ if (typeof oPhotoTabs["<?=$iObjectID?>"] != "object" || oPhotoTabs["<?=$iObjectI
 <?
 foreach ($arResult["DATA"]["HEADER"] as $res):
 	if ($res["HREF"] == "Y"):
-				?><td class="href"><noindex><a rel="nofollow" href="<?=$res["LINK"]?>"><?=$res["TITLE"]?></a></noindex></td><?
+				?><td class="href"><!--noindex--><a rel="nofollow" href="<?=$res["LINK"]?>"><?=$res["TITLE"]?></a><!--/noindex--></td><?
 	else:
 ?>
 				<td class="<?=($res["ACTIVE"] == "Y" ? "" : "no-")?>active" onclick="if(oPhotoTabs['<?=$iObjectID?>']){oPhotoTabs['<?=$iObjectID?>'].SelectTab('<?=$res["ID"]?>');<?
@@ -73,8 +73,8 @@ foreach ($arResult["DATA"]["HEADER"] as $res):
 							<td class="left"><div class="empty"></div></td>
 							<td class="center"><div class="title">
 							<?if (!empty($res["LINK"])):?>
-							<noindex><a rel="nofollow" href="<?=$res["LINK"]?>" onclick="return false;">
-							<?=$res["TITLE"]?></a></noindex>
+							<!--noindex--><a rel="nofollow" href="<?=$res["LINK"]?>" onclick="return false;">
+							<?=$res["TITLE"]?></a><!--/noindex-->
 							<?else:?>
 							<?=$res["TITLE"]?>
 							<?endif;?></div></td>
@@ -112,7 +112,7 @@ foreach ($arResult["DATA"]["BODY"] as $res):
 				</div>
 <?
 	if (!empty($res["LINK"]) && $res["AJAX_USE"] == "Y"):
-		?><div class="photo-body-link"><noindex><a rel="nofollow" href="<?=$res["LINK"]?>" id="text_a_<?=$iObjectID?>_<?=$res["ID"]?>"><?=GetMessage("P_GO_TO_PAGE")?></a></noindex></div><?
+		?><div class="photo-body-link"><!--noindex--><a rel="nofollow" href="<?=$res["LINK"]?>" id="text_a_<?=$iObjectID?>_<?=$res["ID"]?>"><?=GetMessage("P_GO_TO_PAGE")?></a><!--/noindex--></div><?
 	endif;
 
 endforeach;

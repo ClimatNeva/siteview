@@ -36,7 +36,7 @@ if(!empty($arParams["~AUTH_RESULT"])):
 	<div class="alert alert-warning"><?echo GetMessage("AUTH_EMAIL_WILL_BE_SENT")?></div>
 <?endif?>
 
-<noindex>
+<!--noindex-->
 	<form method="post" action="<?=$arResult["AUTH_URL"]?>" name="bform" enctype="multipart/form-data">
 <?if($arResult["BACKURL"] <> ''):?>
 		<input type="hidden" name="backurl" value="<?=$arResult["BACKURL"]?>" />
@@ -184,7 +184,7 @@ $APPLICATION->IncludeComponent(
 		</div>
 
 	</form>
-</noindex>
+<!--/noindex-->
 
 <script>
 document.bform.USER_NAME.focus();

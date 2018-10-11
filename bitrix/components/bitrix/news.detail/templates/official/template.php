@@ -74,7 +74,7 @@ $this->setFrameMode(true);
 	{
 		?>
 		<div class="news-detail-share">
-			<noindex>
+			<!--noindex-->
 			<?
 			$APPLICATION->IncludeComponent("bitrix:main.share", "", array(
 					"HANDLERS" => $arParams["SHARE_HANDLERS"],
@@ -88,7 +88,7 @@ $this->setFrameMode(true);
 				array("HIDE_ICONS" => "Y")
 			);
 			?>
-			</noindex>
+			<!--/noindex-->
 		</div>
 		<?
 	}

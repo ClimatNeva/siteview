@@ -25,16 +25,16 @@ else
 			if(IntVal($arBlog["LAST_POST_ID"])>0 || $arParams["SHOW_BLOG_WITHOUT_POSTS"] == "Y")
 			{
 				?>
-			
+
 			<div class="blog-mainpage-item">
 			<?if(IntVal($arBlog["OWNER_ID"]) > 0)
 			{
 				?>
 				<div class="blog-author">
 				<?if($arParams["SEO_USER"] == "Y"):?>
-					<noindex>
+					<!--noindex-->
 						<a class="blog-author-icon" href="<?=$arBlog["urlToAuthor"]?>" rel="nofollow"></a>
-					</noindex>
+					<!--/noindex-->
 				<?else:?>
 					<a class="blog-author-icon" href="<?=$arBlog["urlToAuthor"]?>"></a>
 				<?endif;?>
@@ -69,7 +69,7 @@ else
 						"NAME_LIST_FORMATTED" => $arTmpUser["NAME_LIST_FORMATTED"],
 						"USE_THUMBNAIL_LIST" => "N",
 						"PROFILE_URL" => $arBlog["urlToAuthor"],
-						"PROFILE_URL_LIST" => $arBlog["urlToBlog"],							
+						"PROFILE_URL_LIST" => $arBlog["urlToBlog"],
 						"PATH_TO_SONET_MESSAGES_CHAT" => $arParams["~PATH_TO_MESSAGES_CHAT"],
 						"PATH_TO_VIDEO_CALL" => $arParams["~PATH_TO_VIDEO_CALL"],
 						"DATE_TIME_FORMAT" => $arParams["DATE_TIME_FORMAT"],
@@ -109,7 +109,7 @@ else
 			<div class="blog-clear-float"></div>
 			</div>
 			<div class="blog-line"></div>
-					
+
 				<?
 			}
 		}
@@ -119,4 +119,4 @@ else
 	else
 		echo GetMessage("BLOG_BLOG_BLOG_NO_AVAIBLE_MES");
 }
-?>	
+?>

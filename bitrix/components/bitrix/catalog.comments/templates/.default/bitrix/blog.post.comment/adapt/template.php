@@ -183,7 +183,7 @@ else
 					}
 
 					include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/neweditor.php");
-					
+
 					if($arResult["COMMENT_PROPERTIES"]["SHOW"] == "Y")
 					{
 						?><br /><?
@@ -231,7 +231,7 @@ else
 						<?
 					}
 					?>
-					
+
 					<?php
 //					only for not registered users
 					if($arResult['userID'] == null && $arParams['USER_CONSENT'] == 'Y')
@@ -415,7 +415,7 @@ else
 						{
 							?><div class="blog-author">
 							<?if($arParams["SEO_USER"] == "Y"):?>
-								<noindex>
+								<!--noindex-->
 							<?endif;?>
 							<?
 							$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
@@ -448,7 +448,7 @@ else
 							);
 							?>
 							<?if($arParams["SEO_USER"] == "Y"):?>
-								</noindex>
+								<!--/noindex-->
 							<?endif;?>
 							</div>
 							<?

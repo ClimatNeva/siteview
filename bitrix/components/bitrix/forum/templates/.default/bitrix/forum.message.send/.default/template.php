@@ -13,7 +13,7 @@ if (!empty($arParams["form_index"]))
 	$arParams["form_index"] = preg_replace("/[^a-z0-9]/is", "_", $arParams["form_index"]);
 $tabIndex = 10;
 $arParams["SEO_USER"] = (in_array($arParams["SEO_USER"], array("Y", "N", "TEXT")) ? $arParams["SEO_USER"] : "Y");
-$arParams["USER_TMPL"] = '<noindex><a rel="nofollow" href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a></noindex>';
+$arParams["USER_TMPL"] = '<!--noindex--><a rel="nofollow" href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a><!--/noindex-->';
 if ($arParams["SEO_USER"] == "N") $arParams["USER_TMPL"] = '<a href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a>';
 elseif ($arParams["SEO_USER"] == "TEXT") $arParams["USER_TMPL"] = '#NAME#';
 /********************************************************************
@@ -31,14 +31,14 @@ endif;
 
 ?>
 <div class="forum-header-box">
-	<div class="forum-header-title"><span><?=($arParams["TYPE"] == "ICQ" ? GetMessage("F_TITLE_ICQ") : GetMessage("F_TITLE_MAIL"))?> 
+	<div class="forum-header-title"><span><?=($arParams["TYPE"] == "ICQ" ? GetMessage("F_TITLE_ICQ") : GetMessage("F_TITLE_MAIL"))?>
 	<?=str_replace(array("#URL#", "#NAME#"), array($arResult["URL"]["RECIPIENT"], $arResult["ShowName"]), $arParams["USER_TMPL"])?>
 	</span></div>
 </div>
 
 <div class="forum-reply-form">
 <?
-if (!empty($arResult["ERROR_MESSAGE"])): 
+if (!empty($arResult["ERROR_MESSAGE"])):
 ?>
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
@@ -52,7 +52,7 @@ endif;
 	<input type="hidden" name="TYPE" value="<?=$arParams["TYPE"]?>" />
 	<input type="hidden" name="UID" value="<?=$arParams["UID"]?>" />
 	<?=bitrix_sessid_post()?>
-	
+
 	<div class="forum-reply-fields">
 		<div class="forum-reply-field forum-reply-field-title">
 			<label for="SUBJECT<?=$arParams["form_index"]?>"><?=GetMessage("F_TOPIC")?><span class="forum-required-field">*</span></label>
@@ -72,7 +72,7 @@ if ($arResult["IsAuthorized"] != "Y" || empty($arResult["AuthorContacts"])):
 					<input type="text" name="NAME" id="NAME<?=$arParams["form_index"]?>" value="<?=$arResult["AuthorName"]?>" size="30" tabindex="<?=$tabIndex++;?>" />
 				</span>
 			</div>
-<?		
+<?
 	endif;
 	if (empty($arResult["AuthorContacts"])):
 ?>

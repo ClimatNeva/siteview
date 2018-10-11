@@ -11,29 +11,29 @@ endif;
 $arParams["SHOW_TAGS"] = ($arParams["SHOW_TAGS"] == "N" ? "N" : "Y");
 $res =  $_COOKIE[COption::GetOptionString("main", "cookie_name", "BITRIX_SM")."_FORUM_INFO"];
 $arResult["USER"] = array(
-	"SHOW_FILTER" => (strpos($res, "searchf=Y") !== false ? "Y" : "N")); 
+	"SHOW_FILTER" => (strpos($res, "searchf=Y") !== false ? "Y" : "N"));
 if ($arResult["USER"]["SHOW_FILTER"] == "N")
 {
-	$arResult["USER"]["SHOW_FILTER"] = (!empty($_REQUEST["FORUM_ID"]) || !empty($_REQUEST["DATE_CHANGE"]) || 
+	$arResult["USER"]["SHOW_FILTER"] = (!empty($_REQUEST["FORUM_ID"]) || !empty($_REQUEST["DATE_CHANGE"]) ||
 		$_REQUEST["order"] != "relevance" ? "Y" : "N");
 }
 /********************************************************************
 				/Input params
 ********************************************************************/
 	$filter_value_fid = array(
-		"0" => GetMessage("F_ALL_FORUMS"), 
+		"0" => GetMessage("F_ALL_FORUMS"),
 		"separator" => array("NAME" => " ", "TYPE" => "OPTGROUP"));
 if (is_array($arResult["GROUPS_FORUMS"])):
 	foreach ($arResult["GROUPS_FORUMS"] as $key => $res):
 		if ($res["TYPE"] == "GROUP"):
 			$filter_value_fid["GROUP_".$res["ID"]] = array(
-				"NAME" => str_pad("", ($res["DEPTH"] - 1)*6, "&nbsp;").$res["~NAME"], 
-				"CLASS" => "forums-selector-optgroup level".$res["DEPTH"], 
+				"NAME" => str_pad("", ($res["DEPTH"] - 1)*6, "&nbsp;").$res["~NAME"],
+				"CLASS" => "forums-selector-optgroup level".$res["DEPTH"],
 				"TYPE" => "OPTGROUP");
 		else:
 			$filter_value_fid[$res["ID"]] = array(
-				"NAME" => ($res["DEPTH"] > 0 ? str_pad("", $res["DEPTH"]*6, "&nbsp;")."&nbsp;" : "").$res["~NAME"], 
-				"CLASS" => "forums-selector-option level".$res["DEPTH"], 
+				"NAME" => ($res["DEPTH"] > 0 ? str_pad("", $res["DEPTH"]*6, "&nbsp;")."&nbsp;" : "").$res["~NAME"],
+				"CLASS" => "forums-selector-option level".$res["DEPTH"],
 				"TYPE" => "OPTION");
 		endif;
 	endforeach;
@@ -42,7 +42,7 @@ endif;
 <div class="forum-info-box forum-filter">
 	<div class="forum-info-box-inner">
 <?
-	$APPLICATION->IncludeComponent("bitrix:forum.interface", "filter_simple", 
+	$APPLICATION->IncludeComponent("bitrix:forum.interface", "filter_simple",
 		array(
 			"FORM_METHOD_GET" => 'Y',
 			"FIELDS" => array(
@@ -57,30 +57,30 @@ endif;
 				array(
 					"TITLE" => GetMessage("F_KEYWORDS"),
 					"NAME" => "q",
-					"CLASS" => "search-input", 
+					"CLASS" => "search-input",
 					"TYPE" => "TEXT",
 					"VALUE" => $_REQUEST["q"]),
 				array(
 					"TITLE" => GetMessage("F_FORUM"),
 					"NAME" => "FORUM_ID[]",
 					"TYPE" => "SELECT",
-					"MULTIPLE" => "Y", 
-					"CLASS" => "forums-selector-multiple forum-filter-forums", 
+					"MULTIPLE" => "Y",
+					"CLASS" => "forums-selector-multiple forum-filter-forums",
 					"VALUE" => $filter_value_fid,
 					"ACTIVE" => $_REQUEST["FORUM_ID"]),
 				array(
 					"TITLE" => GetMessage("F_INTERVAL"),
 					"NAME" => "DATE_CHANGE",
 					"TYPE" => "SELECT",
-					"VALUE" => 	array("0" => GetMessage("F_INTERVAL_ALL"), "1" => GetMessage("F_INTERVAL_TODAY"), "7" => "7 ".GetMessage("F_INTERVAL_DAYS"), 
-						"30" => "30 ".GetMessage("F_INTERVAL_DAYS"), "60" => "60 ".GetMessage("F_INTERVAL_DAYS"), "90" => "90 ".GetMessage("F_INTERVAL_DAYS"), 
-						"180" => "180 ".GetMessage("F_INTERVAL_DAYS"), "365" => "365 ".GetMessage("F_INTERVAL_DAYS")), 
+					"VALUE" => 	array("0" => GetMessage("F_INTERVAL_ALL"), "1" => GetMessage("F_INTERVAL_TODAY"), "7" => "7 ".GetMessage("F_INTERVAL_DAYS"),
+						"30" => "30 ".GetMessage("F_INTERVAL_DAYS"), "60" => "60 ".GetMessage("F_INTERVAL_DAYS"), "90" => "90 ".GetMessage("F_INTERVAL_DAYS"),
+						"180" => "180 ".GetMessage("F_INTERVAL_DAYS"), "365" => "365 ".GetMessage("F_INTERVAL_DAYS")),
 					"ACTIVE" => $_REQUEST["DATE_CHANGE"]),
 				array(
 					"TITLE" => GetMessage("F_SORT"),
 					"NAME" => "order",
 					"TYPE" => "SELECT",
-					"VALUE" => 	array("relevance" => GetMessage("F_RELEVANCE"), "date" => GetMessage("F_DATE"), "topic" => GetMessage("F_TOPIC")), 
+					"VALUE" => 	array("relevance" => GetMessage("F_RELEVANCE"), "date" => GetMessage("F_DATE"), "topic" => GetMessage("F_TOPIC")),
 					"ACTIVE" => $_REQUEST["order"])),
 			"BUTTONS" => array(
 				array(
@@ -128,7 +128,7 @@ elseif ($arResult["ERROR_MESSAGE"] != ""):
 <div class="forum-info-box forum-search-help">
 	<div class="forum-info-box-inner">
 <?
-if (!empty($arResult["ERROR_MESSAGE"])): 
+if (!empty($arResult["ERROR_MESSAGE"])):
 ?>
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
@@ -163,7 +163,7 @@ elseif ($arResult["SHOW_RESULT"] != "N"):
 				?><?=($iNumber == 1 ? "forum-info-box-first " : "")?><?
 				?><?=($iNumber == $iCount ? "forum-info-box-last" : "")?>">
 				<div class="forum-info-box-inner">
-					<noindex><a href="<?=$res["URL"]?>" class="forum-name" rel="nofollow"><?=$res["TITLE_FORMATED"]?></a></noindex>
+					<!--noindex--><a href="<?=$res["URL"]?>" class="forum-name" rel="nofollow"><?=$res["TITLE_FORMATED"]?></a><!--/noindex-->
 					<div class="forum-text"><?=$res["BODY_FORMATED"]?></div>
 
 <?
@@ -188,7 +188,7 @@ elseif ($arResult["SHOW_RESULT"] != "N"):
 <?
 		if ($res["~URL"] != $res["SITE_URL"]):
 ?>
-						<?=str_replace(array("#MESSAGE_URL#", "#SITE_URL#"), 
+						<?=str_replace(array("#MESSAGE_URL#", "#SITE_URL#"),
 							array($res["URL"], $res["SITE_URL"]), GetMessage("F_DIFF_URLS"))?><br />
 <?
 		endif;
