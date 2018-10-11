@@ -16,19 +16,19 @@ $this->createFrame()->begin('...'); ?>
         ?>
 
         <div class="container <?=$location;?>" style="background: url('<?=$item["DETAIL_PICTURE"]["SRC"]?>');"
-            alt="<?=$item["NAME"]?>" title="<?=$item["NAME"]?>"><div class="row">
+            <?/*alt="<?=$item["NAME"]?>"*/?> title="<?=$item["NAME"]?>"><div class="row">
             <?
                 $link = "/";
                 if(isset($item["PROPERTIES"]["LINK"]["VALUE"][0]))
                     $link = $item["PROPERTIES"]["LINK"]["VALUE"][0];
-            ?> 
+            ?>
             <?if ($item["PROPERTIES"]["SLIDER_LINK"]["VALUE"] == "Y"):?>
                 <a <?=$target;?> href="<?=$link;?>">
             <?endif;?><div class="col-md-12">
-                
-            <div class="container">                    
+
+            <div class="container">
                 <div class="row">
-                <?                       
+                <?
                     if ($item["PROPERTIES"]["TITLE_COLOR"]["VALUE"] != "")
                         $title_color = "#" . $item["PROPERTIES"]["TITLE_COLOR"]["VALUE"];
                     else
@@ -52,7 +52,7 @@ $this->createFrame()->begin('...'); ?>
                             <p style="color: <?=$text_color?>"><?=$item["PREVIEW_TEXT"]?></p>
                         <? endif;?>
                             <div class="slick-buttons">
-                                <?if (is_array($item["PROPERTIES"]["LINK"]["VALUE"])) 
+                                <?if (is_array($item["PROPERTIES"]["LINK"]["VALUE"]))
                                     foreach ($item["PROPERTIES"]["LINK"]["VALUE"] as $k => $link): ?>
                                         <?if(empty($item["PROPERTIES"]["LINK"]["DESCRIPTION"][$k]))continue;?>
                                         <div class="modern-card-buttons">
@@ -84,13 +84,13 @@ $this->createFrame()->begin('...'); ?>
                         $fade = "true";
                 ?>
                 fade: <?=$fade;?>,
-                <? 
+                <?
                     $speed = 1500;
                     if(isset($arParams['SLIDER_SPEED']) && is_numeric($arParams['SLIDER_SPEED']))
                         $speed = $arParams['SLIDER_SPEED'];
                 ?>
                 speed: <?=$speed;?>,
-                <? 
+                <?
                     $autoplaySpeed = 3000;
                     if(isset($arParams['SLIDER_AUTOPLAY_SPEED']) && is_numeric($arParams['SLIDER_AUTOPLAY_SPEED']))
                         $autoplaySpeed = $arParams['SLIDER_AUTOPLAY_SPEED'];
