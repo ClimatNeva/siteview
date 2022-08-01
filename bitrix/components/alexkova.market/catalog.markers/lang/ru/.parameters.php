@@ -113,11 +113,13 @@ $MESS["TAB_ACTION_SETTING_NAME"] = "Выводить вкладку распро
 $MESS["TAB_RECCOMEND_SETTING_NAME"] = "Выводить вкладку рекомендуем";
 $MESS["TAB_NEW_SETTING_NAME"] = "Выводить вкладку новинки";
 $MESS["TAB_HIT_SETTING_NAME"] = "Выводить вкладку бестселлеры";
+$MESS["TAB_DESIGNERS_SETTING_NAME"] = "Выводить вкладку дизайнерские";
 
 $MESS["TAB_ACTION_SETTING_SORT"] = "Сортировка для вкладки распродажа";
 $MESS["TAB_RECCOMEND_SETTING_SORT"] = "Сортировка для вкладки рекомендуем";
 $MESS["TAB_NEW_SETTING_SORT"] = "Сортировка для вкладки новинки";
 $MESS["TAB_HIT_SETTING_SORT"] = "Сортировка для вкладки бестселлеры";
+$MESS["TAB_DESIGNERS_SETTING_SORT"] = "Сортировка для вкладки дизайнерские";
 
 $MESS["PAGE_BLOCK_TITLE"] = "Заголовок для связанных элементов (оставьте пустым, если заголовок не требуется)";
 $MESS["PAGE_BLOCK_TITLE_GLYPHICON"] = "Класс для шрифтовой иконки (font awesome)";

@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^design/$ design.php [L,NC]
+  RewriteRule ^actions/$ actions.php [L,NC]
+  RewriteRule ^(\w+)/*$ $1.php [L,NC]
+</IfModule>

@@ -1,0 +1,5 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^montazh/$ montazh.php [L,NC]
+  RewriteRule ^(\w+)/*$ $1.php [L,NC]
+</IfModule>

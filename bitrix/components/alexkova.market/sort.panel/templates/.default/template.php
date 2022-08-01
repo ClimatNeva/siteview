@@ -22,7 +22,7 @@ $viewShow = ('Y' == $arParams["CATALOG_VIEW_SHOW"]);
 
                         $newSort = ($arSortGlobal["sort"] == $val[0]) ? ($arSortGlobal["sort_order"] == 'desc' ? 'asc' : 'desc') : $arAvailableSort[$key][1];
                         ?>
-                        <a href="<?=$APPLICATION->GetCurPageParam('sort='.$key.'&order='.$newSort, array('sort', 'order'))?>"
+                        <a href="javascript:void(0)" data-link="<?=$APPLICATION->GetCurPageParam('sort='.$key.'&order='.$newSort, array('sort', 'order'))?>"
                            class="bxr-sortbutton<?=$className?> <?if(number_key($arResult["SORT_PROPS"], $key) == count($arResult["SORT_PROPS"])) echo "last";?>" rel="nofollow">
                                 <?=$val[2]?><?=($arSortGlobal["sort"] == $val[0])?$icon:''?>
                         </a>
@@ -43,13 +43,13 @@ $viewShow = ('Y' == $arParams["CATALOG_VIEW_SHOW"]);
         <?if ($viewShow):?>
         <div class="col-xs-12 col-sm-<?=$numShow?'6':'12'?> col-md-<?=$numShow?'3':'7'?> text-right">
                 <span class="hidden-sm hidden-lg hidden-md"><?=GetMessage("KZNC_SORT_VIEW_NAME")?></span>
-                <a href="<?=$APPLICATION->GetCurPageParam('view=title',array('view'));?>" title="<?=GetMessage('KZNC_VIEW_PLITKA')?>" class="bxr-view-mode<?=($arSortGlobal['view'] == 'title' || !$arSortGlobal['view']) ? ' active' : '';?>">
+                <a href="javascript:void(0)" data-link="<?=$APPLICATION->GetCurPageParam('view=title',array('view'));?>" title="<?=GetMessage('KZNC_VIEW_PLITKA')?>" class="bxr-view-mode<?=($arSortGlobal['view'] == 'title' || !$arSortGlobal['view']) ? ' active' : '';?>">
                         <i class="fa fa-th"></i>
                 </a>
-                <a href="<?=$APPLICATION->GetCurPageParam('view=list',array('view'));?>" title="<?=GetMessage('KZNC_VIEW_LIST')?>" class="bxr-view-mode<?=($arSortGlobal['view'] == 'list') ? ' active' : '';?>">
+                <a href="javascript:void(0)" data-link="<?=$APPLICATION->GetCurPageParam('view=list',array('view'));?>" title="<?=GetMessage('KZNC_VIEW_LIST')?>" class="bxr-view-mode<?=($arSortGlobal['view'] == 'list') ? ' active' : '';?>">
                         <i class="fa fa-th-list"></i>
                 </a>
-                <a href="<?=$APPLICATION->GetCurPageParam('view=table',array('view'));?>" title="<?=GetMessage('KZNC_VIEW_TABLE')?>" class="bxr-view-mode<?=($arSortGlobal['view'] == 'table') ? ' active' : '';?>">
+                <a href="javascript:void(0)" data-link="<?=$APPLICATION->GetCurPageParam('view=table',array('view'));?>" title="<?=GetMessage('KZNC_VIEW_TABLE')?>" class="bxr-view-mode<?=($arSortGlobal['view'] == 'table') ? ' active' : '';?>">
                         <i class="fa fa-align-justify"></i>
                 </a>
         </div>

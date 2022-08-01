@@ -1,0 +1,230 @@
+.mb-10 {
+    padding-bottom: 3px !important;
+}
+.pr-counter {
+    color: #777;
+}
+.product-reviews {
+    background: #f6f6f6;
+}
+.product-reviews .row {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #fff;
+}
+.product-reviews .col-xs-12 {
+    padding-left: 35px;
+    padding-right: 35px;
+}
+.product-reviews .pr-author-head {
+    font-size: 16px;
+    font-weight: bold;
+}
+.product-reviews .pr-explain {
+    color: #777;
+    display: inline;
+    margin-left: 10px;
+}
+.product-reviews .pr-stars {
+    display: flex;
+    margin-top: 8px;
+}
+.product-reviews .bx_stars_bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 101;
+    background: url(/images/stars-lightgrey.png) no-repeat left center;
+    background-size: 75px;
+    cursor: pointer;
+}
+.product-reviews .bx_stars_progres {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: #f18e00;
+    width: 100%;
+}
+.product-reviews .bx_stars_container {
+    position: relative;
+    height: 20px;
+    background: #dadada;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+.product-reviews .product-reviews-add {
+    position: relative;
+    width: 100%;
+}
+.product-reviews .pr-add-btn-place {
+    position: absolute;
+    right: 0;
+    top: -59px;
+}
+.product-reviews .pr-text {
+    margin-top: 15px;
+}
+.product-reviews .pr-text-head {
+    font-weight: bold;
+}
+.bxr-btn-get-reviews {
+    border-width: 1px !important;
+}
+.bxr-btn-get-reviews:hover {
+    background-color: #60ccfd;
+    color: #fff;
+}
+
+span.hidden-text {
+    display: none;
+}
+span.show-text {
+    display: inline-block;
+    width: 31px;
+    height: 15px;
+    margin-left: 10px;
+    position: relative;
+    cursor: pointer;
+}
+span.show-text::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 31px;
+    height: 16px;
+    background: #ddd;
+    border-radius: 2px;
+    top: 3px;
+}
+span.show-text::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 19px;
+    height: 16px;
+    background: radial-gradient(circle at center, #03a9f4 30%, #ddd 45%);
+    background-size: 6px 6px;
+    background-repeat: repeat-x;
+    top: 8px;
+    left: 7px;
+}
+.pr-nav-div {
+    display: none;
+}
+.pr-ro-row {
+    display: none;
+}
+.pr-form .col-xs-12 {
+    display: flex;
+    margin-bottom: 15px;
+}
+.pr-form .pr-input-radio {
+    font-weight: normal;
+}
+.pr-form input[type="submit"] {
+    border: 1px solid #03a9f4;
+    color: #03a9f4;
+    background: #fff;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+.pr-form input[type="submit"]:hover {
+    background-color: #60ccfd;
+    color: #fff;
+}
+.pr-form .pr-label {
+    width: 150px;
+    min-width: 150px;
+    font-weight: normal;
+}
+.pr-form .pr-red {
+    position: relative;
+    width: 10px;
+}
+.pr-form .pr-red::after {
+    content: '*';
+    color: red;
+}
+.bx_stars_container_form {
+    width: 110px;
+    min-width: 110px;
+    height: 30px;
+    background: #bbb;
+    position: absolute;
+    top: -6px;
+}
+.bx_stars_bg_form {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 101;
+    min-width: 15px;
+    background: url('/images/stars-lightgrey.png') no-repeat left center;
+    background-size: auto 30px;
+    cursor: pointer;
+}
+.bx_stars_progres_form {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: #f18e00;
+    width: 0;
+    height: 30px;
+}
+.bx_stars_box {
+    height: 30px;
+    position: relative;
+    float: left;
+    width: 22px;
+    cursor: pointer;
+    z-index: 105;
+}
+.bx_stars_comment {
+    position: absolute;
+    top: 6px;
+    left: 130px;
+    width: 120px;
+}
+.radio-input {
+    display: none;
+}
+.pr-radioboxes {
+    position: relative;
+}
+.pr-form .modal_alert {
+    background-color: #fff;
+    border: 1px solid red;
+    border-radius: 3px;
+    padding: 9px 15px;
+    position: absolute;
+    top: 30px;
+    left: 190px;
+    font-size: 13px;
+    z-index: 1000;
+    color: red;
+}
+.pr-form .modal_alert::before,
+.pr-form .modal_alert::after {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: -20px;
+    border: 10px solid transparent;
+    border-bottom: 10px solid red;
+}
+.pr-form .modal_alert::after {
+    border-bottom: 10px solid #fff;
+    top: -19px;
+}
+

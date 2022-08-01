@@ -1,5 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("description", "Бренды | Кондиционеры, вентиляция и камины с установкой в Санкт-Петербурге. Бесплатный выезд специалистов. Доставка и монтаж. ☎ Звоните: 8 (812) 642-40-20");
+$APPLICATION->SetPageProperty("title", "Бренды | Купить кондиционер и вентиляцию в Санкт-Петербурге. Цены, доставка, монтаж | Климат Нева ");
 $APPLICATION->SetTitle("Бренды");
 ?><?$APPLICATION->IncludeComponent("alexkova.market:catalog", "brands_new1", Array(
 	"ACTION_VARIABLE" => "action",	// Название переменной, в которой передается действие
@@ -185,7 +187,7 @@ $APPLICATION->SetTitle("Бренды");
 		"SEF_FOLDER" => "/brands/",	// Каталог ЧПУ (относительно корня сайта)
 		"SEF_MODE" => "Y",	// Включить поддержку ЧПУ
 		"SET_STATUS_404" => "Y",	// Устанавливать статус 404
-		"SET_TITLE" => "Y",	// Устанавливать заголовок страницы
+		"SET_TITLE" => "N",	// Устанавливать заголовок страницы
 		"SHOW_CATALOG_QUANTITY" => "N",	// Выводить информацию о наличии товара на складе
 		"SHOW_CATALOG_QUANTITY_CNT" => "N",	// Выводить информацию о количестве товара на складе
 		"SHOW_DESCRIPTION_AFTER_SECTION" => "Y",
@@ -342,7 +344,7 @@ $APPLICATION->SetTitle("Бренды");
 		"SEF_URL_TEMPLATES" => array(
 			"sections" => "",
 			"section" => "#SECTION_CODE#/",
-			"element" => "/catalog/id#ELEMENT_ID#",
+			"element" => "/catalog/#SECTION_CODE#/#ELEMENT_CODE#",
 			"compare" => "compare.php?action=#ACTION_CODE#",
 			"smart_filter" => "#BRAND_CODE#/",
 		),

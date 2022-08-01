@@ -1,9 +1,7 @@
 <?use Alexkova\Market\Core;
 
 $BXReady = \Alexkova\Market\Core::getInstance();
-?>
 
-<?
 // LeftMenu
 global $arLeftMenu;
 if (strlen($arLeftMenu["TYPE"])) {

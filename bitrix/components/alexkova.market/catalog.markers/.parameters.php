@@ -533,6 +533,18 @@ $arComponentParameters = array(
 			"TYPE" => "STRING",
 			"DEFAULT" => "400",
 		),
+		"TAB_DESIGNERS_SETTING" => array(
+			"PARENT" => "TABS_SETTING",
+			"NAME" => GetMessage("TAB_DESIGNERS_SETTING_NAME"),
+			"TYPE" => "CHECKBOX",
+			"DEFAULT" => "Y",
+		),
+		"TAB_DESIGNERS_SORT" => array(
+			"PARENT" => "TABS_SETTING",
+			"NAME" => GetMessage("TAB_DESIGNERS_SETTING_SORT"),
+			"TYPE" => "STRING",
+			"DEFAULT" => "500",
+		),
 
 		/***** bxready settings **********/
 		"BXREADY_LIST_PAGE_BLOCK_TITLE" => array(

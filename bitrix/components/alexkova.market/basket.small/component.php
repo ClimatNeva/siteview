@@ -45,8 +45,24 @@ if ($itemID>0){
 			Alexkova\Market\Basket::addToBasket($itemID, floatval($_REQUEST["quantity"]), $delayed, $_REQUEST["BASKET_PROPS"], $provider);
                         $arResult["PRODUCT_INFO"] = Alexkova\Market\Basket::getPorductInfoByProductId($itemID);
                         $arResult["PRODUCT_INFO"]["DELAY"] = $delayed;
+            if ($_REQUEST["include_mount"] == "on" && intval($_REQUEST["mount_id"]) > 0) {
+                $PROPS = array(array("NAME" => "Назначение монтажа", "CODE" => "MOUNT_TARGET", "VALUE" => $itemID));
+                Alexkova\Market\Basket::addToBasket($_REQUEST["mount_id"], floatval($_REQUEST["quantity"]), $delayed, $PROPS, $provider);
+            }
 			break;
 		case "delete":
+            $bsktDB = CSaleBasket::GetList(array(),array("FUSER_ID" => CSaleBasket::GetBasketUserID(),"LID" => SITE_ID, "ORDER_ID" => "NULL"));
+            while ($res = $bsktDB->GetNext()) {
+                $basketItems[$res["PRODUCT_ID"]] = $res["ID"];
+            }
+            $itemToDelete = 0;
+            $bsktDB = CSaleBasket::GetPropsList(array(),array("@BASKET_ID" => $basketItems));
+            while ($bskt = $bsktDB->GetNext()) {
+                if ($bskt["CODE"] == "MOUNT_TARGET" && intval($basketItems[$bskt["VALUE"]]) == $itemID)
+                    $itemToDelete = $bskt["BASKET_ID"];
+            }
+            if ($itemToDelete != 0)
+                CSaleBasket::Delete($itemToDelete);
 			echo CSaleBasket::Delete($itemID);
 			break;
 		case "delay":

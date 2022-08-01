@@ -15,7 +15,13 @@ $this->createFrame()->begin('...'); ?>
             endif;
         ?>
 
-        <div class="container <?=$location;?>" style="background: url('<?=$item["DETAIL_PICTURE"]["SRC"]?>');"
+        <div class="container <?=$location;?> slider-img-lazy" <?
+            if ($key==0) {
+                echo "style=\"background: url('".$item["DETAIL_PICTURE"]["SRC"]."');\"";
+            } else {
+                echo "data-background=\"".$item["DETAIL_PICTURE"]["SRC"]."\"";
+            }
+            ?>
             <?/*alt="<?=$item["NAME"]?>"*/?> title="<?=$item["NAME"]?>"><div class="row">
             <?
                 $link = "/";
@@ -73,6 +79,12 @@ $this->createFrame()->begin('...'); ?>
     <?endforeach;?>
 </div>
 <script>
+    setTimeout(function(){
+        $('.slider-img-lazy').each(function(){
+            if (typeof $(this).data('background') !== 'undefined')
+                $(this).css('background','url('+$(this).data('background')+')');
+        });
+    }, docDelay);
     window.BXReady.Market.SlickSliderTop = {
         init: function(){
             $('.bxr-slider').slick({
@@ -103,16 +115,16 @@ $this->createFrame()->begin('...'); ?>
                 ?>
                 autoplay: <?=$autoplay;?>,
                 nextArrow: '<button type="button" class="slick-next bxr-bg-hover-dark-flat"><i class="fa fa-angle-right"></i></button>',
-                prevArrow: '<button type="button" class="slick-prev bxr-bg-hover-dark-flat"><i class="fa fa-angle-left"></i></button>',
+                prevArrow: '<button type="button" class="slick-prev bxr-bg-hover-dark-flat"><i class="fa fa-angle-left"></i></button>'
             });
 
             $('.bxr-slider').css("visibility", "visible");
         }
-    }
+    };
 
     $(document).ready(function(){
         BXReady.Market.SlickSliderTop.init();
-    });
+    })
 </script>
 
 

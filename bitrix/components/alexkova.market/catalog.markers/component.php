@@ -9,7 +9,7 @@ if ($_REQUEST['bxr_ajax'] == 'yes'){
 
 }
 
-$tempMarkers = array("ACTION", "NEW", "RECCOMEND", "HIT");
+$tempMarkers = array("ACTION", "NEW", "RECCOMEND", "HIT", "DESIGNERS");
 foreach($tempMarkers as $cell){
 	if (!isset($arParams["TAB_".$cell."_SETTING"]) == "Y"){
 		$arParams["TAB_".$cell."_SETTING"] = "Y";
@@ -31,7 +31,7 @@ if (\Bitrix\Main\Loader::includeModule("iblock"))
 	}
 
 	$arMarkers = array();
-	$tempMarkers = array("ACTION", "NEW", "RECCOMEND", "HIT");
+	$tempMarkers = array("ACTION", "NEW", "RECCOMEND", "HIT", "DESIGNERS");
 	foreach($tempMarkers as $cell){
 		if ($arParams["TAB_".$cell."_SETTING"] == "Y"){
 			$arMarkers[$arParams["TAB_".$cell."_SORT"]] = $cell;

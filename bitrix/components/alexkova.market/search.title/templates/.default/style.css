@@ -103,7 +103,7 @@ div.title-search-result {
 
 div.title-search-fader {
     display:none;
-    background-image: url('images/fader.png');
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAMBAMAAACdPPCPAAAAHlBMVEX///////////////////////////////8AAAD////lfabjAAAACXRSTlPs07ORbkwsEwBHK9jFAAAAE0lEQVQI12NoT3VW5JwJBPRlAQBsPizdpVKKCQAAAABJRU5ErkJggg==');
     background-position: right top;
     background-repeat: repeat-y;
     position:absolute;

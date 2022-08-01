@@ -174,7 +174,9 @@
 		"ACTIVE_COMPONENT" => "Y"
 	)
 );?>
-
+<?
+$GLOBALS["arrFilter"] = array("!IBLOCK_SECTION_ID"=>"161");
+?>
 <?
 $APPLICATION->IncludeComponent(
 	"alexkova.market:catalog.markers",
@@ -210,7 +212,7 @@ $APPLICATION->IncludeComponent(
 		"USE_PRICE_COUNT" => "N",
 		"SHOW_PRICE_COUNT" => "1",
 		"PRICE_VAT_INCLUDE" => "Y",
-		"CONVERT_CURRENCY" => "N",
+		"CONVERT_CURRENCY" => "Y",
 		"BASKET_URL" => "/personal/basket.php",
 		"ACTION_VARIABLE" => "action",
 		"PRODUCT_ID_VARIABLE" => "id",
@@ -220,9 +222,9 @@ $APPLICATION->IncludeComponent(
 		"PRODUCT_PROPS_VARIABLE" => "prop",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
 		"PRODUCT_PROPERTIES" => array(
-		0 => "NEWPRODUCT",
+			0 => "NEWPRODUCT",
 			1 => "SALELEADER",
-
+			2 => "DESIGNERS",
 		),
 		"OFFERS_CART_PROPERTIES" => array(
 		),
@@ -251,6 +253,8 @@ $APPLICATION->IncludeComponent(
 		"TAB_NEW_SORT" => "300",
 		"TAB_HIT_SETTING" => "Y",
 		"TAB_HIT_SORT" => "400",
+		"TAB_DESIGNERS_SETTING" => "Y",
+		"TAB_DESIGNERS_SORT" => "500",
 		"BXREADY_LIST_VERTICAL_SLIDER_MODE" => "N",
 		"BXREADY_LIST_HIDE_SLIDER_ARROWS" => "Y",
 		"BXREADY_LIST_HIDE_MOBILE_SLIDER_ARROWS" => "N",

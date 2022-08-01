@@ -163,6 +163,16 @@ if (!empty($arResult['ITEMS']))
 				$arSKUPropKeys = array_fill_keys($arSKUPropIDs, false);
 		}
 	}
+
+	$arID = $arURL = [];
+	foreach ($arResult['ITEMS'] as $key => $arItem) {
+		$arID[] = $arItem["ID"];
+	}
+	$res = CIBlockElement::GetList([],["ID" => $arID],false,false,["ID","DETAIL_PAGE_URL"]);
+	while ($row = $res->GetNext()) {
+		$arURL[$row["ID"]] = $row["DETAIL_PAGE_URL"];
+	}
+	unset($arID);
         
 	$arNewItemsList = array();
 	foreach ($arResult['ITEMS'] as $key => $arItem)
@@ -445,6 +455,7 @@ if (!empty($arResult['ITEMS']))
                             );
                     }
                 }*/
+				$arItem['DETAIL_PAGE_URL'] = $arURL[$arItem['ID']];
 		$arNewItemsList[$key] = $arItem;
                 
                 $arIds[] = $arItem['ID'];

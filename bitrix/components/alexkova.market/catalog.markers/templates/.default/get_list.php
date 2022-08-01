@@ -27,6 +27,10 @@ if (is_array($_SESSION["BXR_MARKERS_SETTINGS"])
 				$arFilter = array("!PROPERTY_SALELEADER"=>false);
 				break;
 
+			case 'DESIGNERS':
+				$arFilter = array("!PROPERTY_DESIGNERS"=>false);
+				break;
+
 			default: ;
 		}
 		if (is_array($arFilter) && !empty($arFilter)) {

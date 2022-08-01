@@ -1,0 +1,42 @@
+.slider .container {
+    padding: 0;
+}
+.slider__item {
+    position: relative;
+    max-width: calc(100vw - 30px);
+}
+.slider__title {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10vw 50% 15px 30px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #03a9f4;
+}
+
+.slider-carousel.owl-carousel.owl-loaded {
+    max-width: calc(100vw - 30px);
+}
+
+@media all and (min-width:768px) {
+    .slider .container {
+        padding: 15px 15px 0;
+    }
+}
+
+@media all and (min-width:992px) {
+    .slider .container {
+        padding-top: 0;
+    }
+    .slider__title {
+        padding: 100px 50% 0 50px;
+        font-size: 30px;
+    }
+    .slider_block {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}

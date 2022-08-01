@@ -1,0 +1,32 @@
+.top-block {
+    padding: 25px 0 15px;
+}
+.top-block__wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 20px;
+    padding-left: 10vw;
+}
+.top-block__wrapper li {
+    display: grid;
+    grid-template-columns: 65px 1fr;
+    align-items: center;
+} 
+.top-block__img {
+    margin-right: 10px;
+}
+
+@media all and (min-width:768px) {
+    .top-block__wrapper {
+        grid-template-columns: repeat(3, 1fr);
+        padding-left: 0;
+    }
+}
+
+@media all and (min-width:992px) {
+    .top-block__img {
+        margin-right: 20px;
+    }
+}
+

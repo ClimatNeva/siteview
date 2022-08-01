@@ -1,9 +1,7 @@
 <?
 $sSectionName = "Услуги";
 $arDirProperties = Array(
-   "description" => "Услуги",
-   "keywords" => "Услуги",
-   "title" => "Услуги",
-   "heading" => "Услуги"
+   "description" => "Услуги | «Климат Нева»",
+   "title" => "Услуги | «Климат Нева»"
 );
 ?>

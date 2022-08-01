@@ -1,0 +1,13 @@
+.brands__carousel .owl-stage {
+    display: flex;
+}
+.brands__item {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    max-height: 80px;
+    justify-content: center;
+}
+.brands__carousel .brands__item img {
+    width: auto;
+}

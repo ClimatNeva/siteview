@@ -156,3 +156,13 @@
     top: -1px;
     position: relative;
 }
+div#marc_tabSDESIGNERS {
+    border: 1px solid #d60276;
+    background: #FFF;
+    color: #d60276;
+}
+
+div#marc_tabSDESIGNERS:hover {
+    color: #fff;
+    background: #d60276;
+}

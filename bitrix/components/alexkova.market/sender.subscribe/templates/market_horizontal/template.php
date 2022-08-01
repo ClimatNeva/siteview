@@ -22,7 +22,7 @@ $frame = $this->createFrame("sender-subscribe", false)->begin();
 			<div class="bx_subscribe_response_container">
 				<table>
 					<tr>
-						<td style="padding-right: 40px; padding-bottom: 0px;"><img src="<?=($this->GetFolder().'/images/'.($arResult['MESSAGE']['TYPE']=='ERROR' ? 'icon-alert.png' : 'icon-ok.png'))?>" alt=""></td>
+						<td style="padding-right: 40px; padding-bottom: 0px;"><img src="<?=($this->GetFolder().'/images/'.($arResult['MESSAGE']['TYPE']=='ERROR' ? 'icon-alert.png' : 'icon-ok.png'))?>" alt="Mail subscribe"></td>
 						<td>
 							<div style="font-size: 22px;"><?=GetMessage('subscr_form_response_'.$arResult['MESSAGE']['TYPE'])?></div>
 							<div style="font-size: 16px;"><?=htmlspecialcharsbx($arResult['MESSAGE']['TEXT'])?></div>
@@ -83,7 +83,7 @@ $frame = $this->createFrame("sender-subscribe", false)->begin();
                 <div class="bxr-sender-subscribe-container horizontal container-fluid">
                     <div class="row">
                         <div class="col-md-4 bxr-subscribe-motto">
-                            <img src="<?=$this->GetFolder().'/images/ico_mail.png'?>" alt="" />
+                            <img src="<?=$this->GetFolder().'/images/ico_mail.png'?>" alt="Mail subscribe" />
                             <div class="bxr-subscribe-text">
                                 <b><?=GetMessage("stay_touch")?></b><br>
                                <?=GetMessage("news_reviews_promotions")?>

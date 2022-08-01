@@ -1,5 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("description", "Каталог | Кондиционеры, вентиляция и камины с установкой в Санкт-Петербурге. Бесплатный выезд специалистов. Доставка и монтаж. ☎ Звоните: 8 (812) 642-40-20");
+$APPLICATION->SetPageProperty("title", "Каталог | Кондиционеры и вентиляция в Санкт-Петербурге. Цены, доставка, монтаж");
 
 /*
     Костыль для переключения со старых адресов с id#ELEMENT_ID# на #ELEMENT_CODE#
@@ -24,15 +26,15 @@ if (substr($current_path4element[count($current_path4element)-1],0,2) == 'id'
 }
 
 if (!isset($stayOnThisNewPage) || $stayOnThisNewPage) {
-    $APPLICATION->SetTitle("Каталог");
+	$APPLICATION->SetTitle("Каталог");
 
     global $globalElementsFilter;
     $globalElementsFilter = array(
         ">PROPERTY_MINIMUM_PRICE" => 0,
     );
 ?><?
-
-$APPLICATION->IncludeComponent("alexkova.market:catalog", "template1", Array(
+	// прежний шаблон: template1
+$APPLICATION->IncludeComponent("alexkova.market:catalog", "template2", Array(
 	"ACTION_VARIABLE" => "action",	// Название переменной, в которой передается действие
 		"ADD_ELEMENT_CHAIN" => "Y",	// Включать название элемента в цепочку навигации
 		"ADD_PICT_PROP" => "MORE_PHOTO",	// Дополнительная картинка основного товара
@@ -51,6 +53,7 @@ $APPLICATION->IncludeComponent("alexkova.market:catalog", "template1", Array(
 		"CACHE_TIME" => "0",	// Время кеширования (сек.)
 		"DETAIL_ADD_DETAIL_TO_SLIDER_SKU" => "Y",	// Добавлять картинки предложений в общий слайдер
 		"CACHE_TYPE" => "A",	// Тип кеширования
+        "USE_CACHE_FOR_PAGINATION" => "N",
 		"COMPARE_ELEMENT_SORT_FIELD" => "shows",	// По какому полю сортируем элементы
 		"COMPARE_ELEMENT_SORT_ORDER" => "asc",	// Порядок сортировки элементов
 		"SHOW_LEFT_MENU" => "Y",	// Выводить левое меню
@@ -126,20 +129,22 @@ $APPLICATION->IncludeComponent("alexkova.market:catalog", "template1", Array(
 			19 => "VES_VNESH_BLOKA",
 			20 => "GARANTY",
 			21 => "DOP_FILTRI",
-			22 => "",
+			22 => "OLD_PRICE",
+			23 => "",
 		),
 		"DETAIL_SHOW_MAX_QUANTITY" => "Y",	// Показывать общее количество товара
 		"DETAIL_USE_COMMENTS" => "N",	// Включить отзывы о товаре
 		"DETAIL_USE_VOTE_RATING" => "Y",	// Включить рейтинг товара
 		"DETAIL_VK_API_ID" => "API_ID",
 		"DETAIL_VK_USE" => "N",
-		"DETAIL_VOTE_DISPLAY_AS_RATING" => "rating",	// В качестве рейтинга показывать
+		"DETAIL_VOTE_DISPLAY_AS_RATING" => "vote_avg",//"rating",	// В качестве рейтинга показывать
+        "DETAIL_REVIEWS" => "Y",
 		"DISPLAY_BOTTOM_PAGER" => "Y",	// Выводить под списком
 		"DISPLAY_ELEMENT_SELECT_BOX" => "N",	// Выводить список элементов инфоблока
 		"DISPLAY_TOP_PAGER" => "N",	// Выводить над списком
         "ELEMENT_SORT_FIELD" => array(	// По какому полю сортируем товары в разделе
-			0 => "PROPERTY_MINIMUM_PRICE",
-			1 => "PROPERTYSORT_SALELEADER",
+			0 => "PROPERTYSORT_SALELEADER",
+			1 => "PROPERTY_MINIMUM_PRICE",
 		),
 		"ELEMENT_SORT_FIELD2" => "shows",	// Поле для второй сортировки товаров в разделе
 		"ELEMENT_SORT_ORDER" => "asc",	// Порядок сортировки товаров в разделе
@@ -214,7 +219,7 @@ $APPLICATION->IncludeComponent("alexkova.market:catalog", "template1", Array(
 		"OFFER_PRICE_SHOW_FROM" => "Y",	// Выводить от для цен товаров с торговыми предложениями
 		"OFFER_TREE_PROPS" => "",	// Свойства для отбора предложений
 		"PAGER_DESC_NUMBERING" => "N",	// Использовать обратную навигацию
-		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",	// Время кеширования страниц для обратной навигации
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "0",	// Время кеширования страниц для обратной навигации
 		"PAGER_SHOW_ALL" => "N",	// Показывать ссылку "Все"
 		"PAGER_SHOW_ALWAYS" => "N",	// Выводить всегда
 		"PAGER_TEMPLATE" => ".default",	// Шаблон постраничной навигации
@@ -312,10 +317,10 @@ $APPLICATION->IncludeComponent("alexkova.market:catalog", "template1", Array(
 		"DETAIL_ADD_TO_BASKET_ACTION" => "",	// Показывать кнопки добавления в корзину и покупки на детальной странице товара
 		"DETAIL_SHOW_BASIS_PRICE" => "Y",	// Показывать на детальной странице цену за единицу товара
 		"SECTION_BACKGROUND_IMAGE" => "-",	// Установить фоновую картинку для шаблона из свойства
-		"DETAIL_SET_CANONICAL_URL" => "N",	// Устанавливать канонический URL
+		"DETAIL_SET_CANONICAL_URL" => "Y",	// Устанавливать канонический URL
 		"DETAIL_BACKGROUND_IMAGE" => "-",
 		"SHOW_DEACTIVATED" => "N",	// Показывать деактивированные товары
-		"USE_BIG_DATA" => "Y",	// Показывать персональные рекомендации
+		"USE_BIG_DATA" => "N",	// Показывать персональные рекомендации
 		"BIG_DATA_RCM_TYPE" => "bestsell",	// Тип рекомендации
 		"PAGER_BASE_LINK_ENABLE" => "N",	// Включить обработку ссылок
 		"SHOW_404" => "Y",	// Показ специальной страницы
@@ -327,7 +332,7 @@ $APPLICATION->IncludeComponent("alexkova.market:catalog", "template1", Array(
 		"SHOW_LEFT_MENU_SETTINGS" => "Y",
 		"STORES" => "",
 		"USER_FIELDS" => array(
-			0 => "",
+			0 => "UF_HTML_TEXT",
 			1 => "",
 		),
 		"FIELDS" => array(
@@ -386,7 +391,7 @@ $APPLICATION->IncludeComponent("alexkova.market:catalog", "template1", Array(
 		"ANOUNCE_TRUNCATE_LEN" => "",	// Максимальная длина анонса элемента для вывода (только для типа Текст)
 		"COMPOSITE_FRAME_MODE" => "A",
 		"COMPOSITE_FRAME_TYPE" => "AUTO",
-		"DISPLAY_ELEMENT_COUNT" => "N",	// Показывать количество в фильтре
+		"DISPLAY_ELEMENT_COUNT" => "Y",	// Показывать количество в фильтре
 		"HIDE_FILTER_MOBILE" => "Y",	// Скрывать фильтр в мобильной версии сайта
 		"SHOW_MEASURE" => "N",	// Показывать единицы измерения в цене
 		"SECTIONS_MAIN_VIEW_MODE" => "LIST",	// Вид списка подразделов на главной странице каталога
@@ -394,7 +399,7 @@ $APPLICATION->IncludeComponent("alexkova.market:catalog", "template1", Array(
 		"TILE_SHOW_PROPERTIES" => "N",	// Выводить выбранные свойства в режиме Плитка
 		"SHOW_SECTION_SEO" => "N",	// Показывать SEO-текст раздела
 		"THEME" => "default",	// Тема оформления
-		"CATALOG_DEFAULT_SORT" => "PROPERTY_MINIMUM_PRICE", //"PROPERTYSORT_SALELEADER",	// Сортировка по умолчанию
+		"CATALOG_DEFAULT_SORT" => "PROPERTYSORT_SALELEADER", //"PROPERTYSORT_SALELEADER","PROPERTY_MINIMUM_PRICE"	// Сортировка по умолчанию
 		"CATALOG_DEFAULT_SORT_ORDER" => "asc,nulls",	// Направление сортировка по умолчанию
 		"PAGE_ELEMENT_COUNT_SHOW" => "Y",	// Показывать ограничение по количеству элементов
 		"PAGE_ELEMENT_COUNT_LIST" => array(	// Варианты количества элементов на странице
@@ -403,7 +408,7 @@ $APPLICATION->IncludeComponent("alexkova.market:catalog", "template1", Array(
 		),
 		"CATALOG_VIEW_SHOW" => "Y",	// Показывать варианты отображения каталога
 		"DEFAULT_CATALOG_VIEW" => "TITLE",	// Вид каталога по умолчанию
-		"NO_TABS" => "N",	// Выводить информацию о товаре без вкладок
+		"NO_TABS" => "Y",	// Выводить информацию о товаре без вкладок
 		"ADDITIONAL_TAB_SHOW" => "N",	// Показывать дополнительные вкладки
 		"ADDITIONAL_DETAIL_INFO" => "/include/additional_detail_info.php",	// Путь к включаемой области с дополнительным текстом к товару
 		"HIDE_PREVIEW_PROPS_INLIST" => "Y",	// Скрывать характеристики из анонса в списке характеристик
@@ -412,7 +417,8 @@ $APPLICATION->IncludeComponent("alexkova.market:catalog", "template1", Array(
 		"VIDEO_TYPE" => "GRID",	// Вид
 		"VIDEO_PLAYER" => "MEJ",	// Видеоплеер
 		"VIDEO_PLAYER_FULLSCREEN" => "N",	// Ограничивать размер fullscreen
-		"ARTICLE_POSITION" => "none",	// Артикул товара в карточке
+		"ARTICLE_POSITION" => "right",	// Артикул товара в карточке
+        "ARTICLE_PROP_CODE" => "ID",
 		"ADDITIONAL_SKU_PIC_2_SLIDER" => "N",	// Добавлять дополнительные картинки предложений в слайдер
 		"FILTER_SKU_PHOTO" => "N",	// Показывать только фото текущего предложения
 		"SHOW_MAIN_INSTEAD_NF_SKU" => "N",	// Показывать фото основного товара, если нет фото предложения
@@ -422,7 +428,7 @@ $APPLICATION->IncludeComponent("alexkova.market:catalog", "template1", Array(
 		"USE_SHARE_TEXT" => "Поделиться",	// Текст кнопки "Поделиться"
 		"USE_ONE_CLICK" => "Y",	// Показывать кнопку "Купить в 1 клик"
 		"USE_ONE_CLICK_TEXT" => "Купить в 1 клик",	// Текст кнопки "Купить в 1 клик"
-		"MESS_BTN_REQUEST" => "Оставить заявку",	// Текст кнопки "Оставить заявку"
+		"MESS_BTN_REQUEST" => "Под заказ",//"Оставить заявку",	// Текст кнопки "Оставить заявку"
 		"USE_GIFTS_DETAIL" => "N",	// Показывать блок "Подарки" в детальном просмотре
 		"USE_GIFTS_SECTION" => "N",	// Показывать блок "Подарки" в списке
 		"GIFTS_HIDE_NOT_AVAILABLE" => "N",	// Не отображать подарки, которых нет на складах
@@ -435,7 +441,7 @@ $APPLICATION->IncludeComponent("alexkova.market:catalog", "template1", Array(
 		"RCM_COUNT_DETAIL" => "4",	// Количество элементов в блоке персональные рекомендации (для Детального просмотра)
 		"RESTART" => "N",	// Искать без учета морфологии (при отсутствии результата поиска)
 		"NO_WORD_LOGIC" => "N",	// Отключить обработку слов как логических операторов
-		"USE_LANGUAGE_GUESS" => "Y",	// Включить автоопределение раскладки клавиатуры
+		"USE_LANGUAGE_GUESS" => "N",	// Включить автоопределение раскладки клавиатуры
 		"CHECK_DATES" => "N",	// Искать только в активных по дате документах
 		"CURRENCY_ID" => "RUB",	// Валюта, в которую будут сконвертированы цены
 		"FILE_404" => "",	// Страница для показа (по умолчанию /404.php)
@@ -455,6 +461,7 @@ $APPLICATION->IncludeComponent("alexkova.market:catalog", "template1", Array(
 	false
 );
 ?><?
+
     require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");
 }
 ?>

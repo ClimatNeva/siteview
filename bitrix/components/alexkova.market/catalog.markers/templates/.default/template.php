@@ -57,6 +57,11 @@ $first = ' bxr-bestsellers-group-active';?>
 					<?
 					if (!$firstMarker) $firstMarker = "SALELEADER";
 					break;
+				case "DESIGNERS":?>
+					<div class="bxr-markers-group" id="marc_tabSDESIGNERS" data-slide="DESIGNERS" data-type="markers"><?=GetMessage('DESIGNERS_BUTTON')?></div>
+					<?
+					if (!$firstMarker) $firstMarker = "DESIGNERS";
+					break;
 				default ;
 			}
 			endforeach;?>
@@ -110,6 +115,17 @@ $first = ' bxr-bestsellers-group-active';?>
 					<?=GetMessage('SALELEADER_BUTTON')?>
 				</div></div>
 			<div id="mark-panel-SALELEADER" class="bxr-carousel"></div>
+			<?
+			break;
+		case "DESIGNERS":?>
+			<div class="col-xs-12 hidden-lg hidden-md hidden-sm">
+				<div id="bxr-mobile-name-DESIGNERS"
+					 class="bxr-marker-mobile-names bxr-color-button"
+					 data-slide="DESIGNERS"
+					 data-unicum="<?=$unicum?>">
+					<?=GetMessage('DESIGNERS_BUTTON')?>
+				</div></div>
+			<div id="mark-panel-DESIGNERS" class="bxr-carousel"></div>
 			<?
 			break;
 		default ;

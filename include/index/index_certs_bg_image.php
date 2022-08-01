@@ -1,0 +1,1 @@
+<img src="/img/jpg/bg_certs.jpg" alt="Сертификаты компании Климат Нева">

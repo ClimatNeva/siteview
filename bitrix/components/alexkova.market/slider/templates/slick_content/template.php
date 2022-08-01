@@ -104,16 +104,16 @@ $this->createFrame()->begin('...'); ?>
                 ?>
                 autoplay: <?=$autoplay;?>,
                 nextArrow: '<button type="button" class="slick-next bxr-bg-hover-dark-flat"><i class="fa fa-angle-right"></i></button>',
-                prevArrow: '<button type="button" class="slick-prev bxr-bg-hover-dark-flat"><i class="fa fa-angle-left"></i></button>',
+                prevArrow: '<button type="button" class="slick-prev bxr-bg-hover-dark-flat"><i class="fa fa-angle-left"></i></button>'
             });
 
             $('.bxr-slider').css("visibility", "visible");
         }
-    }
+    };
 
     $(document).ready(function(){
         BXReady.Market.SlickSliderTop.init();
-    });
+    })
 </script>
 
 

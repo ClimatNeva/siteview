@@ -1,0 +1,38 @@
+.bred, .bblue, .bgreen, .byellow {
+    min-height: 50px;
+}
+
+.bred {
+    background: red;
+}
+
+.bblue {
+    background: blue;
+}
+
+.bgreen {
+    background: green;
+}
+
+.byellow {
+    background: yellow;
+}
+
+body{
+    /*background: url(header_9.jpg) top center no-repeat;
+    background-position: -20px 0;*/
+}
+
+.tmpbasketimage{
+    background: url(basket2.jpg) left top no-repeat !important;
+    background-position: -405px -43px !important;
+}
+
+.tmpbasketimage > div, .tmpbasketimage > table{
+    opacity: 0.5;
+}
+
+.bxr-ecommerce-v1{
+    /*background: url(cart1.jpg) top center no-repeat;
+    min-height: 300px;*/
+}

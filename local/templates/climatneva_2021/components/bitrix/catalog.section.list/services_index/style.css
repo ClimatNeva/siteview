@@ -1,0 +1,22 @@
+.bxr-promo-ribbon.bxr-promo-block .bxr-promo-element {
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.effect-goliath {
+    background: transparent!important;
+}
+.effect-goliath h2 {
+    background: #03a9f4;
+    color: #fff;
+}
+.effect-goliath p {
+    color: #000;
+}
+
+.bxr-promo-image.img-lazy {
+	background-size: cover!important;
+    background-repeat: no-repeat!important;
+    background-position: center!important;
+}

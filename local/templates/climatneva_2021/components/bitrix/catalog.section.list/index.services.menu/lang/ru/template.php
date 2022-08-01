@@ -1,0 +1,2 @@
+<?
+$MESS["SERVICES_SECTION_TITLE"] = "Услуги";

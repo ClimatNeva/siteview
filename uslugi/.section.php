@@ -1,9 +1,7 @@
 <?
 $sSectionName = "Виды деятельности";
-$arDirProperties = Array(
-   "description" => "Виды деятельности",
-   "keywords" => "Виды деятельности",
-   "title" => "Виды деятельности",
-   "heading" => "Виды деятельности"
+$arDirProperties = array(
+   "description" => "Виды деятельности | «Климат Нева»",
+   "title" => "Виды деятельности | «Климат Нева»"
 );
 ?>

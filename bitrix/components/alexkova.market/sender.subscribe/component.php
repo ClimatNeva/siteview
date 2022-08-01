@@ -202,7 +202,7 @@ if($arParams["USE_PERSONALIZATION"])
 			return;
 		}
 
-		if($subscr_EMAIL <> "")
+		/*if($subscr_EMAIL <> "")
 		{
 			$subscriptionDb = \Bitrix\Sender\MailingSubscriptionTable::getList(array(
 				'select' => array('ID' => 'CONTACT_ID', 'EMAIL' => 'CONTACT.EMAIL', 'EXISTED_MAILING_ID' => 'MAILING.ID'),
@@ -216,8 +216,9 @@ if($arParams["USE_PERSONALIZATION"])
 				if(intval($subscription['EXISTED_MAILING_ID'])>0)
 					$arSubscriptionRubrics[] = $subscription['EXISTED_MAILING_ID'];
 			}
-		}
+		}*/
 
+		$arSubscription = [];
 		$_SESSION['SENDER_SUBSCRIBE_LIST']['SUBSCRIPTION'] = $arSubscription;
 		$_SESSION['SENDER_SUBSCRIBE_LIST']['RUBRIC'] = $arSubscriptionRubrics;
 	}

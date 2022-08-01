@@ -1,0 +1,126 @@
+.popup-inner {
+    padding: 30px 0;
+}
+.popup-inner .h3 {
+    font-size: 27px;
+    line-height: 1.2em;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.popup-inner .h3 .red-underline::after {
+    bottom: 0;
+}
+.popup-description {
+    text-align: center;
+}
+#popup_form {
+    display: grid;
+    grid-gap: 20px;
+    padding: 40px 0 0;
+}
+#popup_form .inputtext {
+    color: #202329;
+    border-bottom-color: #202329;
+}
+#popup_form .inputtext::placeholder {
+    color: #797979;
+}
+#popup_form .fileBtn {
+    color: #202329;
+}
+#popup_form .fileBtn::before {
+    background-image: url('/images/svg/icon_download_red.svg');
+}
+#popup_form .popup-btn {
+    margin-top: 10px;
+}
+#popup_form .btn {
+    width: 170px;
+}
+#popup_form .modal_alert {
+    top: 27px;
+    left: 50%;
+    transform: translateX(-25px);
+}
+.popup-inner .webform-answer {
+    background: rgba(255,255,255,0.9);
+    position: absolute;
+}
+
+@media all and (min-width: 768px) {
+    .popup-inner .h3 {
+        font-size: 33px;
+        margin-bottom: 15px;
+    }
+}
+
+@media all and (min-width: 992px) {
+    .popup-window-container {
+        width: 860px;
+    }
+    .popup-inner {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        grid-column-gap: 50px;
+        padding: 60px 30px;
+    }
+    .popup-description {
+        grid-row: 2/3;
+    }
+    #popup_form {
+        grid-row: 1/4;
+        grid-column: 2/3;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+    #popup_form .form_text_100,
+    #popup_form .form_text_106 {
+        grid-column: 1/3;
+    }
+    #popup_form .form_file_101,
+    #popup_form .form_file_107 {
+        padding-right: 40px;
+    }
+    #popup_form .popup-btn {
+        margin-left: -30px;
+    }
+    #popup_form .btn {
+        width: 180px;
+    }
+    #popup_form .fileBtn::before {
+        transform: translateY(15px);
+    }
+    .popup-inner .h3 {
+        text-align: left;
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+    .popup-description {
+        text-align: left;
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .popup-window-container {
+        width: 1140px;
+    }
+    .popup-inner {
+        padding: 100px 90px 90px;
+        grid-template-columns: 8fr 9fr;
+        grid-column-gap: 150px;
+    }
+    .popup-inner .h3 {
+        font-size: 50px;
+    }
+    .popup-inner .h3 .red-underline::after {
+        height: 2px;
+    }
+    #popup_form {
+        grid-row-gap: 30px;
+    }
+}
+
+

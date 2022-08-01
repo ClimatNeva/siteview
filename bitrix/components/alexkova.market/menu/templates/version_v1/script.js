@@ -61,8 +61,8 @@ $(document).ready(function(){
             $('ul.bxr-flex-menu > li:visible').each(function(){
                 w = 0;
                 if(!$(this).is(".other") && !$(this).is(".li-visible")) {
-                    w = Math.floor(($(this).width()+width)/p1);
-                    w = Math.floor(($(this).width()+width));
+                    w = Math.floor(($(this).width()+width-2)/p1);
+                    w = Math.floor(($(this).width()+width-2));
                     fullLiWidth += $(this).width(w+"px");
                 }
             });
@@ -179,7 +179,7 @@ $(document).ready(function(){
         resize: function(){
 
             $('ul.bxr-flex-menu').css('width', '100%');
-            fullWidth = $('ul.bxr-flex-menu').width();
+            fullWidth = $('ul.bxr-flex-menu').width() - 50;
             
             var tWirth = window.outerWidth;            
             if(tWirth==0)

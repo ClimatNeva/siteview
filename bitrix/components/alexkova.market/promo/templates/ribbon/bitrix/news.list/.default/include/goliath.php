@@ -1,9 +1,10 @@
 <figure class="effect-goliath"
         style='background: <? echo ($arItem['PROPERTIES']['EFFECT_ADD_COLOR']['VALUE']) ? $arItem['PROPERTIES']['EFFECT_ADD_COLOR']['VALUE'] : 'transparent';?>;'>
-        <div class="bxr-promo-image"
+        <div class="bxr-promo-image img-lazy"
                  <?/*alt="<?=$arItem['DETAIL_PICTURE']['ALT']?>"
-                 */?>title="<?=$arItem['DETAIL_PICTURE']['TITLE']?>"
-                 style="background-image:url(<?=$arItem['DETAIL_PICTURE']['SRC']?>)">
+                 */?>title="<?=$arItem['DETAIL_PICTURE']['TITLE']?>"<?/*
+                 style="background-image:url(<?=$arItem['DETAIL_PICTURE']['SRC']?>)"
+                 */?> data-background="<?=$arItem['DETAIL_PICTURE']['SRC']?>">
         </div>
         <figcaption>
             <?if ($arItem['PROPERTIES']['PROMO_HIDE_NAME']['VALUE']!='Y'):?>

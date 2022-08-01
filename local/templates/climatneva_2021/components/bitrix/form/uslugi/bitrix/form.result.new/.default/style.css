@@ -1,0 +1,70 @@
+table.form-table
+{
+	width:100%;
+	background-color:white;
+	border-collapse:collapse;
+	font-size:100%;
+	font-weight:normal;
+	line-height:160%;
+}
+
+table.form-table th, table.form-table td
+{
+	border:1px solid #ADC3D5;
+	padding: 5px 5px;
+	vertical-align:top;
+}
+
+table.form-table th
+{
+	background-image:url(images/table_head.gif);
+	background-repeat:repeat-x;
+	text-align: left;
+	color:#25639A;
+}
+
+
+table.form-table td
+{
+	padding: 15px 5px;
+}
+
+.form-required 
+{
+	color: red;
+}
+
+.error-fld {
+	display: block;
+	float: left;
+	height: 13px;
+	width: 15px;
+	background-repeat: no-repeat;
+	background-image: url(images/icon_warn.gif);
+}
+
+.callback-form .modal_alert {
+    background-color: #fff;
+    border: 1px solid red;
+    border-radius: 3px;
+    padding: 9px 15px;
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    font-size: 13px;
+    z-index: 100;
+    color: red;
+}
+.callback-form .modal_alert::before,
+.callback-form .modal_alert::after {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: -20px;
+    border: 10px solid transparent;
+    border-bottom: 10px solid red;
+}
+.callback-form .modal_alert::after {
+    border-bottom: 10px solid #fff;
+    top: -19px;
+}
