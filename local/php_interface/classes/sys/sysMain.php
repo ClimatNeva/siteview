@@ -43,6 +43,13 @@ class sysMain {
         '/page-1\//',
         );
 
+        preg_match_all('/<link rel="canonical[^>]+>/', $content, $result);
+        if (sizeof($result[0]) > 1) {
+          for ($i = 1; $i < sizeof($result[0]); $i += 1) {
+            $content = strtr($content, [$result[0][$i] => ""]);
+          }
+        }
+
         $content = preg_replace($arPatternsToRemove, "", $content);
         $content = preg_replace("/[\r\n]{2,}/", "\n\n", $content);
         $content = str_replace(' type="text/javascript"', '', $content);
@@ -107,7 +114,7 @@ class sysMain {
             $link = preg_replace('#\?PAGEN_1=([\d]+)/#is', self::$pageNumber > 0 ? 'page-'.self::$pageNumber : 'page-$1', $link);
             $link = strtr($link,["/filter/clear/apply" => "", "//" => "/"]);
             self::$meta["canonical"] = ($request->isHttps() ? 'https' : 'http').'://'. $server->getServerName() .$link;
-            if (substr(self::$meta["canonical"],-1,1) !== '/') self::$meta["canonical"] .= '/';
+            // if (substr(self::$meta["canonical"],-1,1) !== '/') self::$meta["canonical"] .= '/';
             self::$metaChanged = true;
             self::setPageValues();
         }
