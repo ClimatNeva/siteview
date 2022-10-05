@@ -448,7 +448,7 @@ $APPLICATION->IncludeComponent("alexkova.market:catalog", "template2", Array(
 		"SEF_URL_TEMPLATES" => array(
 			"sections" => "",
 			"section" => "#SECTION_CODE#/",
-            "element" => "#SECTION_CODE#/#ELEMENT_CODE#/",
+            "element" => "#SECTION_CODE#/#ELEMENT_CODE#",
 			"compare" => "compare.php?action=#ACTION_CODE#",
 			"smart_filter" => "#SECTION_CODE#/filter/#SMART_FILTER_PATH#/apply/",
 		),
