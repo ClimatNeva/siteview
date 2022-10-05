@@ -19,7 +19,7 @@ if (
 		{
 			function twitter_click_".$arResult["COUNTER"]."(longUrl)
 			{
-				BX.loadScript('http://bit.ly/javascript-api.js?version=latest&login=".$arParams["SHORTEN_URL_LOGIN"]."&apiKey=".$arParams["SHORTEN_URL_KEY"]."',
+				BX.loadScript('https://bit.ly/javascript-api.js?version=latest&login=".$arParams["SHORTEN_URL_LOGIN"]."&apiKey=".$arParams["SHORTEN_URL_KEY"]."',
 					function ()
 					{
 						BitlyClient.shorten(longUrl, '__get_shorten_url_twitter_".$arResult["COUNTER"]."');
@@ -41,11 +41,11 @@ if (
 			{
 				shortUrl = first_result.shortUrl.toString();
 			}
-			window.open('http://twitter.com/home/?status='+encodeURIComponent(shortUrl)+encodeURIComponent(' #PAGE_TITLE#'),'','toolbar=0,status=0,width=711,height=437');
+			window.open('https://twitter.com/home/?status='+encodeURIComponent(shortUrl)+encodeURIComponent(' #PAGE_TITLE#'),'','toolbar=0,status=0,width=711,height=437');
 		}
 	</script>
 	<a
-		href=\"http://twitter.com/home/?status=#PAGE_URL#+#PAGE_TITLE_ORIG#\"
+		href=\"https://twitter.com/home/?status=#PAGE_URL#+#PAGE_TITLE_ORIG#\"
 		onclick=\"return twitter_click_".$arResult["COUNTER"]."('#PAGE_URL#');\"
 		target=\"_blank\"
 		style=\"background: #50abf1\"
@@ -58,7 +58,7 @@ else
 {
 	$icon_url_template = "
 	<a
-		href=\"http://twitter.com/home/?status=#PAGE_URL_ENCODED#+#PAGE_TITLE_UTF_ENCODED#\"
+		href=\"https://twitter.com/home/?status=#PAGE_URL_ENCODED#+#PAGE_TITLE_UTF_ENCODED#\"
 		onclick=\"window.open(this.href,'','toolbar=0,status=0,width=711,height=437');return false;\"
 		target=\"_blank\"
 		style=\"background: #50abf1\"

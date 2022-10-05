@@ -6,7 +6,7 @@ $name = "vk";
 $title = GetMessage("BOOKMARK_HANDLER_VK");
 $icon_url_template = "
 <a
-	href=\"http://vkontakte.ru/share.php?url=#PAGE_URL_ENCODED#&title=#PAGE_TITLE_UTF_ENCODED#\"
+	href=\"https://vkontakte.ru/share.php?url=#PAGE_URL_ENCODED#&title=#PAGE_TITLE_UTF_ENCODED#\"
 	onclick=\"window.open(this.href,'','toolbar=0,status=0,width=626,height=436');return false;\"
 	target=\"_blank\"
 	style=\"background: #446690\"

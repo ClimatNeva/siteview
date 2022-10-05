@@ -6,7 +6,7 @@ $name = "facebook";
 $title = GetMessage("BOOKMARK_HANDLER_FACEBOOK");
 $icon_url_template = "
 <a
-	href=\"http://www.facebook.com/share.php?u=#PAGE_URL_ENCODED#&t=#PAGE_TITLE_UTF_ENCODED#\"
+	href=\"https://www.facebook.com/share.php?u=#PAGE_URL_ENCODED#&t=#PAGE_TITLE_UTF_ENCODED#\"
 	onclick=\"window.open(this.href,'','toolbar=0,status=0,width=611,height=231');return false;\"
 	target=\"_blank\"
 	style=\"background: #39579a\"
