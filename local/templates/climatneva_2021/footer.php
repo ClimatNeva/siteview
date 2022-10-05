@@ -328,9 +328,11 @@ if ($MAINPAGE && !empty($unicumID)) {
 }
 ?>
 }, docDelay);
-</script>
+</script><?
 
-<link rel="stylesheet" href="https://cdn.envybox.io/widget/cbk.css">
+if ($_SERVER["REMOTE_ADDR"] !== '127.0.0.1') {
+
+?><link rel="stylesheet" href="https://cdn.envybox.io/widget/cbk.css">
 <script src="https://cdn.envybox.io/widget/cbk.js?wcb_code=4d109f08a98140aad5296c7d4b78087d" charset="UTF-8" async></script>
 
 <!-- Yandex.Metrika counter -->
@@ -390,7 +392,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MP8M6KQ" class="google-noscript"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<!-- End Google Tag Manager (noscript) --><?
 
+// endif - if ($_SERVER["REMOTE_ADDR"] !== '127.0.0.1')
+
+}
+?>
     </body>
 </html>

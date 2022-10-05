@@ -468,7 +468,7 @@ $catalogType = "two_col";
 		
 	if ($APPLICATION->GetCurPage(true) == SITE_DIR.'index.php'):
 
-		$APPLICATION->IncludeFile(SITE_DIR."include/index/index_top.php",[],["MODE"=>"html"]);
+		$APPLICATION->IncludeFile(SITE_DIR."include/index/index_top.php",[],["MODE"=>"php"]);
 			/*if ($mainPageType == "two_col"):?>
 			<div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
 				<?$APPLICATION->IncludeComponent(

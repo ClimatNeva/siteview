@@ -1,6 +1,6 @@
 <?
-require_once 'bitrix-helpers/bitrix-helpers.php';
-\BH\Frontend\BitrixHelper::init();
+// require_once 'bitrix-helpers/bitrix-helpers.php';
+// \BH\Frontend\BitrixHelper::init();
 
 
 AddEventHandler("main", "OnPageStart", "__OnPageStartHandler");

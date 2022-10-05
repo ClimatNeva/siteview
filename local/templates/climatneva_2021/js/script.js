@@ -207,6 +207,12 @@
 })(window);
 
 $(document).ready(function(){
+  $(function(){
+      if (typeof domReadyQueue != 'undefined')
+          while (domReadyQueue.length) {
+              domReadyQueue.shift()($);
+          }
+  });
     /*$('.bxr-recall-link').click(function(){
         yaCounter31317263.reachGoal('call_me_back');
     });
@@ -242,13 +248,6 @@ $(document).ready(function(){
     
 	$('#toTop').on("click",function() {
 		$('body,html').animate({scrollTop:0},500);
-    });
-
-    $(function(){
-        if (typeof domReadyQueue != 'undefined')
-            while (domReadyQueue.length) {
-                domReadyQueue.shift()($);
-            }
     });
 })
 

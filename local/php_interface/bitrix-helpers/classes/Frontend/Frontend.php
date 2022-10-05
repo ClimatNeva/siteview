@@ -4,7 +4,7 @@ namespace BH\Frontend;
 
 class Frontend
 {
-    const TEMPLATE_PATH = '/bitrix/templates/market_fullscreen/';
+    const TEMPLATE_PATH = '/local/templates/climatneva_2021/';
 
     public static function init()
     {
