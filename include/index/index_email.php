@@ -1,1 +1,1 @@
-<a href="mailto:info@climat-neva.ru">info@climat-neva.ru</a>
+<a href="mailto:info@climat-neva.ru" ref="nofollow">info@climat-neva.ru</a>
