@@ -4,7 +4,7 @@
     <table width="100%">
         <tbody>
             <?  foreach ($arElement["OFFERS"] as $key => $offer) {?>
-                <tr data-offer-id="<?=$offer["ID"]?>" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <tr data-offer-id="<?=$offer["ID"]?>" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
 
                 <?$propsStr = "";?>
                 <?foreach($arElementParams["OFFERS_PROPERTY_CODE"] as $propCode):?>

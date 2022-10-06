@@ -4,9 +4,9 @@ $APPLICATION->SetTitle("Контакты Климат Нева");
 $APPLICATION->AddHeadScript("https://api-maps.yandex.ru/2.1/?lang=ru_RU");
 ?>
 <div class="bxr-contacts-block">
-<div itemscope="" itemtype="http://schema.org/LocalBusiness">
+<div itemscope="" itemtype="https://schema.org/LocalBusiness">
 <p><span itemprop="name">Климат Нева</span></p>
-<div itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+<div itemprop="address" itemscope="" itemtype="https://schema.org/PostalAddress">
 <p><i class="fa fa-map-marker" aria-hidden="true"></i> <span itemprop="postalCode">195067</span>, г.<span itemprop="addressLocality">Санкт-Петербург</span>, <span itemprop="streetAddress">Пискаревский пр., дом 25, литер А</span>, офис 33</p>
 </div>
 <p><i class="fa fa-phone" aria-hidden="true"></i> <span itemprop="telephone">+7 (812) 642-40-20</span></p>

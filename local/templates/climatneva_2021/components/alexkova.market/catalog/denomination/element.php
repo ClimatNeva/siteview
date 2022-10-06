@@ -53,7 +53,7 @@ $this->setFrameMode(true);?>
 	<?endif;?>
 	<?$BXReady->showBannerPlace("LEFT");?>
 </div>
-<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12" itemscope itemtype="http://schema.org/Product">
+<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12" itemscope itemtype="https://schema.org/Product">
     <h1 itemprop="name"><?=$APPLICATION->ShowTitle('h1')?></h1>
     <?$arParams["OFFERS_VIEW"] = ($arParams["OFFERS_VIEW"]) ? $arParams["OFFERS_VIEW"] : "SELECT";?>
     <?$ElementID = $APPLICATION->IncludeComponent(
