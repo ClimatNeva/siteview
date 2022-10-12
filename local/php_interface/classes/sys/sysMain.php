@@ -57,7 +57,6 @@ class sysMain {
         if (sizeof($arResult)) {
             foreach ($arResult[0] as $row) {
                 preg_match_all('/link.+?href="(.+?\.css[^"]+)"/', $row, $arRow);
-          save2log($arRow, 'arRow');
                 $arNeedle = array_pop($arRow);
                 $needle = array_shift($arNeedle);
                 $cssFile = array_shift( explode("?", $needle) );
@@ -67,9 +66,10 @@ class sysMain {
                     $style = file_get_contents($root . $cssFile);
                     $style = preg_replace('/\/\*.+?\*\//', '', $style);
                     $pattern = '/<link.+?href="'.strtr($cssFile, ["/" => "\/"]).'[^>]+>/';
+                    save2log(["cssFile" => $cssFile, "style" => $style, "pattern" => $pattern, ], 'pattern');
                     $content = preg_replace($pattern, "<style>" . $style . "</style>", $content);
                 }
-                $arRes[] = [$root . $cssFile, $cssFile, "style" => $style];
+                // $arRes[] = [$root . $cssFile, $cssFile, "style" => $style];
             }
         }
         // save2log(SITE_TEMPLATE_PATH);
