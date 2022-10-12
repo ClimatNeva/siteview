@@ -59,7 +59,20 @@
     top: 14px;
     left: 21px;
 }
-
+.certs__item picture {
+  aspect-ratio: 165 / 232;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.certs__item picture img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
 @media all and (min-width:768px) {
     .certs__wrapper {
         margin: 0 -10vw 0 calc((100vw - 735px) / 2);

@@ -5,6 +5,7 @@ domReadyQueue.push(function(){
         dots: false,
         nav: true,
         items: 3,
-        autoplay: false
+        autoplay: false,
+        lazyLoad: true,
     });
 })

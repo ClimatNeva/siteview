@@ -71,15 +71,14 @@ $catalogType = "two_col";
 <head>
 
 	<title><?$APPLICATION->ShowTitle();?></title>
-	<link rel="preload" href="/bitrix/fonts/fontawesome-webfont.woff2?v=4.3.0" as="font" type="font/woff2" crossorigin="anonymous">
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<link rel="preload" href="/bitrix/fonts/fontawesome-webfont.woff2?v=4.3.0" as="font" type="font/woff2" crossorigin="anonymous"><?
+	/* ?><link href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'><? */
+	?><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 	<?/*meta name="yandex-verification" content="288089c641c16390" */?>
 	<meta name="yandex-verification" content="3579424196149ea2" />
 	<meta name="google-site-verification" content="Y2Y89iv0cM3SeG1EEMD3P8wz2zVsfr0zjHYzC-Hzb_k" />
     <script data-skip-moving="true"><?
-    ?>var docDelay = 0;<?
-    ?>if (document.documentElement.clientWidth < 768) docDelay = 3000;<?
+    ?>var docDelay = window.innerWidth < 768 ? 5000 : 0;<?
     ?>var domReadyQueue = [];<?
     ?></script><?
 	$APPLICATION->ShowHead();
@@ -87,7 +86,6 @@ $catalogType = "two_col";
 	$asset = \Bitrix\Main\Page\Asset::getInstance();
 	$asset->addJs(SITE_TEMPLATE_PATH . '/js/jquery-1.11.3.min.js');
 	$asset->addJs(SITE_TEMPLATE_PATH . '/js/script.js');
-	$asset->addJs(SITE_TEMPLATE_PATH . '/library/bootstrap/js/bootstrap.min.js');
 
 	$asset->addCss('/bitrix/css/main/font-awesome.css');
 	$asset->addCss(SITE_TEMPLATE_PATH . '/library/bootstrap/css/grid10_column.min.css');
@@ -114,20 +112,21 @@ $catalogType = "two_col";
 	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff"><?
-	
-	CJSCore::RegisterExt(
-		"lazy", array(
-			"js" => SITE_TEMPLATE_PATH."/js/jquery.lazy.min.js",
-			"rel" => Array("jquery"),
-			"skip_core" => true,
-		)
-	);
+
 	if (!$MAINPAGE) {
+    $asset->addJs(SITE_TEMPLATE_PATH . '/library/bootstrap/js/bootstrap.min.js');
+    CJSCore::RegisterExt(
+      "lazy", array(
+        "js" => SITE_TEMPLATE_PATH."/js/jquery.lazy.min.js",
+        "rel" => Array(""),
+        "skip_core" => true,
+      )
+    );
 		CJSCore::RegisterExt(
 			"fancybox_core", array(
 				"js" => SITE_TEMPLATE_PATH."/js/fancybox/jquery.fancybox.pack.js",
 				"css" => SITE_TEMPLATE_PATH."/js/fancybox/jquery.fancybox.min.css",
-				"rel" => Array("jquery"),
+				"rel" => Array(""),
 				"skip_core" => true,
 			)
 		);
@@ -139,11 +138,55 @@ $catalogType = "two_col";
 				"skip_core" => true,
 			)
 		);
-		CJSCore::Init(array('fancybox'));
+		CJSCore::Init(array('fancybox', 'lazy'));
 	}
-	CJSCore::Init(array('lazy'));
 	
-?></head>
+?>
+<!-- Yandex.Metrika counter -->
+<script data-skip-moving="true">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter31317263 = new Ya.Metrika2({
+                id:31317263,
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+            });
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "";
+    s.async = true;
+    s.src = "https://mc.yandex.ru/metrika/tag.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks2");
+</script>
+<!-- /Yandex.Metrika counter -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script data-skip-moving="true" async src="https://www.googletagmanager.com/gtag/js?id=UA-143430440-1"></script>
+<script data-skip-moving="true">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-143430440-1');
+</script>
+<!-- Google Tag Manager -->
+<script data-skip-moving="true">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MP8M6KQ');</script>
+<!-- End Google Tag Manager -->
+</head>
 <body>
     <div id="panel"><?$APPLICATION->ShowPanel();?></div><?
 	$APPLICATION->IncludeComponent(
@@ -329,7 +372,7 @@ $catalogType = "two_col";
                 </ul>
                 <div class="head__phone-box">
                     <div class="head__phone-link"><?$APPLICATION->IncludeFile(SITE_DIR."include/index/index_phone.php",[],["MODE"=>"html"]);?></div>
-                    <div class="head__phone-btn callback"><?$APPLICATION->IncludeFile(SITE_DIR."include/index/index_callback.php",[],["MODE"=>"html"]);?></div>
+                    <div class="head__phone-btn callback open-answer-form"><?$APPLICATION->IncludeFile(SITE_DIR."include/index/index_callback.php",[],["MODE"=>"html"]);?></div>
                 </div>
             </div>
         </div>

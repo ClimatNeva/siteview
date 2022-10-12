@@ -5,6 +5,7 @@ domReadyQueue.push(function(){
         dots: false,
         nav: true,
         items: 1,
+        lazyLoad: true,
         autoplay: false,
         responsive: {
             0: {dots: true, nav: false},

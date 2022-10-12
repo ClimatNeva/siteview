@@ -111,9 +111,9 @@ endif;
             <a href="" class="footer__agreement"><?$APPLICATION->IncludeFile(SITE_DIR."include/footer_agreement.php",[],["MODE"=>"html"]);?></a>
         </div>
     </div>
-</footer>
+</footer><?
 
-    <?$formFrame = new \Bitrix\Main\Page\FrameHelper("iblock_form");
+    ?><?$formFrame = new \Bitrix\Main\Page\FrameHelper("iblock_form");
         $formFrame->begin();?>
         <?$APPLICATION->IncludeComponent(
 	"alexkova.market:form.iblock",
@@ -307,8 +307,9 @@ endif;
 	false
 );?>
 
-		<?$formFrame->end();?>
-<script>
+		<?$formFrame->end();?><?
+
+?><script>
 if (typeof docDelay === "undefined") docDelay = (document.documentElement.clientWidth < 768 ? 3000 : 0);
 
 setTimeout(function(){
@@ -316,7 +317,9 @@ setTimeout(function(){
         if (typeof $(this).data('background') !== 'undefined')
             $(this).css('background','url('+$(this).data('background')+')');
     });
-    $('.lazy').Lazy();
+    if ($('.lazy').length) {
+      $('.lazy').Lazy();
+    }
     <?
 if ($MAINPAGE && !empty($unicumID)) {
 ?>
@@ -328,66 +331,23 @@ if ($MAINPAGE && !empty($unicumID)) {
 }
 ?>
 }, docDelay);
-</script>
-
-<link rel="stylesheet" href="https://cdn.envybox.io/widget/cbk.css">
-<script src="https://cdn.envybox.io/widget/cbk.js?wcb_code=4d109f08a98140aad5296c7d4b78087d" charset="UTF-8" async></script>
-
-<!-- Yandex.Metrika counter -->
-<script>
+</script><?
+/*?><link rel="stylesheet" href="https://cdn.envybox.io/widget/cbk.css">
+<script src="https://cdn.envybox.io/widget/cbk.js?wcb_code=4d109f08a98140aad5296c7d4b78087d" charset="UTF-8" async></script><?
+*/?><script>
 setTimeout(function(){
     $("head").append("<link rel='stylesheet' type='text/css' href='https://cdn.envybox.io/widget/cbk.css' />");
     $.getScript("https://cdn.envybox.io/widget/cbk.js?wcb_code=4d109f08a98140aad5296c7d4b78087d");
-
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function() {
-            try {
-                w.yaCounter31317263 = new Ya.Metrika2({
-                    id:31317263,
-                    clickmap:true,
-                    trackLinks:true,
-                    accurateTrackBounce:true,
-                    webvisor:true
-                });
-            } catch(e) { }
-        });
-
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/tag.js";
-
-        if (w.opera == "[object Opera]") {
-            d.addEventListener("DOMContentLoaded", f, false);
-        } else { f(); }
-    })(document, window, "yandex_metrika_callbacks2");
 }, docDelay);
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/31317263" style="position:absolute; left:-9999px;" alt="yandex_watch" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 <script>
 setTimeout(function(){
     $.getScript('https://stats.lptracker.ru/code/new/66217');
 }, docDelay);
 </script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143430440-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-143430440-1');
-</script>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MP8M6KQ');</script>
-<!-- End Google Tag Manager -->
+<!-- Yandex.Metrika counter -->
+<noscript><div><img src="https://mc.yandex.ru/watch/31317263" style="position:absolute; left:-9999px;" alt="yandex_watch" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MP8M6KQ" class="google-noscript"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->

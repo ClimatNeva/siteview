@@ -1,13 +1,13 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
-//echo "<pre>",print_r($arResult),"</pre>";
-
 CModule::IncludeModule("fileman");
 CMedialib::Init();
 $mediaLibraryID = !empty($arParams["MEDIALIBRARY_COLLECTION"]) ? $arParams["MEDIALIBRARY_COLLECTION"] : "16";
 $arResult["BACKGROUNDS"] = CMedialibItem::GetList(['arCollections' => [$mediaLibraryID]]);
 if (empty($arResult["BACKGROUNDS"])) {
-    $arResult["BACKGROUNDS"][0]["PATH"] = "/img/jpg/bg_triz.jpg";
+  $arResult["BACKGROUNDS"][0]["PATH"] = "/img/jpg/bg_triz.jpg";
+} else {
+  $arResult["BACKGROUNDS"][0]["SRC"] = $arResult["BACKGROUNDS"][0]["PATH"];
 }
 
 foreach ($arResult["QUESTIONS"] as $FIELD_SID => &$arQuestion)

@@ -2,9 +2,9 @@
 
 $arEquip = [];
 foreach ($arResult["ITEMS"] as &$item) {
-    if (!empty($item["PREVIEW_PICTURE"]["ID"])) {
+    /* if (!empty($item["PREVIEW_PICTURE"]["ID"])) {
         $item["THUMB"] = CFile::ResizeImageGet($item["PREVIEW_PICTURE"]["ID"], ["width" => 650, "height" => 520])["src"];
-    }
+    } */
     if (!empty($item["PROPERTIES"]["INSTALLED_EQ"]["VALUE"]) && sizeof($item["PROPERTIES"]["INSTALLED_EQ"]["VALUE"])) {
         $arEquip = array_merge($arEquip, $item["PROPERTIES"]["INSTALLED_EQ"]["VALUE"]);
     }
