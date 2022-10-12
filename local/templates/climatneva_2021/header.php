@@ -296,7 +296,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="head_mobile">
             <div class="head_mobile__opener"></div>
             <div class="head_mobile__logo">
-                <img src="/img/png/logo_cn_black.png" alt="" class="head__logo-img">
+                <img src="/img/png/logo_cn_black.png" alt="Климат Нева" width="130" height="37" class="head__logo-img">
             </div>
             <div class="head_mobile__search"></div>
             <a class="head_mobile__call" href="tel:+78126424020"></a>

@@ -338,12 +338,12 @@ if ($MAINPAGE && !empty($unicumID)) {
 setTimeout(function(){
     $("head").append("<link rel='stylesheet' type='text/css' href='https://cdn.envybox.io/widget/cbk.css' />");
     $.getScript("https://cdn.envybox.io/widget/cbk.js?wcb_code=4d109f08a98140aad5296c7d4b78087d");
-}, docDelay);
+}, Math.max(docDelay, 3000));
 </script>
 <script>
 setTimeout(function(){
     $.getScript('https://stats.lptracker.ru/code/new/66217');
-}, docDelay);
+}, Math.max(docDelay, 3000));
 </script>
 <!-- Yandex.Metrika counter -->
 <noscript><div><img src="https://mc.yandex.ru/watch/31317263" style="position:absolute; left:-9999px;" alt="yandex_watch" /></div></noscript>
