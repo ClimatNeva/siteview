@@ -296,8 +296,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="head_mobile">
             <div class="head_mobile__opener"></div>
             <div class="head_mobile__logo">
-                <img src="/img/png/logo_cn_black.png" alt="Климат Нева" width="130" height="37" class="head__logo-img">
-            </div>
+                <img src="/img/png/logo_cn_black.png" alt="Климат Нева" width="130" height="37" class="head__logo-img"><?
+            ?></div>
             <div class="head_mobile__search"></div>
             <a class="head_mobile__call" href="tel:+78126424020"></a>
 			<a href="/personal/basket/" class="head_mobile__cart"><?
@@ -359,7 +359,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 				} else {
 					?><a href="/" class="head__logo"><?
 				}
-                    ?><img src="/img/png/logo_cn_black.png" alt="" class="head__logo-img"><?
+                    /* ?><img src="/img/png/logo_cn_black.png" width="130" height="37" alt="Климат Нева" class="head__logo-img"><? */
+                    htmlTools::drawPictureTagWithWebp(
+                      [["SRC" => "/img/png/logo_cn_black.png"]],
+                      [
+                        "itemName" => "Климат Нева",
+                        "widthSets" => [["width" => 130, "height" => 37]],
+                        "create_destination" => true,
+                        "webp" => 50,
+                      ]);
 				if ($MAINPAGE) {
 					?></div><?
 				} else {

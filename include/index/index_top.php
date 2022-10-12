@@ -250,7 +250,18 @@ $APPLICATION->IncludeComponent(
         </div>
     </div>
     <div class="certs__right-box">
-        <div class="certs__right-box__bg-image"><?$APPLICATION->IncludeFile(SITE_DIR."include/index/index_certs_bg_image.php",[],["MODE"=>"html"]);?></div><?
+        <div class="certs__right-box__bg-image"><?
+        // <img src="/img/jpg/bg_certs.jpg" width="600" height="399" alt="Сертификаты компании Климат Нева">
+        /* $APPLICATION->IncludeFile(SITE_DIR."include/index/index_certs_bg_image.php",[],["MODE"=>"html"]); */
+          htmlTools::drawPictureTagWithWebp(
+            [["SRC" => "/img/jpg/bg_certs.jpg"]],
+            [
+              "itemName" => "Сертификаты компании Климат Нева",
+              "widthSets" => [["width" => 600, "height" => 399]],
+              "create_destination" => true,
+              "webp" => 50,
+            ]);
+        ?></div><?
         $APPLICATION->IncludeComponent(
             "bitrix:news.list",
             "index.certificates",
