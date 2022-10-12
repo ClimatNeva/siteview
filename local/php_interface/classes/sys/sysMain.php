@@ -55,6 +55,7 @@ class sysMain {
         // Внедряем css в тело страницы
         preg_match_all('/<link.+?href=.+?\.css[^>]+>/', $content, $arResult);
         if (sizeof($arResult)) {
+          save2log($arResult);
             foreach ($arResult[0] as $row) {
                 preg_match_all('/link.+?href="(.+?\.css[^"]+)"/', $row, $arRow);
                 $arNeedle = array_pop($arRow);
