@@ -55,13 +55,14 @@ class sysMain {
         // Внедряем css в тело страницы
         preg_match_all('/<link.+?href=.+?\.css[^>]+>/', $content, $arResult);
         if (sizeof($arResult)) {
+            $root = \Bitrix\Main\Application::getDocumentRoot();
             foreach ($arResult[0] as $row) {
                 preg_match_all('/link.+?href="(.+?\.css[^"]+)"/', $row, $arRow);
                 $arNeedle = array_pop($arRow);
                 $needle = array_shift($arNeedle);
                 $cssFile = array_shift( explode("?", $needle) );
+                save2log(["needle" => $needle, "root" => $root, "cssFile" => $cssFile]);
                 if (empty($cssFile)) continue;
-                $root = \Bitrix\Main\Application::getDocumentRoot();
                 if (file_exists($root . $cssFile)) {
                     $style = file_get_contents($root . $cssFile);
                     $style = preg_replace('/\/\*.+?\*\//', '', $style);
