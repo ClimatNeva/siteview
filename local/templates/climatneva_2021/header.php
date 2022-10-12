@@ -295,8 +295,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="head__wrapper">
         <div class="head_mobile">
             <div class="head_mobile__opener"></div>
-            <div class="head_mobile__logo">
-                <img src="/img/png/logo_cn_black.png" alt="Климат Нева" width="130" height="37" class="head__logo-img"><?
+            <div class="head_mobile__logo"><?
+                /* ?><img src="/img/png/logo_cn_black.png" alt="Климат Нева" width="130" height="37" class="head__logo-img"><? */
+                    htmlTools::drawPictureTagWithWebp(
+                [["SRC" => "/img/png/logo_cn_black.png"]],
+                [
+                  "itemName" => "Климат Нева",
+                  "widthSets" => [["width" => 102, "height" => 29]],
+                  "create_destination" => true,
+                  "webp" => 50,
+                ]);
             ?></div>
             <div class="head_mobile__search"></div>
             <a class="head_mobile__call" href="tel:+78126424020"></a>

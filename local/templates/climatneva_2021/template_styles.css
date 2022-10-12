@@ -1520,9 +1520,6 @@ div.popup-window .popup-window-close-icon.popup-window-titlebar-close-icon{
     width: 0;
 }
 
-.head__logo-img {
-  display: none;
-}
 .head__logo picture {
   display: flex;
   align-items: center;
