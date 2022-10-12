@@ -35,6 +35,7 @@ class sysMain {
         /*'/<script.+?src=".+?bitrix\/js\/main\/core\/core[^"]+"><\/script\>/',*/
         /*'/<script.+?>BX\.(setCSSList|setJSList)\(\[.+?\]\).*?<\/script>/',*/
         '/<link.+?href=".+?kernel_main\/kernel_main\.css\?\d+"[^>]+>/',
+        '/<link.+?href=".+?bitrix\/js\/ui\/fonts\/opensans\/ui\.font\.opensans\.css\?\d+"[^>]+>/',
         '/<link.+?href=".+?kernel_main\/kernel_main_v1\.css\?\d+"[^>]+>/',
         '/<link.+?href=".+?bitrix\/js\/main\/core\/css\/core[^"]+"[^>]+>/',
         '/<link.+?href=".+?bitrix\/templates\/[\w\d_-]+\/styles.css[^"]+"[^>]+>/',
@@ -42,6 +43,7 @@ class sysMain {
         '/<meta.+?name="keywords".+?content="[^"]+".+?\/>/',
         '/page-1\//',
         );
+        // \/bitrix\/js\/ui\/fonts\/opensans\/ui\.font\.opensans\.css?16644508332555
 
         preg_match_all('/<link rel="canonical[^>]+>/', $content, $result);
         if (sizeof($result[0]) > 1) {

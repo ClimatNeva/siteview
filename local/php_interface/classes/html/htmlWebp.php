@@ -117,9 +117,9 @@ class htmlWebp {
 		return self::$arFile['SRC'];
 	}
 
-	public static function getResizeWebpSrc($file, $width, $height, $isProportional = true, $intQuality = 100)
+	public static function getResizeWebpSrc($file, $width, $height, $isProportional = true, $intQuality = 100, $resize = true)
 	{
-		if (!is_array($file) || ((empty($file["WIDTH"]) || $file["WIDTH"] > $width) && (empty($file["HEIGHT"]) || $file["HEIGHT"] > $height)) ) {
+		if ($resize && (!is_array($file) || ((empty($file["WIDTH"]) || $file["WIDTH"] > $width) && (empty($file["HEIGHT"]) || $file["HEIGHT"] > $height))) ) {
 			self::resizePict($file, $width, $height, $isProportional, $intQuality);
 		} else {
 			self::$arFile = $file;

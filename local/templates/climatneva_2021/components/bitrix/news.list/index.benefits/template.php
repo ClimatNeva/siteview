@@ -6,8 +6,9 @@ if (empty($arResult["ITEMS"])) return;
     <div class="container">
         <ul class="top-block__wrapper"><?
         foreach ($arResult["ITEMS"] as $item) {
+          $pic = $item["DISPLAY_PROPERTIES"]["ICON"]["FILE_VALUE"];
             ?><li>
-                <div class="top-block__img"><img src="<?=$item["DISPLAY_PROPERTIES"]["ICON"]["FILE_VALUE"]["SRC"];?>" alt="<?=$item["NAME"];?>" class="img-contain"></div>
+                <div class="top-block__img"><img src="<?=$pic["SRC"];?>" width="<?=$pic["WIDTH"];?>" height="<?=$pic["HEIGHT"];?>" alt="<?=$item["NAME"];?>" class="img-contain"></div>
                 <div class="top-block__text"><?=$item["NAME"];?></div>
             </li><?
         }

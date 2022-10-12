@@ -13,6 +13,7 @@ class htmlTools {
         1200 => ["size" => 1200, "width" => 1200, "height" => 800],
     ];
     private static $defaultFilter = ["name" => "sharpen", "precision" => 0];
+    private static $createDestination = false;
 
     /**
      * Новая отрисовка блока <picture></picture>
@@ -42,6 +43,8 @@ class htmlTools {
         $crop = (!empty($arParams["crop"]) && $arParams["crop"]);
         $lazyText = $arParams["lazyload"] ?? "";
         $webp = $arParams["webp"] ?? 0;
+        $destination = $arParams["destination"] ?? "";
+        self::$createDestination = !empty($arParams["create_destination"]) && $arParams["create_destination"];
 
         if ($createSizes) {
             $arImageSources[0] = self::checkAttributes($arImageSources[0]);
@@ -58,12 +61,12 @@ class htmlTools {
             $arImage = self::checkAttributes($arImage);
             if (substr($arImage["CONTENT_TYPE"], 0, 5) !== "image") return false;
             if ($size !== 0 && $size === $max) {
-                $arSmall = self::resizeImage($arImageSources[0] ?? $arImage, $arParams["widthSets"][0]["width"], $arParams["widthSets"][0]["height"], $crop, $webp, true);
+                $arSmall = self::resizeImage($arImageSources[0] ?? $arImage, $arParams["widthSets"][0]["width"], $arParams["widthSets"][0]["height"], $crop, $webp, true, $destination);
                 $arResult[] = self::createSourceTag($arSmall, ($min - 0.02), $lazyText, "max");
                 $widthSet["width"] = 1920;
                 $widthSet["height"] = 1200;
             }
-            $arCurrent = self::resizeImage($arImage, $widthSet["width"], $widthSet["height"], $crop, $webp, true);
+            $arCurrent = self::resizeImage($arImage, $widthSet["width"], $widthSet["height"], $crop, $webp, true, $destination);
             $arResult[] = self::createSourceTag($arCurrent, $size, $lazyText);
         }
         $arResult[] = self::createImgTag(!empty($arSmall) ? $arSmall : $arCurrent, $arParams["itemName"] ?? "", $lazyText, $arParams["extraText"] ?? "");
@@ -99,23 +102,50 @@ class htmlTools {
         return $outStr;
     }
 
-    private static function resizeImage($image, $width = 50, $height = 50, $minSize = false, $webp = 0, $upperCase = false) {
+    private static function resizeImage($image, $width = 50, $height = 50, $minSize = false, $webp = 0, $upperCase = false, $destination = '') {
         $resize = $minSize ? BX_RESIZE_IMAGE_EXACT : BX_RESIZE_IMAGE_PROPORTIONAL;
-        $item = CFile::ResizeImageGet($image, ["width" => $width, "height" => $height], $resize, true, ["name" => "sharpen", "precision" => 0]);
+
+        // Если не в upload
+        if (self::$createDestination) {
+          $arImage = explode('/', trim($image["SRC"], '/'));
+          if (empty($destination)) {
+            $arNewName = array_merge(array_slice($arImage, 0, 1), ["resize_cache"], array_slice($arImage, 1, sizeof($arImage) - 2), [$width."_".$height."_1"], array_slice($arImage, -1));
+            $destination = "/" . implode("/", $arNewName);
+          } else {
+            $destination .= (substr($destination, -1) === "/" ? "" : "/") . array_pop($arImage);
+          }
+          $root = Application::getDocumentRoot();
+          $src = $root . $image["SRC"];
+          $res = $root . $destination;
+          $size = ["width" => $width, "height" => $height];
+          CFile::ResizeImageFile($src, $res, $size, BX_RESIZE_IMAGE_PROPORTIONAL, [], false, ["name" => "sharpen", "precision" => 0]);
+          $item = $image;
+          $item["SRC"] = $destination;
+          $item["WIDTH"] = $width;
+          $item["HEIGHT"] = $height;
+        } else {
+          $item = CFile::ResizeImageGet($image, ["width" => $width, "height" => $height], $resize, true, ["name" => "sharpen", "precision" => 0]);
+        }
+
+        // Если надо перевести в заглавные
         $sizeNames = ["width" => "WIDTH", "height" => "HEIGHT", "src" => "SRC", "size" => "SIZE"];
         if ($upperCase) {
             foreach ($sizeNames as $key => $code) {
+              if (empty($item[$key])) continue;
                 $item[$code] = $item[$key];
                 unset($item[$key]);
             }
         }
+
+        // Создаем в формате webp
         if ($webp > 0) {
             foreach ($sizeNames as $key) {
                 $image[$key] = $item[$key];
             }
-            $item["webp"] = htmlWebp::getResizeWebpSrc($image, $width, $height, !$minSize, $webp);
+            $item["webp"] = htmlWebp::getResizeWebpSrc($image, $width, $height, !$minSize, $webp, false);
         }
         $item["CONTENT_TYPE"] = $image["CONTENT_TYPE"];
+
         return $item;
     }
 
@@ -147,7 +177,7 @@ class htmlTools {
             $arImage["SRC"] = $arImage["src"];
         } else if (empty($arImage["SRC"]) && !empty($arImage["ID"])) {
             $arImage["SRC"] = self::getFileSource($arImage["ID"]);
-        } else {
+        } else if (empty($arImage["SRC"])) {
             return false;
         }
         $fName = Application::getDocumentRoot() . $arImage["SRC"];
