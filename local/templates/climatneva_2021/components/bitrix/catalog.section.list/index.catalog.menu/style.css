@@ -5,7 +5,8 @@
 }
 .catalog__wrapper li {
     position: relative;
-    padding-top: min(100%, 165px);
+    /* padding-top: min(100%, 165px); */
+    /* padding-top: 100%; */
 }
 .catalog__wrapper li::before,
 .catalog__wrapper li::after {
@@ -32,11 +33,14 @@
     opacity: 1;
 }
 .catalog__wrapper a {
-    position: absolute;
+  aspect-ratio: 1 / 1;
+min-height: 165px;
+position: relative;
+    /* position: absolute;
     top: 0; 
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 0; */
     display: flex;
     flex-direction: column;
     align-items: center;

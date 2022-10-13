@@ -1,5 +1,5 @@
 .bx-breadcrumb {
-	margin: 10px 0;
+  margin: 16px 10px 4px;
 }
 .bx-breadcrumb i {
 	color: #b5bdc2;
@@ -10,16 +10,16 @@
 }
 .bx-breadcrumb .bx-breadcrumb-item {
 	float: left;
-	margin-bottom: 10px;
 	white-space: nowrap;
 	line-height: 13px;
 	vertical-align: middle;
+	margin-bottom: 0;
 	margin-right: 10px;
 }
 .bx-breadcrumb .bx-breadcrumb-item span {
-	font-family: "Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
 	font-size: 13px;
 	white-space: normal;
 }
-.bx-breadcrumb .bx-breadcrumb-item a {border-bottom: none;}
-.bx-breadcrumb .bx-breadcrumb-item a:hover {}
+.bx-breadcrumb .bx-breadcrumb-item a {
+  border-bottom: none;
+}

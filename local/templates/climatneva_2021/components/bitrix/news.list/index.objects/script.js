@@ -1,4 +1,5 @@
 domReadyQueue.push(function(){
+  setTimeout(() => {
     $('.objects__carousel').owlCarousel({
         loop: true,
         margin: 30,
@@ -20,4 +21,5 @@ domReadyQueue.push(function(){
             $('.objects__carousel.owl-carousel').height(height);
         }
     });
+  }, docDelay ?? 3000);
 })
