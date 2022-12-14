@@ -79,9 +79,9 @@ endif;
                     <div class="footer__mail"><?$APPLICATION->IncludeFile(SITE_DIR."include/index/index_email.php",[],["MODE"=>"html"]);?></div>
                     <div class="footer__address"><?$APPLICATION->IncludeFile(SITE_DIR."include/index/index_address.php",[],["MODE"=>"html"]);?></div>
                     <div class="footer__socnets">
-                        <a href="https://vk.com/climatneva" class="socnet" ref="nofollow" target="_blank"><img src="/img/svg/icon_vk_blue.svg" alt="Вконтакте" width="26" height="26" class="img-contain"></a>
-                        <a href="https://www.facebook.com/groups/245953002526592/" class="socnet" ref="nofollow" target="_blank"><img src="/img/svg/icon_fb_blue.svg" alt="Facebook" width="14" height="26" class="img-contain"></a>
-                        <a href="https://www.instagram.com/climatneva/" class="socnet" ref="nofollow" target="_blank"><img src="/img/svg/icon_inst_blue.svg" alt="Instagram" width="26" height="26" class="img-contain"></a>
+                        <a href="https://vk.com/climatneva" class="socnet" rel="nofollow" target="_blank"><img src="/img/svg/icon_vk_blue.svg" alt="Вконтакте" width="26" height="26" class="img-contain"></a>
+                        <a href="https://www.facebook.com/groups/245953002526592/" class="socnet" rel="nofollow" target="_blank"><img src="/img/svg/icon_fb_blue.svg" alt="Facebook" width="14" height="26" class="img-contain"></a>
+                        <a href="https://www.instagram.com/climatneva/" class="socnet" rel="nofollow" target="_blank"><img src="/img/svg/icon_inst_blue.svg" alt="Instagram" width="26" height="26" class="img-contain"></a>
                     </div>
                 </div>
             </div>
